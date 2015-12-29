@@ -6,8 +6,4 @@
 //  Copyright © 2015 KulikovS. All rights reserved.
 //
 
-#include "KSStruct.h"
-
-
-
 

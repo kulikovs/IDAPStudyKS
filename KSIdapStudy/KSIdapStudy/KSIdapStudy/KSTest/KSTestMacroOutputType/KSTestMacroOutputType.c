@@ -54,5 +54,5 @@ void KSTestMacroOutputType() {
     puts("We waiting -  'bool' true = 1");
     KSOutputTypeMacro(bool, true);
 }
-    
+
 

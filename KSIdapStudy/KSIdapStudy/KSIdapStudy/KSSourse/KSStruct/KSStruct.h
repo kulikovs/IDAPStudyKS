@@ -13,22 +13,24 @@
 #include <stdbool.h>
 
 typedef struct {
-    char    * brand;
-    char    * model;
-    float     engineDisplacement;
-    short     horsePower;
-    short     speed;
-    short     rpm;
-    bool      pushButtonStart;
-    bool      rearviewCamera;
-    bool      cruiseControl;
-    bool      usbAudioInterface;
-    bool      wheelType;
-    bool      typeEngine;
-    long long runKm;
-    double    lenght;
-    int       price;
+    long long runKm1; //8
+    double lenght1; //8
+    char *model; // 8
+    float engineDisplacement; //4
+    int price1; // 4
+    short horsePower; //2
+    short speed; //2
+    short rpm; //2
+    union {
+        bool pushButtonStart : 1;
+        bool rearviewCamera : 1;
+        bool cruiseControl : 1;
+        bool usbAudioInterface : 1;
+        bool wheelType : 1;
+        bool typeEngine : 1;
+    };
 } KSCarData;
+
 
 
 
