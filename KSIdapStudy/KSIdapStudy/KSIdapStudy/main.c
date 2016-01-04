@@ -9,11 +9,14 @@
 #include <stdio.h>
 #include "KSTestMacroOutputType.h"
 #include "KSTestStruct.h"
+#include "KSValueBitOutputTest.h"
 
 int main(int argc, const char * argv[]) {
-    
-    KSTestMacroOutputType();
-    KSTestCarStruct();
-    
+//    
+//    KSTestMacroOutputType();
+//    KSTestCarStruct();
+//
+    KSValueBitOutputTest();
+
     return 0;
 }

@@ -9,7 +9,6 @@
 #ifndef KSTestCarStruct_h
 #define KSTestCarStruct_h
 
-#include <stdio.h>
 #include "KSStruct.h"
 
 void KSTestCarStruct();

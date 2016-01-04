@@ -22,12 +22,15 @@ typedef struct {
     short speed; //2
     short rpm; //2
     union {
-        bool pushButtonStart : 1;
-        bool rearviewCamera : 1;
-        bool cruiseControl : 1;
-        bool usbAudioInterface : 1;
-        bool wheelType : 1;
-        bool typeEngine : 1;
+        struct {
+            bool pushButtonStart : 1;
+            bool rearviewCamera : 1;
+            bool cruiseControl : 1;
+            bool usbAudioInterface : 1;
+            bool wheelType : 1;
+            bool typeEngine : 1;
+        };
+        char bitField;
     };
 } KSCarData;
 
