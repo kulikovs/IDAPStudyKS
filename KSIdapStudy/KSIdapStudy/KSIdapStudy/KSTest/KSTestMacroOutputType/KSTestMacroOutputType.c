@@ -14,7 +14,6 @@
 
 KSOutputType(long, %lu)
 KSOutputType(int, %d)
-//KSOutputType(char, %s)
 KSOutputType(double, %f)
 KSOutputType(bool, %d)
 
@@ -41,14 +40,10 @@ void KSTestMacroOutputType() {
     puts("We waiting -  number = 8");
     KSOutputTypeMacro(int, 8);
     
-//    puts("We waiting - string 'Hello'");
-//    KSOutputTypeMacro(char, "Hello");
-    
     puts("We waiting -  number = 5000000");
-    
     KSOutputTypeMacro(long, 5000000);
-    puts("We waiting -  number = 1000.99");
     
+    puts("We waiting -  number = 1000.99");
     KSOutputTypeMacro(double, 1000.99);
     
     puts("We waiting -  'bool' true = 1");
