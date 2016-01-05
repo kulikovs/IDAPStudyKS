@@ -9,19 +9,16 @@
 #include "KSValueBitOutput.h"
 #include <stdbool.h>
 
-//typedef {
-//    KS
-//    KSBigEndianType
-//    KSSmallEndianType
-//    
-//
-//}
+typedef enum {
+    KSUndefinedType,
+    KSBigEndianType,
+    KSLittleEndianType,
+} KSEndianTypes;
 
 typedef union {
     bool boolValue : 1;
-    char valueOne;
-} KSTestEndian;
-
+    char charValue;
+} KSTestUnion;
 
 #pragma mark -
 #pragma mark Private Declarations
