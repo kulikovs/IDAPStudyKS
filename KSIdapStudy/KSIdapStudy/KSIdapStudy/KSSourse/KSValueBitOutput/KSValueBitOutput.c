@@ -27,11 +27,22 @@ typedef union {
 
 static const char kKSValueBit = 8;
 
+
+
+static
+KSEndianTypes KSEndianTypeReturn(KSTestUnion value);
+
 static
 void KSBitOutput(char *value);
 
 #pragma mark -
 #pragma mark Private Implementations
+
+KSEndianTypes KSEndianTypeReturn(KSTestUnion valueTestUnion) {
+    valueTestUnion.charValue = 1;
+    
+    return valueTestUnion.boolValue == 1 ? KSLittleEndianType : KSBigEndianType;
+}
 
 void KSBitOutput(char *value) {
     uint8_t bitCount = *value;
