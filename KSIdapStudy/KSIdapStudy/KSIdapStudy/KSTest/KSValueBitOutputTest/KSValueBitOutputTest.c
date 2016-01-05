@@ -17,7 +17,7 @@ void  KSPrintByteValueOutputTest() {
     char valueChar = 1;
     KSPrintByteValueOutput(&valueShort, sizeof(valueShort));
     KSPrintByteValueOutput(&valueChar, sizeof(valueChar));
-    //KSPrintByteValueOutput(&valueInt, sizeof(valueInt));
+    KSPrintByteValueOutput(&valueInt, sizeof(valueInt));
     }
 
 
