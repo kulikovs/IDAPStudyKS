@@ -11,7 +11,17 @@
 
 #include <stdio.h>
 
-void KSValueBitOutputTest() {
+void  KSPrintByteValueOutputTest() {
+    int valueInt = 500640;
+    short valueShort = 50;
+    char valueChar = 1;
+    KSPrintByteValueOutput(&valueShort, sizeof(valueShort));
+    KSPrintByteValueOutput(&valueChar, sizeof(valueChar));
+    //KSPrintByteValueOutput(&valueInt, sizeof(valueInt));
+    }
+
+
+//void KSValueBitOutputTest() {
 //    int valueInt = 500640;
 //    short valueShort = 50;
 //    
@@ -21,4 +31,3 @@ void KSValueBitOutputTest() {
 //    puts("Value short 50");
 //    KSByteValueOutput(&valueShort, sizeof(valueShort));
 
-}

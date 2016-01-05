@@ -9,6 +9,6 @@
 #ifndef KSValueBitOutputTest_h
 #define KSValueBitOutputTest_h
 
-void KSValueBitOutputTest();
+void KSPrintByteValueOutputTest(void);
 
 #endif /* KSValueBitOutputTest_h */

@@ -16,7 +16,8 @@ int main(int argc, const char * argv[]) {
 //    KSTestMacroOutputType();
 //    KSTestCarStruct();
 //
-    KSValueBitOutputTest();
+    KSPrintByteValueOutputTest();
+
 
     return 0;
 }

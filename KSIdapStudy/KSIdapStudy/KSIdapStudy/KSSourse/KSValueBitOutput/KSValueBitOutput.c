@@ -8,7 +8,7 @@
 
 #include "KSValueBitOutput.h"
 #include <stdbool.h>
-
+#include <stdio.h>
 
 typedef enum {
     KSUndefinedType,
@@ -26,8 +26,6 @@ typedef union {
 
 static const char kKSValueBit = 8;
 
-
-
 static
 KSEndianTypes KSEndianTypeReturn(void);
 
@@ -44,14 +42,14 @@ KSEndianTypes KSEndianTypeReturn() {
     KSTestUnion valueTestUnion;
     valueTestUnion.charValue = 1;
     
-    return valueTestUnion.boolValue == 1 ? KSLittleEndianType : KSBigEndianType;
+    return valueTestUnion.boolValue ? KSLittleEndianType : KSBigEndianType;
 }
 
 void KSBitOutput(char *value) {
     uint8_t bitCount = *value;
     
     for (uint8_t index = kKSValueBit; index > 0; index--) {
-        printf("%s", bitCount >> (index - 1) & 1 ? "1 " : "0 ");
+        printf("%s", (bitCount >> (index - 1) & 1 ? "1 " : "0 "));
     }
 }
 
@@ -60,7 +58,7 @@ void KSBitOutput(char *value) {
 
 void KSByteValueOutput(void *value, size_t size, KSEndianTypes type) {
     char *bitField = (char *)value;
-    if (type == KSBigEndianType) {
+    if (type == KSLittleEndianType) {
         for (uint16_t index = 0 ; index < size; index++) {
             char byte = bitField[size - index - 1];
             KSBitOutput(&byte);
@@ -68,12 +66,16 @@ void KSByteValueOutput(void *value, size_t size, KSEndianTypes type) {
         }
     }
     else {
-        printf("LitleEndian");
+        for (uint16_t index = size ; index > 0; index--) {
+        char byte = bitField[size - index - 1];
+        KSBitOutput(&byte);
+        printf(", ");
+        }
     }
     
     printf(" \n");
 }
 
 void KSPrintByteValueOutput(void *value, size_t size) {
-    void KSByteValueOutput(&value, size_t size, KSEndianTypeReturn());
+    KSByteValueOutput(value, size, KSEndianTypeReturn());
 }
