@@ -8,9 +8,9 @@
 
 #ifndef KSValueBitOutput_h
 #define KSValueBitOutput_h
-#include <stdio.h>
 
-extern
-void KSByteValueOutput(void *value, size_t size);
+#include <stddef.h>
+
+void KSPrintByteValueOutput(void *value, size_t size));
 
 #endif /* KSValueBitOutput_h */

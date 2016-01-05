@@ -12,13 +12,13 @@
 #include <stdio.h>
 
 void KSValueBitOutputTest() {
-    int valueInt = 500640;
-    short valueShort = 50;
-    
-    puts("Value int 500640");
-    KSByteValueOutput(&valueInt, sizeof(valueInt));
-    
-    puts("Value short 50");
-    KSByteValueOutput(&valueShort, sizeof(valueShort));
+//    int valueInt = 500640;
+//    short valueShort = 50;
+//    
+//    puts("Value int 500640");
+//    KSByteValueOutput(&valueInt, sizeof(valueInt));
+//    
+//    puts("Value short 50");
+//    KSByteValueOutput(&valueShort, sizeof(valueShort));
 
 }
