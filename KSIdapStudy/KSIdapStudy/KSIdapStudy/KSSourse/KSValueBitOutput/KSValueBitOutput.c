@@ -48,13 +48,6 @@ void KSBitOutput(char *value) {
 void KSByteValueOutput(void *value, size_t size) {
     char *bitField = (char *)value;
     
-//    while (index < size) {
-//        char byte = bitField[size - index - 1];
-//        KSBitOutput(&byte);
-//        index ++;
-//        printf(", ");
-//    }
-    
     for (uint16_t index = 0 ; index < size; index++) {
         char byte = bitField[size - index - 1];
         KSBitOutput(&byte);
