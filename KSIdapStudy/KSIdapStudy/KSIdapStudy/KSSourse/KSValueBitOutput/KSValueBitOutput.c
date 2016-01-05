@@ -9,6 +9,13 @@
 #include "KSValueBitOutput.h"
 #include <stdbool.h>
 
+//typedef {
+//    KS
+//    KSBigEndianType
+//    KSSmallEndianType
+//    
+//
+//}
 
 typedef union {
     bool boolValue : 1;
@@ -31,29 +38,28 @@ void KSBitOutput(char *value) {
     uint8_t bitCount = *value;
     
     for (uint8_t index = kKSValueBit; index > 0; index--) {
-        uint8_t shiftBitValue = bitCount >> (index - 1);
-        printf("%s", (shiftBitValue & 1 ? "1 " : "0 "));
+        printf("%s", bitCount >> (index - 1) & 1 ? "1 " : "0 ");
     }
 }
 
 #pragma mark -
 #pragma mark Public Implementations
 
-void KSByteValueOutput (void *value, size_t size) {
+void KSByteValueOutput(void *value, size_t size) {
     char *bitField = (char *)value;
-    uint16_t index = 0;
     
-    while (index < size) {
-        char byte = bitField[size - index - 1];
-        KSBitOutput(&byte);
-        index ++;
-        printf(", ");
-    }
-//    for (uint16_t index = 0 ; index < size; index ++) {
+//    while (index < size) {
 //        char byte = bitField[size - index - 1];
 //        KSBitOutput(&byte);
+//        index ++;
 //        printf(", ");
 //    }
+    
+    for (uint16_t index = 0 ; index < size; index++) {
+        char byte = bitField[size - index - 1];
+        KSBitOutput(&byte);
+        printf(", ");
+    }
     
     printf(" \n");
 }

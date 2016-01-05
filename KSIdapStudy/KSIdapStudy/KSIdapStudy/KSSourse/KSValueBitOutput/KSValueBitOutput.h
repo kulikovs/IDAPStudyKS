@@ -11,6 +11,6 @@
 #include <stdio.h>
 
 extern
-void KSByteValueOutput (void *value, size_t size);
+void KSByteValueOutput(void *value, size_t size);
 
 #endif /* KSValueBitOutput_h */
