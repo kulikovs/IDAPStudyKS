@@ -41,9 +41,9 @@ void KSByteValueOutput(void *value, size_t size, KSEndianTypes type);
 #pragma mark -
 #pragma mark Private Implementations
 
-KSEndianTypes KSEndianTypeReturn() {
+KSEndianTypes KSEndianTypeReturn(void) {
     KSTestUnion valueTestUnion;
-    valueTestUnion.charValue = 0;
+    valueTestUnion.charValue = 1;
     
     return valueTestUnion.boolValue ? KSLittleEndianType : KSBigEndianType;
 }

@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-void  KSPrintByteValueOutputTest() {
+void  KSPrintByteValueOutputTest(void) {
     int valueInt = 500640;
     short valueShort = 50;
     char valueChar = 1;
