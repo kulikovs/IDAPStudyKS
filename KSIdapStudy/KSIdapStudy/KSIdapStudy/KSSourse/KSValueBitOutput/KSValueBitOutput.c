@@ -17,7 +17,16 @@ typedef enum {
 } KSEndianTypes;
 
 typedef union {
-    bool boolValue : 1;
+    struct {
+        bool boolValue1 : 1;
+        bool boolValue2 : 1;
+        bool boolValue3 : 1;
+        bool boolValue4 : 1;
+        bool boolValue5 : 1;
+        bool boolValue6 : 1;
+        bool boolValue7 : 1;
+        bool boolValue8 : 1;
+    };
     char charValue;
 } KSTestUnion;
 
@@ -43,10 +52,17 @@ void KSByteValueOutput(void *value, size_t size, KSEndianTypes type);
 
 KSEndianTypes KSEndianTypeReturn(void) {
     KSTestUnion valueTestUnion;
+    int returnEndianTypes = 1;
     valueTestUnion.charValue = 1;
     
-    return valueTestUnion.boolValue ? KSLittleEndianType : KSBigEndianType;
-}
+    if (valueTestUnion.boolValue1 != 1 && valueTestUnion.boolValue8 != 1) {
+        returnEndianTypes = KSUndefinedType;
+    } else  {
+        returnEndianTypes = valueTestUnion.boolValue1 ? KSLittleEndianType : KSBigEndianType;
+    }
+   
+    return returnEndianTypes;
+    }
 
 void KSBitOutputForLittleEndian(char *value) {
     uint8_t bitCount = *value;
@@ -73,11 +89,14 @@ void KSByteValueOutput(void *value, size_t size, KSEndianTypes type) {
             printf(", ");
         }
     }
-    else {
+    else if (type == KSBigEndianType) {
         for (uint16_t index = size ; index > 0; index--) {
             KSBitOutputForBigEndian(&bitField[size - index]);
             printf(", ");
         }
+    }
+    else if (type == KSUndefinedType) {
+        printf("This type not supported");
     }
     
     printf(" \n");
