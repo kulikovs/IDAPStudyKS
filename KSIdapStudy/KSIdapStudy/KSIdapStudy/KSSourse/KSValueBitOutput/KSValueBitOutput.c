@@ -50,7 +50,7 @@ void KSByteValueOutput(void *value, size_t size, KSEndianTypes type);
 KSEndianTypes KSEndianTypeReturn(void) {
     KSTestUnion valueTestUnion;
     int returnEndianTypes = 1;
-    valueTestUnion.charValue = 1;
+    valueTestUnion.charValue = 1; // BigEndian = value 128
     
     if (valueTestUnion.boolValue1 != 1 && valueTestUnion.boolValue8 != 1) {
         returnEndianTypes = KSUndefinedType;
