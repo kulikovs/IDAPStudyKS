@@ -27,6 +27,7 @@ typedef union {
         bool boolValue7 : 1;
         bool boolValue8 : 1;
     };
+    
     char charValue;
 } KSTestUnion;
 
@@ -68,8 +69,7 @@ void KSBitOutput(char *value, KSEndianTypes type) {
     for (uint8_t index = kKSValueBit; index > 0; index--) {
         printf("%s", (bitCount >> (index - 1) & 1 ? "1 " : "0 "));
         }
-    }
-    else {
+    } else {
         for (uint8_t index = 0; index < kKSValueBit; index++) {
             printf("%s", (bitCount >> (index) & 1 ? "1 " : "0 "));
         }
@@ -78,21 +78,21 @@ void KSBitOutput(char *value, KSEndianTypes type) {
 
 void KSByteValueOutput(void *value, size_t size, KSEndianTypes type) {
     char *bitField = (char *)value;
+    if (type == KSUndefinedType) {
+        printf("This type not supported");
+        return;
+    }
     
     if (type == KSLittleEndianType) {
         for (uint16_t index = 0 ; index < size; index++) {
             KSBitOutput(&bitField[size - index - 1], type);
             printf(", ");
         }
-    }
-    else if (type == KSBigEndianType) {
+    } else {
         for (uint16_t index = size ; index > 0; index--) {
             KSBitOutput(&bitField[size - index], type);
             printf(", ");
         }
-    }
-    else if (type == KSUndefinedType) {
-        printf("This type not supported");
     }
     
     printf(" \n");

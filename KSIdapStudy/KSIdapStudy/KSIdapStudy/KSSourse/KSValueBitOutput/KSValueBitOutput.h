@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+extern
 void KSPrintByteValueOutput(void *value, size_t size);
 
 #endif /* KSValueBitOutput_h */
