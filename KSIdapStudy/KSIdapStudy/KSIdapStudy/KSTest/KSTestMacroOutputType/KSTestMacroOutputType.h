@@ -10,6 +10,6 @@
 #define KSTestMacroOutputType_h
 
 extern
-void KSTestMacroOutputType();
+void KSTestMacroOutputType(void);
 
 #endif /* KSTestOutputType_h */

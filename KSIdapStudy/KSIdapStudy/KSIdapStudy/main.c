@@ -7,9 +7,17 @@
 //
 
 #include <stdio.h>
+#include "KSTestMacroOutputType.h"
+#include "KSTestStruct.h"
+#include "KSValueBitOutputTest.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+//    
+//    KSTestMacroOutputType();
+//    KSTestCarStruct();
+//
+    KSPrintByteValueOutputTest();
+
+
     return 0;
 }
