@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     KSHuman *humanSerg = KSHumanCreate();
     KSHumanSetName(humanSerg, *nameHumanSerg);
     KSHumanSetAge(humanSerg, 20);
-//  printf("%s\n", KSHumanGetName(humanSerg));
+    printf("%s\n", KSHumanGetName(humanSerg));
     printf("%d\n", KSHumanGetAge(humanSerg));
     return 0;
 }
