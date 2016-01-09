@@ -10,6 +10,7 @@
 #define KSHuman_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct KSHuman KSHuman;
 
@@ -30,5 +31,11 @@ void KSHumanSetName(KSHuman *human, char name);
 
 extern
 char KSHumanGetName(KSHuman *human);
+
+extern
+void KSHumanSetMaried(KSHuman *human, bool maried);
+
+extern
+bool KSHumanGetMarried(KSHuman *human);
 
 #endif /* KSHuman_h */

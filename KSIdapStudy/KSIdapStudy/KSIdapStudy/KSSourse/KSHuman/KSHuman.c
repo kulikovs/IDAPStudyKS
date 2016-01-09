@@ -46,5 +46,13 @@ void KSHumanSetName(KSHuman *human, char name) {
 }
 
 char KSHumanGetName(KSHuman *human) {
-    return (char)human->_name;
+    return *human->_name;
+}
+
+void KSHumanSetMaried(KSHuman *human, bool maried) {
+    human->_married = maried;
+}
+
+bool KSHumanGetMarried(KSHuman *human) {
+    return human->_married;
 }
