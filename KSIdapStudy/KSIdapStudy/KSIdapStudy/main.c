@@ -10,6 +10,10 @@
 #include "KSTestMacroOutputType.h"
 #include "KSTestStruct.h"
 #include "KSValueBitOutputTest.h"
+#include "KSHuman.h"
+
+char *nameHumanSerg = "Sergey";
+
 
 int main(int argc, const char * argv[]) {
 //    
@@ -17,7 +21,10 @@ int main(int argc, const char * argv[]) {
 //    KSTestCarStruct();
 //
 //  KSPrintByteValueOutputTest();
-
-
+    KSHuman *humanSerg = KSHumanCreate();
+    KSHumanSetName(humanSerg, *nameHumanSerg);
+    KSHumanSetAge(humanSerg, 20);
+//  printf("%s\n", KSHumanGetName(humanSerg));
+    printf("%d\n", KSHumanGetAge(humanSerg));
     return 0;
 }

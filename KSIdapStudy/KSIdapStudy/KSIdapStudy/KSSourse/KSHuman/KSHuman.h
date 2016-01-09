@@ -13,4 +13,22 @@
 
 typedef struct KSHuman KSHuman;
 
+extern
+KSHuman *KSHumanCreate(void);
+
+extern
+void KSHumanDeallocate(KSHuman *human);
+
+extern
+void KSHumanSetAge(KSHuman *human, uint8_t age);
+
+extern
+uint8_t KSHumanGetAge(KSHuman *human);
+
+extern
+void KSHumanSetName(KSHuman *human, char name);
+
+extern
+char KSHumanGetName(KSHuman *human);
+
 #endif /* KSHuman_h */
