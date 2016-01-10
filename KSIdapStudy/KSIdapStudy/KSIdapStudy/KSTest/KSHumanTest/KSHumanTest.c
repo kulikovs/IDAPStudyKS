@@ -9,15 +9,15 @@
 #include "KSHumanTest.h"
 #include <stdbool.h>
 
-
-//char *nameHumanSerg = "Sergey";
-
 void KSHumanTest() {
-    KSHuman *humanSerg = KSHumanCreate("Sergey", 20, true);
+    KSHuman *humanSerg = KSHumanCreate("Sergey", 35, true);
+
     KSHumanSetMaried(humanSerg, true);
     KSHumanGetMarried(humanSerg);
+    
     puts(KSHumanGetName(humanSerg));
     printf("%d\n", KSHumanGetAge(humanSerg));
+    
     KSHumanDeallocate(humanSerg);
 
 }

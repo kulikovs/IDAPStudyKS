@@ -38,6 +38,12 @@ KSHuman *KSHumanCreate(char *name, uint8_t age, bool male) {
     return human;
 }
 
+//KSHuman *KSChildrenCreate(KSHuman *human, char *name, uint8_t age, bool male) {
+// 
+//    human->_children[0]->
+//
+//}
+
 void KSHumanDeallocate(KSHuman *human) {
     free(human);
 }
@@ -54,6 +60,7 @@ char *KSHumanGetName(KSHuman *human) {
 }
 
 void KSHumanSetMaried(KSHuman *human, bool maried) {
+    assert(human->_age >18);
     human->_married = maried;
 }
 

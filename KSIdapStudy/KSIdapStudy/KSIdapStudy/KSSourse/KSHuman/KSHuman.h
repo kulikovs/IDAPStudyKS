@@ -18,6 +18,9 @@ extern
 KSHuman *KSHumanCreate(char *name, uint8_t age, bool male);
 
 extern
+KSHuman *KSChildrenCreate((char *name, uint8_t age, bool male));
+
+extern
 void KSHumanDeallocate(KSHuman *human);
 
 extern
