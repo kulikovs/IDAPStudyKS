@@ -27,10 +27,10 @@ extern
 uint8_t KSHumanGetAge(KSHuman *human);
 
 extern
-void KSHumanSetName(KSHuman *human, char name);
+void KSHumanSetName(KSHuman *human, char *name);
 
 extern
-char KSHumanGetName(KSHuman *human);
+char *KSHumanGetName(KSHuman *human);
 
 extern
 void KSHumanSetMaried(KSHuman *human, bool maried);

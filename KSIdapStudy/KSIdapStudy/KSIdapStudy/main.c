@@ -18,7 +18,17 @@ int main(int argc, const char * argv[]) {
 //    KSTestCarStruct();
 //
 //    KSPrintByteValueOutputTest();
-      KSHumanTest();
+     KSHumanTest();
 
+    int *countHuman;
+    
+    int human = 10;
+    printf("Value human %d\n", human);
+    countHuman = &human;
+    *countHuman = 5;
+    
+    printf("Value numan after pointer %d\n", human);
+    printf("Value pointer %p\n", countHuman);
+    
     return 0;
 }

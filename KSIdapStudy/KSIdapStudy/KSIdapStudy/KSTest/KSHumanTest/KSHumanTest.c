@@ -10,15 +10,15 @@
 #include <stdbool.h>
 
 
-char *nameHumanSerg = "Sergey";
+//char *nameHumanSerg = "Sergey";
 
 void KSHumanTest() {
     KSHuman *humanSerg = KSHumanCreate();
-    KSHumanSetName(humanSerg, *nameHumanSerg);
+    KSHumanSetName(humanSerg, "Sergey");
     KSHumanSetAge(humanSerg, 20);
     KSHumanSetMaried(humanSerg, true);
-    printf("%d", KSHumanGetMarried(humanSerg));
- //   printf("%s\n", KSHumanGetName(humanSerg));
+    KSHumanGetMarried(humanSerg);
+    puts(KSHumanGetName(humanSerg));
     printf("%d\n", KSHumanGetAge(humanSerg));
 
 }
