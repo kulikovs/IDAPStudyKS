@@ -38,11 +38,11 @@ KSHuman *KSHumanCreate(char *name, uint8_t age, bool male) {
     return human;
 }
 
-//KSHuman *KSChildrenCreate(KSHuman *human, char *name, uint8_t age, bool male) {
-// 
-//    human->_children[0]->
-//
-//}
+KSHuman *KSChildrenCreate(KSHuman *human, char *name, uint8_t age, bool male) {
+ 
+    KSHuman  *child = human->_children[0];
+    return child;
+}
 
 void KSHumanDeallocate(KSHuman *human) {
     free(human);

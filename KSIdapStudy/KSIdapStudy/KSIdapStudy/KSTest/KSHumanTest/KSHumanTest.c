@@ -14,6 +14,7 @@ void KSHumanTest() {
 
     KSHumanSetMaried(humanSerg, true);
     KSHumanGetMarried(humanSerg);
+    KSHuman *childMasha = KSChildrenCreate(humanSerg, "Masha", 8, false);
     
     puts(KSHumanGetName(humanSerg));
     printf("%d\n", KSHumanGetAge(humanSerg));
