@@ -15,19 +15,13 @@
 typedef struct KSHuman KSHuman;
 
 extern
-KSHuman *KSHumanCreate(void);
+KSHuman *KSHumanCreate(char *name, uint8_t age, bool male);
 
 extern
 void KSHumanDeallocate(KSHuman *human);
 
 extern
-void KSHumanSetAge(KSHuman *human, uint8_t age);
-
-extern
 uint8_t KSHumanGetAge(KSHuman *human);
-
-extern
-void KSHumanSetName(KSHuman *human, char *name);
 
 extern
 char *KSHumanGetName(KSHuman *human);
@@ -37,5 +31,8 @@ void KSHumanSetMaried(KSHuman *human, bool maried);
 
 extern
 bool KSHumanGetMarried(KSHuman *human);
+
+extern
+bool KSHumanGetSexAttributeMale(KSHuman *human);
 
 #endif /* KSHuman_h */

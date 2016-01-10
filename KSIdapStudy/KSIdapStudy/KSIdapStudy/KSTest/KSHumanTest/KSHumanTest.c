@@ -13,12 +13,11 @@
 //char *nameHumanSerg = "Sergey";
 
 void KSHumanTest() {
-    KSHuman *humanSerg = KSHumanCreate();
-    KSHumanSetName(humanSerg, "Sergey");
-    KSHumanSetAge(humanSerg, 20);
+    KSHuman *humanSerg = KSHumanCreate("Sergey", 20, true);
     KSHumanSetMaried(humanSerg, true);
     KSHumanGetMarried(humanSerg);
     puts(KSHumanGetName(humanSerg));
     printf("%d\n", KSHumanGetAge(humanSerg));
+    KSHumanDeallocate(humanSerg);
 
 }

@@ -13,10 +13,10 @@
 struct KSHuman {
     KSHuman *_children[20];
     uint8_t _age;
-        struct sexAttribute {
-            bool Mail;
-            bool Female;
-        };
+//        struct sexAttribute {
+//            bool Mail;
+//            bool Female;
+//        };
     char *_name;
     bool _sexAttributeMale;
     bool _married;
@@ -25,11 +25,16 @@ struct KSHuman {
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-KSHuman *KSHumanCreate(void) {
+KSHuman *KSHumanCreate(char *name, uint8_t age, bool male) {
     KSHuman *human = calloc(1, sizeof(KSHuman));
     
     assert(human != NULL);
+    assert(age < 120);
     
+    human->_name = name;
+    human->_age = age;
+    human->_sexAttributeMale = male;
+
     return human;
 }
 
@@ -40,16 +45,8 @@ void KSHumanDeallocate(KSHuman *human) {
 #pragma mark -
 #pragma mark Accessors
 
-void KSHumanSetAge(KSHuman *human, uint8_t age) {
-    human->_age = age;
-}
-
 uint8_t KSHumanGetAge(KSHuman *human) {
     return human->_age;
-}
-
-void KSHumanSetName(KSHuman *human, char *name) {
-    human->_name = name;
 }
 
 char *KSHumanGetName(KSHuman *human) {
@@ -61,10 +58,9 @@ void KSHumanSetMaried(KSHuman *human, bool maried) {
 }
 
 bool KSHumanGetMarried(KSHuman *human) {
-    (human->_married == true) ? puts("Married") : puts("Not married");
-    return human->_married;
+    return human->_married ? puts("Married") : puts("Not married");
 }
 
-//bool KSHumanSetSexAttribute(KSHuman *human, sexAttribute) {
-//human->_sexAttributeMale
-//}
+bool KSHumanGetSexAttributeMale(KSHuman *human) {
+    return human->_sexAttributeMale ? puts("The man") : puts("The woman");
+}
