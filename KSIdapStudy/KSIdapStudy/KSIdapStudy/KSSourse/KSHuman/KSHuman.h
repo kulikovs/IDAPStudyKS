@@ -12,13 +12,20 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+
+typedef enum {
+    kKSexTypeUndefine,
+    kKSSexMale,
+    kKSSexTypeFemale,
+} KSSexType;
+
 typedef struct KSHuman KSHuman;
 
 extern
-KSHuman *KSHumanCreate(char *name, uint8_t age, bool male);
+KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex);
 
-extern
-KSHuman *KSChildrenCreate(KSHuman *human, char *name, uint8_t age, bool male);
+KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father, KSHuman *mother,
+                                        char *name, uint8_t age, KSSexType sex);
 
 extern
 void KSHumanDeallocate(KSHuman *human);
@@ -30,12 +37,12 @@ extern
 char *KSHumanGetName(KSHuman *human);
 
 extern
-void KSHumanSetMaried(KSHuman *human, bool maried);
+KSHuman *KSHumanGetPartner(KSHuman *human);
 
 extern
-bool KSHumanGetMarried(KSHuman *human);
+void KSHumanMarried(KSHuman *human, KSHuman *partner);
 
 extern
-bool KSHumanGetSexAttributeMale(KSHuman *human);
+void KSHumanDivorced(KSHuman *human);
 
 #endif /* KSHuman_h */

@@ -6,6 +6,7 @@
 //  Copyright © 2015 KulikovS. All rights reserved.
 //
 
+
 #ifndef KSOutputType_h
 #define KSOutputType_h
 
@@ -22,5 +23,7 @@
 
 #define KSOutputTypeMacro(type, value) \
     KSOutput_##type(value)
+
+#define KSAssertNull(value) accert(*value !== NULL)
 
 #endif /* KSOutputType_h */

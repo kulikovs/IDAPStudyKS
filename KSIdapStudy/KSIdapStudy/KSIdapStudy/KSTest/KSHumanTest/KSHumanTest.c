@@ -10,15 +10,18 @@
 #include <stdbool.h>
 
 void KSHumanTest() {
-    KSHuman *humanSerg = KSHumanCreate("Sergey", 35, true);
-
-    KSHumanSetMaried(humanSerg, true);
-    KSHumanGetMarried(humanSerg);
-    KSHuman *childMasha = KSChildrenCreate(humanSerg, "Masha", 8, false);
+    KSHuman *Serg = KSHumanCreateWithNamedAgeGender("Sergey", 30, kKSSexMale);
+    KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexTypeFemale);
+    KSHumanMarried(Serg, Masha);
+    KSHuman *Pasha = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
     
-    puts(KSHumanGetName(humanSerg));
-    printf("%d\n", KSHumanGetAge(humanSerg));
-    
-    KSHumanDeallocate(humanSerg);
 
+    KSHumanDivorced(Serg);
+    
+    puts(KSHumanGetName(Serg));
+    printf("%d\n", KSHumanGetAge(Serg));
+    
+    KSHumanDeallocate(Serg);
+    KSHumanDeallocate(Masha);
+    KSHumanDeallocate(Pasha);
 }

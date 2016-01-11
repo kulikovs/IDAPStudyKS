@@ -11,6 +11,7 @@
 #include "KSTestStruct.h"
 #include "KSValueBitOutputTest.h"
 #include "KSHumanTest.h"
+#include "KSMacro.h"
 
 int main(int argc, const char * argv[]) {
 //    
