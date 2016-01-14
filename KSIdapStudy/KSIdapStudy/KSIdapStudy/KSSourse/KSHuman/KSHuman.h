@@ -32,7 +32,16 @@ KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father,
                                                KSSexType sex);
 
 extern
+void KSHumanSetChild(KSHuman *human, KSHuman *parent);
+
+extern
 void KSHumanDeallocate(KSHuman *human);
+
+extern
+void KSHumanRatain(KSHuman *human);
+
+extern
+void KSHumanRelease(KSHuman *human);
 
 extern
 void KSHumanSetAge(KSHuman *human, uint8_t age);
@@ -63,5 +72,17 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner);
 
 extern
 void KSHumanDivorce(KSHuman *human);
+
+extern
+void KSHumanSetMother(KSHuman *human, KSHuman *mother);
+
+extern
+KSHuman *KSHumanGetMother(KSHuman *human);
+
+extern
+void KSHumanSetFather(KSHuman *human, KSHuman *father);
+
+extern
+KSHuman *KSHumanGetFather(KSHuman *human);
 
 #endif /* KSHuman_h */

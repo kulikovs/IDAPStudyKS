@@ -12,13 +12,13 @@
 void KSHumanTest() {
     KSHuman *Serg = KSHumanCreateWithNamedAgeGender("Sergey", 30, kKSSexMale);
     KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexTypeFemale);
-    KSHumanMarried(Serg, Masha);
+    KSHumanMarry(Serg, Masha);
     KSHuman *Pasha = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
+    puts(KSHumanGetName(Serg));
+
+    KSHumanDivorce(Serg);
     
 
-    KSHumanDivorced(Serg);
-    
-    puts(KSHumanGetName(Serg));
     printf("%d\n", KSHumanGetAge(Serg));
     
     KSHumanDeallocate(Serg);

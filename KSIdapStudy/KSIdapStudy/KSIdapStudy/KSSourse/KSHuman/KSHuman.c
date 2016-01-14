@@ -7,10 +7,10 @@
 //
 #include <stdbool.h>
 #include <stdlib.h>
+#include <assert.h>
+
 #include "KSHuman.h"
 #include "KSMacro.h"
-
-#include <assert.h>
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -32,31 +32,47 @@ struct KSHuman {
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-KSHuman * KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex) {
+KSHuman *KSHumanCreate() {
     KSHuman *human = calloc(1, sizeof(KSHuman));
-
+    
     assert(human != NULL);
-    assert(age < 120);
+    
+    return human;
+}
 
+KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex) {
+    KSHuman *human = KSHumanCreate();
+
+    assert(age < 120);
+    
+    KSHumanSetAge(human, age);
+    KSHumanSetName(human, name);
+    KSHumanSetSexType(human, sex);
+    
     human->_retailCount = 1;
 
     return human;
 }
 
-KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father, KSHuman *mother,
-                                        char *name, uint8_t age, KSSexType sex) {
-    KSHuman *human = calloc(1, sizeof(KSHuman));
+KSHuman *KSHumanCreateChildWithNamedAgeGender(KSHuman *father,
+                                              KSHuman *mother,
+                                              char *name,
+                                              uint8_t age,
+                                              KSSexType sex) {
+    KSHuman *human = KSHumanCreate();
     
     assert(human != NULL);
     assert(age < 120);
-    human->_name = name;
-    human->_age = age;
-    human->_sexType = sex;
+    
+    KSHumanSetAge(human, age);
+    KSHumanSetName(human, name);
+    KSHumanSetSexType(human, sex);
+    KSHumanSetMother(human, mother);
+    KSHumanSetFather(human, father);
+    KSHumanSetChild(human, father);
+    KSHumanSetChild(human, mother);
+    
     human->_retailCount = 1;
-    human->_father = father;
-    human->_mother = mother;
-    father->_children[0] = human;
-    mother->_children[0] = human;
     
     return human;
 }
@@ -73,7 +89,6 @@ void KSHumanDeallocate(KSHuman *human) {
 void KSHumanSetAge(KSHuman *human, uint8_t age) {
     human->_age = age;
 }
-
 
 uint8_t KSHumanGetAge(KSHuman *human) {
     return human->_age;
@@ -98,6 +113,42 @@ void KSHumanSetSexType(KSHuman *human, KSSexType sexType) {
 KSSexType KSHumanGetSexType(KSHuman *human) {
     return human->_sexType;
 }
+
+void KSHumanSetMother(KSHuman *human, KSHuman *mother) {
+    human->_mother = mother;
+}
+
+KSHuman *KSHumanGetMother(KSHuman *human) {
+    return human->_mother;
+}
+
+void KSHumanSetFather(KSHuman *human, KSHuman *father) {
+    human->_father = father;
+}
+
+KSHuman *KSHumanGetFather(KSHuman *human) {
+    return human->_father;
+}
+
+void KSHumanRatain(KSHuman *human) {
+    human->_retailCount++;
+}
+
+void KSHumanRelease(KSHuman *human) {
+    human->_retailCount--;
+    
+    if (0 == human->_retailCount) {
+        KSHumanDeallocate(human);
+    }
+}
+
+void KSHumanSetChild(KSHuman *human, KSHuman *parent) {
+    int index = 0;
+    for (index = 0; parent->_children[index] != NULL; index++) {
+    }
+        parent->_children[index] = human;
+}
+
 
 #pragma mark -
 #pragma mark Private Implementations

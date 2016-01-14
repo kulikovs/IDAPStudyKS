@@ -24,6 +24,6 @@
 #define KSOutputTypeMacro(type, value) \
     KSOutput_##type(value)
 
-#define KSAssertNull(value) accert(*value !== NULL)
+#define KSAssertNull(value) accert(!value)
 
 #endif /* KSOutputType_h */
