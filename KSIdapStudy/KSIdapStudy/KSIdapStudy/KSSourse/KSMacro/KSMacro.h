@@ -24,6 +24,15 @@
 #define KSOutputTypeMacro(type, value) \
     KSOutput_##type(value)
 
-#define KSAssertNull(value) accert(!value)
+#define KSReturnMacro(value) \
+    if (NULL == value) {\
+        return;\
+    }
+
+#define KSReturnNullMacro(value) \
+    if (NULL == value) {\
+        return 0;\
+    }
+
 
 #endif /* KSOutputType_h */

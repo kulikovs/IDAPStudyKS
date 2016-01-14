@@ -14,8 +14,9 @@ void KSHumanTest() {
     KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexTypeFemale);
     KSHumanMarry(Serg, Masha);
     KSHuman *Pasha = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
+    KSHuman *Pasha2 = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha2", 1, kKSSexMale);
     puts(KSHumanGetName(Serg));
-
+    
     KSHumanDivorce(Serg);
     
 
