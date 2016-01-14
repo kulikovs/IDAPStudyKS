@@ -24,25 +24,44 @@ typedef struct KSHuman KSHuman;
 extern
 KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex);
 
-KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father, KSHuman *mother,
-                                        char *name, uint8_t age, KSSexType sex);
+extern
+KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father,
+                                               KSHuman *mother,
+                                               char *name,
+                                               uint8_t age,
+                                               KSSexType sex);
 
 extern
 void KSHumanDeallocate(KSHuman *human);
 
 extern
+void KSHumanSetAge(KSHuman *human, uint8_t age);
+
+extern
 uint8_t KSHumanGetAge(KSHuman *human);
+
+extern
+void KSHumanSetName(KSHuman *human, char *name);
 
 extern
 char *KSHumanGetName(KSHuman *human);
 
 extern
+void KSHumanSetSexType(KSHuman *human, KSSexType sexType);
+
+extern
 KSHuman *KSHumanGetPartner(KSHuman *human);
 
 extern
-void KSHumanMarried(KSHuman *human, KSHuman *partner);
+void KSHumanSetSexType(KSHuman *human, KSSexType sexType);
 
 extern
-void KSHumanDivorced(KSHuman *human);
+KSSexType KSHumanGetSexType(KSHuman *human);
+
+extern
+void KSHumanMarry(KSHuman *human, KSHuman *partner);
+
+extern
+void KSHumanDivorce(KSHuman *human);
 
 #endif /* KSHuman_h */

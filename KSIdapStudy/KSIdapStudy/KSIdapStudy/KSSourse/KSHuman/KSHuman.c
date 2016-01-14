@@ -12,6 +12,12 @@
 
 #include <assert.h>
 
+#pragma mark -
+#pragma mark Private Declarations
+
+static
+void KSHumanSetPartner(KSHuman *human, KSHuman *partner);
+
 struct KSHuman {
     int16_t _retailCount;
     KSHuman *_children[20];
@@ -31,9 +37,7 @@ KSHuman * KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex
 
     assert(human != NULL);
     assert(age < 120);
-    human->_name = name;
-    human->_age = age;
-    human->_sexType = sex;
+
     human->_retailCount = 1;
 
     return human;
@@ -65,8 +69,18 @@ void KSHumanDeallocate(KSHuman *human) {
 #pragma mark -
 #pragma mark Accessors
 
+
+void KSHumanSetAge(KSHuman *human, uint8_t age) {
+    human->_age = age;
+}
+
+
 uint8_t KSHumanGetAge(KSHuman *human) {
     return human->_age;
+}
+
+void KSHumanSetName(KSHuman *human, char *name) {
+    human->_name = name;
 }
 
 char *KSHumanGetName(KSHuman *human) {
@@ -77,11 +91,13 @@ KSHuman *KSHumanGetPartner(KSHuman *human) {
     return human->_partner;
 }
 
-#pragma mark -
-#pragma mark Private Declarations
+void KSHumanSetSexType(KSHuman *human, KSSexType sexType) {
+    human->_sexType = sexType;
+}
 
-static
-void KSHumanSetPartner(KSHuman *human, KSHuman *partner);
+KSSexType KSHumanGetSexType(KSHuman *human) {
+    return human->_sexType;
+}
 
 #pragma mark -
 #pragma mark Private Implementations
@@ -97,13 +113,12 @@ void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {
 #pragma mark -
 #pragma mark Public Implementations
 
-void KSHumanMarried(KSHuman *human, KSHuman *partner) {
+void KSHumanMarry(KSHuman *human, KSHuman *partner) {
     KSHumanSetPartner(human, partner);
     KSHumanSetPartner(partner, human);
-    printf("Aeeeee, %s and %s is married!\n", human->_name, partner->_name);
 }
 
-void KSHumanDivorced(KSHuman *human) {
+void KSHumanDivorce(KSHuman *human) {
     KSHumanSetPartner(KSHumanGetPartner(human), NULL);
-    human->_partner = NULL;
+    KSHumanSetPartner(human, NULL);
 }
