@@ -12,11 +12,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
 typedef enum {
     kKSexTypeUndefine,
     kKSSexMale,
-    kKSSexTypeFemale,
+    kKSSexFemale,
 } KSSexType;
 
 typedef struct KSHuman KSHuman;
@@ -25,29 +24,23 @@ extern
 KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex);
 
 extern
-KSHuman * KSHumanCreateChildWithNamedAgeGender(KSHuman *father,
+KSHuman * KSChildCreateWithParentNamedAgeGender(KSHuman *father,
                                                KSHuman *mother,
                                                char *name,
                                                uint8_t age,
                                                KSSexType sex);
 
 extern
-void KSHumanSetChild(KSHuman *human, KSHuman *parent);
-
-extern
-void KSHumanDeallocate(KSHuman *human);
-
-extern
-void KSHumanRatain(KSHuman *human);
+void KSHumanRetain(KSHuman *human);
 
 extern
 void KSHumanRelease(KSHuman *human);
 
 extern
-void KSHumanSetAge(KSHuman *human, uint8_t age);
+void KSHumanSetChild(KSHuman *human, KSHuman *parent);
 
 extern
-uint8_t KSHumanGetAge(KSHuman *human);
+KSHuman *KSHumanGetChildren(KSHuman *human);
 
 extern
 void KSHumanSetName(KSHuman *human, char *name);
@@ -56,16 +49,19 @@ extern
 char *KSHumanGetName(KSHuman *human);
 
 extern
-void KSHumanSetSexType(KSHuman *human, KSSexType sexType);
+uint8_t KSHumanGetAge(KSHuman *human);
+
+extern
+KSSexType KSHumanGetSexType(KSHuman *human);
 
 extern
 KSHuman *KSHumanGetPartner(KSHuman *human);
 
 extern
-void KSHumanSetSexType(KSHuman *human, KSSexType sexType);
+KSHuman *KSHumanGetMother(KSHuman *human);
 
 extern
-KSSexType KSHumanGetSexType(KSHuman *human);
+KSHuman *KSHumanGetFather(KSHuman *human);
 
 extern
 void KSHumanMarry(KSHuman *human, KSHuman *partner);
@@ -74,15 +70,9 @@ extern
 void KSHumanDivorce(KSHuman *human);
 
 extern
-void KSHumanSetMother(KSHuman *human, KSHuman *mother);
+void KSHumanDieParent(KSHuman *parent, KSHuman *child);
 
 extern
-KSHuman *KSHumanGetMother(KSHuman *human);
-
-extern
-void KSHumanSetFather(KSHuman *human, KSHuman *father);
-
-extern
-KSHuman *KSHumanGetFather(KSHuman *human);
+void KSHumanRemoveChildrenFromParent(KSHuman *human);
 
 #endif /* KSHuman_h */

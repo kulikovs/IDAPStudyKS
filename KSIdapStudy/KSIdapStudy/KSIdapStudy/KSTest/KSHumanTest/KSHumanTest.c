@@ -11,18 +11,18 @@
 
 void KSHumanTest() {
     KSHuman *Serg = KSHumanCreateWithNamedAgeGender("Sergey", 30, kKSSexMale);
-    KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexTypeFemale);
-    KSHumanMarry(Serg, Masha);
-    KSHuman *Pasha = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
-    KSHuman *Pasha2 = KSHumanCreateChildWithNamedAgeGender(Serg, Masha, "Pasha2", 1, kKSSexMale);
+    KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexFemale);
+    KSHumanMarry(Masha, Serg);
+    KSHuman *Pasha = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
+    KSHuman *Pasha2 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha2", 1, kKSSexMale);
+    KSHuman *Pasha3 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
     puts(KSHumanGetName(Serg));
+    KSHumanRemoveChildrenFromParent(Serg);
     
     KSHumanDivorce(Serg);
     
 
     printf("%d\n", KSHumanGetAge(Serg));
     
-    KSHumanDeallocate(Serg);
-    KSHumanDeallocate(Masha);
-    KSHumanDeallocate(Pasha);
+
 }
