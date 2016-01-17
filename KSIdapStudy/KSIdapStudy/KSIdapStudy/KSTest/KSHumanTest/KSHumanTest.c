@@ -16,13 +16,18 @@ void KSHumanTest() {
     KSHuman *Pasha = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
     KSHuman *Pasha2 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha2", 1, kKSSexMale);
     KSHuman *Pasha3 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
-    puts(KSHumanGetName(Serg));
-    KSHumanRemoveChildrenFromParent(Serg);
-    
     KSHumanDivorce(Serg);
     
-
-    printf("%d\n", KSHumanGetAge(Serg));
+    puts(KSHumanGetName(Serg));
     
 
+
+
+
+
+    printf("%d\n", KSHumanGetAge(Serg));
+    printf("%d\n", KSHumanGetAge(Masha));
+    printf("%d\n", KSHumanGetAge(Pasha));
+    printf("%d\n", KSHumanGetAge(Pasha2));
+        printf("%d\n", KSHumanGetAge(Pasha3));
 }

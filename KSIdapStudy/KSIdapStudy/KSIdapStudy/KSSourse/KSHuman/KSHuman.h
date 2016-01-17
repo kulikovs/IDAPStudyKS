@@ -70,9 +70,17 @@ extern
 void KSHumanDivorce(KSHuman *human);
 
 extern
-void KSHumanDieParent(KSHuman *parent, KSHuman *child);
+void KSHumanDieParent(KSHuman *human);
 
 extern
-void KSHumanRemoveChildrenFromParent(KSHuman *human);
+void KSHumanRemoveChildrenFromTheirParents(KSHuman *human);
+
+void KSDelFather(KSHuman *human);
+
+extern
+void KSHumanDelParentsFromChildren(KSHuman *human);
+
+extern
+void KSHumanRemoveParentsFromTheirChildren(KSHuman *human);
 
 #endif /* KSHuman_h */

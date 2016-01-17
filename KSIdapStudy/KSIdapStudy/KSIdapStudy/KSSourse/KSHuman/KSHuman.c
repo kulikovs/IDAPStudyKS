@@ -38,7 +38,7 @@ void KSHumanSetFather(KSHuman *human, KSHuman *father);
 
 
 struct KSHuman {
-    int16_t _retailCount;
+    int16_t _retainCount;
     KSHuman *_children[20];
     KSHuman *_partner;
     KSHuman *_mother;
@@ -68,7 +68,7 @@ KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex)
     KSHumanSetName(human, name);
     KSHumanSetSexType(human, sex);
     
-    human->_retailCount = 1;
+    human->_retainCount = 1;
 
     return human;
 }
@@ -86,7 +86,7 @@ KSHuman *KSChildCreateWithParentNamedAgeGender(KSHuman *father,
     
     assert(human != NULL);
     
-    human->_retailCount = 1;
+    human->_retainCount = 1;
     KSHumanSetAge(human, age);
     KSHumanSetName(human, name);
     KSHumanSetSexType(human, sex);
@@ -126,17 +126,14 @@ char *KSHumanGetName(KSHuman *human) {
 }
 
 void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {
-    KSReturnMacro(human);
-    KSReturnMacro(partner);
-    
+   
     assert(KSHumanGetSexType(human) != KSHumanGetSexType(partner));
-    
     
     human->_partner = partner;
 }
 
 KSHuman *KSHumanGetPartner(KSHuman *human) {
-    KSReturnNullMacro(human);
+
     return human->_partner;
 }
 
@@ -152,8 +149,7 @@ KSSexType KSHumanGetSexType(KSHuman *human) {
 }
 
 void KSHumanSetMother(KSHuman *human, KSHuman *mother) {
-    KSReturnMacro(human);
-    KSReturnMacro(mother);
+
     
     human->_mother = mother;
 }
@@ -164,20 +160,16 @@ KSHuman *KSHumanGetMother(KSHuman *human) {
 }
 
 void KSHumanSetFather(KSHuman *human, KSHuman *father) {
-    KSReturnMacro(human);
-    KSReturnMacro(father);
     
     human->_father = father;
 }
 
 KSHuman *KSHumanGetFather(KSHuman *human) {
-    KSReturnNullMacro(human);
+ //   KSReturnNullMacro(human);
     return human->_father;
 }
 
 void KSHumanSetChild(KSHuman *human, KSHuman *parent) {
-    KSReturnMacro(human);
-    KSReturnMacro(parent);
     
     int index = 0;
     
@@ -186,19 +178,6 @@ void KSHumanSetChild(KSHuman *human, KSHuman *parent) {
         assert(index < 20);
     }
     parent->_children[index] = human;
-    KSHumanRetain(human);
-}
-
-void KSHumanKillChildren(KSHuman *human) {
-    KSReturnMacro(human);
-
-    int index = 0;
-    
-    while (human->_children[index] != NULL) {
-        human->_children[index] = NULL;
-        index++;
-        assert(index < 20);
-    }
 }
 
 KSHuman *KSHumanGetChildren(KSHuman *human) {
@@ -212,14 +191,14 @@ KSHuman *KSHumanGetChildren(KSHuman *human) {
 
 void KSHumanRetain(KSHuman *human) {
     KSReturnMacro(human);
-    human->_retailCount++;
+    human->_retainCount++;
 }
 
 void KSHumanRelease(KSHuman *human) {
     KSReturnMacro(human);
-    human->_retailCount--;
+    human->_retainCount--;
     
-    if (0 == human->_retailCount) {
+    if (0 == human->_retainCount) {
         KSHumanDeallocate(human);
     }
 }
@@ -228,10 +207,14 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner) {
     KSReturnMacro(human);
     KSReturnMacro(partner);
 
+    if (human->_partner != NULL || partner->_partner != NULL) {
+        return;
+    }
+    
     KSHumanGetSexType(human) == kKSSexMale
                                 ? KSHumanRetain(human)
                                 : KSHumanRetain(partner);
-  
+    
     KSHumanSetPartner(human, partner);
     KSHumanSetPartner(partner, human);
 }
@@ -247,7 +230,20 @@ void KSHumanDivorce(KSHuman *human) {
     KSHumanSetPartner(human, NULL);
 }
 
-void KSHumanRemoveChildrenFromParent(KSHuman *human) {
+
+void KSHumanKillChildren(KSHuman *human) {
+    KSReturnMacro(human);
+    
+    int index = 0;
+    
+    while (human->_children[index] != NULL) {
+        human->_children[index] = NULL;
+        index++;
+        assert(index < 20);
+    }
+}
+
+void KSHumanRemoveParentsFromTheirChildren(KSHuman *human) {
     KSReturnMacro(human);
     
     int index = 0;
@@ -262,20 +258,34 @@ void KSHumanRemoveChildrenFromParent(KSHuman *human) {
     }
 }
 
-void KSHumanDieParent(KSHuman *parent, KSHuman *child) {
-    
-    KSHumanGetFather(child) == parent
-        ? KSHumanSetFather(child, NULL)
-        : KSHumanSetMother(child, NULL);
 
-    if (KSHumanGetPartner(parent) != NULL) {
-         KSHumanDivorce(parent);
+void KSHumanRemoveChildrenFromTheirParents(KSHuman *human) {
+
+    KSHuman *father = KSHumanGetFather(human);
+    KSHuman *mother = KSHumanGetMother(human);
+    
+    int index = 0;
+    
+    if (father != NULL) {
+            while (father->_children[index] != human) {
+                index++;
+            }
+        father->_children[index] = NULL;
     }
-    KSHumanRelease(child);
+    
+    if (mother != NULL) {
+        while (mother->_children[index] != human) {
+            index++;
+        }
+        mother->_children[index] = NULL;
+    }
 }
 
-//void KSHumanDieChildren(KSHuman *human) {
-//int index = 0;
-//    while (KSHumanGetChildren(human) ) {
-//        KSHumanGe(child)
-//    }
+void KSRemoveHumanCommunication(KSHuman *human) {
+    
+    if (KSHumanGetPartner(human) != NULL) {
+        KSHumanDivorce(human);
+    }
+    KSHumanRemoveChildrenFromTheirParents(human);
+    KSHumanRemoveParentsFromTheirChildren(human);
+}
