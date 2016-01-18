@@ -39,6 +39,9 @@ extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
 
 extern
+void KSHumanRemoveAllChildren(KSHuman *human);
+
+extern
 KSHuman *KSHumanGetChildren(KSHuman *human);
 
 extern
