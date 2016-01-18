@@ -41,9 +41,6 @@ void KSHumanSetFather(KSHuman *human, KSHuman *father);
 static
 void KSHumanRetain(KSHuman *human);
 
-static
-void KSHumanRemoveParentsFromTheirChildren(KSHuman *human);
-
 struct KSHuman {
     int16_t _retainCount;
     KSHuman *_children[childrenCount];
@@ -198,13 +195,23 @@ KSHuman *KSHumanGetChildren(KSHuman *human) {
 }
 
 #pragma mark -
-#pragma mark Privat Implementations
+#pragma mark Public Implementations
+
+void KSHumanRelease(KSHuman *human) {
+    KSReturnMacro(human);
+    
+    human->_retainCount--;
+    
+    if (0 == human->_retainCount) {
+        __KSHumanDeallocate(human);
+    }
+}
 
 void KSHumanAddChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
     
     int index = 0;
-
+    
     while (human->_children[index] != NULL) {
         index++;
         assert(index < childrenCount);
@@ -230,42 +237,6 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
             ? KSHumanSetFather(child, NULL)
             : KSHumanSetMother(child, NULL);
         }
-    }
-}
-
-void KSHumanRemoveParent(KSHuman *human, KSHuman parent) {
-    
-    KSHuman *father = KSHumanGetFather(human);
-    KSHuman *mother = KSHumanGetMother(human);
-    
-    int index = 0;
-    
-    if (father != NULL) {
-        while (father->_children[index] != human) {
-            index++;
-        }
-        father->_children[index] = NULL;
-    }
-    
-    if (mother != NULL) {
-        while (mother->_children[index] != human) {
-            index++;
-        }
-        
-        mother->_children[index] = NULL;
-    }
-}
-
-#pragma mark -
-#pragma mark Public Implementations
-
-void KSHumanRelease(KSHuman *human) {
-    KSReturnMacro(human);
-    
-    human->_retainCount--;
-    
-    if (0 == human->_retainCount) {
-        __KSHumanDeallocate(human);
     }
 }
 
