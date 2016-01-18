@@ -12,6 +12,6 @@
 #include "KSHuman.h"
 
 extern
-void KSHumanTest();
+void KSHumanTest(void);
 
 #endif /* KSHumanTest_h */

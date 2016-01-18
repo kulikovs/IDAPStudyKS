@@ -7,12 +7,13 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "KSTestMacroOutputType.h"
 #include "KSTestStruct.h"
 #include "KSValueBitOutputTest.h"
 #include "KSHumanTest.h"
 #include "KSMacro.h"
-#include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
 

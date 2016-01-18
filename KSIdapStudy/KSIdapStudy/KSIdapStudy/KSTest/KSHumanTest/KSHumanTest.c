@@ -7,27 +7,30 @@
 //
 
 #include "KSHumanTest.h"
-#include <stdbool.h>
 
-void KSHumanTest() {
-    KSHuman *Serg = KSHumanCreateWithNamedAgeGender("Sergey", 30, kKSSexMale);
-    KSHuman *Masha = KSHumanCreateWithNamedAgeGender("Masha", 31, kKSSexFemale);
+void KSHumanTest(void) {
+    KSHuman *Serg = KSHumanCreateWithNameAgeGender("Sergey", 30, kKSMale);
+
+    KSHuman *Masha = KSHumanCreateWithNameAgeGender("Masha", 31, kKSFemale);
     KSHumanMarry(Masha, Serg);
-    KSHuman *Pasha = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
-    KSHuman *Pasha2 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha2", 1, kKSSexMale);
-    KSHuman *Pasha3 = KSChildCreateWithParentNamedAgeGender(Serg, Masha, "Pasha", 0, kKSSexMale);
+    KSHuman *Pasha = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, "Pasha", 0, kKSMale);
+    KSHuman *Pasha2 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, "Pasha2", 1, kKSMale);
+    KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, "Pasha", 0, kKSMale);
     KSHumanDivorce(Serg);
     
+    KSHumanRemoveChild(Serg, Pasha3);
+    KSHumanRemoveChild(Masha, Pasha3);
     puts(KSHumanGetName(Serg));
+    KSHumanRemoveChild(Serg, Pasha2);
     
-
-
-
-
-
+    KSHumanRelease(Serg);
+    KSHumanRelease(Masha);
+    
     printf("%d\n", KSHumanGetAge(Serg));
     printf("%d\n", KSHumanGetAge(Masha));
     printf("%d\n", KSHumanGetAge(Pasha));
     printf("%d\n", KSHumanGetAge(Pasha2));
-        printf("%d\n", KSHumanGetAge(Pasha3));
+    puts("test");
+    printf("%d\n", KSHumanGetAge(Pasha3));
 }
+

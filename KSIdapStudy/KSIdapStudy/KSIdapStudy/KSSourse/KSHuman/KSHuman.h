@@ -13,31 +13,30 @@
 #include <stdbool.h>
 
 typedef enum {
-    kKSexTypeUndefine,
-    kKSSexMale,
-    kKSSexFemale,
-} KSSexType;
+    kKSGenderUndefine,
+    kKSMale,
+    kKSFemale,
+} KSGenderType;
 
 typedef struct KSHuman KSHuman;
 
-extern
-KSHuman *KSHumanCreateWithNamedAgeGender(char *name, uint8_t age, KSSexType sex);
+extern  
+KSHuman *KSHumanCreateWithNameAgeGender(char *name, uint8_t age, KSGenderType gender);
 
 extern
-KSHuman * KSChildCreateWithParentNamedAgeGender(KSHuman *father,
+KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                                KSHuman *mother,
                                                char *name,
                                                uint8_t age,
-                                               KSSexType sex);
-
-extern
-void KSHumanRetain(KSHuman *human);
-
+                                               KSGenderType gender);
 extern
 void KSHumanRelease(KSHuman *human);
 
 extern
-void KSHumanSetChild(KSHuman *human, KSHuman *parent);
+void KSHumanAddChild(KSHuman *human, KSHuman *child);
+
+extern
+void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
 
 extern
 KSHuman *KSHumanGetChildren(KSHuman *human);
@@ -52,7 +51,7 @@ extern
 uint8_t KSHumanGetAge(KSHuman *human);
 
 extern
-KSSexType KSHumanGetSexType(KSHuman *human);
+KSGenderType KSHumanGetGenderType(KSHuman *human);
 
 extern
 KSHuman *KSHumanGetPartner(KSHuman *human);
@@ -67,20 +66,9 @@ extern
 void KSHumanMarry(KSHuman *human, KSHuman *partner);
 
 extern
+bool KSReturnHumanMarried(KSHuman *human);
+
+extern
 void KSHumanDivorce(KSHuman *human);
-
-extern
-void KSHumanDieParent(KSHuman *human);
-
-extern
-void KSHumanRemoveChildrenFromTheirParents(KSHuman *human);
-
-void KSDelFather(KSHuman *human);
-
-extern
-void KSHumanDelParentsFromChildren(KSHuman *human);
-
-extern
-void KSHumanRemoveParentsFromTheirChildren(KSHuman *human);
 
 #endif /* KSHuman_h */
