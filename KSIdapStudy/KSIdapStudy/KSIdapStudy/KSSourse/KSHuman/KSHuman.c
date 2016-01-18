@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 #include "KSHuman.h"
 #include "KSMacro.h"
@@ -61,6 +62,7 @@ void __KSHumanDeallocate(KSHuman *human) {
     KSHumanSetMother(human, NULL);
     KSHumanSetFather(human, NULL);
     KSHumanRemoveAllChildren(human);
+    KSHumanSetName(human, NULL);
 
     free(human);
     
@@ -125,7 +127,14 @@ uint8_t KSHumanGetAge(KSHuman *human) {
 void KSHumanSetName(KSHuman *human, char *name) {
     KSReturnMacro(human);
     
-    human->_name = name;
+    char *nameHuman;
+    nameHuman = strdup(name);
+    
+    if (NULL == name) {
+        free(nameHuman);
+    }
+    
+    human->_name = nameHuman;
 }
 
 char *KSHumanGetName(KSHuman *human) {
