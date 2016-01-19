@@ -207,11 +207,7 @@ KSHuman *KSHumanGetChildren(KSHuman *human) {
 void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index) {
     KSReturnMacro(human);
     
-    if (human->_children[index] != child) {
-        KSHumanRelease(human->_children[index]);
-        human->_children[index] = child;
-        KSHumanRetain(child);
-    }
+    KSRetainSetter(human->_children[index], child);
     
 }
 
@@ -249,18 +245,15 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
         index++;
     }
     
-    human->_children[index] = child;
-    KSHumanRetain(child);
+    KSRetainSetter(human->_children[index], child);
 }
 
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
     
     for (int index = 0; index < kKSChildrenCount; index++) {
-        if (human->_children[index] == child) {
-            human->_children[index] = NULL;
-            
-            KSHumanRelease(child);
+        if (KSHumanGetChildAtIndex(human, index) == child) {
+            KSHumanSetChildAtIndex(human, NULL, index);
             
             KSHumanGetGenderType(human) == kKSMale
             ? KSHumanSetFather(child, NULL)

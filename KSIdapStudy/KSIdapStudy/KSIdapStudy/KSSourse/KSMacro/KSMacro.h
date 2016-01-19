@@ -38,7 +38,7 @@
             if (oldValue != newValue) {\
                 KSHumanRelease(oldValue); \
                 oldValue = newValue; \
-                KSHumanRetain(newValue) \
+                KSHumanRetain(newValue); \
             }
 
 #endif /* KSOutputType_h */
