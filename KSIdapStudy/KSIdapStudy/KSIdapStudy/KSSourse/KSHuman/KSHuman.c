@@ -42,6 +42,12 @@ void KSHumanSetFather(KSHuman *human, KSHuman *father);
 static
 void KSHumanRetain(KSHuman *human);
 
+static
+void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index);
+
+static
+KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
+
 struct KSHuman {
     int16_t _retainCount;
     KSHuman *_children[kKSChildrenCount];
@@ -127,14 +133,13 @@ uint8_t KSHumanGetAge(KSHuman *human) {
 void KSHumanSetName(KSHuman *human, char *name) {
     KSReturnMacro(human);
     
-    char *nameHuman;
-    nameHuman = strdup(name);
+    free(human->_name);
     
-    if (NULL == name) {
-        free(nameHuman);
+    if (NULL != name) {
+        human->_name = strdup(name);
+    } else {
+        human->_name = NULL;
     }
-    
-    human->_name = nameHuman;
 }
 
 char *KSHumanGetName(KSHuman *human) {
@@ -199,6 +204,23 @@ KSHuman *KSHumanGetChildren(KSHuman *human) {
     return *human->_children;
 }
 
+void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index) {
+    KSReturnMacro(human);
+    
+    if (human->_children[index] != child) {
+        KSHumanRelease(human->_children[index]);
+        human->_children[index] = child;
+        KSHumanRetain(child);
+    }
+    
+}
+
+KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
+    KSReturnNullMacro(human);
+    
+    return human->_children[index];
+}
+
 #pragma mark -
 #pragma mark Public Implementations
 
@@ -225,7 +247,6 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
     
     while (human->_children[index] != NULL) {
         index++;
-        assert(index < kKSChildrenCount);
     }
     
     human->_children[index] = child;

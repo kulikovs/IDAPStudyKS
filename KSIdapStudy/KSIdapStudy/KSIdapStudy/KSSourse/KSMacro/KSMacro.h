@@ -34,5 +34,11 @@
         return 0;\
     }
 
+#define KSRetainSetter(oldValue, newValue) \
+            if (oldValue != newValue) {\
+                KSHumanRelease(oldValue); \
+                oldValue = newValue; \
+                KSHumanRetain(newValue) \
+            }
 
 #endif /* KSOutputType_h */
