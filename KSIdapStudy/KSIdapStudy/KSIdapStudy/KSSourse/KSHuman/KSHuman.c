@@ -15,6 +15,17 @@
 
 static const uint8_t kKSChildrenCount = 20;
 
+struct KSHuman {
+    int16_t _retainCount;
+    KSHuman *_children[kKSChildrenCount];
+    KSHuman *_partner;
+    KSHuman *_mother;
+    KSHuman *_father;
+    uint8_t _age;
+    char *_name;
+    KSGenderType _gender;
+};
+
 #pragma mark -
 #pragma mark Private Declarations
 
@@ -53,17 +64,6 @@ KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
 
 static
 void KSHumanRemoveAllChildren(KSHuman *human);
-
-struct KSHuman {
-    int16_t _retainCount;
-    KSHuman *_children[kKSChildrenCount];
-    KSHuman *_partner;
-    KSHuman *_mother;
-    KSHuman *_father;
-    uint8_t _age;
-    char *_name;
-    KSGenderType _gender;
-};
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
