@@ -21,7 +21,9 @@ typedef enum {
 typedef struct KSHuman KSHuman;
 
 extern  
-KSHuman *KSHumanCreateWithNameAgeGender(char *name, uint8_t age, KSGenderType gender);
+KSHuman *KSHumanCreateWithNameAgeGender(char *name,
+                                        uint8_t age,
+                                        KSGenderType gender);
 
 extern
 KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
@@ -33,13 +35,7 @@ extern
 void KSHumanRelease(KSHuman *human);
 
 extern
-void KSHumanAddChild(KSHuman *human, KSHuman *child);
-
-extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
-
-extern
-void KSHumanRemoveAllChildren(KSHuman *human);
 
 extern
 KSHuman *KSHumanGetChildren(KSHuman *human);
