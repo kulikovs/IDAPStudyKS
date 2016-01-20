@@ -26,6 +26,7 @@ void KSHumanTest(void) {
     KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, "Pasha", 0, kKSMale);
     
     KSHumanDivorce(Serg);
+//    KSHumanRemoveAllChildren(Serg);
     
     KSHumanRemoveChild(Serg, Pasha3);
     KSHumanRemoveChild(Masha, Pasha3);

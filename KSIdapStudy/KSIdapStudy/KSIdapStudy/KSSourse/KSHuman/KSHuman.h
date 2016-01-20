@@ -35,6 +35,9 @@ extern
 void KSHumanRelease(KSHuman *human);
 
 extern
+void KSHumanRetain(KSHuman *human);
+
+extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
 
 extern
@@ -48,6 +51,9 @@ char *KSHumanGetName(KSHuman *human);
 
 extern
 uint8_t KSHumanGetAge(KSHuman *human);
+
+extern
+void KSHumanRemoveAllChildren(KSHuman *human);
 
 extern
 KSGenderType KSHumanGetGenderType(KSHuman *human);
