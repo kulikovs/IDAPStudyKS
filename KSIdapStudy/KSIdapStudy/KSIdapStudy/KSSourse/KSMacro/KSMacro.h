@@ -41,4 +41,9 @@
                 KSHumanRetain(newValue); \
             }
 
+#define KSAssignMacro(oldValue, newValue) \
+            if (oldValue != newValue) {\
+                oldValue = newValue; \
+            }
+
 #endif /* KSOutputType_h */

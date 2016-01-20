@@ -121,7 +121,7 @@ KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
 void KSHumanSetAge(KSHuman *human, uint8_t age) {
     KSReturnMacro(human);
     
-    human->_age = age;
+    KSAssignMacro(human->_age, age);
 }
 
 uint8_t KSHumanGetAge(KSHuman *human) {
@@ -152,10 +152,11 @@ void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {
     KSReturnMacro(human);
    
     assert(KSHumanGetGenderType(human) != KSHumanGetGenderType(partner));
+    
     if (KSHumanGetGenderType(human) == kKSMale) {
         KSRetainSetter(human->_partner, partner)
     } else {
-        human->_partner = partner;
+        KSAssignMacro(human->_partner, partner);
     }
 }
 
@@ -168,7 +169,7 @@ KSHuman *KSHumanGetPartner(KSHuman *human) {
 void KSHumanSetGenderType(KSHuman *human, KSGenderType gender) {
     KSReturnMacro(human);
     
-    human->_gender = gender;
+    KSAssignMacro(human->_gender, gender)
 }
 
 KSGenderType KSHumanGetGenderType(KSHuman *human) {
@@ -180,7 +181,7 @@ KSGenderType KSHumanGetGenderType(KSHuman *human) {
 void KSHumanSetMother(KSHuman *human, KSHuman *mother) {
     KSReturnMacro(human);
     
-    human->_mother = mother;
+    KSAssignMacro(human->_mother, mother)
 }
 
 KSHuman *KSHumanGetMother(KSHuman *human) {
@@ -192,7 +193,7 @@ KSHuman *KSHumanGetMother(KSHuman *human) {
 void KSHumanSetFather(KSHuman *human, KSHuman *father) {
     KSReturnMacro(human);
     
-    human->_father = father;
+    KSAssignMacro(human->_father, father);
 }
 
 KSHuman *KSHumanGetFather(KSHuman *human) {
@@ -239,7 +240,7 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     for (int index = 0; index < kKSChildrenCount; index++) {
         if (KSHumanGetChildAtIndex(human, index) == child) {
             KSHumanSetChildAtIndex(human, NULL, index);
-            
+ 
             KSHumanGetGenderType(human) == kKSMale
             ? KSHumanSetFather(child, NULL)
             : KSHumanSetMother(child, NULL);
@@ -263,7 +264,7 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner) {
     if (human->_partner != NULL || partner->_partner != NULL) {
         return;
     }
-        
+    
     KSHumanSetPartner(human, partner);
     KSHumanSetPartner(partner, human);
 }
