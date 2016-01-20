@@ -34,12 +34,18 @@
         return 0;\
     }
 
+//#define KSRetainSetter(oldValue, newValue) \
+//            if (oldValue != newValue) {\
+//                KSHumanRelease(oldValue); \
+//                oldValue = newValue; \
+//                KSHumanRetain(newValue); \
+//            }
+
 #define KSRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
                 KSHumanRelease(oldValue); \
-                oldValue = newValue; \
-                KSHumanRetain(newValue); \
-            }
+                oldValue = KSHumanRetain(newValue); \
+}
 
 #define KSAssignMacro(oldValue, newValue) \
             if (oldValue != newValue) {\

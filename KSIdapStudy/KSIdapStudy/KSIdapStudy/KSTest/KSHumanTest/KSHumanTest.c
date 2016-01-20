@@ -7,16 +7,16 @@
 //
 
 #include "KSHumanTest.h"
+#include <stdio.h>
+
 
 void KSHumanTest(void) {
     KSHuman *Serg = KSHumanCreateWithNameAgeGender("Sergey", 30, kKSMale);
-    
     KSHumanSetName(Serg, "Sergey");
     KSHumanSetName(Serg, "Vasya");
     KSHumanSetName(Serg, NULL);
     KSHumanSetName(Serg, "Sergey");
     KSHumanGetName(Serg);
-    
     KSHuman *Masha = KSHumanCreateWithNameAgeGender("Masha", 31, kKSFemale);
     
     KSHumanMarry(Masha, Serg);

@@ -5,18 +5,19 @@
 //  Created by KulikovS on 08.01.16.
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
-#include <stdbool.h>
-#include <stdlib.h>
+
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "KSHuman.h"
 #include "KSMacro.h"
+#include "KSObject.h"
 
 static const uint8_t kKSChildrenCount = 20;
 
 struct KSHuman {
-    int16_t _retainCount;
+    KSObject *super;
     KSHuman *_children[kKSChildrenCount];
     KSHuman *_partner;
     KSHuman *_mother;
@@ -79,8 +80,6 @@ KSHuman *KSHumanCreate() {
     KSHuman *human = calloc(1, sizeof(KSHuman));
     
     assert(human);
-    
-    human->_retainCount = 1;
     
     return human;
 }
@@ -217,22 +216,6 @@ KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
 
 #pragma mark -
 #pragma mark Public Implementations
-
-void KSHumanRetain(KSHuman *human) {
-    KSReturnMacro(human);
-    
-    human->_retainCount++;
-}
-
-void KSHumanRelease(KSHuman *human) {
-    KSReturnMacro(human);
-    
-    human->_retainCount--;
-    
-    if (0 == human->_retainCount) {
-        __KSHumanDeallocate(human);
-    }
-}
 
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);

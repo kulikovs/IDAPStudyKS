@@ -9,7 +9,7 @@
 #ifndef KSHuman_h
 #define KSHuman_h
 
-#include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 typedef enum {
@@ -31,11 +31,6 @@ KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                                char *name,
                                                uint8_t age,
                                                KSGenderType gender);
-extern
-void KSHumanRelease(KSHuman *human);
-
-extern
-void KSHumanRetain(KSHuman *human);
 
 extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
