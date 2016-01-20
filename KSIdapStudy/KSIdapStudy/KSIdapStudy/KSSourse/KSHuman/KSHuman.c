@@ -70,7 +70,7 @@ void KSHumanRemoveAllChildren(KSHuman *human);
 
 void __KSHumanDeallocate(KSHuman *human) {
     
-    KSHumanSetPartner(human, NULL);
+    KSHumanDivorce(human);
     KSHumanSetMother(human, NULL);
     KSHumanSetFather(human, NULL);
     KSHumanRemoveAllChildren(human);
@@ -306,6 +306,6 @@ void KSHumanRemoveAllChildren(KSHuman *human) {
     KSReturnMacro(human);
     
     for (int index = 0; index < kKSChildrenCount; index++) {
-        human->_children[index] = NULL;
+        KSHumanSetChildAtIndex(human, human->_children[index], index);
     }
 }
