@@ -36,12 +36,12 @@ void KSHumanTest(void) {
     KSHumanRemoveChild(Masha, Pasha);
     
     
-//    KSHumanRelease(Serg);
-//    KSHumanRelease(Masha);
-//    KSHumanRelease(Pasha);
-//    KSHumanRelease(Pasha2);
-//    KSHumanRelease(Pasha3);
-//    
+    KSObjectRelease(Serg);
+    KSObjectRelease(Masha);
+    KSObjectRelease(Pasha);
+    KSObjectRelease(Pasha2);
+    KSObjectRelease(Pasha3);
+    
     
     printf("%d\n", KSHumanGetAge(Serg));
     printf("%d\n", KSHumanGetAge(Masha));

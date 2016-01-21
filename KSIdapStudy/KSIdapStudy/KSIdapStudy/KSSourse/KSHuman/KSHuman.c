@@ -17,7 +17,7 @@
 static const uint8_t kKSChildrenCount = 20;
 
 struct KSHuman {
-    KSObject *super;
+    KSObject _super;
     KSHuman *_children[kKSChildrenCount];
     KSHuman *_partner;
     KSHuman *_mother;

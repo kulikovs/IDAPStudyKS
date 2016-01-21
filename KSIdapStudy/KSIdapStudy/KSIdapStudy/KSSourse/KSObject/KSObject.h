@@ -11,11 +11,16 @@
 
 typedef struct KSObject KSObject;
 
-typedef void (KSObjectDeallocate) (void object);
+typedef void (KSObjectDeallocator)(void *object);
 
-void *KSObjectCreate(size_t size);
+struct KSObject {
+    uint16_t _retainCount;
+    KSObjectDeallocator *deallocator;
+};
 
-KSObject *KSObjectRetain(void *object);
+void *KSObjectCreate(size_t size, KSObjectDeallocator *deallocator);
+
+void *KSObjectRetain(void *object);
 
 void KSObjectRelease(void *object);
 
