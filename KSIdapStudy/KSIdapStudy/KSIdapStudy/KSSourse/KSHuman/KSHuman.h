@@ -66,7 +66,7 @@ extern
 void KSHumanMarry(KSHuman *human, KSHuman *partner);
 
 extern
-bool KSReturnHumanMarried(KSHuman *human);
+bool KSHumanIsMarried(KSHuman *human);
 
 extern
 void KSHumanDivorce(KSHuman *human);

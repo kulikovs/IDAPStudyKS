@@ -14,17 +14,18 @@
 
 struct KSObject {
     int16_t _retainCount;
+    void *KSObjectDeallocator;
 };
 
 #pragma mark
 #pragma mark - Private Implementations
 
-void __KSDeallocate(KSObject *object);
+void __KSObjectDeallocate(KSObject *object);
 
 #pragma mark
 #pragma mark Initializations and Deallocations
 
-KSObject *KSObjectCreate(size_t size) {
+void *KSObjectCreate(size_t size, ) {
     KSObject *object = calloc(1, size);
     
     assert(object);
@@ -34,7 +35,7 @@ KSObject *KSObjectCreate(size_t size) {
     return object;
 }
 
-void __KSDeallocate(KSObject *object) {
+void __KSObjectDeallocate(KSObject *object) {
     KSReturnMacro(object);
     
     free(object);
@@ -43,19 +44,26 @@ void __KSDeallocate(KSObject *object) {
 #pragma mark
 #pragma mark - Public Implementations
 
-KSObject *KSObjectRetain(KSObject *object) {
+KSObject *KSObjectRetain(void *object) {
     KSReturnNullMacro(object);
+    
     KSObject *newObject = object;
+    
+//    assert(int16_t < newObject->_retainCount);
     
     newObject->_retainCount++;
     
     return newObject;
 }
 
-void KSObjectRelease(KSObject *object) {
+void KSObjectRelease(void *object) {
     KSReturnMacro(object);
     
-    if (object->_retainCount == 0) {
-        __KSDeallocate(object);
+    KSObject *newObject = object;
+    
+    newObject->_retainCount--;
+    
+    if (newObject->_retainCount == 0) {
+        __KSObjectDeallocate(object);
     }
 }

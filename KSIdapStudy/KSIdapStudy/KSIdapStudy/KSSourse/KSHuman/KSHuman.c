@@ -77,9 +77,7 @@ void __KSHumanDeallocate(KSHuman *human) {
 }
 
 KSHuman *KSHumanCreate() {
-    KSHuman *human = calloc(1, sizeof(KSHuman));
-    
-    assert(human);
+    KSHuman *human = KSObjectCreateMacro(KSHuman);
     
     return human;
 }
@@ -235,7 +233,7 @@ void KSHumanRemoveAllChildren(KSHuman *human) {
     KSReturnMacro(human);
     
     for (int index = 0; index < kKSChildrenCount; index++) {
-        KSHumanRemoveChild(human, human->_children[index]);
+        KSHumanRemoveChild(human, KSHumanGetChildAtIndex(human, index));
     }
     
 }
@@ -252,7 +250,7 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner) {
     KSHumanSetPartner(partner, human);
 }
 
-bool KSHumanMarried(KSHuman *human) {
+bool KSHumanIsMarried(KSHuman *human) {
     bool married = false;
     
     if (KSHumanGetPartner(human) != NULL) {

@@ -43,13 +43,17 @@
 
 #define KSRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
-                KSHumanRelease(oldValue); \
-                oldValue = KSHumanRetain(newValue); \
+                KSObjectRelease(oldValue); \
+                oldValue = KSObjectRetain(newValue); \
 }
 
 #define KSAssignMacro(oldValue, newValue) \
             if (oldValue != newValue) {\
                 oldValue = newValue; \
             }
+
+#define KSObjectCreateMacro(type) {\
+            KSObjectCreate(sizeof(type)) \
+        }
 
 #endif /* KSOutputType_h */

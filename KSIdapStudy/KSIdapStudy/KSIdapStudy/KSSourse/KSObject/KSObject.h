@@ -11,10 +11,12 @@
 
 typedef struct KSObject KSObject;
 
-KSObject *KSObjectCreate(size_t size);
+typedef void (KSObjectDeallocate) (void object);
 
-KSObject *KSObjectRetain(KSObject *object);
+void *KSObjectCreate(size_t size);
 
-void KSObjectRelease(KSObject *object);
+KSObject *KSObjectRetain(void *object);
+
+void KSObjectRelease(void *object);
 
 #endif /* KSObject_h */
