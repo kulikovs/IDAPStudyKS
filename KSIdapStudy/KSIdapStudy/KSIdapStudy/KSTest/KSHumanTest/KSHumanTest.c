@@ -6,8 +6,10 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#include "KSHumanTest.h"
 #include <stdio.h>
+
+#include "KSHumanTest.h"
+
 
 
 void KSHumanTest(void) {
@@ -26,22 +28,20 @@ void KSHumanTest(void) {
     KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, "Pasha", 0, kKSMale);
     
     KSHumanDivorce(Serg);
-//    KSHumanRemoveAllChildren(Serg);
-    
-    KSHumanRemoveChild(Serg, Pasha3);
+    KSHumanRemoveAllChildren(Serg);
+//    
+//    KSHumanRemoveChild(Serg, Pasha3);
     KSHumanRemoveChild(Masha, Pasha3);
-    KSHumanRemoveChild(Serg, Pasha2);
+//    KSHumanRemoveChild(Serg, Pasha2);
     KSHumanRemoveChild(Masha, Pasha2);
-    KSHumanRemoveChild(Serg, Pasha);
+//    KSHumanRemoveChild(Serg, Pasha);
     KSHumanRemoveChild(Masha, Pasha);
-    
     
     KSObjectRelease(Serg);
     KSObjectRelease(Masha);
     KSObjectRelease(Pasha);
     KSObjectRelease(Pasha2);
     KSObjectRelease(Pasha3);
-    
     
     printf("%d\n", KSHumanGetAge(Serg));
     printf("%d\n", KSHumanGetAge(Masha));

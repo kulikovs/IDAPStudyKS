@@ -52,7 +52,4 @@
                 oldValue = newValue; \
             }
 
-#define KSObjectCreateMacro(type) \
-            KSObjectCreate(sizeof(type), (void*) __##type##Deallocate)
-
 #endif /* KSOutputType_h */

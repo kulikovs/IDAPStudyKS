@@ -15,8 +15,8 @@
 #pragma mark
 #pragma mark - Private Implementations
 
-#pragma mark
-#pragma mark Initializations and Deallocations
+#pragma mark -
+#pragma mark - Initializations and Deallocations
 
 void *KSObjectCreate(size_t size, KSObjectDeallocator *deallocator) {
     KSObject *object = calloc(1, size);
@@ -35,7 +35,7 @@ void __KSObjectDeallocate(void *object) {
     free(object);
 }
 
-#pragma mark
+#pragma mark -
 #pragma mark - Public Implementations
 
 void *KSObjectRetain(void *object) {
@@ -43,7 +43,8 @@ void *KSObjectRetain(void *object) {
     
     KSObject *newObject = object;
     
-//    assert(int16_t < newObject->_retainCount);
+    assert(newObject->_retainCount >0 );
+    assert(INT16_MAX > newObject->_retainCount);
     
     newObject->_retainCount++;
     
@@ -54,7 +55,6 @@ void KSObjectRelease(void *object) {
     KSReturnMacro(object);
     
     KSObject *newObject = object;
-    
     newObject->_retainCount--;
     
     if (newObject->_retainCount == 0) {

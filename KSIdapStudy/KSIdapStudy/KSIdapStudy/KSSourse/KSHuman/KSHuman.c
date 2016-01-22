@@ -12,7 +12,7 @@
 
 #include "KSHuman.h"
 #include "KSMacro.h"
-#include "KSObject.h"
+
 
 static const uint8_t kKSChildrenCount = 20;
 
@@ -59,6 +59,9 @@ void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index);
 
 static
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
+
+static
+void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -219,13 +222,7 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
     
     for (int index = 0; index < kKSChildrenCount; index++) {
-        if (KSHumanGetChildAtIndex(human, index) == child) {
-            KSHumanSetChildAtIndex(human, NULL, index);
- 
-            KSHumanGetGenderType(human) == kKSMale
-            ? KSHumanSetFather(child, NULL)
-            : KSHumanSetMother(child, NULL);
-        }
+        KSHumanRemoveChildAtIndex(human, child, index);
     }
 }
 
@@ -233,7 +230,7 @@ void KSHumanRemoveAllChildren(KSHuman *human) {
     KSReturnMacro(human);
     
     for (int index = 0; index < kKSChildrenCount; index++) {
-        KSHumanRemoveChild(human, KSHumanGetChildAtIndex(human, index));
+        KSHumanRemoveChildAtIndex(human, KSHumanGetChildAtIndex(human, index), index);
     }
     
 }
@@ -280,4 +277,16 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
     }
     
     KSHumanSetChildAtIndex(human, child, index);
+}
+
+void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index) {
+    
+    if (KSHumanGetChildAtIndex(human, index) == child) {
+        KSHumanSetChildAtIndex(human, NULL, index);
+        
+        KSHumanGetGenderType(human) == kKSMale
+        ? KSHumanSetFather(child, NULL)
+        : KSHumanSetMother(child, NULL);
+
+    }
 }

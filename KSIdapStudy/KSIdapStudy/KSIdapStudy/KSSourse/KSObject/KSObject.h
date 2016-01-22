@@ -13,15 +13,24 @@ typedef struct KSObject KSObject;
 
 typedef void (KSObjectDeallocator)(void *object);
 
+#define KSObjectCreateMacro(type) \
+KSObjectCreate(sizeof(type), (void*) __##type##Deallocate)
+
 struct KSObject {
     uint16_t _retainCount;
     KSObjectDeallocator *deallocator;
 };
 
+extern
 void *KSObjectCreate(size_t size, KSObjectDeallocator *deallocator);
 
+extern
+void __KSObjectDeallocate(void *object);
+
+extern
 void *KSObjectRetain(void *object);
 
+extern
 void KSObjectRelease(void *object);
 
 #endif /* KSObject_h */

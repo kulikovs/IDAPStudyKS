@@ -12,6 +12,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include "KSObject.h"
+
 typedef enum {
     kKSGenderUndefine,
     kKSMale,
