@@ -74,9 +74,8 @@ void __KSHumanDeallocate(KSHuman *human) {
     KSHumanRemoveAllChildren(human);
     KSHumanSetName(human, NULL);
 
-    free(human);
+    __KSObjectDeallocate(human);
     
-    puts("Killed");
 }
 
 KSHuman *KSHumanCreate() {

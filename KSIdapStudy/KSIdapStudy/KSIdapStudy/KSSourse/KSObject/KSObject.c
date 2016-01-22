@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include <assert.h>
+#include <stdio.h>
 
 #include "KSObject.h"
 #include "KSMacro.h"
@@ -33,6 +34,8 @@ void __KSObjectDeallocate(void *object) {
     KSReturnMacro(object);
     
     free(object);
+    
+    puts("Killed");
 }
 
 #pragma mark -

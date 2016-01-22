@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C93712701C3FD454009ED5BA /* KSHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = C937126E1C3FD454009ED5BA /* KSHuman.c */; };
 		C952D6CC1C4FF9AD0081C4C5 /* KSObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C952D6CA1C4FF9AD0081C4C5 /* KSObject.c */; };
+		C95B30A51C5267FB00BFE3A8 /* KSStringObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */; };
+		C95B30A91C52853700BFE3A8 /* KSStringObjectTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */; };
 		C9935B301C4196CB00CF8708 /* KSHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C9935B2E1C4196CB00CF8708 /* KSHumanTest.c */; };
 		C993CAD91C32D2C600593631 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C993CAD81C32D2C600593631 /* main.c */; };
 		C993CAF51C32D4FA00593631 /* KSTestStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = C993CAF21C32D4FA00593631 /* KSTestStruct.c */; };
@@ -34,6 +36,10 @@
 		C937126F1C3FD454009ED5BA /* KSHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHuman.h; sourceTree = "<group>"; };
 		C952D6CA1C4FF9AD0081C4C5 /* KSObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSObject.c; sourceTree = "<group>"; };
 		C952D6CB1C4FF9AD0081C4C5 /* KSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObject.h; sourceTree = "<group>"; };
+		C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObject.c; sourceTree = "<group>"; };
+		C95B30A41C5267FB00BFE3A8 /* KSStringObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringObject.h; sourceTree = "<group>"; };
+		C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObjectTest.c; sourceTree = "<group>"; };
+		C95B30A81C52853700BFE3A8 /* KSStringObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringObjectTest.h; sourceTree = "<group>"; };
 		C9935B2E1C4196CB00CF8708 /* KSHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHumanTest.c; sourceTree = "<group>"; };
 		C9935B2F1C4196CB00CF8708 /* KSHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHumanTest.h; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* KSIdapStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KSIdapStudy; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +85,24 @@
 			path = KSObject;
 			sourceTree = "<group>";
 		};
+		C95B30A21C5267EE00BFE3A8 /* KSStringObject */ = {
+			isa = PBXGroup;
+			children = (
+				C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */,
+				C95B30A41C5267FB00BFE3A8 /* KSStringObject.h */,
+			);
+			path = KSStringObject;
+			sourceTree = "<group>";
+		};
+		C95B30A61C52852700BFE3A8 /* KSStringObjectTest */ = {
+			isa = PBXGroup;
+			children = (
+				C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */,
+				C95B30A81C52853700BFE3A8 /* KSStringObjectTest.h */,
+			);
+			path = KSStringObjectTest;
+			sourceTree = "<group>";
+		};
 		C9935B2D1C4196C000CF8708 /* KSHumanTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +141,7 @@
 		C993CAE61C32D4F000593631 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C95B30A21C5267EE00BFE3A8 /* KSStringObject */,
 				C952D6C91C4FF99C0081C4C5 /* KSObject */,
 				C937126D1C3FD43D009ED5BA /* KSHuman */,
 				C998FD681C3AC34D0034BED2 /* KSValueBitOutput */,
@@ -145,6 +170,7 @@
 		C993CAED1C32D4FA00593631 /* KSTest */ = {
 			isa = PBXGroup;
 			children = (
+				C95B30A61C52852700BFE3A8 /* KSStringObjectTest */,
 				C9935B2D1C4196C000CF8708 /* KSHumanTest */,
 				C9F0B9151C3B04830001AD0B /* KSValueBitOutputTest */,
 				C993CAF61C32D55800593631 /* KSTestMacroOutputType */,
@@ -246,12 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C952D6CC1C4FF9AD0081C4C5 /* KSObject.c in Sources */,
+				C95B30A91C52853700BFE3A8 /* KSStringObjectTest.c in Sources */,
 				C993CAF51C32D4FA00593631 /* KSTestStruct.c in Sources */,
 				C993CAD91C32D2C600593631 /* main.c in Sources */,
 				C9F0B9181C3B04930001AD0B /* KSValueBitOutputTest.c in Sources */,
 				C93712701C3FD454009ED5BA /* KSHuman.c in Sources */,
 				C998FD6B1C3AC35E0034BED2 /* KSValueBitOutput.c in Sources */,
 				C993CAF91C32D55800593631 /* KSTestMacroOutputType.c in Sources */,
+				C95B30A51C5267FB00BFE3A8 /* KSStringObject.c in Sources */,
 				C9935B301C4196CB00CF8708 /* KSHumanTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,11 +14,12 @@
 #include "KSValueBitOutputTest.h"
 #include "KSHumanTest.h"
 #include "KSMacro.h"
+#include "KSStringObjectTest.h"
 
 int main(int argc, const char * argv[]) {
 
      KSHumanTest();
-
+   // KSStringObjectTest();
 
     return 0;
 }
