@@ -14,7 +14,7 @@ typedef struct KSObject KSObject;
 typedef void (KSObjectDeallocator)(void *object);
 
 #define KSObjectCreateMacro(type) \
-KSObjectCreate(sizeof(type), (void*) __##type##Deallocate)
+KSObjectCreate(sizeof(type), (KSObjectDeallocator*)__##type##Deallocate)
 
 struct KSObject {
     uint16_t _retainCount;
@@ -32,5 +32,8 @@ void *KSObjectRetain(void *object);
 
 extern
 void KSObjectRelease(void *object);
+
+extern
+uint16_t KSObjectGetRetainCount(void *object);
 
 #endif /* KSObject_h */

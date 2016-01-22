@@ -61,3 +61,11 @@ void KSObjectRelease(void *object) {
        newObject->deallocator(object);
     }
 }
+
+uint16_t KSObjectGetRetainCount(void *object) {
+    KSReturnNullMacro(object);
+    
+    KSObject *newObject = object;
+    
+    return newObject->_retainCount;
+}
