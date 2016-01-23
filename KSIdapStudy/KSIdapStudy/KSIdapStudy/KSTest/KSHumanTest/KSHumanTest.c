@@ -21,6 +21,8 @@ void KSHumanTest(void) {
     KSString *namePasha1 = KSStringCreateWithSymbols("Pasha1");
     KSString *namePasha2 = KSStringCreateWithSymbols("Pasha2");
     KSString *namePasha3 = KSStringCreateWithSymbols("Pasha3");
+    
+    KSStringPrint(namePasha1);
 
     KSHuman *Serg = KSHumanCreateWithNameAgeGender(nameSerg, 30, kKSMale);
     KSHuman *Masha = KSHumanCreateWithNameAgeGender(nameMasha, 31, kKSFemale);

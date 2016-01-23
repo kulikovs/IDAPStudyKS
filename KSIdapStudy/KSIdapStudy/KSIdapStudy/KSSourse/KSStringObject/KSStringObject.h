@@ -34,4 +34,7 @@ void KSStringSetSymbols(KSString *string, char *symbols);
 extern
 char *KSStringGetSymbols(KSString *string);
 
+extern
+void KSStringPrint(KSString *string);
+
 #endif /* KSStringObject_h */

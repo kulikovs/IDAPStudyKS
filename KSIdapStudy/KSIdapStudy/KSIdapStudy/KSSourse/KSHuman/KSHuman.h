@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "KSObject.h"
 #include "KSStringObject.h"
 
 typedef enum {

@@ -49,3 +49,10 @@ char *KSStringGetSymbols(KSString *string) {
     
     return string->symbols;
 }
+
+#pragma mark -
+#pragma mark - Public Implementations
+
+void KSStringPrint(KSString *string) {
+    puts(KSStringGetSymbols(string));
+}
