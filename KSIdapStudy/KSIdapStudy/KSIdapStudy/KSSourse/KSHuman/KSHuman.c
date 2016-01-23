@@ -23,7 +23,7 @@ struct KSHuman {
     KSHuman *_mother;
     KSHuman *_father;
     uint8_t _age;
-    char *_name;
+    KSString *_name;
     KSGenderType _gender;
 };
 
@@ -84,13 +84,13 @@ KSHuman *KSHumanCreate() {
     return human;
 }
 
-KSHuman *KSHumanCreateWithNameAgeGender(char *name, uint8_t age, KSGenderType gender) {
+KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName, uint8_t age, KSGenderType gender) {
     KSHuman *human = KSHumanCreate();
 
     assert(age < UINT8_MAX / 2);
     
     KSHumanSetAge(human, age);
-    KSHumanSetName(human, name);
+    KSHumanSetName(human, stringName);
     KSHumanSetGenderType(human, gender);
     
     return human;
@@ -98,13 +98,13 @@ KSHuman *KSHumanCreateWithNameAgeGender(char *name, uint8_t age, KSGenderType ge
 
 KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                               KSHuman *mother,
-                                              char *name,
+                                              KSString *stringName,
                                               uint8_t age,
                                               KSGenderType gender) {
     
     assert(father->_partner == mother);
     
-    KSHuman *human = KSHumanCreateWithNameAgeGender(name, age, gender);
+    KSHuman *human = KSHumanCreateWithNameAgeGender(stringName, age, gender);
     
     KSHumanSetMother(human, mother);
     KSHumanSetFather(human, father);
@@ -129,22 +129,18 @@ uint8_t KSHumanGetAge(KSHuman *human) {
     return human->_age;
 }
 
-void KSHumanSetName(KSHuman *human, char *name) {
+void KSHumanSetName(KSHuman *human, KSString *stringName) {
     KSReturnMacro(human);
-    
-    free(human->_name);
-    
-    if (NULL != name) {
-        human->_name = strdup(name);
-    } else {
-        human->_name = NULL;
-    }
+
+//    KSString *stringName = KSStringCreateWithSymbols(name);
+
+    KSRetainSetter(human->_name, stringName);
 }
 
 char *KSHumanGetName(KSHuman *human) {
     KSReturnNullMacro(human);
     
-    return human->_name;
+    return human->_name->symbols;
 }
 
 void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {

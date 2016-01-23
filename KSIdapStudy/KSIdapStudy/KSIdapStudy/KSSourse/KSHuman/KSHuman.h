@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 #include "KSObject.h"
+#include "KSStringObject.h"
 
 typedef enum {
     kKSGenderUndefine,
@@ -23,14 +24,14 @@ typedef enum {
 typedef struct KSHuman KSHuman;
 
 extern  
-KSHuman *KSHumanCreateWithNameAgeGender(char *name,
+KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName,
                                         uint8_t age,
                                         KSGenderType gender);
 
 extern
 KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                                KSHuman *mother,
-                                               char *name,
+                                               KSString *stringName,
                                                uint8_t age,
                                                KSGenderType gender);
 
@@ -41,7 +42,7 @@ extern
 KSHuman *KSHumanGetChildren(KSHuman *human);
 
 extern
-void KSHumanSetName(KSHuman *human, char *name);
+void KSHumanSetName(KSHuman *human, KSString *stringName);
 
 extern
 char *KSHumanGetName(KSHuman *human);
