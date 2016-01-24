@@ -9,6 +9,8 @@
 #ifndef KSStringObject_h
 #define KSStringObject_h
 
+#include <stdbool.h>
+
 #include "KSObject.h"
 
 typedef struct KSStringObject KSString;
@@ -35,6 +37,19 @@ extern
 char *KSStringGetSymbols(KSString *string);
 
 extern
-void KSStringPrint(KSString *string);
+void KSStringPrintSymbols(KSString *string);
+
+extern
+void KSStringAddInSymbol(KSString *string, KSString *addString);
+
+extern
+void KSStringSetCountSymbols(KSString *string);
+
+extern
+uint8_t KSStringGetCountSymbols(KSString *string);
+
+extern
+bool KSStringResultComparisonsBySymbols(KSString *firstString,
+                                        KSString *secondString);
 
 #endif /* KSStringObject_h */

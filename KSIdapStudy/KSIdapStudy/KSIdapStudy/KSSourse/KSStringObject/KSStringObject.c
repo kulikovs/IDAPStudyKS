@@ -24,6 +24,7 @@ KSString *KSStringCreateWithSymbols(char *symbols) {
     KSString *string = KSStringCreate();
     
     KSStringSetSymbols(string, symbols);
+    KSStringSetCountSymbols(string);
     
     return string;
 }
@@ -50,9 +51,62 @@ char *KSStringGetSymbols(KSString *string) {
     return string->symbols;
 }
 
+void KSStringSetCountSymbols(KSString *string) {
+    KSReturnMacro(string);
+    
+    for (int index = 0; KSStringGetSymbols(string)[index] != '\0'; index++) {
+        string->countSymbols = index;
+    }
+}
+
+uint8_t KSStringGetCountSymbols(KSString *string) {
+    KSReturnNullMacro(string);
+    
+    return string->countSymbols;
+}
+
+
 #pragma mark -
 #pragma mark - Public Implementations
 
-void KSStringPrint(KSString *string) {
+void KSStringPrintSymbols(KSString *string) {
     puts(KSStringGetSymbols(string));
 }
+
+bool KSStringResultComparisonsBySymbols(KSString *firstString, //function is not working. Bad access
+                                        KSString *secondString) {
+    KSReturnNullMacro(firstString);
+    KSReturnNullMacro(secondString);
+    
+    bool stringsAreEqual = true;
+    int index = 0;
+    
+    if (firstString->countSymbols == secondString->countSymbols) {
+        while (firstString->symbols[index] == secondString->symbols[index]) {
+            if (firstString->symbols[index] == '\0') {
+                stringsAreEqual = true;
+            }
+            index++;
+        }s
+    }else {
+        stringsAreEqual = false;
+    }
+    
+    return stringsAreEqual;
+}
+
+void KSStringAddInSymbol(KSString *string, KSString *addString) { //function is not working. Bad access
+    for (int index = 0; addString->symbols[index] != '\0'; index++) {
+        string->symbols[string->countSymbols+index] = addString->symbols[index];
+    }
+    
+}
+
+//void KSStringAddInSymbol(KSString *string, char *symbols) {
+//    char *newStirng = string->symbols;
+//    char *stringAdd = symbols;
+// //   char newSymbols = 0;
+//    
+//    for (int count = 0; stringAdd[count] != '\0'; count++) {
+//        newStirng[string->countSymbols+1] = stringAdd[count];    }
+//}
