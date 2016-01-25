@@ -21,12 +21,12 @@ void KSHumanTest(void) {
     KSString *namePasha1 = KSStringCreateWithSymbols("Pasha1");
     KSString *namePasha2 = KSStringCreateWithSymbols("Pasha2");
     KSString *namePasha3 = KSStringCreateWithSymbols("Pasha3");
-    
-    KSStringPrintSymbols(namePasha1);
 
     KSHuman *Serg = KSHumanCreateWithNameAgeGender(nameSerg, 30, kKSMale);
     KSHuman *Masha = KSHumanCreateWithNameAgeGender(nameMasha, 31, kKSFemale);
     KSHumanMarry(Masha, Serg);
+    
+    KSHumanSetName(Masha, KSStringWithString(nameMasha, nameSerg));
     
     KSString *nameSergVasya = KSStringCreateWithSymbols("Serg-Vasya");
     KSHumanSetName(Serg, nameSergVasya);
@@ -38,7 +38,6 @@ void KSHumanTest(void) {
     
     KSHumanDivorce(Serg);
     
-//    KSHumanRemoveAllChildren(Serg);
     KSHumanRemoveChild(Serg, Pasha3);
     KSHumanRemoveChild(Masha, Pasha3);
     KSHumanRemoveChild(Serg, Pasha2);

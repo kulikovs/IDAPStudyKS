@@ -132,15 +132,13 @@ uint8_t KSHumanGetAge(KSHuman *human) {
 void KSHumanSetName(KSHuman *human, KSString *stringName) {
     KSReturnMacro(human);
 
-//    KSString *stringName = KSStringCreateWithSymbols(name);
-
     KSRetainSetter(human->_name, stringName);
 }
 
-char *KSHumanGetName(KSHuman *human) {
+KSString *KSHumanGetName(KSHuman *human) {
     KSReturnNullMacro(human);
     
-    return human->_name->symbols;
+    return human->_name;
 }
 
 void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {
@@ -275,13 +273,11 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
 }
 
 void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index) {
-    
     if (KSHumanGetChildAtIndex(human, index) == child) {
         KSHumanSetChildAtIndex(human, NULL, index);
         
         KSHumanGetGenderType(human) == kKSMale
         ? KSHumanSetFather(child, NULL)
         : KSHumanSetMother(child, NULL);
-
     }
 }

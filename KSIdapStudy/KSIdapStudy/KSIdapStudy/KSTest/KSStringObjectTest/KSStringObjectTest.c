@@ -13,12 +13,10 @@ void KSStringObjectTest(void){
    KSString *string = KSStringCreateWithSymbols("This is test string");
     KSString *addString = KSStringCreateWithSymbols("- add");
     KSString *stringCopy = KSStringCreateWithSymbols("This is test string");
-    KSStringResultComparisonsBySymbols(string, stringCopy);
     puts(KSStringGetSymbols(string));
-    KSStringPrintSymbols(string);
+ //   KSStringPrint(string);
    // KSStringSetCountSymbols(string);
-    KSStringAddInSymbol(string, addString);
-    printf("CountSymbols - %d\n", KSStringGetCountSymbols(string));
+    printf("CountSymbols - %d\n", KSStringGetCount(string));
     KSObjectRelease(string);
     
   //  KSStringAddInSymbol(string, "add");

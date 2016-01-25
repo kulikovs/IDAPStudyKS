@@ -7,6 +7,8 @@
 //
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "KSStringObject.h"
 #include "KSMacro.h"
@@ -24,7 +26,7 @@ KSString *KSStringCreateWithSymbols(char *symbols) {
     KSString *string = KSStringCreate();
     
     KSStringSetSymbols(string, symbols);
-    KSStringSetCountSymbols(string);
+    KSStringSetCount(string);
     
     return string;
 }
@@ -42,71 +44,58 @@ void __KSStringDeallocate(KSString *string) {
 void KSStringSetSymbols(KSString *string, char *symbols) {
     KSReturnMacro(string);
     
-    string->symbols = symbols;
+    free(string->_symbols);
+    
+    if (NULL != symbols) {
+        string->_symbols = strdup(symbols);
+    } else {
+        string->_symbols = NULL;
+    }
 }
 
 char *KSStringGetSymbols(KSString *string) {
     KSReturnNullMacro(string);
     
-    return string->symbols;
+    return string->_symbols;
 }
 
-void KSStringSetCountSymbols(KSString *string) {
+void KSStringSetCount(KSString *string) {
     KSReturnMacro(string);
     
     for (int index = 0; KSStringGetSymbols(string)[index] != '\0'; index++) {
-        string->countSymbols = index;
+        string->_countSymbols = index;
     }
 }
 
-uint8_t KSStringGetCountSymbols(KSString *string) {
+uint8_t KSStringGetCount(KSString *string) {
     KSReturnNullMacro(string);
     
-    return string->countSymbols;
+    return string->_countSymbols;
 }
-
 
 #pragma mark -
 #pragma mark - Public Implementations
 
-void KSStringPrintSymbols(KSString *string) {
+void KSPrintString(KSString *string) {
     puts(KSStringGetSymbols(string));
 }
 
-bool KSStringResultComparisonsBySymbols(KSString *firstString, //function is not working. Bad access
-                                        KSString *secondString) {
-    KSReturnNullMacro(firstString);
-    KSReturnNullMacro(secondString);
-    
-    bool stringsAreEqual = true;
-    int index = 0;
-    
-    if (firstString->countSymbols == secondString->countSymbols) {
-        while (firstString->symbols[index] == secondString->symbols[index]) {
-            if (firstString->symbols[index] == '\0') {
-                stringsAreEqual = true;
-            }
-            index++;
-        }s
-    }else {
-        stringsAreEqual = false;
-    }
-    
-    return stringsAreEqual;
-}
-
-void KSStringAddInSymbol(KSString *string, KSString *addString) { //function is not working. Bad access
-    for (int index = 0; addString->symbols[index] != '\0'; index++) {
-        string->symbols[string->countSymbols+index] = addString->symbols[index];
-    }
-    
-}
-
-//void KSStringAddInSymbol(KSString *string, char *symbols) {
-//    char *newStirng = string->symbols;
-//    char *stringAdd = symbols;
-// //   char newSymbols = 0;
-//    
-//    for (int count = 0; stringAdd[count] != '\0'; count++) {
-//        newStirng[string->countSymbols+1] = stringAdd[count];    }
+//bool KSStringIsEqual(KSString *firstString, KSString *secondString) {
+//    KSReturnNullMacro(firstString);
+//    KSReturnNullMacro(secondString);
+////    
+////    bool stringsAreEqual = true;
+////    
+////    return stringsAreEqual;
 //}
+//
+KSString *KSStringWithString(KSString *firstString, KSString *secondString) {
+    int sumCounters = KSStringGetCount(firstString) + KSStringGetCount(secondString);
+    char *charString = calloc(sumCounters, sizeof(char));
+    strcat(charString, KSStringGetSymbols(firstString));
+    strcat(charString, KSStringGetSymbols(secondString));
+    
+    KSString *newString = KSStringCreateWithSymbols(charString);
+    
+    return newString;
+}

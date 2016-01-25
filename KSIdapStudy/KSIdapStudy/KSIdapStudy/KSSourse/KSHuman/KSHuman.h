@@ -44,7 +44,7 @@ extern
 void KSHumanSetName(KSHuman *human, KSString *stringName);
 
 extern
-char *KSHumanGetName(KSHuman *human);
+KSString *KSHumanGetName(KSHuman *human);
 
 extern
 uint8_t KSHumanGetAge(KSHuman *human);

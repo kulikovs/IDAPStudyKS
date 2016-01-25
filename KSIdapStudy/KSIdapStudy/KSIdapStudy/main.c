@@ -18,8 +18,8 @@
 
 int main(int argc, const char * argv[]) {
 
-    // KSHumanTest();
-    KSStringObjectTest();
+     KSHumanTest();
+    //KSStringObjectTest();
 
     return 0;
 }

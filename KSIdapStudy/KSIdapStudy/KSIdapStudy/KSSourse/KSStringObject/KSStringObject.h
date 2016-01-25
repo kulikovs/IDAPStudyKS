@@ -17,8 +17,8 @@ typedef struct KSStringObject KSString;
 
 struct KSStringObject {
     KSObject _super;
-    char *symbols;
-    uint8_t countSymbols;
+    char *_symbols;
+    uint8_t _countSymbols;
 };
 
 extern
@@ -37,16 +37,16 @@ extern
 char *KSStringGetSymbols(KSString *string);
 
 extern
-void KSStringPrintSymbols(KSString *string);
+void KSPrintString(KSString *string);
 
 extern
-void KSStringAddInSymbol(KSString *string, KSString *addString);
+KSString *KSStringWithString(KSString *firstString, KSString *secondString);
 
 extern
-void KSStringSetCountSymbols(KSString *string);
+void KSStringSetCount(KSString *string);
 
 extern
-uint8_t KSStringGetCountSymbols(KSString *string);
+uint8_t KSStringGetCount(KSString *string);
 
 extern
 bool KSStringResultComparisonsBySymbols(KSString *firstString,
