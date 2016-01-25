@@ -84,7 +84,10 @@ KSHuman *KSHumanCreate() {
     return human;
 }
 
-KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName, uint8_t age, KSGenderType gender) {
+KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName,
+                                        uint8_t age,
+                                        KSGenderType gender)
+{
     KSHuman *human = KSHumanCreate();
 
     assert(age < UINT8_MAX / 2);
@@ -100,8 +103,8 @@ KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                               KSHuman *mother,
                                               KSString *stringName,
                                               uint8_t age,
-                                              KSGenderType gender) {
-    
+                                              KSGenderType gender)
+{    
     assert(father->_partner == mother);
     
     KSHuman *human = KSHumanCreateWithNameAgeGender(stringName, age, gender);

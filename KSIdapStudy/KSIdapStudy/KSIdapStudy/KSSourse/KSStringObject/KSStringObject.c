@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "KSStringObject.h"
 #include "KSMacro.h"
@@ -80,22 +81,34 @@ void KSPrintString(KSString *string) {
     puts(KSStringGetSymbols(string));
 }
 
-//bool KSStringIsEqual(KSString *firstString, KSString *secondString) {
-//    KSReturnNullMacro(firstString);
-//    KSReturnNullMacro(secondString);
-////    
-////    bool stringsAreEqual = true;
-////    
-////    return stringsAreEqual;
-//}
-//
+bool KSStringIsEqual(KSString *firstString, KSString *secondString) {
+    KSReturnNullMacro(firstString);
+    KSReturnNullMacro(secondString);
+    
+    bool stringsEqual = false;
+    
+    if (0 == strcmp(KSStringGetSymbols(firstString),
+                    KSStringGetSymbols(secondString))) {
+        stringsEqual = true;
+    }
+    
+    return stringsEqual;
+}
+
 KSString *KSStringWithString(KSString *firstString, KSString *secondString) {
+    KSReturnNullMacro(firstString);
+    
+    if (!secondString) {
+        return firstString;
+    }
+    
     int sumCounters = KSStringGetCount(firstString) + KSStringGetCount(secondString);
     char *charString = calloc(sumCounters, sizeof(char));
     strcat(charString, KSStringGetSymbols(firstString));
     strcat(charString, KSStringGetSymbols(secondString));
     
     KSString *newString = KSStringCreateWithSymbols(charString);
+    assert(newString);
     
     return newString;
 }

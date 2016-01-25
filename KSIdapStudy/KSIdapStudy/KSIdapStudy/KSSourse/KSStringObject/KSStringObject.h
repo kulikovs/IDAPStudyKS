@@ -49,7 +49,6 @@ extern
 uint8_t KSStringGetCount(KSString *string);
 
 extern
-bool KSStringResultComparisonsBySymbols(KSString *firstString,
-                                        KSString *secondString);
+bool KSStringIsEqual(KSString *firstString, KSString *secondString);
 
 #endif /* KSStringObject_h */
