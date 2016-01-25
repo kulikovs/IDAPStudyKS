@@ -13,9 +13,6 @@
 #include "KSObject.h"
 #include "KSMacro.h"
 
-#pragma mark
-#pragma mark - Private Implementations
-
 #pragma mark -
 #pragma mark - Initializations and Deallocations
 
