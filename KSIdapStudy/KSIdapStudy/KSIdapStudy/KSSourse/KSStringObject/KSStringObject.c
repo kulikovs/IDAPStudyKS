@@ -14,6 +14,18 @@
 #include "KSStringObject.h"
 #include "KSMacro.h"
 
+#pragma mark -
+#pragma mark - Privat Declarations
+
+static
+KSString *KSStringCreate(void);
+
+static
+void __KSStringDeallocate(KSString *sting);
+
+static
+void KSStringSetCount(KSString *string);
+
 #pragma mark - 
 #pragma mark - Initializations and Deallocations
 
@@ -27,7 +39,6 @@ KSString *KSStringCreateWithSymbols(char *symbols) {
     KSString *string = KSStringCreate();
     
     KSStringSetSymbols(string, symbols);
-    KSStringSetCount(string);
     
     return string;
 }
@@ -49,6 +60,7 @@ void KSStringSetSymbols(KSString *string, char *symbols) {
     
     if (NULL != symbols) {
         string->_symbols = strdup(symbols);
+        KSStringSetCount(string);
     } else {
         string->_symbols = NULL;
     }

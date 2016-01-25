@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C93712701C3FD454009ED5BA /* KSHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = C937126E1C3FD454009ED5BA /* KSHuman.c */; };
+		C944897B1C567E1500DB7540 /* KSArrayObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C94489791C567E1500DB7540 /* KSArrayObject.c */; };
 		C952D6CC1C4FF9AD0081C4C5 /* KSObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C952D6CA1C4FF9AD0081C4C5 /* KSObject.c */; };
 		C95B30A51C5267FB00BFE3A8 /* KSStringObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */; };
 		C95B30A91C52853700BFE3A8 /* KSStringObjectTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		C937126E1C3FD454009ED5BA /* KSHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHuman.c; sourceTree = "<group>"; };
 		C937126F1C3FD454009ED5BA /* KSHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHuman.h; sourceTree = "<group>"; };
+		C94489791C567E1500DB7540 /* KSArrayObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArrayObject.c; sourceTree = "<group>"; };
+		C944897A1C567E1500DB7540 /* KSArrayObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayObject.h; sourceTree = "<group>"; };
 		C952D6CA1C4FF9AD0081C4C5 /* KSObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSObject.c; sourceTree = "<group>"; };
 		C952D6CB1C4FF9AD0081C4C5 /* KSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObject.h; sourceTree = "<group>"; };
 		C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObject.c; sourceTree = "<group>"; };
@@ -74,6 +77,15 @@
 				C937126F1C3FD454009ED5BA /* KSHuman.h */,
 			);
 			path = KSHuman;
+			sourceTree = "<group>";
+		};
+		C94489781C567E0600DB7540 /* KSArrayObject */ = {
+			isa = PBXGroup;
+			children = (
+				C94489791C567E1500DB7540 /* KSArrayObject.c */,
+				C944897A1C567E1500DB7540 /* KSArrayObject.h */,
+			);
+			path = KSArrayObject;
 			sourceTree = "<group>";
 		};
 		C952D6C91C4FF99C0081C4C5 /* KSObject */ = {
@@ -141,6 +153,7 @@
 		C993CAE61C32D4F000593631 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C94489781C567E0600DB7540 /* KSArrayObject */,
 				C95B30A21C5267EE00BFE3A8 /* KSStringObject */,
 				C952D6C91C4FF99C0081C4C5 /* KSObject */,
 				C937126D1C3FD43D009ED5BA /* KSHuman */,
@@ -272,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C952D6CC1C4FF9AD0081C4C5 /* KSObject.c in Sources */,
+				C944897B1C567E1500DB7540 /* KSArrayObject.c in Sources */,
 				C95B30A91C52853700BFE3A8 /* KSStringObjectTest.c in Sources */,
 				C993CAF51C32D4FA00593631 /* KSTestStruct.c in Sources */,
 				C993CAD91C32D2C600593631 /* main.c in Sources */,

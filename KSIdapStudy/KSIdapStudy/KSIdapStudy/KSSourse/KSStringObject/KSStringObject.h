@@ -22,13 +22,7 @@ struct KSStringObject {
 };
 
 extern
-KSString *KSStringCreate(void);
-
-extern
 KSString *KSStringCreateWithSymbols(char *symbols);
-
-extern
-void __KSStringDeallocate(KSString *sting);
 
 extern
 void KSStringSetSymbols(KSString *string, char *symbols);
@@ -41,9 +35,6 @@ void KSPrintString(KSString *string);
 
 extern
 KSString *KSStringWithString(KSString *firstString, KSString *secondString);
-
-extern
-void KSStringSetCount(KSString *string);
 
 extern
 uint8_t KSStringGetCount(KSString *string);
