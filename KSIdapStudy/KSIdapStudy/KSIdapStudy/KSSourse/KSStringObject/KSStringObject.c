@@ -97,14 +97,8 @@ bool KSStringIsEqual(KSString *firstString, KSString *secondString) {
     KSReturnNullMacro(firstString);
     KSReturnNullMacro(secondString);
     
-    bool stringsEqual = false;
-    
-    if (0 == strcmp(KSStringGetSymbols(firstString),
-                    KSStringGetSymbols(secondString))) {
-        stringsEqual = true;
-    }
-    
-    return stringsEqual;
+    return (0 == strcmp(KSStringGetSymbols(firstString),
+                        KSStringGetSymbols(secondString)));
 }
 
 KSString *KSStringWithString(KSString *firstString, KSString *secondString) {

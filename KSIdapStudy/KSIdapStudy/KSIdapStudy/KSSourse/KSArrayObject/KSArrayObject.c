@@ -17,6 +17,9 @@
 static
 void __KSArrayDeallocate(KSArray *array);
 
+static
+void KSArraySetCountObject(KSArray *array);
+
 #pragma mark -
 #pragma mark - Initializations and Deallocations
 
@@ -27,46 +30,65 @@ void *KSArrayCreate(void) {
 }
 
 void __KSArrayDeallocate(KSArray *array) {
-    
-        KSArrayRemoveAllElements(array);
+        KSArrayRemoveAllObjects(array);
         __KSObjectDeallocate(array);
 }
-
 
 #pragma mark -
 #pragma mark - Accessors
 
-void KSArraySetElementAtIndex(KSArray *array, void *object, int index) {
+void KSArraySetCountObject(KSArray *array) {
+    KSReturnMacro(array);
+    
+    uint8_t count = 0;
+    
+    for (int index = 0; index < kKSArrayCount; index++) {
+        if (KSArrayGetObjectAtIndex(array, index) != NULL) {
+            count++;
+        }
+        array->countObject = count;
+    }
+}
+
+uint8_t KSArrayGetCountObject(KSArray *array) {
+    KSReturnNullMacro(array);
+    
+    return array->countObject;
+}
+
+void KSArraySetObjectAtIndex(KSArray *array, void *object, int index) {
     KSReturnMacro(array);
     
     KSRetainSetter(array->_arrayData[index], object);
+    KSArraySetCountObject(array);
 }
 
-void *KSArrayGetElementAtIndex(KSArray *array, int index) {
+void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
 
-    return  array->_arrayData[index];
+    return array->_arrayData[index];
 }
 
-void KSArrayRemoveElementAtIndex(KSArray *array, void *object, int index) {
+void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index) {
     KSReturnMacro(array);
     
-    if (KSArrayGetElementAtIndex(array, index) == object) {
-        KSArraySetElementAtIndex(array, NULL, index);
+    if (KSArrayGetObjectAtIndex(array, index) == object) {
+        KSArraySetObjectAtIndex(array, NULL, index);
     }
+    KSArraySetCountObject(array);
 }
 
 #pragma mark -
 #pragma mark - Public Implementations
 
-void KSArrayRemoveAllElements(KSArray *array) {
+void KSArrayRemoveAllObjects(KSArray *array) {
     KSReturnMacro(array);
     
    for (int index = 0; index < kKSArrayCount; index++) {
-       KSArrayRemoveElementAtIndex(array, KSArrayGetElementAtIndex(array, index), index);
+       KSArrayRemoveObjectAtIndex(array, KSArrayGetObjectAtIndex(array, index), index);
    }
 }
 
-void KSArrayAddElements(KSArray *array, void *object) {
+void KSArrayAddEObject(KSArray *array, void *object) {
     KSReturnMacro(array);
     
     int index = 0;
@@ -75,5 +97,5 @@ void KSArrayAddElements(KSArray *array, void *object) {
         index++;
     }
     
-   KSArraySetElementAtIndex(array, object, index);
+   KSArraySetObjectAtIndex(array, object, index);
 }

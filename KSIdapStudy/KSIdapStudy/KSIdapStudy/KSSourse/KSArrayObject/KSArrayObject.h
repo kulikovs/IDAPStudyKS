@@ -17,25 +17,29 @@ typedef struct KSArrayObject KSArray;
 
 struct KSArrayObject {
     KSObject _super;
-    void* _arrayData[kKSArrayCount];
+    void *_arrayData[kKSArrayCount];
+    uint8_t countObject;
 };
 
 extern
 void *KSArrayCreate(void);
 
 extern
-void KSArraySetElementAtIndex(KSArray *array, void *object, int index);
+void KSArraySetObjectAtIndex(KSArray *array, void *object, int index);
 
 extern
-void *KSArrayGetElementAtIndex(KSArray *array, int index);
+void *KSArrayGetObjectAtIndex(KSArray *array, int index);
 
 extern
-void KSArrayRemoveElementAtIndex(KSArray *array, void *object, int index);
+void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index);
 
 extern
-void KSArrayRemoveAllElements(KSArray *array);
+void KSArrayRemoveAllObjects(KSArray *array);
 
 extern
-void KSArrayAddElements(KSArray *array, void *object);
+void KSArrayAddObject(KSArray *array, void *object);
+
+extern
+uint8_t KSArrayGetCountObject(KSArray *array);
 
 #endif /* KSArrayObject_h */
