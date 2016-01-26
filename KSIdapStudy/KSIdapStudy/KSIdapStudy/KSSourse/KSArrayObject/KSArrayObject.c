@@ -70,6 +70,32 @@ void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
     return array->_arrayData[index];
 }
 
+#pragma mark -
+#pragma mark - Public Implementations
+
+void KSArrayAddObject(KSArray *array, void *object) {
+    KSReturnMacro(array);
+    
+    int index = 0;
+    if (index < kKSArrayCount) {
+        while (KSArrayGetObjectAtIndex(array, index) != NULL) {
+            index++;
+        }
+        KSArraySetObjectAtIndex(array, object, index);
+    }
+}
+
+void KSArrayShiftObjects(KSArray *array) {
+    KSReturnMacro(array);
+    
+    for (uint8_t index = 0; index < KSArrayGetCountObject(array); index++) {
+        if (KSArrayGetObjectAtIndex(array, index) == NULL) {
+            array->_arrayData[index] = array->_arrayData[index + 1];
+            array->_arrayData[index + 1] = NULL;
+        }
+    }
+}
+
 void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index) {
     KSReturnMacro(array);
     
@@ -78,18 +104,6 @@ void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index) {
     }
     KSArraySetCountObject(array);
     KSArrayShiftObjects(array);
-}
-
-#pragma mark -
-#pragma mark - Public Implementations
-
-void KSArrayShiftObjects(KSArray *array) {
-    for (uint8_t index = 0; index < KSArrayGetCountObject(array); index++) {
-        if (KSArrayGetObjectAtIndex(array, index) == NULL) {
-            array->_arrayData[index] = array->_arrayData[index + 1];
-            array->_arrayData[index + 1] = NULL;
-        }
-    }
 }
 
 void KSArrayRemoveObjects(KSArray *array, void *object) {
@@ -107,16 +121,4 @@ void KSArrayRemoveAllObjects(KSArray *array) {
    for (int index = 0; index < kKSArrayCount; index++) {
        KSArrayRemoveObjectAtIndex(array, KSArrayGetObjectAtIndex(array, index), index);
    }
-}
-
-void KSArrayAddObject(KSArray *array, void *object) {
-    KSReturnMacro(array);
-    
-    int index = 0;
-    if (index < kKSArrayCount) {
-        while (KSArrayGetObjectAtIndex(array, index) != NULL) {
-            index++;
-        }
-        KSArraySetObjectAtIndex(array, object, index);
-    }
 }

@@ -28,19 +28,19 @@ extern
 void KSArraySetObjectAtIndex(KSArray *array, void *object, int index);
 
 extern
+uint8_t KSArrayGetCountObject(KSArray *array);
+
+extern
 void *KSArrayGetObjectAtIndex(KSArray *array, int index);
+
+extern
+void KSArrayAddObject(KSArray *array, void *object);
 
 extern
 void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index);
 
 extern
 void KSArrayRemoveAllObjects(KSArray *array);
-
-extern
-void KSArrayAddObject(KSArray *array, void *object);
-
-extern
-uint8_t KSArrayGetCountObject(KSArray *array);
 
 extern
 void KSArrayRemoveObjects(KSArray *array, void *object);
