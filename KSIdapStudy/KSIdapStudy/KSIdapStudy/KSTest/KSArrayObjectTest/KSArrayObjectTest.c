@@ -55,13 +55,15 @@ void KSArrayObjectTest(void) {
     KSArrayAddObject(array, string19);
     KSArrayAddObject(array, string20);
 
-    
     KSArrayRemoveObjects(array, string3);
 
-    
     printf("%d", KSArrayGetCountObject(array));
     
     KSArrayRemoveObjectAtIndex(array, string0, 0);
+    
+    KSObjectRelease(array);
+    
     printf("%d", KSArrayGetCountObject(array));
+    
     
 }
