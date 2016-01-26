@@ -42,4 +42,7 @@ void KSArrayAddObject(KSArray *array, void *object);
 extern
 uint8_t KSArrayGetCountObject(KSArray *array);
 
+extern
+void KSArrayRemoveObjects(KSArray *array, void *object);
+
 #endif /* KSArrayObject_h */

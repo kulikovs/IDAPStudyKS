@@ -20,6 +20,9 @@ void __KSArrayDeallocate(KSArray *array);
 static
 void KSArraySetCountObject(KSArray *array);
 
+static
+void KSArrayShiftObjects(KSArray *array);
+
 #pragma mark -
 #pragma mark - Initializations and Deallocations
 
@@ -41,7 +44,6 @@ void KSArraySetCountObject(KSArray *array) {
     KSReturnMacro(array);
     
     uint8_t count = 0;
-    
     for (int index = 0; index < kKSArrayCount; index++) {
         if (KSArrayGetObjectAtIndex(array, index) != NULL) {
             count++;
@@ -75,10 +77,29 @@ void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index) {
         KSArraySetObjectAtIndex(array, NULL, index);
     }
     KSArraySetCountObject(array);
+    KSArrayShiftObjects(array);
 }
 
 #pragma mark -
 #pragma mark - Public Implementations
+
+void KSArrayShiftObjects(KSArray *array) {
+    for (uint8_t index = 0; index < KSArrayGetCountObject(array); index++) {
+        if (KSArrayGetObjectAtIndex(array, index) == NULL) {
+            array->_arrayData[index] = array->_arrayData[index + 1];
+            array->_arrayData[index + 1] = NULL;
+        }
+    }
+}
+
+void KSArrayRemoveObjects(KSArray *array, void *object) {
+    KSReturnMacro(array);
+    KSReturnMacro(object);
+    
+    for (uint8_t index = 0; index < kKSArrayCount; index++) {
+        KSArrayRemoveObjectAtIndex(array, object, index);
+    }
+}
 
 void KSArrayRemoveAllObjects(KSArray *array) {
     KSReturnMacro(array);
@@ -88,14 +109,14 @@ void KSArrayRemoveAllObjects(KSArray *array) {
    }
 }
 
-void KSArrayAddEObject(KSArray *array, void *object) {
+void KSArrayAddObject(KSArray *array, void *object) {
     KSReturnMacro(array);
     
     int index = 0;
-    
-    while (array->_arrayData[index] != NULL) {
-        index++;
+    if (index < kKSArrayCount) {
+        while (KSArrayGetObjectAtIndex(array, index) != NULL) {
+            index++;
+        }
+        KSArraySetObjectAtIndex(array, object, index);
     }
-    
-   KSArraySetObjectAtIndex(array, object, index);
 }
