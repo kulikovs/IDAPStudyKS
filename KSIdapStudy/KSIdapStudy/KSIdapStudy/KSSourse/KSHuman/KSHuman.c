@@ -56,14 +56,8 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child);
 static
 void KSHumanSetChildrenArray(KSHuman *human, KSArray *arrayChildren);
 
-//static
-//void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index);
-
 static
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
-
-//static
-//void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index);
 
 static
 void KSHumanRemoveChildFromParent(KSHuman *human, KSHuman *child);
@@ -254,7 +248,7 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
 void KSHumanRemoveAllChildren(KSHuman *human) {
     KSReturnMacro(human);
     
-    KSArrayRemoveAllObjects(KSHumanGetChildren(human));
+    KSArrayRemoveAllObjects(KSHumanGetChildren(human));  /// как правильно тут будет сделать удаление родителя у детей?
 }
 
 void KSHumanMarry(KSHuman *human, KSHuman *partner) {
