@@ -34,6 +34,9 @@ extern
 void *KSArrayGetObjectAtIndex(KSArray *array, int index);
 
 extern
+uint8_t KSArrayGetIndexAtObgect(KSArray *array, void *object);
+
+extern
 void KSArrayAddObject(KSArray *array, void *object);
 
 extern

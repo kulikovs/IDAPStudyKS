@@ -66,8 +66,23 @@ void KSArraySetObjectAtIndex(KSArray *array, void *object, int index) {
 }
 
 void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
+    KSReturnNullMacro(array);
 
     return array->_arrayData[index];
+}
+
+uint8_t KSArrayGetIndexAtObgect(KSArray *array, void *object) {
+    KSReturnNullMacro(array);
+    KSReturnNullMacro(object);
+    
+    uint8_t indexObject = NULL;
+    
+    for (int index = 0; index < kKSArrayCount; index++) {
+        if (KSArrayGetObjectAtIndex(array, index) == object) {
+            indexObject = index;
+        }
+    }
+    return indexObject;
 }
 
 #pragma mark -

@@ -96,8 +96,7 @@ KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
     KSHumanSetName(human, stringName);
     KSHumanSetGenderType(human, gender);
     KSHumanSetChildrenArray(human, arrayChildren);
-    
-    
+
     return human;
 }
 
@@ -114,7 +113,6 @@ KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
                                                             age,
                                                             gender,
                                                             arrayChildren);
-    
     KSHumanSetMother(human, mother);
     KSHumanSetFather(human, father);
     KSArrayAddObject(KSHumanGetChildren(father), human);
@@ -216,12 +214,6 @@ void KSHumanSetChildrenArray(KSHuman *human, KSArray *arrayChildren) {
     KSRetainSetter(human->_children, arrayChildren);
 }
 
-void KSHumanSetChildAtIndex(KSHuman *human, KSHuman *child, int index) {
-    KSReturnMacro(human);
-    
-    KSArraySetObjectAtIndex(KSHumanGetChildren(human), child, index);
-}
-
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
     KSReturnNullMacro(human);
     
@@ -299,8 +291,8 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
 }
 
 void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index) {
-        KSReturnMacro(human);
+    KSReturnMacro(human);
     
-        KSArrayRemoveObjectAtIndex(KSHumanGetChildren(human), child, index);
-        KSHumanRemoveChildFromParent(human, child);
+    KSArrayRemoveObjectAtIndex(KSHumanGetChildren(human), child, index); /// как правильно тут будет сделать удаление родителя у детей?
+    KSHumanRemoveChildFromParent(human, child);  // сейчас даже если не выполниться первый метод, то все равно выполнится второй.
 }
