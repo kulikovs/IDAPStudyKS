@@ -102,8 +102,8 @@ void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index) {
     if (KSArrayGetObjectAtIndex(array, index) == object) {
         KSArraySetObjectAtIndex(array, NULL, index);
     }
-    KSArraySetCountObject(array);
     KSArrayShiftObjects(array);
+    KSArraySetCountObject(array);
 }
 
 void KSArrayRemoveObjects(KSArray *array, void *object) {

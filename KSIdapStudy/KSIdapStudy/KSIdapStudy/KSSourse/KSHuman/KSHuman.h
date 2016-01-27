@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 #include "KSStringObject.h"
+#include "KSArrayObject.h"
 
 typedef enum {
     kKSGenderUndefine,
@@ -23,22 +24,27 @@ typedef enum {
 typedef struct KSHuman KSHuman;
 
 extern  
-KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName,
-                                        uint8_t age,
-                                        KSGenderType gender);
+KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
+                                                uint8_t age,
+                                                KSGenderType gender,
+                                                KSArray *arrayChildren);
 
 extern
-KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
+KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
                                                KSHuman *mother,
                                                KSString *stringName,
                                                uint8_t age,
-                                               KSGenderType gender);
+                                               KSGenderType gender,
+                                               KSArray *arrayChildren);
 
 extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);
 
 extern
-KSHuman *KSHumanGetChildren(KSHuman *human);
+void KSHumanRemoveAllChildren(KSHuman *human);
+
+extern
+KSArray *KSHumanGetChildren(KSHuman *human);
 
 extern
 void KSHumanSetName(KSHuman *human, KSString *stringName);
@@ -48,9 +54,6 @@ KSString *KSHumanGetName(KSHuman *human);
 
 extern
 uint8_t KSHumanGetAge(KSHuman *human);
-
-extern
-void KSHumanRemoveAllChildren(KSHuman *human);
 
 extern
 KSGenderType KSHumanGetGenderType(KSHuman *human);
@@ -63,6 +66,9 @@ KSHuman *KSHumanGetMother(KSHuman *human);
 
 extern
 KSHuman *KSHumanGetFather(KSHuman *human);
+
+extern
+uint8_t KSHumanGetCountChildren(KSHuman *human);
 
 extern
 void KSHumanMarry(KSHuman *human, KSHuman *partner);

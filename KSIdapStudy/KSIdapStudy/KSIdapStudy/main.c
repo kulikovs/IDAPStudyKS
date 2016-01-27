@@ -19,9 +19,9 @@
 
 int main(int argc, const char * argv[]) {
 
-     //KSHumanTest();
+     KSHumanTest();
    // KSStringObjectTest();
-    KSArrayObjectTest();
+//    KSArrayObjectTest();
 
     return 0;
 }
