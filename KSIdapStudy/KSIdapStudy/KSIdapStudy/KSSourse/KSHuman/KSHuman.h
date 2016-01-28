@@ -26,16 +26,14 @@ typedef struct KSHuman KSHuman;
 extern  
 KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
                                                 uint8_t age,
-                                                KSGenderType gender,
-                                                KSArray *arrayChildren);
+                                                KSGenderType gender);
 
 extern
 KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
                                                KSHuman *mother,
                                                KSString *stringName,
                                                uint8_t age,
-                                               KSGenderType gender,
-                                               KSArray *arrayChildren);
+                                               KSGenderType gender);
 
 extern
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child);

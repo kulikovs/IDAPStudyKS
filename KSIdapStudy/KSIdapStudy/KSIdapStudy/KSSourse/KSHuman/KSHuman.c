@@ -13,8 +13,6 @@
 #include "KSHuman.h"
 #include "KSMacro.h"
 
-static const uint8_t kKSChildrenCount = 20;
-
 struct KSHuman {
     KSObject _super;
     KSArray *_children;
@@ -59,9 +57,6 @@ void KSHumanSetChildrenArray(KSHuman *human, KSArray *arrayChildren);
 static
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
 
-static
-void KSHumanRemoveChildFromParent(KSHuman *human, KSHuman *child);
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -73,20 +68,19 @@ void __KSHumanDeallocate(KSHuman *human) {
     KSHumanRemoveAllChildren(human);
     KSHumanSetName(human, NULL);
 
-    __KSObjectDeallocate(human);
-    
+    __KSObjectDeallocate(human);    
 }
 
 KSHuman *KSHumanCreate() {
     KSHuman *human = KSObjectCreateMacro(KSHuman);
+    KSHumanSetChildrenArray(human, KSArrayCreate());
     
     return human;
 }
 
 KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
-                                        uint8_t age,
-                                        KSGenderType gender,
-                                        KSArray *arrayChildren)
+                                                uint8_t age,
+                                                KSGenderType gender)
 {
     KSHuman *human = KSHumanCreate();
 
@@ -95,28 +89,28 @@ KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
     KSHumanSetAge(human, age);
     KSHumanSetName(human, stringName);
     KSHumanSetGenderType(human, gender);
-    KSHumanSetChildrenArray(human, arrayChildren);
 
     return human;
 }
 
 KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
-                                              KSHuman *mother,
-                                              KSString *stringName,
-                                              uint8_t age,
-                                              KSGenderType gender,
-                                              KSArray *arrayChildren)
+                                                       KSHuman *mother,
+                                                       KSString *stringName,
+                                                       uint8_t age,
+                                                       KSGenderType gender)
 {    
     assert(father->_partner == mother);
-    
+    assert(KSHumanGetGenderType(father) == kKSMale || KSHumanGetGenderType(mother) == kKSFemale );
+
     KSHuman *human = KSHumanCreateWithNameAgeGenderChildren(stringName,
                                                             age,
-                                                            gender,
-                                                            arrayChildren);
+                                                            gender);    
     KSHumanSetMother(human, mother);
     KSHumanSetFather(human, father);
-    KSArrayAddObject(KSHumanGetChildren(father), human);
-    KSArrayAddObject(KSHumanGetChildren(mother), human);
+    KSHumanAddChild(father, human);
+    KSHumanAddChild(mother, human);
+//    KSArrayAddObject(KSHumanGetChildren(father), human);
+//    KSArrayAddObject(KSHumanGetChildren(mother), human);
     
     return human;
 }
@@ -233,14 +227,21 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
     KSReturnMacro(child);
     
-    KSArrayRemoveObjects(KSHumanGetChildren(human), child);
-    KSHumanRemoveChildFromParent(human, child);
+    if (KSArrayGetIndexOfObject(KSHumanGetChildren(human), child) < kKSUndefineCount) {
+        KSHumanGetGenderType(human) == kKSMale
+                                    ? KSHumanSetFather(child, NULL)
+                                    : KSHumanSetMother(child, NULL);
+        KSArrayRemoveObjects(KSHumanGetChildren(human), child);
+    }
 }
 
 void KSHumanRemoveAllChildren(KSHuman *human) {
     KSReturnMacro(human);
     
-    KSArrayRemoveAllObjects(KSHumanGetChildren(human));  /// как правильно тут будет сделать удаление родителя у детей?
+    for (int index; index < KSHumanGetCountChildren(human); index++) {
+        KSHumanRemoveChild(human, KSHumanGetChildAtIndex(human, index));
+    }
+    //  KSArrayRemoveAllObjects(KSHumanGetChildren(human));
 }
 
 void KSHumanMarry(KSHuman *human, KSHuman *partner) {
@@ -275,24 +276,8 @@ void KSHumanDivorce(KSHuman *human) {
 #pragma mark -
 #pragma mark Private Implementations
 
-void KSHumanRemoveChildFromParent(KSHuman *human, KSHuman *child) {
+void KSHumanAddChild(KSHuman *human, KSHuman *child) { 
     KSReturnMacro(human);
-    KSReturnMacro(child);
-    
-    KSHumanGetGenderType(human) == kKSMale
-    ? KSHumanSetFather(child, NULL)
-    : KSHumanSetMother(child, NULL);
-}
 
-void KSHumanAddChild(KSHuman *human, KSHuman *child) {
-    KSReturnMacro(human);
-    
     KSArrayAddObject(KSHumanGetChildren(human), child);
-}
-
-void KSHumanRemoveChildAtIndex(KSHuman *human, KSHuman *child, int index) {
-    KSReturnMacro(human);
-    
-    KSArrayRemoveObjectAtIndex(KSHumanGetChildren(human), child, index); /// как правильно тут будет сделать удаление родителя у детей?
-    KSHumanRemoveChildFromParent(human, child);  // сейчас даже если не выполниться первый метод, то все равно выполнится второй.
 }

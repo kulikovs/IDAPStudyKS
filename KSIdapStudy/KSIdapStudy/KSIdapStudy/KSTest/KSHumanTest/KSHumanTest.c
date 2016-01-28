@@ -13,23 +13,15 @@
 
 
 void KSHumanTest(void) {
-    
-//    KSString *stringName = KSStringCreateWithSymbols("Sergey");
-    
-    KSArray *childrenSerg = KSArrayCreate();
-    KSArray *childrenMasha = KSArrayCreate();
-    KSArray *childrenPasha1 = KSArrayCreate();
-    KSArray *childrenPasha2 = KSArrayCreate();
-    KSArray *childrenPasha3 = KSArrayCreate();
-    
+
     KSString *nameSerg = KSStringCreateWithSymbols("Sergey");
     KSString *nameMasha = KSStringCreateWithSymbols("Masha");
     KSString *namePasha1 = KSStringCreateWithSymbols("Pasha1");
     KSString *namePasha2 = KSStringCreateWithSymbols("Pasha2");
     KSString *namePasha3 = KSStringCreateWithSymbols("Pasha3");
 
-    KSHuman *Serg = KSHumanCreateWithNameAgeGenderChildren(nameSerg, 30, kKSMale, childrenSerg);
-    KSHuman *Masha = KSHumanCreateWithNameAgeGenderChildren(nameMasha, 31, kKSFemale, childrenMasha);
+    KSHuman *Serg = KSHumanCreateWithNameAgeGenderChildren(nameSerg, 30, kKSMale);
+    KSHuman *Masha = KSHumanCreateWithNameAgeGenderChildren(nameMasha, 31, kKSFemale);
     KSHumanMarry(Masha, Serg);
     
     KSHumanSetName(Masha, KSStringWithString(nameMasha, nameSerg));
@@ -38,9 +30,9 @@ void KSHumanTest(void) {
     KSHumanSetName(Serg, nameSergVasya);
 
  
-    KSHuman *Pasha = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha1, 0, kKSMale, childrenPasha1);
-    KSHuman *Pasha2 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha2, 1, kKSMale, childrenPasha2);
-    KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha3, 0, kKSMale, childrenPasha3);
+    KSHuman *Pasha = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha1, 0, kKSMale);
+    KSHuman *Pasha2 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha2, 1, kKSMale);
+    KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha3, 0, kKSMale);
     
     KSHumanDivorce(Serg);
     
@@ -50,8 +42,6 @@ void KSHumanTest(void) {
     KSHumanRemoveChild(Masha, Pasha2);
     KSHumanRemoveChild(Serg, Pasha);
     KSHumanRemoveChild(Masha, Pasha);
-
-
 
     KSObjectRelease(Serg);
     KSObjectRelease(nameSerg);
