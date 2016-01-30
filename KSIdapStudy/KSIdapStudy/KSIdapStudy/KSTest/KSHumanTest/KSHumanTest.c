@@ -20,8 +20,8 @@ void KSHumanTest(void) {
     KSString *namePasha2 = KSStringCreateWithSymbols("Pasha2");
     KSString *namePasha3 = KSStringCreateWithSymbols("Pasha3");
 
-    KSHuman *Serg = KSHumanCreateWithNameAgeGenderChildren(nameSerg, 30, kKSMale);
-    KSHuman *Masha = KSHumanCreateWithNameAgeGenderChildren(nameMasha, 31, kKSFemale);
+    KSHuman *Serg = KSHumanCreateWithNameAgeGender(nameSerg, 30, kKSMale);
+    KSHuman *Masha = KSHumanCreateWithNameAgeGender(nameMasha, 31, kKSFemale);
     KSHumanMarry(Masha, Serg);
     
     KSHumanSetName(Masha, KSStringWithString(nameMasha, nameSerg));
@@ -30,9 +30,9 @@ void KSHumanTest(void) {
     KSHumanSetName(Serg, nameSergVasya);
 
  
-    KSHuman *Pasha = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha1, 0, kKSMale);
-    KSHuman *Pasha2 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha2, 1, kKSMale);
-    KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGenderChildren(Serg, Masha, namePasha3, 0, kKSMale);
+    KSHuman *Pasha = KSHumanCreateWithParentsNameAgeGender(Masha, Serg, namePasha1, 0, kKSMale);
+    KSHuman *Pasha2 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, namePasha2, 1, kKSMale);
+    KSHuman *Pasha3 = KSHumanCreateWithParentsNameAgeGender(Serg, Masha, namePasha3, 0, kKSMale);
     
     KSHumanDivorce(Serg);
     
@@ -61,10 +61,5 @@ void KSHumanTest(void) {
     KSObjectRelease(namePasha3);
     
     printf("%d\n", KSHumanGetAge(Serg));
-    printf("%d\n", KSHumanGetAge(Masha));
-    printf("%d\n", KSHumanGetAge(Pasha));
-    printf("%d\n", KSHumanGetAge(Pasha2));
-    puts("test");
-    printf("%d\n", KSHumanGetAge(Pasha3));
 }
 

@@ -57,6 +57,11 @@ void KSHumanSetChildrenArray(KSHuman *human, KSArray *arrayChildren);
 static
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index);
 
+static
+void KSHumanAddChildAndSetParents(KSHuman *child,
+                                  KSHuman *firstParent,
+                                  KSHuman *secondParent);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -102,15 +107,12 @@ KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                                KSGenderType gender)
 {    
     assert(father->_partner == mother);
-    assert(KSHumanGetGenderType(father) == kKSMale || KSHumanGetGenderType(mother) == kKSFemale );
 
     KSHuman *human = KSHumanCreateWithNameAgeGender(stringName,
                                                     age,
                                                     gender);
-    KSHumanSetMother(human, mother);
-    KSHumanSetFather(human, father);
-    KSHumanAddChild(father, human);
-    KSHumanAddChild(mother, human);
+    
+    KSHumanAddChildAndSetParents(human, father, mother);
     
     return human;
 }
@@ -257,13 +259,9 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner) {
 }
 
 bool KSHumanIsMarried(KSHuman *human) {
-    bool married = false;
-    
-    if (KSHumanGetPartner(human) != NULL) {
-        married = true;
-    }
-    
-    return married;
+    KSReturnNullMacro(human);
+
+    return KSHumanGetPartner(human) != NULL ? true : false;
 }
 
 void KSHumanDivorce(KSHuman *human) {
@@ -280,4 +278,23 @@ void KSHumanAddChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
 
     KSArrayAddObject(KSHumanGetChildren(human), child);
+}
+
+void KSHumanAddChildAndSetParents(KSHuman *child,
+                                  KSHuman *firstParent,
+                                  KSHuman *secondParent)
+
+{
+    KSHuman *father = firstParent;
+    KSHuman *mother = secondParent;
+    
+    if (KSHumanGetGenderType(firstParent) != kKSMale) {
+            father = secondParent;
+            mother = firstParent;
+    }
+    
+    KSHumanSetMother(child, mother);
+    KSHumanSetFather(child, father);
+    KSHumanAddChild(father, child);
+    KSHumanAddChild(mother, child);
 }

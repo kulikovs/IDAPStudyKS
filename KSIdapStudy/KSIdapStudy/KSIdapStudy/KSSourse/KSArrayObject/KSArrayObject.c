@@ -82,7 +82,7 @@ uint8_t KSArrayGetIndexOfObject(KSArray *array, void *object) {
 #pragma mark -
 #pragma mark Public Implementations
 
-bool KSArrayContainsObject(KSArray *array, void *object) {
+bool KSArrayIsContainsObject(KSArray *array, void *object) {
  
     return KSArrayGetIndexOfObject(array, object) != kKSUndefineCount ? true : false;
 }

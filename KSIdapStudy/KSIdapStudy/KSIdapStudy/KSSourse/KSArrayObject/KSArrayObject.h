@@ -56,6 +56,6 @@ extern
 void *KSArrayGetLastObject(KSArray *array);
 
 extern
-bool KSArrayContainsObject(KSArray *array, void *object);
+bool KSArrayIsContainsObject(KSArray *array, void *object);
 
 #endif /* KSArrayObject_h */
