@@ -56,6 +56,7 @@
 		C993CAF81C32D55800593631 /* KSTestMacroOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTestMacroOutputType.h; sourceTree = "<group>"; };
 		C998FD691C3AC35E0034BED2 /* KSValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutput.c; sourceTree = "<group>"; };
 		C998FD6A1C3AC35E0034BED2 /* KSValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutput.h; sourceTree = "<group>"; };
+		C9A4A8E31C5CDC83002B6587 /* KSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C9C761691C57D4AE00FD114E /* KSArrayObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArrayObjectTest.c; sourceTree = "<group>"; };
 		C9C7616A1C57D4AE00FD114E /* KSArrayObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayObjectTest.h; sourceTree = "<group>"; };
 		C9F0B9161C3B04930001AD0B /* KSValueBitOutputTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutputTest.c; sourceTree = "<group>"; };
@@ -156,22 +157,15 @@
 		C993CAE61C32D4F000593631 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C9A4A8E21C5CDC83002B6587 /* KSMacro */,
 				C94489781C567E0600DB7540 /* KSArrayObject */,
 				C95B30A21C5267EE00BFE3A8 /* KSStringObject */,
 				C952D6C91C4FF99C0081C4C5 /* KSObject */,
 				C937126D1C3FD43D009ED5BA /* KSHuman */,
 				C998FD681C3AC34D0034BED2 /* KSValueBitOutput */,
-				C993CAE71C32D4F000593631 /* KSMacro */,
 				C993CAE91C32D4F000593631 /* KSStruct */,
 			);
 			path = KSSourse;
-			sourceTree = "<group>";
-		};
-		C993CAE71C32D4F000593631 /* KSMacro */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = KSMacro;
 			sourceTree = "<group>";
 		};
 		C993CAE91C32D4F000593631 /* KSStruct */ = {
@@ -221,6 +215,14 @@
 				C993CAE81C32D4F000593631 /* KSMacro.h */,
 			);
 			path = KSValueBitOutput;
+			sourceTree = "<group>";
+		};
+		C9A4A8E21C5CDC83002B6587 /* KSMacro */ = {
+			isa = PBXGroup;
+			children = (
+				C9A4A8E31C5CDC83002B6587 /* KSMacro.h */,
+			);
+			path = KSMacro;
 			sourceTree = "<group>";
 		};
 		C9C761681C57D49E00FD114E /* KSArrayObjectTest */ = {

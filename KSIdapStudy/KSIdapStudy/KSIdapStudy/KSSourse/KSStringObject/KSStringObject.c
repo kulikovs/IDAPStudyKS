@@ -81,7 +81,7 @@ void KSStringSetCount(KSString *string) {
 }
 
 uint8_t KSStringGetCount(KSString *string) {
-    KSReturnNullMacro(string);
+    KSReturnZeroMacro(string);
     
     return string->_countSymbols;
 }

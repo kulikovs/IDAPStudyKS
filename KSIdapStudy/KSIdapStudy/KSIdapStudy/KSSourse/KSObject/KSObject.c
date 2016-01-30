@@ -62,7 +62,7 @@ void KSObjectRelease(void *object) {
 }
 
 uint16_t KSObjectGetRetainCount(void *object) {
-    KSReturnNullMacro(object);
+    KSReturnZeroMacro(object);
     
     KSObject *newObject = object;
     

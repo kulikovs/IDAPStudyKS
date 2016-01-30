@@ -9,6 +9,8 @@
 #ifndef KSArrayObject_h
 #define KSArrayObject_h
 
+#include <stdbool.h>
+
 #include "KSObject.h"
 
 static const uint8_t kKSArrayCount = 20;
@@ -52,5 +54,8 @@ void *KSArrayGetFirstObject(KSArray *array);
 
 extern
 void *KSArrayGetLastObject(KSArray *array);
+
+extern
+bool KSArrayContainsObject(KSArray *array, void *object);
 
 #endif /* KSArrayObject_h */

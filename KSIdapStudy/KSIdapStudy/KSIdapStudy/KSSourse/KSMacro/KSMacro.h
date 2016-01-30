@@ -29,6 +29,11 @@
         return;\
     }
 
+#define KSReturnZeroMacro(value) \
+    if (NULL == value) {\
+        return 0;\
+}
+
 #define KSReturnNullMacro(value) \
     if (NULL == value) {\
         return NULL;\

@@ -57,11 +57,11 @@ void KSArrayObjectTest(void) {
     
     printf(" start %d", KSArrayGetCount(array));
 
-    KSArrayRemoveObjects(array, string3);
+    KSArrayRemoveObject(array, string3);
 
     printf("-1 %d", KSArrayGetCount(array));
     
-    KSArrayRemoveObjectAtIndex(array, string0, 0);
+    KSArrayRemoveObjectAtIndex(array, 0);
     
     printf("- 1 %d", KSArrayGetCount(array));
     

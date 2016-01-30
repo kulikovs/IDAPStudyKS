@@ -24,12 +24,12 @@ typedef enum {
 typedef struct KSHuman KSHuman;
 
 extern  
-KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
-                                                uint8_t age,
-                                                KSGenderType gender);
+KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName,
+                                        uint8_t age,
+                                        KSGenderType gender);
 
 extern
-KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
+KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
                                                KSHuman *mother,
                                                KSString *stringName,
                                                uint8_t age,

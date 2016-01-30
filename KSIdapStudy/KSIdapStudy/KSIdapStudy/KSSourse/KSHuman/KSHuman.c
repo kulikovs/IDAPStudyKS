@@ -65,7 +65,7 @@ void __KSHumanDeallocate(KSHuman *human) {
     KSHumanDivorce(human);
     KSHumanSetMother(human, NULL);
     KSHumanSetFather(human, NULL);
-    KSHumanRemoveAllChildren(human);
+    KSHumanSetChildrenArray(human, NULL);
     KSHumanSetName(human, NULL);
 
     __KSObjectDeallocate(human);    
@@ -73,14 +73,16 @@ void __KSHumanDeallocate(KSHuman *human) {
 
 KSHuman *KSHumanCreate() {
     KSHuman *human = KSObjectCreateMacro(KSHuman);
-    KSHumanSetChildrenArray(human, KSArrayCreate());
+    KSArray *childrenArray = KSArrayCreate();
+    KSHumanSetChildrenArray(human, childrenArray);
+    KSObjectRelease(childrenArray);
     
     return human;
 }
 
-KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
-                                                uint8_t age,
-                                                KSGenderType gender)
+KSHuman *KSHumanCreateWithNameAgeGender(KSString *stringName,
+                                        uint8_t age,
+                                        KSGenderType gender)
 {
     KSHuman *human = KSHumanCreate();
 
@@ -93,24 +95,22 @@ KSHuman *KSHumanCreateWithNameAgeGenderChildren(KSString *stringName,
     return human;
 }
 
-KSHuman *KSHumanCreateWithParentsNameAgeGenderChildren(KSHuman *father,
-                                                       KSHuman *mother,
-                                                       KSString *stringName,
-                                                       uint8_t age,
-                                                       KSGenderType gender)
+KSHuman *KSHumanCreateWithParentsNameAgeGender(KSHuman *father,
+                                               KSHuman *mother,
+                                               KSString *stringName,
+                                               uint8_t age,
+                                               KSGenderType gender)
 {    
     assert(father->_partner == mother);
     assert(KSHumanGetGenderType(father) == kKSMale || KSHumanGetGenderType(mother) == kKSFemale );
 
-    KSHuman *human = KSHumanCreateWithNameAgeGenderChildren(stringName,
-                                                            age,
-                                                            gender);    
+    KSHuman *human = KSHumanCreateWithNameAgeGender(stringName,
+                                                    age,
+                                                    gender);
     KSHumanSetMother(human, mother);
     KSHumanSetFather(human, father);
     KSHumanAddChild(father, human);
     KSHumanAddChild(mother, human);
-//    KSArrayAddObject(KSHumanGetChildren(father), human);
-//    KSArrayAddObject(KSHumanGetChildren(mother), human);
     
     return human;
 }
@@ -125,7 +125,7 @@ void KSHumanSetAge(KSHuman *human, uint8_t age) {
 }
 
 uint8_t KSHumanGetAge(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnZeroMacro(human);
     
     return human->_age;
 }
@@ -167,7 +167,7 @@ void KSHumanSetGenderType(KSHuman *human, KSGenderType gender) {
 }
 
 KSGenderType KSHumanGetGenderType(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnZeroMacro(human);
     
     return human->_gender;
 }
@@ -218,7 +218,7 @@ KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
 #pragma mark Public Implementations
 
 uint8_t KSHumanGetCountChildren(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnZeroMacro(human);
     
     return KSArrayGetCount(KSHumanGetChildren(human));
 }
@@ -227,11 +227,12 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
     KSReturnMacro(human);
     KSReturnMacro(child);
     
-    if (KSArrayGetIndexOfObject(KSHumanGetChildren(human), child) < kKSUndefineCount) {
+    KSArray *humanChildren = KSHumanGetChildren(human);
+    if (KSArrayGetIndexOfObject(humanChildren, child) < kKSUndefineCount) {
         KSHumanGetGenderType(human) == kKSMale
                                     ? KSHumanSetFather(child, NULL)
                                     : KSHumanSetMother(child, NULL);
-        KSArrayRemoveObject(KSHumanGetChildren(human), child);
+        KSArrayRemoveObject(humanChildren, child);
     }
 }
 

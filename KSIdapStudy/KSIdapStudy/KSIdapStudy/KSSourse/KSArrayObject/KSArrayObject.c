@@ -46,7 +46,7 @@ void __KSArrayDeallocate(KSArray *array) {
 #pragma mark Accessors
 
 uint8_t KSArrayGetCount(KSArray *array) {
-    KSReturnNullMacro(array);
+    KSReturnZeroMacro(array);
     
     return array->count;
 }
@@ -65,21 +65,27 @@ void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
 }
 
 uint8_t KSArrayGetIndexOfObject(KSArray *array, void *object) {
-    KSReturnNullMacro(array);
-    KSReturnNullMacro(object);
-    
+
     uint8_t indexObject = kKSUndefineCount;
     
-    for (int index = 0; index < kKSArrayCount; index++) {
-        if (KSArrayGetObjectAtIndex(array, index) == object) {
-            indexObject = index;
+    if (NULL != object && NULL != array ) {
+        for (int index = 0; index < kKSArrayCount; index++) {
+            if (KSArrayGetObjectAtIndex(array, index) == object) {
+                indexObject = index;
+            }
         }
     }
+    
     return indexObject;
 }
 
 #pragma mark -
 #pragma mark Public Implementations
+
+bool KSArrayContainsObject(KSArray *array, void *object) {
+ 
+    return KSArrayGetIndexOfObject(array, object) != kKSUndefineCount ? true : false;
+}
 
 void KSArrayAddObject(KSArray *array, void *object) {
     KSReturnMacro(array);
