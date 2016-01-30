@@ -36,10 +36,11 @@ void KSHumanTest(void) {
     
     KSHumanDivorce(Serg);
     
-    KSHumanRemoveChild(Serg, Pasha3);
-    KSHumanRemoveChild(Masha, Pasha3);
+    
     KSHumanRemoveChild(Serg, Pasha2);
     KSHumanRemoveChild(Masha, Pasha2);
+    KSHumanRemoveChild(Serg, Pasha3);
+    KSHumanRemoveChild(Masha, Pasha3);
     KSHumanRemoveChild(Serg, Pasha);
     KSHumanRemoveChild(Masha, Pasha);
 

@@ -220,7 +220,7 @@ KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
 uint8_t KSHumanGetCountChildren(KSHuman *human) {
     KSReturnNullMacro(human);
     
-    return KSArrayGetCountObject(KSHumanGetChildren(human));
+    return KSArrayGetCount(KSHumanGetChildren(human));
 }
 
 void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
@@ -231,7 +231,7 @@ void KSHumanRemoveChild(KSHuman *human, KSHuman *child) {
         KSHumanGetGenderType(human) == kKSMale
                                     ? KSHumanSetFather(child, NULL)
                                     : KSHumanSetMother(child, NULL);
-        KSArrayRemoveObjects(KSHumanGetChildren(human), child);
+        KSArrayRemoveObject(KSHumanGetChildren(human), child);
     }
 }
 
@@ -241,7 +241,6 @@ void KSHumanRemoveAllChildren(KSHuman *human) {
     for (int index; index < KSHumanGetCountChildren(human); index++) {
         KSHumanRemoveChild(human, KSHumanGetChildAtIndex(human, index));
     }
-    //  KSArrayRemoveAllObjects(KSHumanGetChildren(human));
 }
 
 void KSHumanMarry(KSHuman *human, KSHuman *partner) {

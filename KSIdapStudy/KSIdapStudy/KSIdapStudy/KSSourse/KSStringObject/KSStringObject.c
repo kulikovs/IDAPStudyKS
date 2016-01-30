@@ -15,7 +15,7 @@
 #include "KSMacro.h"
 
 #pragma mark -
-#pragma mark - Privat Declarations
+#pragma mark Privat Declarations
 
 static
 KSString *KSStringCreate(void);
@@ -27,7 +27,7 @@ static
 void KSStringSetCount(KSString *string);
 
 #pragma mark - 
-#pragma mark - Initializations and Deallocations
+#pragma mark Initializations and Deallocations
 
 KSString *KSStringCreate(void) {
     KSString *string = KSObjectCreateMacro(KSString);
@@ -51,7 +51,7 @@ void __KSStringDeallocate(KSString *string) {
 }
 
 #pragma mark -
-#pragma mark - Accessors
+#pragma mark Accessors
 
 void KSStringSetSymbols(KSString *string, char *symbols) {
     KSReturnMacro(string);
@@ -87,7 +87,7 @@ uint8_t KSStringGetCount(KSString *string) {
 }
 
 #pragma mark -
-#pragma mark - Public Implementations
+#pragma mark Public Implementations
 
 void KSPrintString(KSString *string) {
     puts(KSStringGetSymbols(string));

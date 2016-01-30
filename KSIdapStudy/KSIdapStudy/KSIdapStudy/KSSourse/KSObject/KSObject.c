@@ -14,7 +14,7 @@
 #include "KSMacro.h"
 
 #pragma mark -
-#pragma mark - Initializations and Deallocations
+#pragma mark Initializations and Deallocations
 
 void *KSObjectCreate(size_t size, KSObjectDeallocator *deallocator) {
     KSObject *object = calloc(1, size);
@@ -31,19 +31,18 @@ void __KSObjectDeallocate(void *object) {
     KSReturnMacro(object);
     
     free(object);
-    
     puts("Killed");
 }
 
 #pragma mark -
-#pragma mark - Public Implementations
+#pragma mark Public Implementations
 
 void *KSObjectRetain(void *object) {
     KSReturnNullMacro(object);
     
     KSObject *newObject = object;
     
-    assert(newObject->_retainCount >0 );
+    assert(newObject->_retainCount > 0 );
     assert(INT16_MAX > newObject->_retainCount);
     
     newObject->_retainCount++;

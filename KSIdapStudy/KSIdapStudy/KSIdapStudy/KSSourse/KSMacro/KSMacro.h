@@ -31,15 +31,8 @@
 
 #define KSReturnNullMacro(value) \
     if (NULL == value) {\
-        return 0;\
+        return NULL;\
     }
-
-//#define KSRetainSetter(oldValue, newValue) \
-//            if (oldValue != newValue) {\
-//                KSHumanRelease(oldValue); \
-//                oldValue = newValue; \
-//                KSHumanRetain(newValue); \
-//            }
 
 #define KSRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\

@@ -20,17 +20,14 @@ extern const uint8_t kKSUndefineCount;
 struct KSArrayObject {
     KSObject _super;
     void *_arrayData[kKSArrayCount];
-    uint8_t countObject;
+    uint8_t count;
 };
 
 extern
 void *KSArrayCreate(void);
 
 extern
-void KSArraySetObjectAtIndex(KSArray *array, void *object, int index);
-
-extern
-uint8_t KSArrayGetCountObject(KSArray *array);
+uint8_t KSArrayGetCount(KSArray *array);
 
 extern
 void *KSArrayGetObjectAtIndex(KSArray *array, int index);
@@ -42,13 +39,13 @@ extern
 void KSArrayAddObject(KSArray *array, void *object);
 
 extern
-void KSArrayRemoveObjectAtIndex(KSArray *array, void *object, int index);
+void KSArrayRemoveObjectAtIndex(KSArray *array, int index);
 
 extern
 void KSArrayRemoveAllObjects(KSArray *array);
 
 extern
-void KSArrayRemoveObjects(KSArray *array, void *object);
+void KSArrayRemoveObject(KSArray *array, void *object);
 
 extern
 void *KSArrayGetFirstObject(KSArray *array);
