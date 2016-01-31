@@ -21,8 +21,8 @@ extern const uint8_t kKSUndefineCount;
 
 struct KSArrayObject {
     KSObject _super;
-    void *_arrayData[kKSArrayCount];
-    uint8_t count;
+    void *_arrayData;
+    uint64_t count;
 };
 
 extern

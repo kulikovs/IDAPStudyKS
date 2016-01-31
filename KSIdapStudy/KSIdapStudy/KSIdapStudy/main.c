@@ -19,9 +19,14 @@
 
 int main(int argc, const char * argv[]) {
 
-     KSHumanTest();
-   // KSStringObjectTest();
+    KSHumanTest();
+//    KSStringObjectTest();
 //    KSArrayObjectTest();
-
+ //  int **array;
+    
+ //   array = (int64_t*)calloc(3, sizeof(int64_t));
+   
+    puts("dfsg");
+    
     return 0;
 }

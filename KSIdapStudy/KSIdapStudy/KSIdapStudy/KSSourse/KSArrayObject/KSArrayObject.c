@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "KSArrayObject.h"
 #include "KSMacro.h"
@@ -18,6 +19,9 @@ const uint8_t kKSUndefineCount = UINT8_MAX;
 
 static
 void __KSArrayDeallocate(KSArray *array);
+
+static
+void *KSArrayCreateData(KSArray *array);
 
 static
 void KSArrayCountCalculation(KSArray *array);
@@ -33,6 +37,8 @@ void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index);
 
 void *KSArrayCreate(void) {
     KSArray *array = KSObjectCreateMacro(KSArray);
+    array->_arrayData =  KSArrayCreateData(array);
+
     
     return array;
 }
@@ -40,6 +46,38 @@ void *KSArrayCreate(void) {
 void __KSArrayDeallocate(KSArray *array) {
         KSArrayRemoveAllObjects(array);
         __KSObjectDeallocate(array);
+}
+
+
+void *KSArrayCreateData(KSArray *array) {
+    
+    int countArray = 5;
+    
+    void **arrayData = 0;
+    array->_arrayData = calloc(1, sizeof(int64_t*));
+    
+    for (int index = 0; index < countArray; index++) {
+        arrayData = calloc(index, sizeof(int64_t*));
+    }
+    
+    return arrayData;
+
+//void KSArrayCreateData(KSArray *array) {
+//    
+//    int countArray = 5;
+//    
+//    void **arrayData = 0;
+//    array->_arrayData = calloc(1, sizeof(int64_t*));
+//
+//    for (int index = 0; index < countArray; index++) {
+//        arrayData = calloc(index, sizeof(int64_t*));
+//    }
+//    
+//    array->_arrayData=arrayData;
+   // array->_arrayData = calloc(countArray, sizeof(int64_t*));
+
+
+   // arrayData[countArray] = calloc(countArray, sizeof(array->_arrayData));
 }
 
 #pragma mark -
@@ -54,14 +92,14 @@ uint8_t KSArrayGetCount(KSArray *array) {
 void KSArraySetObjectAtIndex(KSArray *array, void *object, uint8_t index) {
     KSReturnMacro(array);
     
-    KSRetainSetter(array->_arrayData[index], object);
+    KSRetainSetter(array->_arrayData, object);
     KSArrayCountCalculation(array);
 }
 
 void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
     KSReturnNullMacro(array);
 
-    return array->_arrayData[index];
+    return array->_arrayData;
 }
 
 uint8_t KSArrayGetIndexOfObject(KSArray *array, void *object) {
