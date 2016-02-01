@@ -13,11 +13,9 @@
 
 #include "KSObject.h"
 
-static const uint8_t kKSArrayCount = 20;
-
 typedef struct KSArrayObject KSArray;
 
-extern const uint8_t kKSUndefineCount;
+extern const uint64_t kKSUndefineCount;
 
 struct KSArrayObject {
     KSObject _super;
@@ -57,6 +55,12 @@ extern
 void *KSArrayGetLastObject(KSArray *array);
 
 extern
+uint64_t KSArrayGetCapasity(KSArray *array);
+
+extern
 bool KSArrayIsContainsObject(KSArray *array, void *object);
+
+extern
+void **KSArrayGetData(KSArray *array);
 
 #endif /* KSArrayObject_h */

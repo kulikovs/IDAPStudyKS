@@ -19,14 +19,14 @@
 
 int main(int argc, const char * argv[]) {
 
-    KSHumanTest();
+   // KSHumanTest();
 //    KSStringObjectTest();
-//    KSArrayObjectTest();
- //  int **array;
+    KSArrayObjectTest();
+ //  void **array;
     
- //   array = (int64_t*)calloc(3, sizeof(int64_t));
+  //  array = calloc(3, sizeof(int64_t));
    
-    puts("dfsg");
+  //  puts("dfsg");
     
     return 0;
 }
