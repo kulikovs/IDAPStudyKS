@@ -24,13 +24,20 @@ static
 void *KSArrayCreateData(KSArray *array);
 
 static
-void KSArrayCountCalculation(KSArray *array);
+void KSArraySetCount(KSArray *array, uint64_t count);
 
 static
 void KSArraySetObjectAtIndex(KSArray *array, void *object, uint8_t index);
 
 static
 void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index);
+
+static
+void KSarraySetCapacity(KSArray *array,  uint64_t capacity);
+
+static
+uint64_t KSarrayGetCapacity(KSArray *array);
+
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,7 +46,6 @@ void *KSArrayCreate(void) {
     KSArray *array = KSObjectCreateMacro(KSArray);
     array->_arrayData =  KSArrayCreateData(array);
 
-    
     return array;
 }
 
@@ -47,7 +53,6 @@ void __KSArrayDeallocate(KSArray *array) {
         KSArrayRemoveAllObjects(array);
         __KSObjectDeallocate(array);
 }
-
 
 void *KSArrayCreateData(KSArray *array) {
     
@@ -83,17 +88,35 @@ void *KSArrayCreateData(KSArray *array) {
 #pragma mark -
 #pragma mark Accessors
 
-uint8_t KSArrayGetCount(KSArray *array) {
+void KSarraySetCapacity(KSArray *array, uint64_t capacity) {
+    KSReturnMacro(array);
+    
+    array->_capacity = capacity;
+}
+
+uint64_t KSArrayGetCapasity(KSArray *array) {
     KSReturnZeroMacro(array);
     
-    return array->count;
+    return array->_capacity;
+}
+
+void KSArraySetCount(KSArray *array, uint64_t count) {
+    KSReturnMacro(array);
+    
+    array->_count = count;
+}
+
+uint64_t KSArrayGetCount(KSArray *array) {
+    KSReturnZeroMacro(array);
+    
+    return array->_count;
 }
 
 void KSArraySetObjectAtIndex(KSArray *array, void *object, uint8_t index) {
     KSReturnMacro(array);
     
     KSRetainSetter(array->_arrayData, object);
-    KSArrayCountCalculation(array);
+    KSArraySetCount(array, (KSArrayGetCount(array) + 1));
 }
 
 void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
@@ -186,15 +209,3 @@ void *KSArrayGetLastObject(KSArray *array) {
 #pragma mark -
 #pragma mark Privat Implementations
 
-void KSArrayCountCalculation(KSArray *array) {
-    KSReturnMacro(array);
-    
-    uint8_t countObject = 0;
-    for (int index = 0; index < kKSArrayCount; index++) {
-        if (KSArrayGetObjectAtIndex(array, index) != NULL) {
-            countObject++;
-        }
-    }
-    
-    array->count = countObject;
-}

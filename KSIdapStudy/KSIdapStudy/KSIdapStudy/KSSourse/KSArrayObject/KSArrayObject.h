@@ -21,15 +21,16 @@ extern const uint8_t kKSUndefineCount;
 
 struct KSArrayObject {
     KSObject _super;
-    void *_arrayData;
-    uint64_t count;
+    void **_arrayData;
+    uint64_t _count;
+    uint64_t _capacity;
 };
 
 extern
 void *KSArrayCreate(void);
 
 extern
-uint8_t KSArrayGetCount(KSArray *array);
+uint64_t KSArrayGetCount(KSArray *array);
 
 extern
 void *KSArrayGetObjectAtIndex(KSArray *array, int index);
