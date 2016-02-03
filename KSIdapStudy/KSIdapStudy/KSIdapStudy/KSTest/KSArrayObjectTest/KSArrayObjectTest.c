@@ -41,6 +41,23 @@ void KSArrayObjectTest(void) {
     KSArrayAddObject(array, string5);
     KSArrayAddObject(array, string6);
     KSArrayAddObject(array, string7);
+    KSArrayAddObject(array, string0);
+    KSArrayAddObject(array, string1);
+    KSArrayAddObject(array, string2);
+    KSArrayAddObject(array, string3);
+    KSArrayAddObject(array, string0);
+    KSArrayAddObject(array, string1);
+    KSArrayAddObject(array, string2);
+    KSArrayAddObject(array, string3);
+    KSArrayAddObject(array, string2);
+    KSArrayAddObject(array, string3);
+    KSArrayAddObject(array, string4);
+    KSArrayAddObject(array, string5);
+    KSArrayAddObject(array, string6);
+    KSArrayAddObject(array, string7);
+    KSArrayAddObject(array, string0);
+    KSArrayAddObject(array, string1);
+
     
         KSArrayRemoveObject(array, string1);
     KSArrayRemoveAllObjects(array);

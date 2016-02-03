@@ -13,6 +13,7 @@
 #include "KSArrayObject.h"
 #include "KSMacro.h"
 
+const int kKSCapasityMinimum = 5;
 const uint64_t kKSUndefineCount = UINT64_MAX;
 
 #pragma mark -
@@ -36,13 +37,19 @@ void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index);
 static
 void KSArraySetCapacity(KSArray *array,  uint64_t capacity);
 
+static
+bool KSArrayNeedToChangeSize(KSArray *array);
+
+static
+uint64_t KSArrayCapasityResizeIfNeeded(KSArray *array);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 void *KSArrayCreate(void) {
     KSArray *array = KSObjectCreateMacro(KSArray);
     KSArraySetCount(array, 0);
-    KSArraySetCapacity(array, 0);
+    KSArraySetCapacity(array, 10);
 
     return array;
 }
@@ -65,13 +72,10 @@ void **KSArrayGetData(KSArray *array) {
     
     return array->_arrayData;
 }
+
 void KSArraySetCapacity(KSArray *array, uint64_t capacity) {
     KSReturnMacro(array);
-    
-    if (array->_capacity == capacity) {
-        return;
-    }
-    
+ 
     size_t size = sizeof(void *);
     uint64_t count = KSArrayGetCount(array);
     
@@ -138,7 +142,10 @@ bool KSArrayIsContainsObject(KSArray *array, void *object) {
 void KSArrayAddObject(KSArray *array, void *object) {
     KSReturnMacro(array);
     
-    KSArraySetCapacity(array, (KSArrayGetCount(array) + 1));
+    if (KSArrayNeedToChangeSize(array)) {
+        KSArraySetCapacity(array, KSArrayCapasityResizeIfNeeded(array));
+    }
+
     KSArraySetObjectAtIndex(array, object, KSArrayGetCount(array));
     KSArraySetCount(array, (KSArrayGetCount(array) + 1));
 }
@@ -173,6 +180,10 @@ void KSArrayRemoveObject(KSArray *array, void *object) {
             KSArrayRemoveObjectAtIndex(array, index);
         }
     }
+    
+    if (KSArrayNeedToChangeSize(array)) {
+        KSArraySetCapacity(array, KSArrayCapasityResizeIfNeeded(array));
+    }
 }
 
 void KSArrayRemoveAllObjects(KSArray *array) {
@@ -197,3 +208,31 @@ void *KSArrayGetLastObject(KSArray *array) {
 
 #pragma mark -
 #pragma mark Privat Implementations
+
+uint64_t KSArrayCapasityResizeIfNeeded(KSArray *array) {
+    KSReturnZeroMacro(array);
+    
+    uint64_t count = KSArrayGetCount(array);
+    uint64_t capasity = KSArrayGetCapasity(array);
+    
+    if (count < capasity / 2) {
+        capasity = capasity / 2;
+    } else {
+        capasity = capasity * 1.5;
+    }
+    
+    return capasity;
+}
+
+bool KSArrayNeedToChangeSize(KSArray *array) {
+    KSReturnNullMacro(array);
+    
+    uint64_t count = KSArrayGetCount(array);
+    uint64_t capasity = KSArrayGetCapasity(array);
+    
+    if ((count >= capasity / 2) && (count < capasity - 1)) {
+        return false;
+    }
+    
+    return true;
+}
