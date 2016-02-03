@@ -68,15 +68,16 @@ void **KSArrayGetData(KSArray *array) {
 void KSArraySetCapacity(KSArray *array, uint64_t capacity) {
     KSReturnMacro(array);
     
+    if (array->_capacity == capacity) {
+        return;
+    }
+    
     size_t size = sizeof(void *);
     uint64_t count = KSArrayGetCount(array);
     
-    void **arrayData = realloc(KSArrayGetData(array), (capacity + 5) * size);
-    KSArraySetData(array, arrayData);
+    KSArraySetData(array, realloc(KSArrayGetData(array), capacity * size));
     
-    void ** lastObject = KSArrayGetObjectAtIndex(array, count);
-    memset(&lastObject, 0, (capacity - count) * size);
-    
+    memset(&array->_arrayData[count], 0, (capacity - count) * size);
     array->_capacity = capacity;
 }
 
@@ -153,14 +154,13 @@ void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index) {
     }
 }
 
-void KSArrayRemoveObjectAtIndex(KSArray *array, int index) {
+void KSArrayRemoveObjectAtIndex(KSArray *array, uint64_t index) {
     KSReturnMacro(array);
     
     if (KSArrayGetObjectAtIndex(array, index) != NULL) {
         KSArraySetObjectAtIndex(array, NULL, index);
         KSArrayShiftObjectsFromIndex(array, index);
     }
-    
     KSArraySetCount(array, (KSArrayGetCount(array) - 1));
 }
 
@@ -178,7 +178,7 @@ void KSArrayRemoveObject(KSArray *array, void *object) {
 void KSArrayRemoveAllObjects(KSArray *array) {
     KSReturnMacro(array);
     
-   for (int index = 0; index < KSArrayGetCount(array); index++) {
+   for (uint64_t index = KSArrayGetCount(array); index != 0; index--) {
        KSArrayRemoveObjectAtIndex(array, index);
    }
 }

@@ -22,15 +22,15 @@ int main(int argc, const char * argv[]) {
 
    // KSHumanTest();
 //    KSStringObjectTest();
-//    KSArrayObjectTest();
+    KSArrayObjectTest();
  //  void **array;
-    KSArray *array = KSArrayCreate();
-    KSString *string0 = KSStringCreateWithSymbols("This is test string");
-    
-    for (int index = 0; index < 30; index++) {
-        KSArrayAddObject(array, string0);
-    }
-    
+//    KSArray *array = KSArrayCreate();
+//    KSString *string0 = KSStringCreateWithSymbols("This is test string");
+//    
+//    for (int index = 0; index < 30; index++) {
+//        KSArrayAddObject(array, string0);
+//    }
+//    
   //  array = calloc(3, sizeof(int64_t));
    
     puts("dfsg");

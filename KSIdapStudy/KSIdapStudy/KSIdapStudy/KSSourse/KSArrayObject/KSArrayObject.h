@@ -40,7 +40,7 @@ extern
 void KSArrayAddObject(KSArray *array, void *object);
 
 extern
-void KSArrayRemoveObjectAtIndex(KSArray *array, int index);
+void KSArrayRemoveObjectAtIndex(KSArray *array, uint64_t index);
 
 extern
 void KSArrayRemoveAllObjects(KSArray *array);
