@@ -31,7 +31,7 @@ extern
 uint64_t KSArrayGetCount(KSArray *array);
 
 extern
-void *KSArrayGetObjectAtIndex(KSArray *array, int index);
+void *KSArrayGetObjectAtIndex(KSArray *array, uint64_t index);
 
 extern
 uint8_t KSArrayGetIndexOfObject(KSArray *array, void *object);

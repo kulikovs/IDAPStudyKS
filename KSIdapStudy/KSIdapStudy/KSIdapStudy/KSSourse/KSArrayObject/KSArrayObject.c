@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "KSArrayObject.h"
 #include "KSMacro.h"
@@ -35,10 +36,6 @@ void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index);
 static
 void KSArraySetCapacity(KSArray *array,  uint64_t capacity);
 
-static
-void **KSArrayCreateAndChangesData(KSArray *array);
-
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -46,7 +43,6 @@ void *KSArrayCreate(void) {
     KSArray *array = KSObjectCreateMacro(KSArray);
     KSArraySetCount(array, 0);
     KSArraySetCapacity(array, 0);
-    KSArraySetData(array, KSArrayCreateAndChangesData(array));
 
     return array;
 }
@@ -54,21 +50,6 @@ void *KSArrayCreate(void) {
 void __KSArrayDeallocate(KSArray *array) {
         KSArrayRemoveAllObjects(array);
         __KSObjectDeallocate(array);
-}
-
-void **KSArrayCreateAndChangesData(KSArray *array) {
-    KSReturnNullMacro(array);
-    uint64_t count = KSArrayGetCount(array);
-    uint64_t capacity = KSArrayGetCapasity(array);
-    void  **arrayData;
-    
-    if (((count + 1) / 100) == capacity){
-        capacity++;
-        arrayData = realloc(array->_arrayData, (capacity + 100) * sizeof(void*));
-        KSArraySetCapacity(array, capacity);
-    }
-    
-    return arrayData;
 }
 
 #pragma mark -
@@ -86,6 +67,15 @@ void **KSArrayGetData(KSArray *array) {
 }
 void KSArraySetCapacity(KSArray *array, uint64_t capacity) {
     KSReturnMacro(array);
+    
+    size_t size = sizeof(void *);
+    uint64_t count = KSArrayGetCount(array);
+    
+    void **arrayData = realloc(KSArrayGetData(array), (capacity + 5) * size);
+    KSArraySetData(array, arrayData);
+    
+    void ** lastObject = KSArrayGetObjectAtIndex(array, count);
+    memset(&lastObject, 0, (capacity - count) * size);
     
     array->_capacity = capacity;
 }
@@ -111,14 +101,11 @@ uint64_t KSArrayGetCount(KSArray *array) {
 void KSArraySetObjectAtIndex(KSArray *array, void *object, uint64_t index) {
     KSReturnMacro(array);
     
-  //  KSArraySetCapacity(array, KSArrayGetCount(array) + 1);
-    //KSArraySetData(array, KSArrayCreateAndChangesData(array));
-    
     KSRetainSetter(array->_arrayData[index], object);
-    KSArraySetCount(array, (KSArrayGetCount(array) + 1));
+
 }
 
-void *KSArrayGetObjectAtIndex(KSArray *array, int index) {
+void *KSArrayGetObjectAtIndex(KSArray *array, uint64_t index) {
     KSReturnNullMacro(array);
     
     return array->_arrayData[index];
@@ -150,8 +137,9 @@ bool KSArrayIsContainsObject(KSArray *array, void *object) {
 void KSArrayAddObject(KSArray *array, void *object) {
     KSReturnMacro(array);
     
+    KSArraySetCapacity(array, (KSArrayGetCount(array) + 1));
     KSArraySetObjectAtIndex(array, object, KSArrayGetCount(array));
-
+    KSArraySetCount(array, (KSArrayGetCount(array) + 1));
 }
 
 void KSArrayShiftObjectsFromIndex(KSArray *array, uint8_t index) {
@@ -172,6 +160,7 @@ void KSArrayRemoveObjectAtIndex(KSArray *array, int index) {
         KSArraySetObjectAtIndex(array, NULL, index);
         KSArrayShiftObjectsFromIndex(array, index);
     }
+    
     KSArraySetCount(array, (KSArrayGetCount(array) - 1));
 }
 
@@ -208,4 +197,3 @@ void *KSArrayGetLastObject(KSArray *array) {
 
 #pragma mark -
 #pragma mark Privat Implementations
-

@@ -16,17 +16,24 @@
 #include "KSMacro.h"
 #include "KSStringObjectTest.h"
 #include "KSArrayObjectTest.h"
+#include "KSArrayObject.h"
 
 int main(int argc, const char * argv[]) {
 
    // KSHumanTest();
 //    KSStringObjectTest();
-    KSArrayObjectTest();
+//    KSArrayObjectTest();
  //  void **array;
+    KSArray *array = KSArrayCreate();
+    KSString *string0 = KSStringCreateWithSymbols("This is test string");
+    
+    for (int index = 0; index < 30; index++) {
+        KSArrayAddObject(array, string0);
+    }
     
   //  array = calloc(3, sizeof(int64_t));
    
-  //  puts("dfsg");
+    puts("dfsg");
     
     return 0;
 }
