@@ -216,6 +216,9 @@ uint64_t KSArrayCapasityResizeIfNeeded(KSArray *array) {
     uint64_t capasity = KSArrayGetCapasity(array);
     
     if (count < capasity / 2) {
+        if (capasity <= kKSCapasityMinimum) {
+            return capasity;
+        }
         capasity = capasity / 2;
     } else {
         capasity = capasity * 1.5;
