@@ -38,7 +38,7 @@ void __KSObjectDeallocate(void *object) {
 #pragma mark Public Implementations
 
 void *KSObjectRetain(void *object) {
-    KSReturnNullMacro(object);
+    KSReturnNullMacro(object, NULL);
     
     KSObject *newObject = object;
     
@@ -62,7 +62,7 @@ void KSObjectRelease(void *object) {
 }
 
 uint16_t KSObjectGetRetainCount(void *object) {
-    KSReturnZeroMacro(object);
+    KSReturnNullMacro(object, 0);
     
     KSObject *newObject = object;
     

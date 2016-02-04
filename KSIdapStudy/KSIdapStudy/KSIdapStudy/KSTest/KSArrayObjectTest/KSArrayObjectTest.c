@@ -59,7 +59,7 @@ void KSArrayObjectTest(void) {
     KSArrayAddObject(array, string1);
 
     
-        KSArrayRemoveObject(array, string1);
+    KSArrayRemoveObject(array, string1);
     KSArrayRemoveAllObjects(array);
 ////    KSArrayAddObject(array, string8);
 //    KSArrayAddObject(array, string9);

@@ -127,7 +127,7 @@ void KSHumanSetAge(KSHuman *human, uint8_t age) {
 }
 
 uint8_t KSHumanGetAge(KSHuman *human) {
-    KSReturnZeroMacro(human);
+    KSReturnNullMacro(human, 0);
     
     return human->_age;
 }
@@ -139,7 +139,7 @@ void KSHumanSetName(KSHuman *human, KSString *stringName) {
 }
 
 KSString *KSHumanGetName(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, NULL);
     
     return human->_name;
 }
@@ -157,7 +157,7 @@ void KSHumanSetPartner(KSHuman *human, KSHuman *partner) {
 }
 
 KSHuman *KSHumanGetPartner(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, NULL);
 
     return human->_partner;
 }
@@ -169,7 +169,6 @@ void KSHumanSetGenderType(KSHuman *human, KSGenderType gender) {
 }
 
 KSGenderType KSHumanGetGenderType(KSHuman *human) {
-    KSReturnZeroMacro(human);
     
     return human->_gender;
 }
@@ -181,7 +180,7 @@ void KSHumanSetMother(KSHuman *human, KSHuman *mother) {
 }
 
 KSHuman *KSHumanGetMother(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, NULL);
     
     return human->_mother;
 }
@@ -193,13 +192,13 @@ void KSHumanSetFather(KSHuman *human, KSHuman *father) {
 }
 
 KSHuman *KSHumanGetFather(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, NULL);
     
     return human->_father;
 }
 
 KSArray *KSHumanGetChildren(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, NULL);
     
     return human->_children;
 }
@@ -211,7 +210,7 @@ void KSHumanSetChildrenArray(KSHuman *human, KSArray *arrayChildren) {
 }
 
 KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, 0);
     
     return KSArrayGetObjectAtIndex(KSHumanGetChildren(human), index);
 }
@@ -220,7 +219,7 @@ KSHuman *KSHumanGetChildAtIndex(KSHuman *human, int index) {
 #pragma mark Public Implementations
 
 uint8_t KSHumanGetCountChildren(KSHuman *human) {
-    KSReturnZeroMacro(human);
+    KSReturnNullMacro(human, 0);
     
     return KSArrayGetCount(KSHumanGetChildren(human));
 }
@@ -259,7 +258,7 @@ void KSHumanMarry(KSHuman *human, KSHuman *partner) {
 }
 
 bool KSHumanIsMarried(KSHuman *human) {
-    KSReturnNullMacro(human);
+    KSReturnNullMacro(human, 0);
 
     return KSHumanGetPartner(human) != NULL ? true : false;
 }

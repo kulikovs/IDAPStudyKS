@@ -67,7 +67,7 @@ void KSStringSetSymbols(KSString *string, char *symbols) {
 }
 
 char *KSStringGetSymbols(KSString *string) {
-    KSReturnNullMacro(string);
+    KSReturnNullMacro(string, NULL);
     
     return string->_symbols;
 }
@@ -81,7 +81,7 @@ void KSStringSetCount(KSString *string) {
 }
 
 uint8_t KSStringGetCount(KSString *string) {
-    KSReturnZeroMacro(string);
+    KSReturnNullMacro(string, 0);
     
     return string->_countSymbols;
 }
@@ -94,15 +94,15 @@ void KSPrintString(KSString *string) {
 }
 
 bool KSStringIsEqual(KSString *firstString, KSString *secondString) {
-    KSReturnNullMacro(firstString);
-    KSReturnNullMacro(secondString);
+    KSReturnNullMacro(firstString, 0);
+    KSReturnNullMacro(secondString, 0);
     
     return (0 == strcmp(KSStringGetSymbols(firstString),
                         KSStringGetSymbols(secondString)));
 }
 
 KSString *KSStringWithString(KSString *firstString, KSString *secondString) {
-    KSReturnNullMacro(firstString);
+    KSReturnNullMacro(firstString, NULL);
     
     if (!secondString) {
         return firstString;

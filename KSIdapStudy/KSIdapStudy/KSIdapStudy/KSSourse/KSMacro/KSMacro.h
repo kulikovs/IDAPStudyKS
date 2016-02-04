@@ -29,21 +29,26 @@
         return;\
     }
 
-#define KSReturnZeroMacro(value) \
-    if (NULL == value) {\
-        return 0;\
-}
+//#define KSReturnZeroMacro(value) \
+//    if (NULL == value) {\
+//        return 0;\
+//}
+//
+//#define KSReturnNullMacro(value) \
+//    if (NULL == value) {\
+//        return NULL;\
+//    }
 
-#define KSReturnNullMacro(value) \
-    if (NULL == value) {\
-        return NULL;\
-    }
+#define KSReturnNullMacro(value, returnValue) \
+                        if (NULL == value) {\
+                        return returnValue;\
+                       }
 
 #define KSRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
                 KSObjectRelease(oldValue); \
                 oldValue = KSObjectRetain(newValue); \
-}
+            }
 
 #define KSAssignMacro(oldValue, newValue) \
             if (oldValue != newValue) {\

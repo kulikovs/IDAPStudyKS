@@ -55,10 +55,10 @@ extern
 void *KSArrayGetLastObject(KSArray *array);
 
 extern
-uint64_t KSArrayGetCapasity(KSArray *array);
+uint64_t KSArrayGetCapacity(KSArray *array);
 
 extern
-bool KSArrayIsContainsObject(KSArray *array, void *object);
+bool KSArrayContainsObject(KSArray *array, void *object);
 
 extern
 void **KSArrayGetData(KSArray *array);
