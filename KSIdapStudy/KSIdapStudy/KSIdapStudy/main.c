@@ -25,15 +25,23 @@ int main(int argc, const char * argv[]) {
   //  KSArrayObjectTest();
  //  void **array;
     KSArray *array = KSArrayCreate();
-    KSString *string0 = KSStringCreateWithSymbols("This is test string");
+    KSString *string1 = KSStringCreateWithSymbols("This is test string");
+    KSString *string2 = KSStringCreateWithSymbols("This is test string");
+    KSString *string3 = KSStringCreateWithSymbols("This is test string");
     
-    for (int index = 0; index < 1001; index++) {
-        KSArrayAddObject(array, string0);
-    }
+   
     
-    for (int index = 0; index < 500; index++) {
-        KSArrayRemoveObject(array, string0);
-    }
+    KSArrayAddObject(array, string1);
+    KSArrayAddObject(array, string2);
+    KSArrayAddObject(array, string3);
+//    
+//    for (int index = 0; index < 4; index++) {
+//        KSArrayAddObject(array, string0);
+//    }
+    
+    KSArrayRemoveObjectAtIndex(array, 1);
+    
+    KSArrayRemoveAllObjects(array);
     
     array = calloc(3, sizeof(int64_t));
    

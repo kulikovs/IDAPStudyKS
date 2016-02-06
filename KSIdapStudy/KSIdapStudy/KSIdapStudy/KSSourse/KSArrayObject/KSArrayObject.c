@@ -41,10 +41,10 @@ static
 bool KSArrayNeedToChangeSize(KSArray *array);
 
 static
-uint64_t KSArrayResizeIfNeeded(KSArray *array);
+void KSArrayResizeIfNeeded(KSArray *array);
 
 static
-void KSArrayRecomendedSize(KSArray *array);
+uint64_t KSArrayRecomendedSize(KSArray *array);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -137,7 +137,7 @@ uint8_t KSArrayGetIndexOfObject(KSArray *array, void *object) {
 #pragma mark -
 #pragma mark Public Implementations
 
-bool KSArrayIsContainsObject(KSArray *array, void *object) {
+bool KSArrayContainsObject(KSArray *array, void *object) {
     KSReturnNullMacro(array, NULL);
  
     return KSArrayGetIndexOfObject(array, object) != kKSUndefineCount ? true : false;
@@ -146,7 +146,7 @@ bool KSArrayIsContainsObject(KSArray *array, void *object) {
 void KSArrayAddObject(KSArray *array, void *object) {
     KSReturnMacro(array);
     
-    KSArrayRecomendedSize(array);
+    KSArrayResizeIfNeeded(array);
     
     KSArraySetObjectAtIndex(array, object, KSArrayGetCount(array));
     KSArraySetCount(array, (KSArrayGetCount(array) + 1));
@@ -156,9 +156,13 @@ void KSArrayShiftObjectsFromIndex(KSArray *array, uint64_t index) {
     KSReturnMacro(array);
     
     for (; index < KSArrayGetCount(array); index++) {
-        if (KSArrayGetObjectAtIndex(array, index) == NULL) {
-            KSArraySetObjectAtIndex(array, KSArrayGetObjectAtIndex(array, (index + 1)), index);
-            KSArraySetObjectAtIndex(array, NULL, index + 1);
+        
+        void *firstObject = KSArrayGetObjectAtIndex(array, index);
+        void *secondObject = KSArrayGetObjectAtIndex(array, (index + 1));
+        
+        if (firstObject == NULL) {
+            KSArraySetObjectAtIndex(array, secondObject, index);
+            KSArraySetObjectAtIndex(array, NULL, (index + 1));
         }
     }
 }
@@ -184,7 +188,7 @@ void KSArrayRemoveObject(KSArray *array, void *object) {
         }
     }
 
-    KSArrayRecomendedSize(array);
+    KSArrayResizeIfNeeded(array);
 }
 
 void KSArrayRemoveAllObjects(KSArray *array) {
@@ -192,7 +196,9 @@ void KSArrayRemoveAllObjects(KSArray *array) {
     
    for (uint64_t index = KSArrayGetCount(array); index != 0; index--) {
        KSArrayRemoveObjectAtIndex(array, index);
+       
    }
+    KSArraySetCapacity(array, 0);
 }
 
 void *KSArrayGetFirstObject(KSArray *array) {
@@ -210,15 +216,9 @@ void *KSArrayGetLastObject(KSArray *array) {
 #pragma mark -
 #pragma mark Private Implementations
 
-void KSArrayRecomendedSize(KSArray *array){
-    KSReturnMacro(array);
+uint64_t KSArrayRecomendedSize(KSArray *array){
+    KSReturnNullMacro(array, 0);
     
-    if (KSArrayNeedToChangeSize(array)) {
-        KSArraySetCapacity(array, KSArrayResizeIfNeeded(array));
-    }
-}
-
-uint64_t KSArrayResizeIfNeeded(KSArray *array) {
     uint64_t count = KSArrayGetCount(array);
     uint64_t capacity = KSArrayGetCapacity(array);
     
@@ -229,6 +229,14 @@ uint64_t KSArrayResizeIfNeeded(KSArray *array) {
     }
     
     return capacity;
+}
+
+void KSArrayResizeIfNeeded(KSArray *array) {
+    KSReturnMacro(array);
+    
+    if (KSArrayNeedToChangeSize(array)) {
+        KSArraySetCapacity(array, KSArrayRecomendedSize(array));
+    }
 }
 
 bool KSArrayNeedToChangeSize(KSArray *array) {
