@@ -7,3 +7,64 @@
 //
 
 #include "KSLinkedList.h"
+#include "KSMacro.h"
+
+#pragma mark -
+#pragma mark Private Declarations
+
+static
+void __KSLinkedListDeallocate(KSLinkedList *linkedList);
+
+static
+void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count);
+
+static
+void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+void *KSLinkedListCreate(void){
+    KSLinkedList *linkedList = KSObjectCreateMacro(KSLinkedList);
+    KSLinkedListSetCount(linkedList, 0);
+    KSLinkedListSetNodeBegin(linkedList, NULL);
+    
+    return linkedList;
+}
+
+void __KSLinkedListDeallocate(KSLinkedList *linkedList){
+    KSReturnMacro(linkedList);
+    
+    __KSObjectDeallocate(linkedList);
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count) {
+    KSReturnMacro(linkedList);
+    
+    linkedList->count = count;
+}
+
+uint64_t KSLinkedListGetCount(KSLinkedList *linkedList) {
+   // KSReturnNullMacro(linkedList, 0);
+    
+    return linkedList->count;
+}
+
+void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node) {
+    KSReturnMacro(linkedList);
+    
+    linkedList->nodeBegin = node;
+}
+
+void *KSLinkedListGetNodeBegin(KSLinkedList *linkedList){
+    KSReturnNullMacro(linkedList, NULL);
+    
+    return linkedList->nodeBegin;
+}
+
+#pragma mark -
+#pragma mark Private Implimentations
+
