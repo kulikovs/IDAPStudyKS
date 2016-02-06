@@ -12,13 +12,14 @@
 #include <stdio.h>
 
 #include "KSObject.h"
+#include "KSNode.h"
 
 typedef struct KSLinkedList KSLinkedList;
 
 struct KSLinkedList {
     KSObject _super;
-    void *nodeBegin;
-    uint64_t count;
+    KSNode *_nodeBegin;
+    uint64_t _count;
 };
 
 extern

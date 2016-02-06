@@ -44,25 +44,25 @@ void __KSLinkedListDeallocate(KSLinkedList *linkedList){
 void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count) {
     KSReturnMacro(linkedList);
     
-    linkedList->count = count;
+    linkedList->_count = count;
 }
 
 uint64_t KSLinkedListGetCount(KSLinkedList *linkedList) {
    // KSReturnNullMacro(linkedList, 0);
     
-    return linkedList->count;
+    return linkedList->_count;
 }
 
 void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node) {
     KSReturnMacro(linkedList);
     
-    linkedList->nodeBegin = node;
+    linkedList->_nodeBegin = node;
 }
 
 void *KSLinkedListGetNodeBegin(KSLinkedList *linkedList){
     KSReturnNullMacro(linkedList, NULL);
     
-    return linkedList->nodeBegin;
+    return linkedList->_nodeBegin;
 }
 
 #pragma mark -

@@ -11,4 +11,23 @@
 
 #include <stdio.h>
 
+#include "KSObject.h"
+
+typedef struct KSNode KSNode;
+
+struct KSNode {
+    KSObject _super;
+    KSNode *_nextNode;
+    void *_object;
+};
+
+extern
+void *KSNodeCreate(void);
+
+extern
+void *KSNodeGetObject(KSNode *node);
+
+extern
+void *KSNodeGetNextNode(KSNode *node);
+
 #endif /* KSNode_h */
