@@ -12,6 +12,7 @@
 		C952D6CC1C4FF9AD0081C4C5 /* KSObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C952D6CA1C4FF9AD0081C4C5 /* KSObject.c */; };
 		C95781551C65E292006E4690 /* KSLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = C95781531C65E292006E4690 /* KSLinkedList.c */; };
 		C95781591C65F2EC006E4690 /* KSNode.c in Sources */ = {isa = PBXBuildFile; fileRef = C95781571C65F2EC006E4690 /* KSNode.c */; };
+		C957815D1C65FB12006E4690 /* KSLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C957815B1C65FB12006E4690 /* KSLinkedListTest.c */; };
 		C95B30A51C5267FB00BFE3A8 /* KSStringObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */; };
 		C95B30A91C52853700BFE3A8 /* KSStringObjectTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */; };
 		C9935B301C4196CB00CF8708 /* KSHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C9935B2E1C4196CB00CF8708 /* KSHumanTest.c */; };
@@ -46,6 +47,8 @@
 		C95781541C65E292006E4690 /* KSLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedList.h; sourceTree = "<group>"; };
 		C95781571C65F2EC006E4690 /* KSNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSNode.c; sourceTree = "<group>"; };
 		C95781581C65F2EC006E4690 /* KSNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSNode.h; sourceTree = "<group>"; };
+		C957815B1C65FB12006E4690 /* KSLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListTest.c; sourceTree = "<group>"; };
+		C957815C1C65FB12006E4690 /* KSLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListTest.h; sourceTree = "<group>"; };
 		C95B30A31C5267FB00BFE3A8 /* KSStringObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObject.c; sourceTree = "<group>"; };
 		C95B30A41C5267FB00BFE3A8 /* KSStringObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringObject.h; sourceTree = "<group>"; };
 		C95B30A71C52853700BFE3A8 /* KSStringObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObjectTest.c; sourceTree = "<group>"; };
@@ -122,6 +125,15 @@
 				C95781581C65F2EC006E4690 /* KSNode.h */,
 			);
 			path = KSNode;
+			sourceTree = "<group>";
+		};
+		C957815A1C65FB09006E4690 /* KSLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				C957815B1C65FB12006E4690 /* KSLinkedListTest.c */,
+				C957815C1C65FB12006E4690 /* KSLinkedListTest.h */,
+			);
+			path = KSLinkedListTest;
 			sourceTree = "<group>";
 		};
 		C95B30A21C5267EE00BFE3A8 /* KSStringObject */ = {
@@ -204,6 +216,7 @@
 		C993CAED1C32D4FA00593631 /* KSTest */ = {
 			isa = PBXGroup;
 			children = (
+				C957815A1C65FB09006E4690 /* KSLinkedListTest */,
 				C9C761681C57D49E00FD114E /* KSArrayObjectTest */,
 				C95B30A61C52852700BFE3A8 /* KSStringObjectTest */,
 				C9935B2D1C4196C000CF8708 /* KSHumanTest */,
@@ -332,6 +345,7 @@
 				C95781551C65E292006E4690 /* KSLinkedList.c in Sources */,
 				C9F0B9181C3B04930001AD0B /* KSValueBitOutputTest.c in Sources */,
 				C93712701C3FD454009ED5BA /* KSHuman.c in Sources */,
+				C957815D1C65FB12006E4690 /* KSLinkedListTest.c in Sources */,
 				C998FD6B1C3AC35E0034BED2 /* KSValueBitOutput.c in Sources */,
 				C993CAF91C32D55800593631 /* KSTestMacroOutputType.c in Sources */,
 				C95B30A51C5267FB00BFE3A8 /* KSStringObject.c in Sources */,

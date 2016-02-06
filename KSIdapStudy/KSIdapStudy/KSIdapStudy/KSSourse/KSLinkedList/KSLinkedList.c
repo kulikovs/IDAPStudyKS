@@ -18,8 +18,8 @@ void __KSLinkedListDeallocate(KSLinkedList *linkedList);
 static
 void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count);
 
-static
-void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
+//static
+//void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -67,4 +67,6 @@ void *KSLinkedListGetNodeBegin(KSLinkedList *linkedList){
 
 #pragma mark -
 #pragma mark Private Implimentations
+
+
 

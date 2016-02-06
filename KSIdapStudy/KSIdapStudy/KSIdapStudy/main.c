@@ -17,35 +17,15 @@
 #include "KSStringObjectTest.h"
 #include "KSArrayObjectTest.h"
 #include "KSArrayObject.h"
+#include "KSLinkedListTest.h"
 
 int main(int argc, const char * argv[]) {
 
-   // KSHumanTest();
+// KSHumanTest();
 //    KSStringObjectTest();
-  //  KSArrayObjectTest();
- //  void **array;
-    KSArray *array = KSArrayCreate();
-    KSString *string1 = KSStringCreateWithSymbols("This is test string");
-    KSString *string2 = KSStringCreateWithSymbols("This is test string");
-    KSString *string3 = KSStringCreateWithSymbols("This is test string");
-    
-   
-    
-    KSArrayAddObject(array, string1);
-    KSArrayAddObject(array, string2);
-    KSArrayAddObject(array, string3);
-//    
-//    for (int index = 0; index < 4; index++) {
-//        KSArrayAddObject(array, string0);
-//    }
-    
-    KSArrayRemoveObjectAtIndex(array, 1);
-    
-    KSArrayRemoveAllObjects(array);
-    
-    array = calloc(3, sizeof(int64_t));
-   
-    puts("dfsg");
+//  KSArrayObjectTest();
+    KSLinkedListTest();
+
     
     return 0;
 }

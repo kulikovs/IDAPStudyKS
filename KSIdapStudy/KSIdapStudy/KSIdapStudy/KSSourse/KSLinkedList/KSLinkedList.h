@@ -29,6 +29,9 @@ extern
 uint64_t KSLinkedListGetCount(KSLinkedList *linkedList);
 
 extern
+void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
+
+extern
 void *KSLinkedListGetNodeBegin(KSLinkedList *linkedList);
 
 #endif /* KSLinkedList_h */
