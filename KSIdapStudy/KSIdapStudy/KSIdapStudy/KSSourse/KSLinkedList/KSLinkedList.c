@@ -115,21 +115,21 @@ KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList) {
 }
 
 
-void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
-    KSReturnMacro(linkedList);
-    
-    KSNode *node = KSLinkedListGetNodeHead(linkedList);
-    uint64_t index = 0;
-    
-    if () {
-        <#statements#>
-    }
-    
-    for (uint64_t index = 0; node->_object != object; index++) {
-        <#statements#>
-    }
-    
-}
+//void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
+//    KSReturnMacro(linkedList);
+//    
+//    KSNode *node = KSLinkedListGetNodeHead(linkedList);
+//    uint64_t index = 0;
+//    
+//    if () {
+//        <#statements#>
+//    }
+//    
+//    for (uint64_t index = 0; node->_object != object; index++) {
+//        <#statements#>
+//    }
+//    
+//}
 
 #pragma mark -
 #pragma mark Private Implimentations
