@@ -7,15 +7,27 @@
 //
 
 #include "KSLinkedListTest.h"
+#include "KSStringObject.h"
 
 
 void KSLinkedListTest(void) {
 
     KSLinkedList *linkedList = KSLinkedListCreate();
-    KSNode *node = KSNodeCreate();
     
-    KSLinkedListSetNodeBegin(linkedList, node);
+    KSString *string = KSStringCreateWithSymbols("This is test string");
+    KSString *string1 = KSStringCreateWithSymbols("- add");
+    KSString *string2 = KSStringCreateWithSymbols("This is test string");
+    KSString *string3 = KSStringCreateWithSymbols("This is test string");
     
-    KSLinkedListGetNodeBegin(node);
+//    KSNode *node = KSNodeCreate();
+    
+    KSLinkedListAddObject(linkedList, string);
+    KSLinkedListAddObject(linkedList, string1);
+    KSLinkedListAddObject(linkedList, string2);
+    KSLinkedListAddObject(linkedList, string3);
+//    
+//    KSLinkedListSetNodeBegin(linkedList, node);
+//    
+//    KSLinkedListGetNodeBegin(node);
     KSLinkedListGetCount(linkedList);
 }

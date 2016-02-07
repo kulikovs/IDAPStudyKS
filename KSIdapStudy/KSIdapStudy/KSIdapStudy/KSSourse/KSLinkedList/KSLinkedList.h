@@ -18,7 +18,7 @@ typedef struct KSLinkedList KSLinkedList;
 
 struct KSLinkedList {
     KSObject _super;
-    KSNode *_nodeBegin;
+    KSNode *_nodeHead;
     uint64_t _count;
 };
 
@@ -29,9 +29,21 @@ extern
 uint64_t KSLinkedListGetCount(KSLinkedList *linkedList);
 
 extern
-void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
+void KSLinkedListSetNodeHead(KSLinkedList *linkedList, void *node);
 
 extern
-void *KSLinkedListGetNodeBegin(KSLinkedList *linkedList);
+void *KSLinkedListGetNodeHead(KSLinkedList *linkedList);
+
+extern
+void KSLinkedListAddObject(KSLinkedList *linkedList, void *object);
+
+extern
+KSNode *KSLinkedListGetNodeOfCount(KSLinkedList *linkedList, uint64_t count);
+
+extern
+KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList);
+
+extern
+void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object);
 
 #endif /* KSLinkedList_h */

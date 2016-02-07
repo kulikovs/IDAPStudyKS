@@ -25,7 +25,13 @@ extern
 void *KSNodeCreate(void);
 
 extern
+void KSNodeSetObject(KSNode *node, void *object);
+
+extern
 void *KSNodeGetObject(KSNode *node);
+
+extern
+void KSNodeSetNextNode(KSNode *node, KSNode *nextNode);
 
 extern
 void *KSNodeGetNextNode(KSNode *node);
