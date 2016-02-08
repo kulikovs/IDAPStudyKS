@@ -15,9 +15,6 @@
 static
 void __KSNodeDeallocate(KSNode *node);
 
-//static
-//void KSNodeSetNextNode(KSNode *node, KSNode *nextNode);
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 

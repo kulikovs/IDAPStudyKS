@@ -82,7 +82,6 @@ void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
     KSReturnMacro(linkedList);
     
     KSNode *node = KSNodeCreateWithObject(object);
-    
     KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
     KSLinkedListSetHead(linkedList, node);
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
