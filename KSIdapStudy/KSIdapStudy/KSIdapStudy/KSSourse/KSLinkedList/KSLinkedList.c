@@ -18,8 +18,17 @@ void __KSLinkedListDeallocate(KSLinkedList *linkedList);
 static
 void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count);
 
-//static
-//void KSLinkedListSetNodeBegin(KSLinkedList *linkedList, void *node);
+static
+uint64_t KSLinkedListGetCount(KSLinkedList *linkedList);
+
+static
+void KSLinkedListSetHead(KSLinkedList *linkedList, void *node);
+
+static
+void *KSLinkedListGetHead(KSLinkedList *linkedList);
+
+static
+KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -27,13 +36,14 @@ void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count);
 void *KSLinkedListCreate(void){
     KSLinkedList *linkedList = KSObjectCreateMacro(KSLinkedList);
     KSLinkedListSetCount(linkedList, 0);
-    KSLinkedListSetNodeHead(linkedList, NULL);
+    KSLinkedListSetHead(linkedList, NULL);
     
     return linkedList;
 }
 
 void __KSLinkedListDeallocate(KSLinkedList *linkedList){
     KSReturnMacro(linkedList);
+    KSLinkedListSetHead(linkedList, NULL);
     
     __KSObjectDeallocate(linkedList);
 }
@@ -48,21 +58,21 @@ void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count) {
 }
 
 uint64_t KSLinkedListGetCount(KSLinkedList *linkedList) {
-   // KSReturnNullMacro(linkedList, 0);
+    KSReturnNullMacro(linkedList, 0);
     
     return linkedList->_count;
 }
 
-void KSLinkedListSetNodeHead(KSLinkedList *linkedList, void *node) {
+void KSLinkedListSetHead(KSLinkedList *linkedList, void *node) {
     KSReturnMacro(linkedList);
     
-    KSRetainSetter(linkedList->_nodeHead, node);
+    KSRetainSetter(linkedList->_head, node);
 }
 
-void *KSLinkedListGetNodeHead(KSLinkedList *linkedList){
+void *KSLinkedListGetHead(KSLinkedList *linkedList){
     KSReturnNullMacro(linkedList, NULL);
     
-    return linkedList->_nodeHead;
+    return linkedList->_head;
 }
 
 #pragma mark -
@@ -71,65 +81,77 @@ void *KSLinkedListGetNodeHead(KSLinkedList *linkedList){
 void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
     KSReturnMacro(linkedList);
     
-    KSNode *node = KSNodeCreate();
-    KSNodeSetObject(node, object);
+    KSNode *node = KSNodeCreateWithObject(object);
     
-    if (KSLinkedListGetNodeHead(linkedList) == NULL) {
-        KSLinkedListSetNodeHead(linkedList, node);
-    } else {
-        KSNodeSetNextNode(KSLinkedListGetLastNode(linkedList), node);
-    }
-    
+    KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
+    KSLinkedListSetHead(linkedList, node);
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
+    
+    KSObjectRelease(node);
 }
 
-KSNode *KSLinkedListGetNodeOfCount(KSLinkedList *linkedList, uint64_t count) {
+
+void *KSLinkedListGetFirstObject(KSLinkedList *linkedList) {
     KSReturnNullMacro(linkedList, NULL);
     
-    uint64_t index  = 1;
-    KSNode *node = KSLinkedListGetNodeHead(linkedList);
+   return KSNodeGetObject(KSLinkedListGetHead(linkedList));
+}
+
+
+void *KSLinkedListGetLastObject(KSLinkedList *linkedList) {
+    KSReturnNullMacro(linkedList, NULL);
     
-    while (index != count) {
-        node = node->_nextNode;
-        index++;
+   return KSNodeGetObject(KSLinkedListGetLastNode(linkedList));
+}
+
+
+bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
+    KSNode * node = KSLinkedListGetHead(linkedList);
+
+    while (KSNodeGetNextNode(node)) {  // в таком виде не вылавливает обьект в последней ноде. Если изменить как в методе removeObject,
+                                        //то тогда надо               условие делать по первой ноде. В любом случае получается дублирование циклов. в обоих методах.
+        if (KSNodeGetObject(node) == object) {
+            return true;
+        }
+        
+        node = KSNodeGetNextNode(node);
     }
     
-    return node;
+    return false;
 }
+
+void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
+    KSReturnMacro(linkedList);
+    
+    if (KSLinkedListContainsObject(linkedList, object)) {
+        KSNode *node = KSLinkedListGetHead(linkedList);
+        KSNode *nextNode = KSNodeGetNextNode(node);
+        
+        if (object == KSNodeGetObject(node)) {
+            KSLinkedListSetHead(linkedList, nextNode);
+        } else {
+            while (object != KSNodeGetObject(nextNode)) {
+                node = nextNode;
+                nextNode = KSNodeGetNextNode(node);
+            }
+         
+            KSNodeSetNextNode(node, KSNodeGetNextNode(nextNode));
+        }
+        
+        KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
+    }
+}
+
+#pragma mark -
+#pragma mark Private Implimentations
 
 KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList) {
     KSReturnNullMacro(linkedList, NULL);
     
-    KSNode *node = KSLinkedListGetNodeHead(linkedList);
-    uint64_t index = 1;
-    
-    while (index != KSLinkedListGetCount(linkedList)) {
-        node = node->_nextNode;
-        index++;
+    KSNode *node = KSLinkedListGetHead(linkedList);
+    while (NULL != KSNodeGetNextNode(node)) {
+        node = KSNodeGetNextNode(node);
     }
     
-//    while (node == NULL) {
-//        node = node->_nextNode;
-//    }
     return node;
 }
-
-
-//void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
-//    KSReturnMacro(linkedList);
-//    
-//    KSNode *node = KSLinkedListGetNodeHead(linkedList);
-//    uint64_t index = 0;
-//    
-//    if () {
-//        <#statements#>
-//    }
-//    
-//    for (uint64_t index = 0; node->_object != object; index++) {
-//        <#statements#>
-//    }
-//    
-//}
-
-#pragma mark -
-#pragma mark Private Implimentations

@@ -18,6 +18,7 @@ void KSLinkedListTest(void) {
     KSString *string1 = KSStringCreateWithSymbols("- add");
     KSString *string2 = KSStringCreateWithSymbols("This is test string");
     KSString *string3 = KSStringCreateWithSymbols("This is test string");
+    KSString *string4 = KSStringCreateWithSymbols("This is test string");
     
 //    KSNode *node = KSNodeCreate();
     
@@ -25,9 +26,9 @@ void KSLinkedListTest(void) {
     KSLinkedListAddObject(linkedList, string1);
     KSLinkedListAddObject(linkedList, string2);
     KSLinkedListAddObject(linkedList, string3);
-//    
-//    KSLinkedListSetNodeBegin(linkedList, node);
-//    
-//    KSLinkedListGetNodeBegin(node);
-    KSLinkedListGetCount(linkedList);
+    KSLinkedListAddObject(linkedList, string4);
+
+    KSLinkedListRemoveObject(linkedList, string4);
+    puts(KSLinkedListGetFirstObject(linkedList));
+ 
 }

@@ -22,7 +22,7 @@ struct KSNode {
 };
 
 extern
-void *KSNodeCreate(void);
+void *KSNodeCreateWithObject(void *object);
 
 extern
 void KSNodeSetObject(KSNode *node, void *object);

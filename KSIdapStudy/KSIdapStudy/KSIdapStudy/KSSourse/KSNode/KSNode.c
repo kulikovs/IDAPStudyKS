@@ -21,10 +21,10 @@ void __KSNodeDeallocate(KSNode *node);
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-void *KSNodeCreate(void){
+void *KSNodeCreateWithObject(void *object) {
     KSNode *node = KSObjectCreateMacro(KSNode);
     KSNodeSetNextNode(node, NULL);
-    KSNodeSetObject(node, NULL);
+    KSNodeSetObject(node, object);
 
     return node;
 }
@@ -40,7 +40,6 @@ void __KSNodeDeallocate(KSNode *node){
 
 void KSNodeSetNextNode(KSNode *node, KSNode *nextNode) {
     KSReturnMacro(node);
-//    KSReturnMacro(nextNode);
     
     KSRetainSetter(node->_nextNode, nextNode);
 }
@@ -54,7 +53,7 @@ void *KSNodeGetNextNode(KSNode *node) {
 void KSNodeSetObject(KSNode *node, void *object) {
     KSReturnMacro(node);
     
-    node->_object = object;
+     KSRetainSetter(node->_object, object);
 }
 
 void *KSNodeGetObject(KSNode *node) {
@@ -62,11 +61,3 @@ void *KSNodeGetObject(KSNode *node) {
     
     return node->_object;
 }
-
-#pragma mark -
-#pragma mark Public Implimentations
-
-
-
-#pragma mark -
-#pragma mark Private Implimentations
