@@ -21,6 +21,7 @@ struct KSLinkedList {
     KSObject _super;
     KSNode *_head;
     uint64_t _count;
+    uint64_t _mutationsCount;
 };
 
 extern
@@ -40,5 +41,11 @@ void *KSLinkedListGetLastObject(KSLinkedList *linkedList);
 
 extern
 bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object);
+
+extern
+uint64_t KSLinkedListGetMutationsCount(KSLinkedList *linkedList);
+
+extern
+void KSLinkedListRemoveAllObject(KSLinkedList *linkedList);
 
 #endif /* KSLinkedList_h */

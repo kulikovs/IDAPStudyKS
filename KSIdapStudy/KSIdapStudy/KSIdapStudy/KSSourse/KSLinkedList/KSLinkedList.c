@@ -36,6 +36,9 @@ void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node);
 static
 void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node);
 
+static
+void KSLinkedListSetMutationsCount(KSLinkedList *linkedList, uint64_t count);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -43,6 +46,7 @@ void *KSLinkedListCreate(void){
     KSLinkedList *linkedList = KSObjectCreateMacro(KSLinkedList);
     KSLinkedListSetCount(linkedList, 0);
     KSLinkedListSetHead(linkedList, NULL);
+    KSLinkedListSetMutationsCount(linkedList, 0);
     
     return linkedList;
 }
@@ -50,6 +54,7 @@ void *KSLinkedListCreate(void){
 void __KSLinkedListDeallocate(KSLinkedList *linkedList){
     KSReturnMacro(linkedList);
     KSLinkedListSetHead(linkedList, NULL);
+    KSLinkedListSetMutationsCount(linkedList, 0);
     
     __KSObjectDeallocate(linkedList);
 }
@@ -79,6 +84,17 @@ void *KSLinkedListGetHead(KSLinkedList *linkedList){
     KSReturnNullMacro(linkedList, NULL);
     
     return linkedList->_head;
+}
+
+void KSLinkedListSetMutationsCount(KSLinkedList *linkedList, uint64_t count) {
+    KSReturnMacro(linkedList);
+    
+    linkedList->_mutationsCount = count;
+}
+
+uint64_t KSLinkedListGetMutationsCount(KSLinkedList *linkedList) {
+
+    return linkedList->_mutationsCount;
 }
 
 #pragma mark -
@@ -147,6 +163,13 @@ void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
     }
 }
 
+
+void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
+    KSReturnMacro(linkedList);
+    
+    KSLinkedListSetHead(linkedList, NULL);
+}
+
 #pragma mark -
 #pragma mark Private Implimentations
 
@@ -167,6 +190,7 @@ void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node) {
     KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
     KSLinkedListSetHead(linkedList, node);
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
+    KSLinkedListSetMutationsCount(linkedList, KSLinkedListGetMutationsCount(linkedList) + 1);
 }
 
 void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
@@ -186,4 +210,5 @@ void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
     
     KSNodeSetNextNode(firstNode, KSNodeGetNextNode(node));
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
+    KSLinkedListSetMutationsCount(linkedList, KSLinkedListGetMutationsCount(linkedList) + 1);
 }
