@@ -33,6 +33,9 @@ void KSEnumeratorSetIsValid(KSEnumerator *enumerator);
 KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list) {
     KSEnumerator *enumerator = KSObjectCreateMacro(KSEnumerator);
     KSEnumeratorSetList(enumerator, list);
+    KSEnumeratorSetMutationsCount(enumerator, KSLinkedListGetMutationsCount(list));
+    KSEnumeratorSetIsValid(enumerator);
+    KSEnumeratorSetNode(enumerator, get head list);
     
     return enumerator;
 }
