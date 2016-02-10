@@ -46,8 +46,9 @@
 
 #define KSRetainSetter(oldValue, newValue) \
             if (oldValue != newValue) {\
+                KSObjectRetain(newValue);\
                 KSObjectRelease(oldValue); \
-                oldValue = KSObjectRetain(newValue); \
+                oldValue = newValue;\
             }
 
 #define KSAssignMacro(oldValue, newValue) \

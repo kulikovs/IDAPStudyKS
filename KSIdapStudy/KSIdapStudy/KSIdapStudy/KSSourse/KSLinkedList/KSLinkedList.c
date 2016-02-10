@@ -30,6 +30,12 @@ void *KSLinkedListGetHead(KSLinkedList *linkedList);
 static
 KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList);
 
+static
+void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node);
+
+static
+void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -82,10 +88,8 @@ void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
     KSReturnMacro(linkedList);
     
     KSNode *node = KSNodeCreateWithObject(object);
-    KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
-    KSLinkedListSetHead(linkedList, node);
-    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
-    
+    KSLinkedListAddNode(linkedList, node);
+
     KSObjectRelease(node);
 }
 
@@ -93,28 +97,32 @@ void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
 void *KSLinkedListGetFirstObject(KSLinkedList *linkedList) {
     KSReturnNullMacro(linkedList, NULL);
     
-   return KSNodeGetObject(KSLinkedListGetHead(linkedList));
+    KSNode *node = KSLinkedListGetHead(linkedList);
+    
+    return node ? KSNodeGetObject(node) : NULL;
 }
 
 
 void *KSLinkedListGetLastObject(KSLinkedList *linkedList) {
     KSReturnNullMacro(linkedList, NULL);
     
-   return KSNodeGetObject(KSLinkedListGetLastNode(linkedList));
+    KSNode  *node = KSLinkedListGetLastNode(linkedList);
+    
+    return node ? KSNodeGetObject(node) : NULL;
 }
 
 
 bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
+    KSReturnNullMacro(linkedList, NULL);
+    
     KSNode * node = KSLinkedListGetHead(linkedList);
-
-    while (KSNodeGetNextNode(node)) {  // в таком виде не вылавливает обьект в последней ноде. Если изменить как в методе removeObject,
-                                        //то тогда надо               условие делать по первой ноде. В любом случае получается дублирование циклов. в обоих методах.
+    do {
         if (KSNodeGetObject(node) == object) {
             return true;
         }
         
         node = KSNodeGetNextNode(node);
-    }
+    } while (NULL != node);
     
     return false;
 }
@@ -127,17 +135,15 @@ void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
         KSNode *nextNode = KSNodeGetNextNode(node);
         
         if (object == KSNodeGetObject(node)) {
-            KSLinkedListSetHead(linkedList, nextNode);
+            KSLinkedListRemoveNode(linkedList, node);
         } else {
             while (object != KSNodeGetObject(nextNode)) {
                 node = nextNode;
                 nextNode = KSNodeGetNextNode(node);
             }
-         
-            KSNodeSetNextNode(node, KSNodeGetNextNode(nextNode));
+            
+            KSLinkedListRemoveNode(linkedList, nextNode);
         }
-        
-        KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
     }
 }
 
@@ -153,4 +159,31 @@ KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList) {
     }
     
     return node;
+}
+
+void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node) {
+    KSReturnMacro(linkedList);
+    
+    KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
+    KSLinkedListSetHead(linkedList, node);
+    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
+}
+
+void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
+    KSReturnMacro(linkedList);
+    
+    KSNode *firstNode = KSLinkedListGetHead(linkedList);
+    KSNode *secondNode = KSNodeGetNextNode(firstNode);
+    
+    if (firstNode == node) {
+        KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
+    } else {
+        while (secondNode != node) {
+            firstNode = secondNode;
+            secondNode = KSNodeGetNextNode(secondNode);
+        }
+    }
+    
+    KSNodeSetNextNode(firstNode, KSNodeGetNextNode(node));
+    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
 }

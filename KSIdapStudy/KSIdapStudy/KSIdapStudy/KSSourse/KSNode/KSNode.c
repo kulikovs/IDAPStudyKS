@@ -28,6 +28,7 @@ void *KSNodeCreateWithObject(void *object) {
 
 void __KSNodeDeallocate(KSNode *node){
     KSReturnMacro(node);
+    KSNodeSetObject(node, NULL);
     
     __KSObjectDeallocate(node);
 }

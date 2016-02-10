@@ -20,15 +20,12 @@ void KSLinkedListTest(void) {
     KSString *string3 = KSStringCreateWithSymbols("This is test string");
     KSString *string4 = KSStringCreateWithSymbols("This is test string");
     
-//    KSNode *node = KSNodeCreate();
-    
     KSLinkedListAddObject(linkedList, string);
     KSLinkedListAddObject(linkedList, string1);
     KSLinkedListAddObject(linkedList, string2);
     KSLinkedListAddObject(linkedList, string3);
     KSLinkedListAddObject(linkedList, string4);
 
-    KSLinkedListRemoveObject(linkedList, string4);
+    KSLinkedListRemoveObject(linkedList, string);
     puts(KSLinkedListGetFirstObject(linkedList));
- 
 }
