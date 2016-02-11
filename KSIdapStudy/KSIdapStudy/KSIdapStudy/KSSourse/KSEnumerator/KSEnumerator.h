@@ -17,6 +17,7 @@
 #include "KSNode.h"
 
 typedef struct KSEnumerator KSEnumerator;
+typedef struct KSLinkedList KSLinkedList;
 
 struct KSEnumerator {
     KSObject *_super;
@@ -37,16 +38,5 @@ void KSEnumeratorSetNode(KSEnumerator *enumerator, KSNode *node);
 
 extern
 KSNode *KSEnumeratorGetNode(KSEnumerator *enumerator);
-
-extern
-KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator);
-
-extern
-bool KSEnumeratorGetIsValid(KSEnumerator *enumerator);
-
-
-
-
-
 
 #endif /* KSEnumerator_h */

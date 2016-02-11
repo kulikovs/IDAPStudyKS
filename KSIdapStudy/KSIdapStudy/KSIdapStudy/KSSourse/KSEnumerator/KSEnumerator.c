@@ -8,6 +8,8 @@
 
 #include "KSEnumerator.h"
 #include "KSMacro.h"
+#include "KSLinkedListPrivate.h"
+#include "KSEnumeratorPrivate.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -25,7 +27,7 @@ static
 uint64_t KSEnumeratorGetMutationsCount(KSEnumerator *enumerator);
 
 static
-void KSEnumeratorSetIsValid(KSEnumerator *enumerator);
+void KSEnumeratorSetValid(KSEnumerator *enumerator, bool valid);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -34,8 +36,8 @@ KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list) {
     KSEnumerator *enumerator = KSObjectCreateMacro(KSEnumerator);
     KSEnumeratorSetList(enumerator, list);
     KSEnumeratorSetMutationsCount(enumerator, KSLinkedListGetMutationsCount(list));
-    KSEnumeratorSetIsValid(enumerator);
-    KSEnumeratorSetNode(enumerator, get head list);
+    KSEnumeratorSetValid(enumerator, true);
+    KSEnumeratorSetNode(enumerator, KSLinkedListGetHead(list));
     
     return enumerator;
 }
@@ -84,12 +86,10 @@ uint64_t KSEnumeratorGetMutationsCount(KSEnumerator *enumerator) {
     return enumerator->_mutationsCount;
 }
 
-void KSEnumeratorSetIsValid(KSEnumerator *enumerator) {
+void KSEnumeratorSetValid(KSEnumerator *enumerator, bool valid) {
     KSReturnMacro(enumerator);
-    
-    uint64_t mutationsCount = KSEnumeratorGetMutationsCount(enumerator);
-    uint64_t listMutationsCount = KSLinkedListGetMutationsCount(KSEnumeratorGetLinkedList(enumerator));
-    enumerator->_isValid = mutationsCount == listMutationsCount ? true : false;
+
+    enumerator->_isValid = valid;
 }
 
 bool KSEnumeratorGetIsValid(KSEnumerator *enumerator) {
@@ -97,3 +97,26 @@ bool KSEnumeratorGetIsValid(KSEnumerator *enumerator) {
     return enumerator->_isValid;
 }
 
+#pragma mark -
+#pragma mark Private Implimentations
+
+KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator) {
+    KSReturnNullMacro(enumerator, NULL);
+    
+    uint64_t mutationsCountList = KSLinkedListGetMutationsCount(KSEnumeratorGetLinkedList(enumerator));
+    uint64_t mutationsCountEnumerator = KSEnumeratorGetMutationsCount(enumerator);
+
+    KSNode *nextNode = KSNodeGetNextNode(KSEnumeratorGetNode(enumerator));
+    
+    if (mutationsCountList != mutationsCountEnumerator || nextNode == NULL) {
+        KSEnumeratorSetValid(enumerator, false);
+    }
+    
+    if (!KSEnumeratorGetNode(enumerator)) {
+        nextNode = KSLinkedListGetHead(KSEnumeratorGetLinkedList(enumerator));
+    }
+    
+    KSEnumeratorSetNode(enumerator, nextNode);
+    
+    return nextNode;
+}

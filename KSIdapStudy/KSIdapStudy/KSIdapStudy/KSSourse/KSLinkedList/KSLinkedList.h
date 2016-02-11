@@ -34,16 +34,7 @@ extern
 void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object);
 
 extern
-void *KSLinkedListGetFirstObject(KSLinkedList *linkedList);
-
-extern
-void *KSLinkedListGetLastObject(KSLinkedList *linkedList);
-
-extern
 bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object);
-
-extern
-uint64_t KSLinkedListGetMutationsCount(KSLinkedList *linkedList);
 
 extern
 void KSLinkedListRemoveAllObject(KSLinkedList *linkedList);

@@ -26,7 +26,7 @@ void KSLinkedListTest(void) {
     KSLinkedListAddObject(linkedList, string3);
     KSLinkedListAddObject(linkedList, string4);
 
-  //  KSLinkedListRemoveObject(linkedList, string1);
-    KSLinkedListRemoveAllObject(linkedList);
-    puts(KSLinkedListGetFirstObject(linkedList));
+    KSLinkedListRemoveObject(linkedList, string1);
+ //   KSLinkedListRemoveAllObject(linkedList);
+
 }

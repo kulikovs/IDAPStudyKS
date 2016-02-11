@@ -70,6 +70,8 @@
 		C9A4A8E31C5CDC83002B6587 /* KSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C9C761691C57D4AE00FD114E /* KSArrayObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArrayObjectTest.c; sourceTree = "<group>"; };
 		C9C7616A1C57D4AE00FD114E /* KSArrayObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayObjectTest.h; sourceTree = "<group>"; };
+		C9E4D3DC1C6D1EC800A42A8A /* KSLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSLinkedListPrivate.h; sourceTree = "<group>"; };
+		C9E4D3DD1C6D213C00A42A8A /* KSEnumeratorPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSEnumeratorPrivate.h; sourceTree = "<group>"; };
 		C9F0B9161C3B04930001AD0B /* KSValueBitOutputTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutputTest.c; sourceTree = "<group>"; };
 		C9F0B9171C3B04930001AD0B /* KSValueBitOutputTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutputTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 			children = (
 				C95781531C65E292006E4690 /* KSLinkedList.c */,
 				C95781541C65E292006E4690 /* KSLinkedList.h */,
+				C9E4D3DC1C6D1EC800A42A8A /* KSLinkedListPrivate.h */,
 			);
 			path = KSLinkedList;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			children = (
 				C971A6E81C6BA2F700F86CE2 /* KSEnumerator.c */,
 				C971A6E91C6BA2F700F86CE2 /* KSEnumerator.h */,
+				C9E4D3DD1C6D213C00A42A8A /* KSEnumeratorPrivate.h */,
 			);
 			path = KSEnumerator;
 			sourceTree = "<group>";

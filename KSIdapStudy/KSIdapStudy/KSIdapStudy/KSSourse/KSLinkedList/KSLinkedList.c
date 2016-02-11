@@ -8,6 +8,8 @@
 
 #include "KSLinkedList.h"
 #include "KSMacro.h"
+#include "KSLinkedListPrivate.h"
+#include "KSEnumeratorPrivate.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -25,12 +27,6 @@ static
 void KSLinkedListSetHead(KSLinkedList *linkedList, void *node);
 
 static
-void *KSLinkedListGetHead(KSLinkedList *linkedList);
-
-static
-KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList);
-
-static
 void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node);
 
 static
@@ -44,9 +40,9 @@ void KSLinkedListSetMutationsCount(KSLinkedList *linkedList, uint64_t count);
 
 void *KSLinkedListCreate(void){
     KSLinkedList *linkedList = KSObjectCreateMacro(KSLinkedList);
+    KSLinkedListSetMutationsCount(linkedList, 0);
     KSLinkedListSetCount(linkedList, 0);
     KSLinkedListSetHead(linkedList, NULL);
-    KSLinkedListSetMutationsCount(linkedList, 0);
     
     return linkedList;
 }
@@ -66,6 +62,9 @@ void KSLinkedListSetCount(KSLinkedList *linkedList, uint64_t count) {
     KSReturnMacro(linkedList);
     
     linkedList->_count = count;
+    
+    uint64_t mutationsCount = KSLinkedListGetMutationsCount(linkedList);
+    KSLinkedListSetMutationsCount(linkedList, mutationsCount + 1);
 }
 
 uint64_t KSLinkedListGetCount(KSLinkedList *linkedList) {
@@ -109,38 +108,23 @@ void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
     KSObjectRelease(node);
 }
 
-
-void *KSLinkedListGetFirstObject(KSLinkedList *linkedList) {
-    KSReturnNullMacro(linkedList, NULL);
-    
-    KSNode *node = KSLinkedListGetHead(linkedList);
-    
-    return node ? KSNodeGetObject(node) : NULL;
-}
-
-
-void *KSLinkedListGetLastObject(KSLinkedList *linkedList) {
-    KSReturnNullMacro(linkedList, NULL);
-    
-    KSNode  *node = KSLinkedListGetLastNode(linkedList);
-    
-    return node ? KSNodeGetObject(node) : NULL;
-}
-
-
 bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
     KSReturnNullMacro(linkedList, NULL);
     
-    KSNode * node = KSLinkedListGetHead(linkedList);
-    do {
-        if (KSNodeGetObject(node) == object) {
-            return true;
+    KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
+    KSNode *node = KSEnumeratorGetNexNode(enumerator);
+    bool isContains = false;
+    
+    while (KSNodeGetObject(node) != object) {
+        node = KSEnumeratorGetNexNode(enumerator);
+        if (!KSEnumeratorGetIsValid(enumerator)) {
+            break;
         }
         
-        node = KSNodeGetNextNode(node);
-    } while (NULL != node);
+        isContains = true;
+    }
     
-    return false;
+    return isContains;
 }
 
 void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
@@ -173,24 +157,12 @@ void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
 #pragma mark -
 #pragma mark Private Implimentations
 
-KSNode *KSLinkedListGetLastNode(KSLinkedList *linkedList) {
-    KSReturnNullMacro(linkedList, NULL);
-    
-    KSNode *node = KSLinkedListGetHead(linkedList);
-    while (NULL != KSNodeGetNextNode(node)) {
-        node = KSNodeGetNextNode(node);
-    }
-    
-    return node;
-}
-
 void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node) {
     KSReturnMacro(linkedList);
     
     KSNodeSetNextNode(node, KSLinkedListGetHead(linkedList));
     KSLinkedListSetHead(linkedList, node);
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
-    KSLinkedListSetMutationsCount(linkedList, KSLinkedListGetMutationsCount(linkedList) + 1);
 }
 
 void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
@@ -210,5 +182,4 @@ void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
     
     KSNodeSetNextNode(firstNode, KSNodeGetNextNode(node));
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
-    KSLinkedListSetMutationsCount(linkedList, KSLinkedListGetMutationsCount(linkedList) + 1);
 }
