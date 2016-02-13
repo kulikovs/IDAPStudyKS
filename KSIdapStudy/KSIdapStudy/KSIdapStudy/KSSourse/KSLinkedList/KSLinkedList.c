@@ -145,21 +145,6 @@ void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
         KSObjectRelease(enumerator);
     }
 }
-//    if (KSLinkedListContainsObject(linkedList, object)) {
-//        KSNode *node = KSLinkedListGetHead(linkedList);
-//        KSNode *nextNode = KSNodeGetNextNode(node);
-//
-//        if (object == KSNodeGetObject(node)) {
-//            KSLinkedListRemoveNode(linkedList, node);
-//        } else {
-//            while (object != KSNodeGetObject(nextNode)) {
-//                node = nextNode;
-//                nextNode = KSNodeGetNextNode(node);
-//            }
-//
-//            KSLinkedListRemoveNode(linkedList, nextNode);
-//        }
-//    }
 
 void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
     KSReturnMacro(linkedList);
