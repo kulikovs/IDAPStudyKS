@@ -77,7 +77,6 @@ void KSArrayObjectTest(void) {
     
     KSArrayRemoveObject(array, string3);
 //    
-    printf(" start %d", KSArrayGetCount(array));
 //
 //    KSArrayRemoveObject(array, string3);
 //

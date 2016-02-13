@@ -20,7 +20,7 @@ typedef struct KSEnumerator KSEnumerator;
 typedef struct KSLinkedList KSLinkedList;
 
 struct KSEnumerator {
-    KSObject *_super;
+    KSObject _super;
     KSLinkedList *_list;
     KSNode *node;
     uint64_t _mutationsCount;
@@ -28,15 +28,9 @@ struct KSEnumerator {
 };
 
 extern
-KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list);
-
-extern
 KSLinkedList *KSEnumeratorGetLinkedList(KSEnumerator *enumerator);
 
 extern
 void KSEnumeratorSetNode(KSEnumerator *enumerator, KSNode *node);
-
-extern
-KSNode *KSEnumeratorGetNode(KSEnumerator *enumerator);
 
 #endif /* KSEnumerator_h */

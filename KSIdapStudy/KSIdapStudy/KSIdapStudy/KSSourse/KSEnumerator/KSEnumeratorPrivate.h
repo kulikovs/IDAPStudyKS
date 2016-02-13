@@ -9,10 +9,16 @@
 #ifndef KSEnumeratorPrivate_h
 #define KSEnumeratorPrivate_h
 
-#include "KSEnumerator.h"
+typedef struct KSEnumerator KSEnumerator;
+
+extern
+KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list);
 
 extern
 KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator);
+
+extern
+KSNode *KSEnumeratorGetNode(KSEnumerator *enumerator);
 
 extern
 bool KSEnumeratorGetIsValid(KSEnumerator *enumerator);

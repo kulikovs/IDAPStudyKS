@@ -93,6 +93,7 @@ void KSEnumeratorSetValid(KSEnumerator *enumerator, bool valid) {
 }
 
 bool KSEnumeratorGetIsValid(KSEnumerator *enumerator) {
+    KSReturnNullMacro(enumerator, NULL);
 
     return enumerator->_isValid;
 }
@@ -103,20 +104,21 @@ bool KSEnumeratorGetIsValid(KSEnumerator *enumerator) {
 KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator) {
     KSReturnNullMacro(enumerator, NULL);
     
-    uint64_t mutationsCountList = KSLinkedListGetMutationsCount(KSEnumeratorGetLinkedList(enumerator));
+    KSLinkedList *list = KSEnumeratorGetLinkedList(enumerator);
+    uint64_t mutationsCountList = KSLinkedListGetMutationsCount(list);
     uint64_t mutationsCountEnumerator = KSEnumeratorGetMutationsCount(enumerator);
 
     KSNode *nextNode = KSNodeGetNextNode(KSEnumeratorGetNode(enumerator));
     
+    if (!KSEnumeratorGetNode(enumerator)) {
+        nextNode = KSLinkedListGetHead(list);
+    } else {
+        KSEnumeratorSetNode(enumerator, nextNode);
+    }
+    
     if (mutationsCountList != mutationsCountEnumerator || nextNode == NULL) {
         KSEnumeratorSetValid(enumerator, false);
     }
-    
-    if (!KSEnumeratorGetNode(enumerator)) {
-        nextNode = KSLinkedListGetHead(KSEnumeratorGetLinkedList(enumerator));
-    }
-    
-    KSEnumeratorSetNode(enumerator, nextNode);
     
     return nextNode;
 }

@@ -112,17 +112,20 @@ bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
     KSReturnNullMacro(linkedList, NULL);
     
     KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
-    KSNode *node = KSEnumeratorGetNexNode(enumerator);
+    KSNode *node = KSEnumeratorGetNode(enumerator);
     bool isContains = false;
     
-    while (KSNodeGetObject(node) != object) {
-        node = KSEnumeratorGetNexNode(enumerator);
-        if (!KSEnumeratorGetIsValid(enumerator)) {
-            break;
+    while (node) {
+        if (KSEnumeratorGetIsValid(enumerator)) {
+            if (KSNodeGetObject(node) == object) {
+                isContains = true;
+                break;
+            }
+            node = KSEnumeratorGetNexNode(enumerator);
         }
-        
-        isContains = true;
     }
+
+    KSObjectRelease(enumerator);
     
     return isContains;
 }
@@ -131,22 +134,32 @@ void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
     KSReturnMacro(linkedList);
     
     if (KSLinkedListContainsObject(linkedList, object)) {
-        KSNode *node = KSLinkedListGetHead(linkedList);
-        KSNode *nextNode = KSNodeGetNextNode(node);
+        KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
+        KSNode *node = KSEnumeratorGetNode(enumerator);
         
-        if (object == KSNodeGetObject(node)) {
-            KSLinkedListRemoveNode(linkedList, node);
-        } else {
-            while (object != KSNodeGetObject(nextNode)) {
-                node = nextNode;
-                nextNode = KSNodeGetNextNode(node);
-            }
-            
-            KSLinkedListRemoveNode(linkedList, nextNode);
+        while (object != KSNodeGetObject(node)) {
+            node = KSEnumeratorGetNexNode(enumerator);
         }
+        
+        KSLinkedListRemoveNode(linkedList, node);
+        KSObjectRelease(enumerator);
     }
 }
-
+//    if (KSLinkedListContainsObject(linkedList, object)) {
+//        KSNode *node = KSLinkedListGetHead(linkedList);
+//        KSNode *nextNode = KSNodeGetNextNode(node);
+//
+//        if (object == KSNodeGetObject(node)) {
+//            KSLinkedListRemoveNode(linkedList, node);
+//        } else {
+//            while (object != KSNodeGetObject(nextNode)) {
+//                node = nextNode;
+//                nextNode = KSNodeGetNextNode(node);
+//            }
+//
+//            KSLinkedListRemoveNode(linkedList, nextNode);
+//        }
+//    }
 
 void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
     KSReturnMacro(linkedList);
@@ -168,15 +181,16 @@ void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node) {
 void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
     KSReturnMacro(linkedList);
     
-    KSNode *firstNode = KSLinkedListGetHead(linkedList);
-    KSNode *secondNode = KSNodeGetNextNode(firstNode);
+    KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
+    KSNode *firstNode = NULL;
+    KSNode *secondNode = KSEnumeratorGetNode(enumerator);
     
-    if (firstNode == node) {
+    if (secondNode == node) {
         KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
     } else {
         while (secondNode != node) {
             firstNode = secondNode;
-            secondNode = KSNodeGetNextNode(secondNode);
+            secondNode = KSEnumeratorGetNexNode(enumerator);
         }
     }
     
