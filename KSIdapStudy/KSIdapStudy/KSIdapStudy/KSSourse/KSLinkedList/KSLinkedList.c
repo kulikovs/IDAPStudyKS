@@ -182,3 +182,46 @@ void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
     KSNodeSetNextNode(firstNode, KSNodeGetNextNode(node));
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
 }
+
+
+KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
+                                       KSLinkedListComparator comparator,
+                                       KSLinkedListContext *context)
+{
+    KSReturnNullMacro(list, NULL);
+    
+    KSEnumerator *enumerator = KSEnumeratorCreateWithList(list);
+    KSNode *returnNode = NULL;
+    KSNode *node = KSEnumeratorGetNode(enumerator);
+    
+    while (node) {
+        if (KSEnumeratorGetIsValid(enumerator)) {
+            context->node = node;
+            if (KSLinkedListNodeContainsObject(node, context)) {
+                returnNode = node;
+                break;
+            }
+            
+            context->previusNode = node;
+            node = KSEnumeratorGetNexNode(enumerator);
+        }
+        
+    }
+    
+    KSObjectRelease(enumerator);
+    
+    
+    return returnNode;
+}
+
+
+bool KSLinkedListNodeContainsObject(KSNode *node, KSLinkedListContext *context) {
+    KSReturnNullMacro(node, NULL);
+    bool isContains = false;
+    
+    if (KSNodeGetObject(node) == context->object) {
+        isContains = true;
+    }
+ 
+    return isContains;
+}
