@@ -6,10 +6,18 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
+#include <stdlib.h>
+#include <assert.h>
+
 #include "KSLinkedList.h"
 #include "KSMacro.h"
 #include "KSLinkedListPrivate.h"
 #include "KSEnumeratorPrivate.h"
+
+#define KSContextCreateMacro(type, object)\
+         type *context = calloc(1, sizeof(type)); \
+         assert(context); \
+         context->object = object;
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -28,9 +36,6 @@ void KSLinkedListSetHead(KSLinkedList *linkedList, void *node);
 
 static
 void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node);
-
-static
-void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node);
 
 static
 void KSLinkedListSetMutationsCount(KSLinkedList *linkedList, uint64_t count);
@@ -110,40 +115,31 @@ void KSLinkedListAddObject(KSLinkedList *linkedList, void *object) {
 
 bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
     KSReturnNullMacro(linkedList, NULL);
-    
-    KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
-    KSNode *node = KSEnumeratorGetNode(enumerator);
-    bool isContains = false;
-    
-    while (node) {
-        if (KSEnumeratorGetIsValid(enumerator)) {
-            if (KSNodeGetObject(node) == object) {
-                isContains = true;
-                break;
-            }
-            node = KSEnumeratorGetNexNode(enumerator);
-        }
-    }
 
-    KSObjectRelease(enumerator);
-    
-    return isContains;
+    KSContextCreateMacro(KSLinkedListContext, object);
+    KSNode *node = KSLinkedListGetNodeWithContext(linkedList,
+                                                  KSLinkedListNodeContainsObject,
+                                                  context);
+    free(context);
+    return node;
 }
 
 void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
     KSReturnMacro(linkedList);
     
-    if (KSLinkedListContainsObject(linkedList, object)) {
-        KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
-        KSNode *node = KSEnumeratorGetNode(enumerator);
-        
-        while (object != KSNodeGetObject(node)) {
-            node = KSEnumeratorGetNexNode(enumerator);
-        }
-        
-        KSLinkedListRemoveNode(linkedList, node);
-        KSObjectRelease(enumerator);
+    KSContextCreateMacro(KSLinkedListContext, object);
+    KSNode *node = KSLinkedListGetNodeWithContext(linkedList,
+                                                  KSLinkedListNodeContainsObject,
+                                                  context);
+    
+    if (node == KSLinkedListGetHead(linkedList)) {
+        KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
+    } else {
+        KSNodeSetNextNode(context->previusNode, KSNodeGetNextNode(node));
     }
+    
+    free(context);
+    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
 }
 
 void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
@@ -163,27 +159,6 @@ void KSLinkedListAddNode(KSLinkedList *linkedList, KSNode *node) {
     KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) + 1);
 }
 
-void KSLinkedListRemoveNode(KSLinkedList *linkedList, KSNode *node) {
-    KSReturnMacro(linkedList);
-    
-    KSEnumerator *enumerator = KSEnumeratorCreateWithList(linkedList);
-    KSNode *firstNode = NULL;
-    KSNode *secondNode = KSEnumeratorGetNode(enumerator);
-    
-    if (secondNode == node) {
-        KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
-    } else {
-        while (secondNode != node) {
-            firstNode = secondNode;
-            secondNode = KSEnumeratorGetNexNode(enumerator);
-        }
-    }
-    
-    KSNodeSetNextNode(firstNode, KSNodeGetNextNode(node));
-    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
-}
-
-
 KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
                                        KSLinkedListComparator comparator,
                                        KSLinkedListContext *context)
@@ -191,37 +166,26 @@ KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
     KSReturnNullMacro(list, NULL);
     
     KSEnumerator *enumerator = KSEnumeratorCreateWithList(list);
-    KSNode *returnNode = NULL;
-    KSNode *node = KSEnumeratorGetNode(enumerator);
+    KSNode *node = NULL;
     
-    while (node) {
-        if (KSEnumeratorGetIsValid(enumerator)) {
-            context->node = node;
-            if (KSLinkedListNodeContainsObject(node, context)) {
-                returnNode = node;
-                break;
-            }
-            
-            context->previusNode = node;
-            node = KSEnumeratorGetNexNode(enumerator);
+    while (KSEnumeratorGetIsValid(enumerator)) {
+        node = KSEnumeratorGetNexNode(enumerator);
+        context->node = node;
+        
+        if (comparator(context)) {
+            break;
         }
         
+        context->previusNode = node;
     }
     
     KSObjectRelease(enumerator);
-    
-    
-    return returnNode;
+    return node;
 }
 
 
-bool KSLinkedListNodeContainsObject(KSNode *node, KSLinkedListContext *context) {
-    KSReturnNullMacro(node, NULL);
-    bool isContains = false;
+bool KSLinkedListNodeContainsObject(KSLinkedListContext *context) {
+    KSReturnNullMacro(context, NULL);
     
-    if (KSNodeGetObject(node) == context->object) {
-        isContains = true;
-    }
- 
-    return isContains;
+    return KSNodeGetObject(context->node) == context->object;
 }

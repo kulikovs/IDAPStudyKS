@@ -37,7 +37,6 @@ KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list) {
     KSEnumeratorSetList(enumerator, list);
     KSEnumeratorSetMutationsCount(enumerator, KSLinkedListGetMutationsCount(list));
     KSEnumeratorSetValid(enumerator, true);
-    KSEnumeratorSetNode(enumerator, KSLinkedListGetHead(list));
     
     return enumerator;
 }
@@ -107,18 +106,18 @@ KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator) {
     KSLinkedList *list = KSEnumeratorGetLinkedList(enumerator);
     uint64_t mutationsCountList = KSLinkedListGetMutationsCount(list);
     uint64_t mutationsCountEnumerator = KSEnumeratorGetMutationsCount(enumerator);
-
-    KSNode *nextNode = KSNodeGetNextNode(KSEnumeratorGetNode(enumerator));
+    
+    KSNode *node = KSNodeGetNextNode(KSEnumeratorGetNode(enumerator));
     
     if (!KSEnumeratorGetNode(enumerator)) {
-        nextNode = KSLinkedListGetHead(list);
-    } else {
-        KSEnumeratorSetNode(enumerator, nextNode);
+        node = KSLinkedListGetHead(list);
     }
     
-    if (mutationsCountList != mutationsCountEnumerator || nextNode == NULL) {
+    KSEnumeratorSetNode(enumerator, node);
+    
+    if (mutationsCountList != mutationsCountEnumerator || node == NULL) {
         KSEnumeratorSetValid(enumerator, false);
     }
     
-    return nextNode;
+    return node;
 }

@@ -17,7 +17,7 @@ struct KSLinkedListContext {
     void *object;
 };
 
-typedef bool (*KSLinkedListComparator)(KSNode *node, KSLinkedListContext *context);
+typedef bool (*KSLinkedListComparator)(KSLinkedListContext *context);
 
 extern
 void *KSLinkedListGetHead(KSLinkedList *linkedList);
@@ -31,6 +31,6 @@ KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
                                        KSLinkedListContext *context);
 
 extern
-bool KSLinkedListNodeContainsObject(KSNode *node, KSLinkedListContext *context);
+bool KSLinkedListNodeContainsObject(KSLinkedListContext *context);
 
 #endif /* KSLinkedListPrivate_h */
