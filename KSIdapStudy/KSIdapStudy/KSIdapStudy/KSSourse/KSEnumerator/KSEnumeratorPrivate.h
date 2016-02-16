@@ -15,10 +15,7 @@ extern
 KSEnumerator *KSEnumeratorCreateWithList(KSLinkedList *list);
 
 extern
-KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator);
-
-extern
-KSNode *KSEnumeratorGetNode(KSEnumerator *enumerator);
+KSNode *KSEnumeratorGetNextNode(KSEnumerator *enumerator);
 
 extern
 bool KSEnumeratorGetIsValid(KSEnumerator *enumerator);

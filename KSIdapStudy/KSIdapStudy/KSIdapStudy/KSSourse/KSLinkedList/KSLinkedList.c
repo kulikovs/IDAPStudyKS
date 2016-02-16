@@ -121,6 +121,7 @@ bool KSLinkedListContainsObject(KSLinkedList *linkedList, void *object) {
                                                   KSLinkedListNodeContainsObject,
                                                   context);
     free(context);
+    
     return node;
 }
 
@@ -131,15 +132,17 @@ void KSLinkedListRemoveObject(KSLinkedList *linkedList, void *object) {
     KSNode *node = KSLinkedListGetNodeWithContext(linkedList,
                                                   KSLinkedListNodeContainsObject,
                                                   context);
-    
-    if (node == KSLinkedListGetHead(linkedList)) {
-        KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
-    } else {
-        KSNodeSetNextNode(context->previusNode, KSNodeGetNextNode(node));
+    if (node) {
+        if (node == KSLinkedListGetHead(linkedList)) {
+            KSLinkedListSetHead(linkedList, KSNodeGetNextNode(node));
+        } else {
+            KSNodeSetNextNode(context->previusNode, KSNodeGetNextNode(node));
+        }
+        
+        KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
     }
     
     free(context);
-    KSLinkedListSetCount(linkedList, KSLinkedListGetCount(linkedList) - 1);
 }
 
 void KSLinkedListRemoveAllObject(KSLinkedList *linkedList) {
@@ -169,7 +172,7 @@ KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
     KSNode *node = NULL;
     
     while (KSEnumeratorGetIsValid(enumerator)) {
-        node = KSEnumeratorGetNexNode(enumerator);
+        node = KSEnumeratorGetNextNode(enumerator);
         context->node = node;
         
         if (comparator(context)) {
@@ -180,9 +183,9 @@ KSNode *KSLinkedListGetNodeWithContext(KSLinkedList *list,
     }
     
     KSObjectRelease(enumerator);
+    
     return node;
 }
-
 
 bool KSLinkedListNodeContainsObject(KSLinkedListContext *context) {
     KSReturnNullMacro(context, NULL);

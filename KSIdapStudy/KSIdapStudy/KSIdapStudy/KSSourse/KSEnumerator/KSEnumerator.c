@@ -29,6 +29,9 @@ uint64_t KSEnumeratorGetMutationsCount(KSEnumerator *enumerator);
 static
 void KSEnumeratorSetValid(KSEnumerator *enumerator, bool valid);
 
+extern
+KSNode *KSEnumeratorGetNode(KSEnumerator *enumerator);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -100,7 +103,7 @@ bool KSEnumeratorGetIsValid(KSEnumerator *enumerator) {
 #pragma mark -
 #pragma mark Private Implimentations
 
-KSNode *KSEnumeratorGetNexNode(KSEnumerator *enumerator) {
+KSNode *KSEnumeratorGetNextNode(KSEnumerator *enumerator) {
     KSReturnNullMacro(enumerator, NULL);
     
     KSLinkedList *list = KSEnumeratorGetLinkedList(enumerator);
