@@ -8,10 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+#import "KSHumanClass.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+
+        KSHuman *human = [[[KSHuman alloc] initWithAge] autorelease];
+        KSHuman *children = [[[KSHuman alloc] initWithAge] autorelease];
+        KSHuman *children1 = [[[KSHuman alloc] initWithAge] autorelease];
+        KSHuman *children2 = [[[KSHuman alloc] initWithAge] autorelease];
+        [human setAge: 80];
+        [human setGender:kKSMale];
+        [human setChildren:[NSArray arrayWithObjects:children, children1, children2, nil]];
+        [human get];
+        NSLog(@"%@", human);
+        NSLog(@"%d", human.age);
+        
     }
+    
     return 0;
 }
