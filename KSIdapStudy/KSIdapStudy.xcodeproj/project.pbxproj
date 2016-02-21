@@ -7,31 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C90144E41C73B750007E24F9 /* KSArrayObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144B01C73B750007E24F9 /* KSArrayObject.c */; };
-		C90144E51C73B750007E24F9 /* KSEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144B31C73B750007E24F9 /* KSEnumerator.c */; };
-		C90144E61C73B750007E24F9 /* KSHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144B71C73B750007E24F9 /* KSHuman.c */; };
-		C90144E71C73B750007E24F9 /* KSLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144BA1C73B750007E24F9 /* KSLinkedList.c */; };
-		C90144E81C73B750007E24F9 /* KSNode.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144C01C73B750007E24F9 /* KSNode.c */; };
-		C90144E91C73B750007E24F9 /* KSObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144C31C73B750007E24F9 /* KSObject.c */; };
-		C90144EA1C73B750007E24F9 /* KSStringObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144C61C73B750007E24F9 /* KSStringObject.c */; };
-		C90144EB1C73B750007E24F9 /* KSStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144C91C73B750007E24F9 /* KSStruct.c */; };
-		C90144EC1C73B750007E24F9 /* KSValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144CC1C73B750007E24F9 /* KSValueBitOutput.c */; };
-		C90144ED1C73B750007E24F9 /* KSArrayObjectTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144D01C73B750007E24F9 /* KSArrayObjectTest.c */; };
-		C90144EE1C73B750007E24F9 /* KSHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144D31C73B750007E24F9 /* KSHumanTest.c */; };
-		C90144EF1C73B750007E24F9 /* KSLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144D61C73B750007E24F9 /* KSLinkedListTest.c */; };
-		C90144F01C73B750007E24F9 /* KSStringObjectTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144D91C73B750007E24F9 /* KSStringObjectTest.c */; };
-		C90144F11C73B750007E24F9 /* KSTestMacroOutputType.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144DC1C73B750007E24F9 /* KSTestMacroOutputType.c */; };
-		C90144F21C73B750007E24F9 /* KSTestStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144DF1C73B750007E24F9 /* KSTestStruct.c */; };
-		C90144F31C73B750007E24F9 /* KSValueBitOutputTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C90144E21C73B750007E24F9 /* KSValueBitOutputTest.c */; };
-		C90145031C73BA3E007E24F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C90145021C73BA3E007E24F9 /* main.m */; };
-		C901450A1C73BAAB007E24F9 /* KSObjFirstStep.m in Sources */ = {isa = PBXBuildFile; fileRef = C90145091C73BAAB007E24F9 /* KSObjFirstStep.m */; };
-		C901450D1C73BBE7007E24F9 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C901450C1C73BBE7007E24F9 /* main.c */; };
-		C91F0AEC1C761D89003B8A93 /* KSHumanClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F0AEB1C761D89003B8A93 /* KSHumanClass.m */; };
-		C91F0AF01C7637B1003B8A93 /* KSHumanTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F0AEF1C7637B1003B8A93 /* KSHumanTest.m */; };
+		C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
+		C94C670E1C775F0A00B59836 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
+		C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67111C77B2C200B59836 /* KSCreatureTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C90144FE1C73BA3E007E24F9 /* CopyFiles */ = {
+		C94C66EB1C775E2B00B59836 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -52,55 +34,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C90144B01C73B750007E24F9 /* KSArrayObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArrayObject.c; sourceTree = "<group>"; };
-		C90144B11C73B750007E24F9 /* KSArrayObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayObject.h; sourceTree = "<group>"; };
-		C90144B31C73B750007E24F9 /* KSEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSEnumerator.c; sourceTree = "<group>"; };
-		C90144B41C73B750007E24F9 /* KSEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnumerator.h; sourceTree = "<group>"; };
-		C90144B51C73B750007E24F9 /* KSEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnumeratorPrivate.h; sourceTree = "<group>"; };
-		C90144B71C73B750007E24F9 /* KSHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHuman.c; sourceTree = "<group>"; };
-		C90144B81C73B750007E24F9 /* KSHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHuman.h; sourceTree = "<group>"; };
-		C90144BA1C73B750007E24F9 /* KSLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedList.c; sourceTree = "<group>"; };
-		C90144BB1C73B750007E24F9 /* KSLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedList.h; sourceTree = "<group>"; };
-		C90144BC1C73B750007E24F9 /* KSLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListPrivate.h; sourceTree = "<group>"; };
-		C90144BE1C73B750007E24F9 /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
-		C90144C01C73B750007E24F9 /* KSNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSNode.c; sourceTree = "<group>"; };
-		C90144C11C73B750007E24F9 /* KSNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSNode.h; sourceTree = "<group>"; };
-		C90144C31C73B750007E24F9 /* KSObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSObject.c; sourceTree = "<group>"; };
-		C90144C41C73B750007E24F9 /* KSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObject.h; sourceTree = "<group>"; };
-		C90144C61C73B750007E24F9 /* KSStringObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObject.c; sourceTree = "<group>"; };
-		C90144C71C73B750007E24F9 /* KSStringObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringObject.h; sourceTree = "<group>"; };
-		C90144C91C73B750007E24F9 /* KSStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStruct.c; sourceTree = "<group>"; };
-		C90144CA1C73B750007E24F9 /* KSStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStruct.h; sourceTree = "<group>"; };
-		C90144CC1C73B750007E24F9 /* KSValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutput.c; sourceTree = "<group>"; };
-		C90144CD1C73B750007E24F9 /* KSValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutput.h; sourceTree = "<group>"; };
-		C90144D01C73B750007E24F9 /* KSArrayObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArrayObjectTest.c; sourceTree = "<group>"; };
-		C90144D11C73B750007E24F9 /* KSArrayObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayObjectTest.h; sourceTree = "<group>"; };
-		C90144D31C73B750007E24F9 /* KSHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHumanTest.c; sourceTree = "<group>"; };
-		C90144D41C73B750007E24F9 /* KSHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHumanTest.h; sourceTree = "<group>"; };
-		C90144D61C73B750007E24F9 /* KSLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListTest.c; sourceTree = "<group>"; };
-		C90144D71C73B750007E24F9 /* KSLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListTest.h; sourceTree = "<group>"; };
-		C90144D91C73B750007E24F9 /* KSStringObjectTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStringObjectTest.c; sourceTree = "<group>"; };
-		C90144DA1C73B750007E24F9 /* KSStringObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringObjectTest.h; sourceTree = "<group>"; };
-		C90144DC1C73B750007E24F9 /* KSTestMacroOutputType.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTestMacroOutputType.c; sourceTree = "<group>"; };
-		C90144DD1C73B750007E24F9 /* KSTestMacroOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTestMacroOutputType.h; sourceTree = "<group>"; };
-		C90144DF1C73B750007E24F9 /* KSTestStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTestStruct.c; sourceTree = "<group>"; };
-		C90144E01C73B750007E24F9 /* KSTestStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTestStruct.h; sourceTree = "<group>"; };
-		C90144E21C73B750007E24F9 /* KSValueBitOutputTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutputTest.c; sourceTree = "<group>"; };
-		C90144E31C73B750007E24F9 /* KSValueBitOutputTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutputTest.h; sourceTree = "<group>"; };
-		C90145001C73BA3E007E24F9 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
-		C90145021C73BA3E007E24F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C90145091C73BAAB007E24F9 /* KSObjFirstStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObjFirstStep.m; sourceTree = "<group>"; };
-		C901450B1C73BACF007E24F9 /* KSObjFirstStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObjFirstStep.h; sourceTree = "<group>"; };
-		C901450C1C73BBE7007E24F9 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		C91F0AEA1C761D89003B8A93 /* KSHumanClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHumanClass.h; sourceTree = "<group>"; };
-		C91F0AEB1C761D89003B8A93 /* KSHumanClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHumanClass.m; sourceTree = "<group>"; };
-		C91F0AEF1C7637B1003B8A93 /* KSHumanTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSHumanTest.m; sourceTree = "<group>"; };
-		C91F0AF11C763991003B8A93 /* KSHumanTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSHumanTest.h; sourceTree = "<group>"; };
+		C94C66ED1C775E2B00B59836 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94C67051C775F0A00B59836 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
+		C94C67061C775F0A00B59836 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
+		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C94C67101C77B2C200B59836 /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
+		C94C67111C77B2C200B59836 /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C90144FD1C73BA3E007E24F9 /* Frameworks */ = {
+		C94C66EA1C775E2B00B59836 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -117,261 +61,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C90144AD1C73B750007E24F9 /* С */ = {
+		C94C67021C775F0A00B59836 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				C901450C1C73BBE7007E24F9 /* main.c */,
-				C90144AE1C73B750007E24F9 /* KSSourse */,
-				C90144CE1C73B750007E24F9 /* KSTest */,
+				C94C67031C775F0A00B59836 /* KSSourse */,
+				C94C67071C775F0A00B59836 /* KSTest */,
+				C94C670B1C775F0A00B59836 /* main.m */,
 			);
-			name = "С";
-			path = "KSIdapStudy/С";
+			name = ObjC;
+			path = KSIdapStudy/ObjC;
 			sourceTree = "<group>";
 		};
-		C90144AE1C73B750007E24F9 /* KSSourse */ = {
+		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
-				C90144AF1C73B750007E24F9 /* KSArrayObject */,
-				C90144B21C73B750007E24F9 /* KSEnumerator */,
-				C90144B61C73B750007E24F9 /* KSHuman */,
-				C90144B91C73B750007E24F9 /* KSLinkedList */,
-				C90144BD1C73B750007E24F9 /* KSMacro */,
-				C90144BF1C73B750007E24F9 /* KSNode */,
-				C90144C21C73B750007E24F9 /* KSObject */,
-				C90144C51C73B750007E24F9 /* KSStringObject */,
-				C90144C81C73B750007E24F9 /* KSStruct */,
-				C90144CB1C73B750007E24F9 /* KSValueBitOutput */,
+				C94C67041C775F0A00B59836 /* KSCreature */,
 			);
 			path = KSSourse;
 			sourceTree = "<group>";
 		};
-		C90144AF1C73B750007E24F9 /* KSArrayObject */ = {
+		C94C67041C775F0A00B59836 /* KSCreature */ = {
 			isa = PBXGroup;
 			children = (
-				C90144B01C73B750007E24F9 /* KSArrayObject.c */,
-				C90144B11C73B750007E24F9 /* KSArrayObject.h */,
+				C94C67051C775F0A00B59836 /* KSCreature.m */,
+				C94C67061C775F0A00B59836 /* KSCreature.h */,
 			);
-			path = KSArrayObject;
+			path = KSCreature;
 			sourceTree = "<group>";
 		};
-		C90144B21C73B750007E24F9 /* KSEnumerator */ = {
+		C94C67071C775F0A00B59836 /* KSTest */ = {
 			isa = PBXGroup;
 			children = (
-				C90144B31C73B750007E24F9 /* KSEnumerator.c */,
-				C90144B41C73B750007E24F9 /* KSEnumerator.h */,
-				C90144B51C73B750007E24F9 /* KSEnumeratorPrivate.h */,
-			);
-			path = KSEnumerator;
-			sourceTree = "<group>";
-		};
-		C90144B61C73B750007E24F9 /* KSHuman */ = {
-			isa = PBXGroup;
-			children = (
-				C90144B71C73B750007E24F9 /* KSHuman.c */,
-				C90144B81C73B750007E24F9 /* KSHuman.h */,
-			);
-			path = KSHuman;
-			sourceTree = "<group>";
-		};
-		C90144B91C73B750007E24F9 /* KSLinkedList */ = {
-			isa = PBXGroup;
-			children = (
-				C90144BA1C73B750007E24F9 /* KSLinkedList.c */,
-				C90144BB1C73B750007E24F9 /* KSLinkedList.h */,
-				C90144BC1C73B750007E24F9 /* KSLinkedListPrivate.h */,
-			);
-			path = KSLinkedList;
-			sourceTree = "<group>";
-		};
-		C90144BD1C73B750007E24F9 /* KSMacro */ = {
-			isa = PBXGroup;
-			children = (
-				C90144BE1C73B750007E24F9 /* KSMacro.h */,
-			);
-			path = KSMacro;
-			sourceTree = "<group>";
-		};
-		C90144BF1C73B750007E24F9 /* KSNode */ = {
-			isa = PBXGroup;
-			children = (
-				C90144C01C73B750007E24F9 /* KSNode.c */,
-				C90144C11C73B750007E24F9 /* KSNode.h */,
-			);
-			path = KSNode;
-			sourceTree = "<group>";
-		};
-		C90144C21C73B750007E24F9 /* KSObject */ = {
-			isa = PBXGroup;
-			children = (
-				C90144C31C73B750007E24F9 /* KSObject.c */,
-				C90144C41C73B750007E24F9 /* KSObject.h */,
-			);
-			path = KSObject;
-			sourceTree = "<group>";
-		};
-		C90144C51C73B750007E24F9 /* KSStringObject */ = {
-			isa = PBXGroup;
-			children = (
-				C90144C61C73B750007E24F9 /* KSStringObject.c */,
-				C90144C71C73B750007E24F9 /* KSStringObject.h */,
-			);
-			path = KSStringObject;
-			sourceTree = "<group>";
-		};
-		C90144C81C73B750007E24F9 /* KSStruct */ = {
-			isa = PBXGroup;
-			children = (
-				C90144C91C73B750007E24F9 /* KSStruct.c */,
-				C90144CA1C73B750007E24F9 /* KSStruct.h */,
-			);
-			path = KSStruct;
-			sourceTree = "<group>";
-		};
-		C90144CB1C73B750007E24F9 /* KSValueBitOutput */ = {
-			isa = PBXGroup;
-			children = (
-				C90144CC1C73B750007E24F9 /* KSValueBitOutput.c */,
-				C90144CD1C73B750007E24F9 /* KSValueBitOutput.h */,
-			);
-			path = KSValueBitOutput;
-			sourceTree = "<group>";
-		};
-		C90144CE1C73B750007E24F9 /* KSTest */ = {
-			isa = PBXGroup;
-			children = (
-				C90144CF1C73B750007E24F9 /* KSArrayObjectTest */,
-				C90144D21C73B750007E24F9 /* KSHumanTest */,
-				C90144D51C73B750007E24F9 /* KSLinkedListTest */,
-				C90144D81C73B750007E24F9 /* KSStringObjectTest */,
-				C90144DB1C73B750007E24F9 /* KSTestMacroOutputType */,
-				C90144DE1C73B750007E24F9 /* KSTestStruct */,
-				C90144E11C73B750007E24F9 /* KSValueBitOutputTest */,
+				C94C670F1C77B25C00B59836 /* KSTest */,
 			);
 			path = KSTest;
 			sourceTree = "<group>";
 		};
-		C90144CF1C73B750007E24F9 /* KSArrayObjectTest */ = {
+		C94C670F1C77B25C00B59836 /* KSTest */ = {
 			isa = PBXGroup;
 			children = (
-				C90144D01C73B750007E24F9 /* KSArrayObjectTest.c */,
-				C90144D11C73B750007E24F9 /* KSArrayObjectTest.h */,
-			);
-			path = KSArrayObjectTest;
-			sourceTree = "<group>";
-		};
-		C90144D21C73B750007E24F9 /* KSHumanTest */ = {
-			isa = PBXGroup;
-			children = (
-				C90144D31C73B750007E24F9 /* KSHumanTest.c */,
-				C90144D41C73B750007E24F9 /* KSHumanTest.h */,
-			);
-			path = KSHumanTest;
-			sourceTree = "<group>";
-		};
-		C90144D51C73B750007E24F9 /* KSLinkedListTest */ = {
-			isa = PBXGroup;
-			children = (
-				C90144D61C73B750007E24F9 /* KSLinkedListTest.c */,
-				C90144D71C73B750007E24F9 /* KSLinkedListTest.h */,
-			);
-			path = KSLinkedListTest;
-			sourceTree = "<group>";
-		};
-		C90144D81C73B750007E24F9 /* KSStringObjectTest */ = {
-			isa = PBXGroup;
-			children = (
-				C90144D91C73B750007E24F9 /* KSStringObjectTest.c */,
-				C90144DA1C73B750007E24F9 /* KSStringObjectTest.h */,
-			);
-			path = KSStringObjectTest;
-			sourceTree = "<group>";
-		};
-		C90144DB1C73B750007E24F9 /* KSTestMacroOutputType */ = {
-			isa = PBXGroup;
-			children = (
-				C90144DC1C73B750007E24F9 /* KSTestMacroOutputType.c */,
-				C90144DD1C73B750007E24F9 /* KSTestMacroOutputType.h */,
-			);
-			path = KSTestMacroOutputType;
-			sourceTree = "<group>";
-		};
-		C90144DE1C73B750007E24F9 /* KSTestStruct */ = {
-			isa = PBXGroup;
-			children = (
-				C90144DF1C73B750007E24F9 /* KSTestStruct.c */,
-				C90144E01C73B750007E24F9 /* KSTestStruct.h */,
-			);
-			path = KSTestStruct;
-			sourceTree = "<group>";
-		};
-		C90144E11C73B750007E24F9 /* KSValueBitOutputTest */ = {
-			isa = PBXGroup;
-			children = (
-				C90144E21C73B750007E24F9 /* KSValueBitOutputTest.c */,
-				C90144E31C73B750007E24F9 /* KSValueBitOutputTest.h */,
-			);
-			path = KSValueBitOutputTest;
-			sourceTree = "<group>";
-		};
-		C90145011C73BA3E007E24F9 /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				C91F0AED1C762FD5003B8A93 /* KSTest */,
-				C90145071C73BA63007E24F9 /* KSSourse */,
-				C90145021C73BA3E007E24F9 /* main.m */,
-			);
-			path = ObjC;
-			sourceTree = "<group>";
-		};
-		C90145071C73BA63007E24F9 /* KSSourse */ = {
-			isa = PBXGroup;
-			children = (
-				C91F0AE91C761D75003B8A93 /* KSHuman */,
-				C90145081C73BAA0007E24F9 /* KSObjFirstStep */,
-			);
-			path = KSSourse;
-			sourceTree = "<group>";
-		};
-		C90145081C73BAA0007E24F9 /* KSObjFirstStep */ = {
-			isa = PBXGroup;
-			children = (
-				C90145091C73BAAB007E24F9 /* KSObjFirstStep.m */,
-				C901450B1C73BACF007E24F9 /* KSObjFirstStep.h */,
-			);
-			path = KSObjFirstStep;
-			sourceTree = "<group>";
-		};
-		C91F0AE91C761D75003B8A93 /* KSHuman */ = {
-			isa = PBXGroup;
-			children = (
-				C91F0AEA1C761D89003B8A93 /* KSHumanClass.h */,
-				C91F0AEB1C761D89003B8A93 /* KSHumanClass.m */,
-			);
-			path = KSHuman;
-			sourceTree = "<group>";
-		};
-		C91F0AED1C762FD5003B8A93 /* KSTest */ = {
-			isa = PBXGroup;
-			children = (
-				C91F0AEE1C763798003B8A93 /* KSHumanTest */,
+				C94C67101C77B2C200B59836 /* KSCreatureTest.h */,
+				C94C67111C77B2C200B59836 /* KSCreatureTest.m */,
 			);
 			path = KSTest;
-			sourceTree = "<group>";
-		};
-		C91F0AEE1C763798003B8A93 /* KSHumanTest */ = {
-			isa = PBXGroup;
-			children = (
-				C91F0AEF1C7637B1003B8A93 /* KSHumanTest.m */,
-				C91F0AF11C763991003B8A93 /* KSHumanTest.h */,
-			);
-			path = KSHumanTest;
 			sourceTree = "<group>";
 		};
 		C993CACC1C32D2C600593631 = {
 			isa = PBXGroup;
 			children = (
-				C90144AD1C73B750007E24F9 /* С */,
-				C90145011C73BA3E007E24F9 /* ObjC */,
+				C94C67021C775F0A00B59836 /* ObjC */,
 				C993CAD61C32D2C600593631 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -380,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				C993CAD51C32D2C600593631 /* С */,
-				C90145001C73BA3E007E24F9 /* ObjC */,
+				C94C66ED1C775E2B00B59836 /* ObjC */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,13 +126,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C90144FF1C73BA3E007E24F9 /* ObjC */ = {
+		C94C66EC1C775E2B00B59836 /* ObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C90145041C73BA3E007E24F9 /* Build configuration list for PBXNativeTarget "ObjC" */;
+			buildConfigurationList = C94C66F11C775E2B00B59836 /* Build configuration list for PBXNativeTarget "ObjC" */;
 			buildPhases = (
-				C90144FC1C73BA3E007E24F9 /* Sources */,
-				C90144FD1C73BA3E007E24F9 /* Frameworks */,
-				C90144FE1C73BA3E007E24F9 /* CopyFiles */,
+				C94C66E91C775E2B00B59836 /* Sources */,
+				C94C66EA1C775E2B00B59836 /* Frameworks */,
+				C94C66EB1C775E2B00B59836 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -402,7 +140,7 @@
 			);
 			name = ObjC;
 			productName = ObjC;
-			productReference = C90145001C73BA3E007E24F9 /* ObjC */;
+			productReference = C94C66ED1C775E2B00B59836 /* ObjC */;
 			productType = "com.apple.product-type.tool";
 		};
 		C993CAD41C32D2C600593631 /* С */ = {
@@ -431,7 +169,7 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = KulikovS;
 				TargetAttributes = {
-					C90144FF1C73BA3E007E24F9 = {
+					C94C66EC1C775E2B00B59836 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 					C993CAD41C32D2C600593631 = {
@@ -452,20 +190,19 @@
 			projectRoot = "";
 			targets = (
 				C993CAD41C32D2C600593631 /* С */,
-				C90144FF1C73BA3E007E24F9 /* ObjC */,
+				C94C66EC1C775E2B00B59836 /* ObjC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C90144FC1C73BA3E007E24F9 /* Sources */ = {
+		C94C66E91C775E2B00B59836 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91F0AEC1C761D89003B8A93 /* KSHumanClass.m in Sources */,
-				C901450A1C73BAAB007E24F9 /* KSObjFirstStep.m in Sources */,
-				C90145031C73BA3E007E24F9 /* main.m in Sources */,
-				C91F0AF01C7637B1003B8A93 /* KSHumanTest.m in Sources */,
+				C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */,
+				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
+				C94C670E1C775F0A00B59836 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,41 +210,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C90144EF1C73B750007E24F9 /* KSLinkedListTest.c in Sources */,
-				C90144EC1C73B750007E24F9 /* KSValueBitOutput.c in Sources */,
-				C90144F31C73B750007E24F9 /* KSValueBitOutputTest.c in Sources */,
-				C90144E71C73B750007E24F9 /* KSLinkedList.c in Sources */,
-				C90144F21C73B750007E24F9 /* KSTestStruct.c in Sources */,
-				C90144E61C73B750007E24F9 /* KSHuman.c in Sources */,
-				C90144E91C73B750007E24F9 /* KSObject.c in Sources */,
-				C90144ED1C73B750007E24F9 /* KSArrayObjectTest.c in Sources */,
-				C901450D1C73BBE7007E24F9 /* main.c in Sources */,
-				C90144EA1C73B750007E24F9 /* KSStringObject.c in Sources */,
-				C90144E41C73B750007E24F9 /* KSArrayObject.c in Sources */,
-				C90144E51C73B750007E24F9 /* KSEnumerator.c in Sources */,
-				C90144EB1C73B750007E24F9 /* KSStruct.c in Sources */,
-				C90144F01C73B750007E24F9 /* KSStringObjectTest.c in Sources */,
-				C90144F11C73B750007E24F9 /* KSTestMacroOutputType.c in Sources */,
-				C90144E81C73B750007E24F9 /* KSNode.c in Sources */,
-				C90144EE1C73B750007E24F9 /* KSHumanTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C90145051C73BA3E007E24F9 /* Debug */ = {
+		C94C66F21C775E2B00B59836 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		C90145061C73BA3E007E24F9 /* Release */ = {
+		C94C66F31C775E2B00B59836 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -610,14 +332,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C90145041C73BA3E007E24F9 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
+		C94C66F11C775E2B00B59836 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C90145051C73BA3E007E24F9 /* Debug */,
-				C90145061C73BA3E007E24F9 /* Release */,
+				C94C66F21C775E2B00B59836 /* Debug */,
+				C94C66F31C775E2B00B59836 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		C993CAD01C32D2C600593631 /* Build configuration list for PBXProject "KSIdapStudy" */ = {
 			isa = XCConfigurationList;
