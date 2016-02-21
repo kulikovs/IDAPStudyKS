@@ -11,9 +11,9 @@
 #include <stdio.h>
 
 typedef enum {
-    KSUndefinedType,
-    KSBigEndianType,
-    KSLittleEndianType,
+    kKSUndefinedType,
+    kKSBigEndianType,
+    kKSLittleEndianType,
 } KSEndianTypes;
 
 typedef union {
@@ -54,9 +54,9 @@ KSEndianTypes KSEndianTypeReturn(void) {
     valueTestUnion.charValue = 1; // BigEndian = value 128
     
     if (valueTestUnion.boolValue1 != 1 && valueTestUnion.boolValue8 != 1) {
-        returnEndianTypes = KSUndefinedType;
+        returnEndianTypes = kKSUndefinedType;
     } else  {
-        returnEndianTypes = valueTestUnion.boolValue1 ? KSLittleEndianType : KSBigEndianType;
+        returnEndianTypes = valueTestUnion.boolValue1 ? kKSLittleEndianType : kKSBigEndianType;
     }
    
     return returnEndianTypes;
@@ -65,7 +65,7 @@ KSEndianTypes KSEndianTypeReturn(void) {
 void KSBitOutput(char *value, KSEndianTypes type) {
     uint8_t bitCount = *value;
     
-    if (type == KSLittleEndianType) {
+    if (type == kKSLittleEndianType) {
     for (uint8_t index = kKSValueBit; index > 0; index--) {
         printf("%s", (bitCount >> (index - 1) & 1 ? "1 " : "0 "));
         }
@@ -78,12 +78,12 @@ void KSBitOutput(char *value, KSEndianTypes type) {
 
 void KSByteValueOutput(void *value, size_t size, KSEndianTypes type) {
     char *bitField = (char *)value;
-    if (type == KSUndefinedType) {
+    if (type == kKSUndefinedType) {
         printf("This type not supported");
         return;
     }
     
-    if (type == KSLittleEndianType) {
+    if (type == kKSLittleEndianType) {
         for (uint16_t index = 0 ; index < size; index++) {
             KSBitOutput(&bitField[size - index - 1], type);
             printf(", ");

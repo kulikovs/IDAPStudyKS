@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C993CAD91C32D2C600593631 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C993CAD81C32D2C600593631 /* main.c */; };
-		C993CAF51C32D4FA00593631 /* KSTestStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = C993CAF21C32D4FA00593631 /* KSTestStruct.c */; };
-		C993CAF91C32D55800593631 /* KSTestMacroOutputType.c in Sources */ = {isa = PBXBuildFile; fileRef = C993CAF71C32D55800593631 /* KSTestMacroOutputType.c */; };
-		C998FD6B1C3AC35E0034BED2 /* KSValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = C998FD691C3AC35E0034BED2 /* KSValueBitOutput.c */; };
-		C9F0B9181C3B04930001AD0B /* KSValueBitOutputTest.c in Sources */ = {isa = PBXBuildFile; fileRef = C9F0B9161C3B04930001AD0B /* KSValueBitOutputTest.c */; };
+		C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
+		C94C670E1C775F0A00B59836 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
+		C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67111C77B2C200B59836 /* KSCreatureTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C94C66EB1C775E2B00B59836 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		C993CAD31C32D2C600593631 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -27,21 +34,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C993CAD51C32D2C600593631 /* KSIdapStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KSIdapStudy; sourceTree = BUILT_PRODUCTS_DIR; };
-		C993CAD81C32D2C600593631 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		C993CAE81C32D4F000593631 /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
-		C993CAEB1C32D4F000593631 /* KSStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStruct.h; sourceTree = "<group>"; };
-		C993CAF21C32D4FA00593631 /* KSTestStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTestStruct.c; sourceTree = "<group>"; };
-		C993CAF31C32D4FA00593631 /* KSTestStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTestStruct.h; sourceTree = "<group>"; };
-		C993CAF71C32D55800593631 /* KSTestMacroOutputType.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTestMacroOutputType.c; sourceTree = "<group>"; };
-		C993CAF81C32D55800593631 /* KSTestMacroOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTestMacroOutputType.h; sourceTree = "<group>"; };
-		C998FD691C3AC35E0034BED2 /* KSValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutput.c; sourceTree = "<group>"; };
-		C998FD6A1C3AC35E0034BED2 /* KSValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutput.h; sourceTree = "<group>"; };
-		C9F0B9161C3B04930001AD0B /* KSValueBitOutputTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSValueBitOutputTest.c; sourceTree = "<group>"; };
-		C9F0B9171C3B04930001AD0B /* KSValueBitOutputTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSValueBitOutputTest.h; sourceTree = "<group>"; };
+		C94C66ED1C775E2B00B59836 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94C67051C775F0A00B59836 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
+		C94C67061C775F0A00B59836 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
+		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C94C67101C77B2C200B59836 /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
+		C94C67111C77B2C200B59836 /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
+		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C94C66EA1C775E2B00B59836 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C993CAD21C32D2C600593631 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,10 +61,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C94C67021C775F0A00B59836 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				C94C67031C775F0A00B59836 /* KSSourse */,
+				C94C67071C775F0A00B59836 /* KSTest */,
+				C94C670B1C775F0A00B59836 /* main.m */,
+			);
+			name = ObjC;
+			path = KSIdapStudy/ObjC;
+			sourceTree = "<group>";
+		};
+		C94C67031C775F0A00B59836 /* KSSourse */ = {
+			isa = PBXGroup;
+			children = (
+				C94C67041C775F0A00B59836 /* KSCreature */,
+			);
+			path = KSSourse;
+			sourceTree = "<group>";
+		};
+		C94C67041C775F0A00B59836 /* KSCreature */ = {
+			isa = PBXGroup;
+			children = (
+				C94C67051C775F0A00B59836 /* KSCreature.m */,
+				C94C67061C775F0A00B59836 /* KSCreature.h */,
+			);
+			path = KSCreature;
+			sourceTree = "<group>";
+		};
+		C94C67071C775F0A00B59836 /* KSTest */ = {
+			isa = PBXGroup;
+			children = (
+				C94C670F1C77B25C00B59836 /* KSTest */,
+			);
+			path = KSTest;
+			sourceTree = "<group>";
+		};
+		C94C670F1C77B25C00B59836 /* KSTest */ = {
+			isa = PBXGroup;
+			children = (
+				C94C67101C77B2C200B59836 /* KSCreatureTest.h */,
+				C94C67111C77B2C200B59836 /* KSCreatureTest.m */,
+			);
+			path = KSTest;
+			sourceTree = "<group>";
+		};
 		C993CACC1C32D2C600593631 = {
 			isa = PBXGroup;
 			children = (
-				C993CAD71C32D2C600593631 /* KSIdapStudy */,
+				C94C67021C775F0A00B59836 /* ObjC */,
 				C993CAD61C32D2C600593631 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,99 +117,35 @@
 		C993CAD61C32D2C600593631 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C993CAD51C32D2C600593631 /* KSIdapStudy */,
+				C993CAD51C32D2C600593631 /* С */,
+				C94C66ED1C775E2B00B59836 /* ObjC */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C993CAD71C32D2C600593631 /* KSIdapStudy */ = {
-			isa = PBXGroup;
-			children = (
-				C993CAE61C32D4F000593631 /* KSSourse */,
-				C993CAED1C32D4FA00593631 /* KSTest */,
-				C993CAD81C32D2C600593631 /* main.c */,
-			);
-			path = KSIdapStudy;
-			sourceTree = "<group>";
-		};
-		C993CAE61C32D4F000593631 /* KSSourse */ = {
-			isa = PBXGroup;
-			children = (
-				C998FD681C3AC34D0034BED2 /* KSValueBitOutput */,
-				C993CAE71C32D4F000593631 /* KSMacro */,
-				C993CAE91C32D4F000593631 /* KSStruct */,
-			);
-			path = KSSourse;
-			sourceTree = "<group>";
-		};
-		C993CAE71C32D4F000593631 /* KSMacro */ = {
-			isa = PBXGroup;
-			children = (
-				C993CAE81C32D4F000593631 /* KSMacro.h */,
-			);
-			path = KSMacro;
-			sourceTree = "<group>";
-		};
-		C993CAE91C32D4F000593631 /* KSStruct */ = {
-			isa = PBXGroup;
-			children = (
-				C993CAEB1C32D4F000593631 /* KSStruct.h */,
-			);
-			path = KSStruct;
-			sourceTree = "<group>";
-		};
-		C993CAED1C32D4FA00593631 /* KSTest */ = {
-			isa = PBXGroup;
-			children = (
-				C9F0B9151C3B04830001AD0B /* KSValueBitOutputTest */,
-				C993CAF61C32D55800593631 /* KSTestMacroOutputType */,
-				C993CAF11C32D4FA00593631 /* KSTestStruct */,
-			);
-			path = KSTest;
-			sourceTree = "<group>";
-		};
-		C993CAF11C32D4FA00593631 /* KSTestStruct */ = {
-			isa = PBXGroup;
-			children = (
-				C993CAF21C32D4FA00593631 /* KSTestStruct.c */,
-				C993CAF31C32D4FA00593631 /* KSTestStruct.h */,
-			);
-			path = KSTestStruct;
-			sourceTree = "<group>";
-		};
-		C993CAF61C32D55800593631 /* KSTestMacroOutputType */ = {
-			isa = PBXGroup;
-			children = (
-				C993CAF71C32D55800593631 /* KSTestMacroOutputType.c */,
-				C993CAF81C32D55800593631 /* KSTestMacroOutputType.h */,
-			);
-			path = KSTestMacroOutputType;
-			sourceTree = "<group>";
-		};
-		C998FD681C3AC34D0034BED2 /* KSValueBitOutput */ = {
-			isa = PBXGroup;
-			children = (
-				C998FD691C3AC35E0034BED2 /* KSValueBitOutput.c */,
-				C998FD6A1C3AC35E0034BED2 /* KSValueBitOutput.h */,
-			);
-			path = KSValueBitOutput;
-			sourceTree = "<group>";
-		};
-		C9F0B9151C3B04830001AD0B /* KSValueBitOutputTest */ = {
-			isa = PBXGroup;
-			children = (
-				C9F0B9161C3B04930001AD0B /* KSValueBitOutputTest.c */,
-				C9F0B9171C3B04930001AD0B /* KSValueBitOutputTest.h */,
-			);
-			path = KSValueBitOutputTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C993CAD41C32D2C600593631 /* KSIdapStudy */ = {
+		C94C66EC1C775E2B00B59836 /* ObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C993CADC1C32D2C600593631 /* Build configuration list for PBXNativeTarget "KSIdapStudy" */;
+			buildConfigurationList = C94C66F11C775E2B00B59836 /* Build configuration list for PBXNativeTarget "ObjC" */;
+			buildPhases = (
+				C94C66E91C775E2B00B59836 /* Sources */,
+				C94C66EA1C775E2B00B59836 /* Frameworks */,
+				C94C66EB1C775E2B00B59836 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjC;
+			productName = ObjC;
+			productReference = C94C66ED1C775E2B00B59836 /* ObjC */;
+			productType = "com.apple.product-type.tool";
+		};
+		C993CAD41C32D2C600593631 /* С */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C993CADC1C32D2C600593631 /* Build configuration list for PBXNativeTarget "С" */;
 			buildPhases = (
 				C993CAD11C32D2C600593631 /* Sources */,
 				C993CAD21C32D2C600593631 /* Frameworks */,
@@ -165,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = KSIdapStudy;
+			name = "С";
 			productName = KSIdapStudy;
-			productReference = C993CAD51C32D2C600593631 /* KSIdapStudy */;
+			productReference = C993CAD51C32D2C600593631 /* С */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -179,6 +169,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = KulikovS;
 				TargetAttributes = {
+					C94C66EC1C775E2B00B59836 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					C993CAD41C32D2C600593631 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -196,27 +189,51 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C993CAD41C32D2C600593631 /* KSIdapStudy */,
+				C993CAD41C32D2C600593631 /* С */,
+				C94C66EC1C775E2B00B59836 /* ObjC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C94C66E91C775E2B00B59836 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */,
+				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
+				C94C670E1C775F0A00B59836 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C993CAD11C32D2C600593631 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C993CAF51C32D4FA00593631 /* KSTestStruct.c in Sources */,
-				C993CAD91C32D2C600593631 /* main.c in Sources */,
-				C9F0B9181C3B04930001AD0B /* KSValueBitOutputTest.c in Sources */,
-				C998FD6B1C3AC35E0034BED2 /* KSValueBitOutput.c in Sources */,
-				C993CAF91C32D55800593631 /* KSTestMacroOutputType.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C94C66F21C775E2B00B59836 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C94C66F31C775E2B00B59836 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C993CADA1C32D2C600593631 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,6 +316,7 @@
 		C993CADD1C32D2C600593631 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -306,6 +324,7 @@
 		C993CADE1C32D2C600593631 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -313,6 +332,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C94C66F11C775E2B00B59836 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C94C66F21C775E2B00B59836 /* Debug */,
+				C94C66F31C775E2B00B59836 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C993CAD01C32D2C600593631 /* Build configuration list for PBXProject "KSIdapStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -322,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C993CADC1C32D2C600593631 /* Build configuration list for PBXNativeTarget "KSIdapStudy" */ = {
+		C993CADC1C32D2C600593631 /* Build configuration list for PBXNativeTarget "С" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C993CADD1C32D2C600593631 /* Debug */,

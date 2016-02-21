@@ -7,17 +7,25 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "KSTestMacroOutputType.h"
 #include "KSTestStruct.h"
 #include "KSValueBitOutputTest.h"
+#include "KSHumanTest.h"
+#include "KSMacro.h"
+#include "KSStringObjectTest.h"
+#include "KSArrayObjectTest.h"
+#include "KSArrayObject.h"
+#include "KSLinkedListTest.h"
 
 int main(int argc, const char * argv[]) {
-//    
-//    KSTestMacroOutputType();
-//    KSTestCarStruct();
-//
-    KSPrintByteValueOutputTest();
 
+// KSHumanTest();
+//    KSStringObjectTest();
+//  KSArrayObjectTest();
+    KSLinkedListTest();
 
+    
     return 0;
 }
