@@ -86,7 +86,7 @@
 }
 
 -(void)howManyChildren {
-NSLog(@"I have %lu children", (unsigned long)[self.children count]);
+    NSLog(@"I have %lu children", (unsigned long)[self.children count]);
 }
 
 - (KSCreature*)giveBirthChild {
