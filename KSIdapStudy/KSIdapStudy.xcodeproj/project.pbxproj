@@ -40,6 +40,7 @@
 		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C94C67101C77B2C200B59836 /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C94C67111C77B2C200B59836 /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
+		C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../../Desktop/iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +110,7 @@
 		C993CACC1C32D2C600593631 = {
 			isa = PBXGroup;
 			children = (
+				C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */,
 				C94C67021C775F0A00B59836 /* ObjC */,
 				C993CAD61C32D2C600593631 /* Products */,
 			);
@@ -339,6 +341,7 @@
 				C94C66F31C775E2B00B59836 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C993CAD01C32D2C600593631 /* Build configuration list for PBXProject "KSIdapStudy" */ = {
 			isa = XCConfigurationList;

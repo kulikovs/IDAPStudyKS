@@ -25,12 +25,12 @@ typedef NS_ENUM(NSUInteger, KSGenderType) {
 - (instancetype)initWithName: (NSString*)name andGender:(KSGenderType)gender;
 - (instancetype)initWithName: (NSString*)name;
 
--(void)sayHi;
+- (void)sayHi;
 
 - (void)addChild: (KSCreature *) child;
 - (void)removeChild: (KSCreature *)child;
 - (void)removeAllChildren;
--(void)howManyChildren;
+- (void)howManyChildren;
 
 - (KSCreature*)giveBirthChild;
 - (void)goToWar;
