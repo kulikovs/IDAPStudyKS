@@ -11,7 +11,6 @@
 @interface KSCreature ()
 @property (nonatomic, copy)        NSString        *name;
 @property (nonatomic, retain)      NSMutableArray  *childrenArray;
-@property (nonatomic, readwrite)   KSGenderType    gender;
 @property (nonatomic, readwrite)   NSUInteger      age;
 @property (nonatomic, readwrite)   CGFloat         weight;
 
@@ -22,6 +21,9 @@
 #pragma mark -
 #pragma mark Class Methods
 
++ (KSCreature*)creatureCreate {
+    return [[KSCreature new] autorelease];
+}
 
 #pragma mark - 
 #pragma Initializations and Deallocations
@@ -30,7 +32,6 @@
     self = [super init];
     if (self) {
         self.childrenArray = [NSMutableArray array];
-        self.gender = arc4random_uniform(2) + 1;
     }
     
     return self;
@@ -41,18 +42,6 @@
     if (self) {
         self.childrenArray = [NSMutableArray array];
         self.name = name;
-        self.gender = arc4random_uniform(2) + 1;
-    }
-
-    return self;
-}
-
-- (instancetype)initWithName: (NSString*)name andGender:(KSGenderType)gender  {
-    self = [super init];
-    if (self) {
-        self.childrenArray = [NSMutableArray array];
-        self.name = name;
-        self.gender = gender;
     }
 
     return self;
@@ -89,14 +78,8 @@
     NSLog(@"I have %lu children", (unsigned long)[self.children count]);
 }
 
-- (KSCreature*)giveBirthChild {
-    KSCreature *child = [[KSCreature new] autorelease];
-    
-    return child;
-}
+- (void)performGenderSpecificOperation {
 
-- (void)goToWar {
-    NSLog(@"You're the man! Go to War!");
 }
 
 @end

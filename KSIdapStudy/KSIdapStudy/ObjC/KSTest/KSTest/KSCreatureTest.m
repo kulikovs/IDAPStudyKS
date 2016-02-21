@@ -7,48 +7,52 @@
 //
 
 #import "KSCreatureTest.h"
+#import "KSCreatureFemale.h"
+#import "KSCreatureMale.h"
 
 @implementation KSCreatureTest
 
 +(void)creatureTest {
    @autoreleasepool {
        
-       KSCreature *Bob = [[[KSCreature alloc]
-                           initWithName:@"Bob"
-                           andGender:kKSMale ]  autorelease];
+       KSCreatureMale *Bob = [[[KSCreatureMale alloc]
+                           initWithName:@"Bob"]  autorelease];
        
-       KSCreature *Anna = [[[KSCreature alloc]
-                            initWithName:@"Anna"
-                            andGender:kKSFemale ]  autorelease];
+       KSCreatureFemale *Anna = [[[KSCreatureFemale alloc]
+                            initWithName:@"Anna"]  autorelease];
        
-       KSCreature *Serg = [[[KSCreature alloc]
-                           initWithName:@"Serg"
-                           andGender:kKSMale ]  autorelease];
+       KSCreatureMale *Serg = [[[KSCreatureMale alloc]
+                           initWithName:@"Serg"]  autorelease];
        
-       KSCreature *Elena = [[[KSCreature alloc]
-                            initWithName:@"Elena"
-                            andGender:kKSFemale ]  autorelease];
+       KSCreatureFemale *Elena = [[[KSCreatureFemale alloc]
+                            initWithName:@"Elena"]  autorelease];
        
-       KSCreature *child = [Bob giveBirthChild];
-       KSCreature *child1 = [Anna giveBirthChild];
-       KSCreature *child2 = [Anna giveBirthChild];
-       KSCreature *child3 = [Anna giveBirthChild];
+//       
+       KSCreatureMale *childMale1 = [[KSCreatureMale new] autorelease];
+       KSCreatureMale *childMale2 = [[KSCreatureMale new] autorelease];
+       KSCreatureMale *childMale3 = [[KSCreatureMale new] autorelease];
+       KSCreatureFemale *childFemale1 = [[KSCreatureFemale new] autorelease];
+       KSCreatureFemale *childFemale2 = [[KSCreatureFemale new] autorelease];
        
-//
+
 //       NSArray *creaturesArray = [NSArray arrayWithObjects:Bob, Anna, Serg,
 //                                  Elena, nil];
        
-       NSArray *creaturesArray = @[Bob, Anna, Serg, Elena];
+       NSArray *creaturesArray = @[Bob, Anna, Serg];
        
-       [Bob addChild:child];
-       [Bob addChild:child1];
+       [Bob addChild:childFemale1];
+       [Bob addChild:childMale1];
+       [Bob addChild:Elena];
+
+       [Anna addChild:childMale2];
+       [Anna addChild:childFemale2];
        
-       [Anna addChild:child2];
-       [Anna addChild:child3];
+       [Elena addChild:childMale3];
        
-       [child addChild:Anna];
-       [child addChild:child2];
-       [child addChild:child3];
+       
+       for (NSUInteger index = 0; index < [creaturesArray count] ; index++) {
+           [creaturesArray[index] performGenderSpecificOperation];
+       }
        
 ///// creature goes to war or giving birth to a child
        
@@ -56,21 +60,22 @@
        
 ///// and two messages "I'm happy! My child is beautiful!"
        
-       NSEnumerator *enumerator = [creaturesArray objectEnumerator];
-       KSCreature *object = [enumerator nextObject];
-       while (object) {
-           if (object.gender == kKSFemale) {
-               [object giveBirthChild];
-               NSLog(@"I'm happy! My child is beautiful!");
-           }
-           if (object.gender == kKSMale) {
-               [object goToWar];
-           }
-           
-           object = [enumerator nextObject];
-       }
-       
+//       NSEnumerator *enumerator = [creaturesArray objectEnumerator];
+//       KSCreature *object = [enumerator nextObject];
+//       while (object) {
+//           if ( == kKSFemale) {
+//               [object giveBirthChild];
+//               NSLog(@"I'm happy! My child is beautiful!");
+//           }
+//           if (object.gender == kKSMale) {
+//               [object goToWar];
+//           }
+//           
+//           object = [enumerator nextObject];
+//       }
+//       
         NSLog(@"\n\n\n");
+       
        
 ///////////////
 // is expected that Bob say "Hi" and him children say "Hi"

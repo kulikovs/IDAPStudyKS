@@ -18,21 +18,20 @@ typedef NS_ENUM(NSUInteger, KSGenderType) {
 
 @property (nonatomic, readonly)   NSString        *name;
 @property (nonatomic, readonly)   NSArray         *children;
-@property (nonatomic, readonly)   KSGenderType    gender;
+//@property (nonatomic, readonly)   KSGenderType    gender;
 @property (nonatomic, readonly)   NSUInteger      age;
 @property (nonatomic, readonly)   CGFloat         weight;
 
-- (instancetype)initWithName: (NSString*)name andGender:(KSGenderType)gender;
-- (instancetype)initWithName: (NSString*)name;
 
-- (void)sayHi;
++ (KSCreature*)creatureCreate;
+
+- (instancetype)initWithName: (NSString*)name;
 
 - (void)addChild: (KSCreature *) child;
 - (void)removeChild: (KSCreature *)child;
 - (void)removeAllChildren;
 - (void)howManyChildren;
-
-- (KSCreature*)giveBirthChild;
-- (void)goToWar;
+- (void)performGenderSpecificOperation;
+- (void)sayHi;
 
 @end
