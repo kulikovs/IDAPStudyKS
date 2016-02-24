@@ -17,7 +17,7 @@
     NSLog(@"You're the man! Go to War!");
 }
 
-- (void) performGenderSpecificOperation {
+- (void)performGenderSpecificOperation {
     [self goToWar];
 }
 

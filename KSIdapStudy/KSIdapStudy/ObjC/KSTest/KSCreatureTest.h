@@ -8,7 +8,7 @@
 
 #import "KSCreature.h"
 
-@interface KSCreatureTest : KSCreature
+@interface KSCreatureTest : NSObject
 
 +(void)creatureTest;
 

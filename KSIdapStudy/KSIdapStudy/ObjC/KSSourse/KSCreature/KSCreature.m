@@ -11,22 +11,22 @@
 @interface KSCreature ()
 @property (nonatomic, copy)        NSString        *name;
 @property (nonatomic, retain)      NSMutableArray  *childrenArray;
-@property (nonatomic, readwrite)   NSUInteger      age;
-@property (nonatomic, readwrite)   CGFloat         weight;
+@property (nonatomic, assign)      NSUInteger      age;
+@property (nonatomic, assign)      CGFloat         weight;
 
 @end
 
 @implementation KSCreature
 
-#pragma mark -
-#pragma mark Class Methods
-
-+ (KSCreature*)creatureCreate {
-    return [[KSCreature new] autorelease];
-}
-
 #pragma mark - 
 #pragma Initializations and Deallocations
+            
+- (void)dealloc {
+    self.name = nil;
+    self.childrenArray = nil;
+    
+   [super dealloc];
+}
 
 - (instancetype)init {
     self = [super init];
@@ -37,10 +37,9 @@
     return self;
 }
 
-- (instancetype)initWithName: (NSString*)name {
-    self = [super init];
+- (instancetype)initWithName:(NSString*)name {
+    self = [self init];
     if (self) {
-        self.childrenArray = [NSMutableArray array];
         self.name = name;
     }
 
@@ -57,11 +56,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addChild: (KSCreature *)child {
+- (void)addChild:(KSCreature *)child {
     [self.childrenArray addObject:child];
 }
 
-- (void)removeChild: (KSCreature *)child {
+- (void)removeChild:(KSCreature *)child {
     [self.childrenArray removeObject:child];
 }
 
@@ -69,13 +68,9 @@
     [self.childrenArray removeAllObjects];
 }
 
--(void)sayHi {
+- (void)sayHi {
     NSLog(@"Hi!");
     [self.children makeObjectsPerformSelector:@selector(sayHi)];
-}
-
--(void)howManyChildren {
-    NSLog(@"I have %lu children", (unsigned long)[self.children count]);
 }
 
 - (void)performGenderSpecificOperation {

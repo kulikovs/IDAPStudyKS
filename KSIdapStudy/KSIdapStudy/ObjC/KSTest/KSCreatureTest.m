@@ -15,6 +15,8 @@
 +(void)creatureTest {
    @autoreleasepool {
        
+       KSCreatureMale *male = [KSCreatureMale object];
+       
        KSCreatureMale *Bob = [[[KSCreatureMale alloc]
                            initWithName:@"Bob"]  autorelease];
        
@@ -50,30 +52,11 @@
        [Elena addChild:childMale3];
        
        
-       for (NSUInteger index = 0; index < [creaturesArray count] ; index++) {
-           [creaturesArray[index] performGenderSpecificOperation];
+       for (KSCreature *creature in creaturesArray) {
+           [creature performGenderSpecificOperation];
        }
        
-///// creature goes to war or giving birth to a child
-       
-///// we should get two messages "You're the man! Go to War!"
-       
-///// and two messages "I'm happy! My child is beautiful!"
-       
-//       NSEnumerator *enumerator = [creaturesArray objectEnumerator];
-//       KSCreature *object = [enumerator nextObject];
-//       while (object) {
-//           if ( == kKSFemale) {
-//               [object giveBirthChild];
-//               NSLog(@"I'm happy! My child is beautiful!");
-//           }
-//           if (object.gender == kKSMale) {
-//               [object goToWar];
-//           }
-//           
-//           object = [enumerator nextObject];
-//       }
-//       
+    
         NSLog(@"\n\n\n");
        
        
@@ -82,9 +65,9 @@
        
        [Bob sayHi];
        
-       NSLog(@"\n\n\n");
+
        
-       [Bob howManyChildren];
+
        
    }
 }

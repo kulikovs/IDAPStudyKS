@@ -10,6 +10,4 @@
 
 @interface KSCreatureFemale : KSCreature
 
-- (void)giveBirthChild;
-
 @end

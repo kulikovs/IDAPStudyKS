@@ -11,26 +11,21 @@
 typedef NS_ENUM(NSUInteger, KSGenderType) {
     kKSGenderUndefine,
     kKSMale,
-    kKSFemale,
+    kKSFemale
 };
 
 @interface KSCreature : NSObject
-
 @property (nonatomic, readonly)   NSString        *name;
 @property (nonatomic, readonly)   NSArray         *children;
-//@property (nonatomic, readonly)   KSGenderType    gender;
 @property (nonatomic, readonly)   NSUInteger      age;
 @property (nonatomic, readonly)   CGFloat         weight;
 
+- (instancetype)initWithName:(NSString*)name;
 
-+ (KSCreature*)creatureCreate;
-
-- (instancetype)initWithName: (NSString*)name;
-
-- (void)addChild: (KSCreature *) child;
-- (void)removeChild: (KSCreature *)child;
+- (void)addChild:(KSCreature *)child;
+- (void)removeChild:(KSCreature *)child;
 - (void)removeAllChildren;
-- (void)howManyChildren;
+
 - (void)performGenderSpecificOperation;
 - (void)sayHi;
 

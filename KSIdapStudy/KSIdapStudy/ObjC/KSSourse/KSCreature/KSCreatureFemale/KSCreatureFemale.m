@@ -8,23 +8,22 @@
 
 #import "KSCreatureFemale.h"
 
+@interface KSCreatureFemale ()
+
+- (KSCreature *)giveBirthChild;
+
+@end
+
 @implementation KSCreatureFemale
-
-#pragma mark -
-#pragma mark Class Methods
-
-//+ (KSCreatureFemale *)creatureCreate {
-//    return [KSCreatureFemale creatureCreate];
-//}
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)giveBirthChild {
-    NSLog(@"I'm happy! My child is beautiful!");
+- (KSCreature *)giveBirthChild {
+    return [KSCreature object];
 }
 
-- (void) performGenderSpecificOperation {
+- (void)performGenderSpecificOperation {
     [self giveBirthChild];
 }
 

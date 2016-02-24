@@ -1,0 +1,14 @@
+//
+//  KSIdapStudy-Prefix.pch
+//  KSIdapStudy
+//
+//  Created by KulikovS on 24.02.16.
+//  Copyright © 2016 KulikovS. All rights reserved.
+//
+
+#ifndef KSIdapStudy_Prefix_pch
+#define KSIdapStudy_Prefix_pch
+
+#import "NSObject+KSObject.h"
+
+#endif /* KSIdapStudy_Prefix_pch */
