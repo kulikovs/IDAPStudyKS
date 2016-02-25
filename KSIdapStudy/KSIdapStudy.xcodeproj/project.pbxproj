@@ -13,6 +13,7 @@
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
+		C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
 		C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
 		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
+		C9CC74D11C7F5D4300E2F161 /* NSString+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtension.h"; sourceTree = "<group>"; };
+		C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 			children = (
 				C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */,
 				C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */,
+				C9CC74D11C7F5D4300E2F161 /* NSString+KSExtension.h */,
+				C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */,
 			);
 			path = KSExtentions;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
 				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
+				C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */,
 				C94C670E1C775F0A00B59836 /* main.m in Sources */,
 				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
 				C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */,
@@ -267,7 +273,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supported Files/KSIdapStudy-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -278,7 +284,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supported Files/KSIdapStudy-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
