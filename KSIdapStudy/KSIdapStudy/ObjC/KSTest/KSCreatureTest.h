@@ -10,6 +10,6 @@
 
 @interface KSCreatureTest : NSObject
 
-+(void)creatureTest;
++ (void)creatureTest;
 
 @end

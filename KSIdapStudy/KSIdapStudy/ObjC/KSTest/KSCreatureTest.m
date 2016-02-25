@@ -12,8 +12,7 @@
 
 @implementation KSCreatureTest
 
-+(void)creatureTest {
-   @autoreleasepool {
++ (void)creatureTest {
        
        KSCreatureMale *male = [KSCreatureMale object];
        
@@ -65,11 +64,6 @@
        
        [Bob sayHi];
        
-
-       
-
-       
-   }
 }
 
 @end

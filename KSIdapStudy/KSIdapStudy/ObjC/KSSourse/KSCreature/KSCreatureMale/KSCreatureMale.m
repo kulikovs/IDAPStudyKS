@@ -8,6 +8,12 @@
 
 #import "KSCreatureMale.h"
 
+@interface KSCreatureMale ()
+
+- (void)goToWar;
+
+@end
+
 @implementation KSCreatureMale
 
 #pragma mark -

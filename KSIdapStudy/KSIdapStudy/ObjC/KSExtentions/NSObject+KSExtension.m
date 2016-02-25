@@ -6,12 +6,12 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "NSObject+KSObject.h"
+#import "NSObject+KSExtension.h"
 
 @implementation NSObject (KSObject)
 
 + (instancetype)object {
-    return [[[[self class] alloc]init] autorelease];
+    return [[[[self class] alloc] init] autorelease];
 }
 
 

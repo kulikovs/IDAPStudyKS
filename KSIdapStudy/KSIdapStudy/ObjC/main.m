@@ -11,8 +11,9 @@
 #import "KSCreatureTest.h"
 
 int main(int argc, const char * argv[]) {
-
+   @autoreleasepool {
     [KSCreatureTest creatureTest];
-    
+   
     return 0;
+   }
 }

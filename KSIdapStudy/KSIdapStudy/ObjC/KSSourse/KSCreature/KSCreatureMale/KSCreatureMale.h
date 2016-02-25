@@ -10,6 +10,4 @@
 
 @interface KSCreatureMale : KSCreature
 
-- (void)goToWar;
-
 @end

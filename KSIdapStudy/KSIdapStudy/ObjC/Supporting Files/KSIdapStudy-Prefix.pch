@@ -9,6 +9,6 @@
 #ifndef KSIdapStudy_Prefix_pch
 #define KSIdapStudy_Prefix_pch
 
-#import "NSObject+KSObject.h"
+#import "NSObject+KSExtension.h"
 
 #endif /* KSIdapStudy_Prefix_pch */
