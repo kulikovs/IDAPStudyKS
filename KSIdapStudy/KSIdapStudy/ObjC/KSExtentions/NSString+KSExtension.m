@@ -19,8 +19,6 @@ static const NSString   *numbers            = @"0123456789";
 
 @implementation NSString (KSExtension)
 
-+ (instancetype)
-
 + (instancetype)randomString {
     NSUInteger lenght = arc4random_uniform(kKSMaxStringLenght);
     
