@@ -42,8 +42,8 @@ const NSUInteger kKSDefaultLength  = 10;
 }
 
 + (instancetype)alphabetWithAlphabet:(NSString *)firstAlphabet
-                      secondAlphabet:(NSString *)secondAlphabet {
-    
+                      secondAlphabet:(NSString *)secondAlphabet
+{
     return [firstAlphabet stringByAppendingString:secondAlphabet];
 }
 
@@ -54,7 +54,7 @@ const NSUInteger kKSDefaultLength  = 10;
     NSString *string = [NSString string];
     
     for (NSUInteger index = 0; index < length; index++) {
-        NSUInteger randomValue = arc4random_uniform(alphabet.length - 1);
+        NSUInteger randomValue = arc4random_uniform((uint32_t)alphabet.length - 1);
         unichar symbol = [alphabet characterAtIndex:randomValue];
         string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", symbol]];
     }
