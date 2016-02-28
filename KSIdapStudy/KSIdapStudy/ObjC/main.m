@@ -15,11 +15,12 @@ int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
     //[KSCreatureTest creatureTest];
-       
-       NSLog(@"%@", [NSString randomString]);
-       NSLog(@"%@", [NSString randomStringWithLenght:30]);
-       NSLog(@"%@", [NSString randomStringWithCapitallLetter]);
-   
+//       
+      NSLog(@"%@", [NSString randomString]);
+      NSLog(@"%@", [NSString randomStringWithLength:30]);
+       NSLog(@"%@", [NSString upperCaseAlphabet]);
+       NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
+
     return 0;
    }
 }

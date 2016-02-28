@@ -10,5 +10,7 @@
 #define KSIdapStudy_Prefix_pch
 
 #import "NSObject+KSExtension.h"
+#import <Foundation/Foundation.h>
+
 
 #endif /* KSIdapStudy_Prefix_pch */

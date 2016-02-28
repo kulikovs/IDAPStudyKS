@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+extern const NSUInteger kKSDefaultLength;
+
 @interface NSString (KSExstension)
 
+//There are lowerCasealphabet is default in this two methods
 + (instancetype)randomString;
-+ (instancetype)randomStringWithLenght:(NSUInteger)lenght;
-+ (instancetype)randomStringWithCapitallLetter;
++ (instancetype)randomStringWithLength:(NSUInteger)length;
+
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
+
++ (instancetype)lowerCaseAlphabet;
++ (instancetype)upperCaseAlphabet;
++ (instancetype)numericLettersAlphabet;
++ (instancetype)lowerCaseWithNumericAlphabet;
++ (instancetype)lowerCaseWithUpperCaseAlphabet;
 
 @end
