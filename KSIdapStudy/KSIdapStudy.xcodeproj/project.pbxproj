@@ -9,7 +9,19 @@
 /* Begin PBXBuildFile section */
 		C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
 		C94C670E1C775F0A00B59836 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
-		C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67111C77B2C200B59836 /* KSCreatureTest.m */; };
+		C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */; };
+		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
+		C97ABD571C831385003A4E3C /* TestObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97ABD561C831385003A4E3C /* TestObjC.m */; };
+		C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
+		C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
+		C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
+		C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
+		C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */; };
+		C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
+		C97ABD621C8313E3003A4E3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
+		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
+		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
+		C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,13 +50,33 @@
 		C94C67051C775F0A00B59836 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
 		C94C67061C775F0A00B59836 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
 		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C94C67101C77B2C200B59836 /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
-		C94C67111C77B2C200B59836 /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
+		C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../../Desktop/iOS Study Plan.txt"; sourceTree = "<group>"; };
+		C95BED3B1C79C6BF00E853F6 /* KSCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureMale.h; sourceTree = "<group>"; };
+		C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureMale.m; sourceTree = "<group>"; };
+		C95BED3E1C79C6DE00E853F6 /* KSCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureFemale.h; sourceTree = "<group>"; };
+		C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureFemale.m; sourceTree = "<group>"; };
+		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
+		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
+		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
+		C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
+		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
+		C9CC74D11C7F5D4300E2F161 /* NSString+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtension.h"; sourceTree = "<group>"; };
+		C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C94C66EA1C775E2B00B59836 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C97ABD511C831385003A4E3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,8 +96,10 @@
 		C94C67021C775F0A00B59836 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				C9CC74CF1C7F58E000E2F161 /* Supporting Files */,
+				C9CC74CB1C7F578400E2F161 /* KSExtentions */,
+				C99254491C7E38E20067DABA /* KSTest */,
 				C94C67031C775F0A00B59836 /* KSSourse */,
-				C94C67071C775F0A00B59836 /* KSTest */,
 				C94C670B1C775F0A00B59836 /* main.m */,
 			);
 			name = ObjC;
@@ -83,25 +117,46 @@
 		C94C67041C775F0A00B59836 /* KSCreature */ = {
 			isa = PBXGroup;
 			children = (
+				C95BED3A1C79C69D00E853F6 /* KSCreatureFemale */,
+				C95BED391C79C67F00E853F6 /* KSCreatureMale */,
 				C94C67051C775F0A00B59836 /* KSCreature.m */,
 				C94C67061C775F0A00B59836 /* KSCreature.h */,
 			);
 			path = KSCreature;
 			sourceTree = "<group>";
 		};
-		C94C67071C775F0A00B59836 /* KSTest */ = {
+		C95BED391C79C67F00E853F6 /* KSCreatureMale */ = {
 			isa = PBXGroup;
 			children = (
-				C94C670F1C77B25C00B59836 /* KSTest */,
+				C95BED3B1C79C6BF00E853F6 /* KSCreatureMale.h */,
+				C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */,
 			);
-			path = KSTest;
+			path = KSCreatureMale;
 			sourceTree = "<group>";
 		};
-		C94C670F1C77B25C00B59836 /* KSTest */ = {
+		C95BED3A1C79C69D00E853F6 /* KSCreatureFemale */ = {
 			isa = PBXGroup;
 			children = (
-				C94C67101C77B2C200B59836 /* KSCreatureTest.h */,
-				C94C67111C77B2C200B59836 /* KSCreatureTest.m */,
+				C95BED3E1C79C6DE00E853F6 /* KSCreatureFemale.h */,
+				C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */,
+			);
+			path = KSCreatureFemale;
+			sourceTree = "<group>";
+		};
+		C97ABD551C831385003A4E3C /* TestObjC */ = {
+			isa = PBXGroup;
+			children = (
+				C97ABD561C831385003A4E3C /* TestObjC.m */,
+				C97ABD581C831385003A4E3C /* Info.plist */,
+			);
+			path = TestObjC;
+			sourceTree = "<group>";
+		};
+		C99254491C7E38E20067DABA /* KSTest */ = {
+			isa = PBXGroup;
+			children = (
+				C992544A1C7E38E20067DABA /* KSCreatureTest.h */,
+				C992544B1C7E38E20067DABA /* KSCreatureTest.m */,
 			);
 			path = KSTest;
 			sourceTree = "<group>";
@@ -109,7 +164,9 @@
 		C993CACC1C32D2C600593631 = {
 			isa = PBXGroup;
 			children = (
+				C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */,
 				C94C67021C775F0A00B59836 /* ObjC */,
+				C97ABD551C831385003A4E3C /* TestObjC */,
 				C993CAD61C32D2C600593631 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,8 +176,28 @@
 			children = (
 				C993CAD51C32D2C600593631 /* С */,
 				C94C66ED1C775E2B00B59836 /* ObjC */,
+				C97ABD541C831385003A4E3C /* TestObjC.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C9CC74CB1C7F578400E2F161 /* KSExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */,
+				C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */,
+				C9CC74D11C7F5D4300E2F161 /* NSString+KSExtension.h */,
+				C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */,
+			);
+			path = KSExtentions;
+			sourceTree = "<group>";
+		};
+		C9CC74CF1C7F58E000E2F161 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +219,23 @@
 			productName = ObjC;
 			productReference = C94C66ED1C775E2B00B59836 /* ObjC */;
 			productType = "com.apple.product-type.tool";
+		};
+		C97ABD531C831385003A4E3C /* TestObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C97ABD591C831385003A4E3C /* Build configuration list for PBXNativeTarget "TestObjC" */;
+			buildPhases = (
+				C97ABD501C831385003A4E3C /* Sources */,
+				C97ABD511C831385003A4E3C /* Frameworks */,
+				C97ABD521C831385003A4E3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestObjC;
+			productName = TestObjC;
+			productReference = C97ABD541C831385003A4E3C /* TestObjC.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C993CAD41C32D2C600593631 /* С */ = {
 			isa = PBXNativeTarget;
@@ -172,6 +266,9 @@
 					C94C66EC1C775E2B00B59836 = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					C97ABD531C831385003A4E3C = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					C993CAD41C32D2C600593631 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -191,18 +288,48 @@
 			targets = (
 				C993CAD41C32D2C600593631 /* С */,
 				C94C66EC1C775E2B00B59836 /* ObjC */,
+				C97ABD531C831385003A4E3C /* TestObjC */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C97ABD521C831385003A4E3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C94C66E91C775E2B00B59836 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C94C67121C77B2C200B59836 /* KSCreatureTest.m in Sources */,
+				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
+				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
 				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
+				C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */,
 				C94C670E1C775F0A00B59836 /* main.m in Sources */,
+				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
+				C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C97ABD501C831385003A4E3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */,
+				C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */,
+				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
+				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
+				C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */,
+				C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */,
+				C97ABD621C8313E3003A4E3C /* main.m in Sources */,
+				C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +347,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -229,7 +358,37 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C97ABD5A1C831385003A4E3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
+				INFOPLIST_FILE = TestObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KS.TestObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C97ABD5B1C831385003A4E3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
+				INFOPLIST_FILE = TestObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KS.TestObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -337,6 +496,15 @@
 			buildConfigurations = (
 				C94C66F21C775E2B00B59836 /* Debug */,
 				C94C66F31C775E2B00B59836 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C97ABD591C831385003A4E3C /* Build configuration list for PBXNativeTarget "TestObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C97ABD5A1C831385003A4E3C /* Debug */,
+				C97ABD5B1C831385003A4E3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

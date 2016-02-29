@@ -11,48 +11,36 @@
 @interface KSCreature ()
 @property (nonatomic, copy)        NSString        *name;
 @property (nonatomic, retain)      NSMutableArray  *childrenArray;
-@property (nonatomic, readwrite)   KSGenderType    gender;
-@property (nonatomic, readwrite)   NSUInteger      age;
-@property (nonatomic, readwrite)   CGFloat         weight;
+@property (nonatomic, assign)      NSUInteger      age;
+@property (nonatomic, assign)      CGFloat         weight;
 
 @end
 
 @implementation KSCreature
 
-#pragma mark -
-#pragma mark Class Methods
-
-
 #pragma mark - 
 #pragma Initializations and Deallocations
+            
+- (void)dealloc {
+    self.name = nil;
+    self.childrenArray = nil;
+    
+   [super dealloc];
+}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.childrenArray = [NSMutableArray array];
-        self.gender = arc4random_uniform(2) + 1;
     }
     
     return self;
 }
 
-- (instancetype)initWithName: (NSString*)name {
-    self = [super init];
+- (instancetype)initWithName:(NSString*)name {
+    self = [self init];
     if (self) {
-        self.childrenArray = [NSMutableArray array];
         self.name = name;
-        self.gender = arc4random_uniform(2) + 1;
-    }
-
-    return self;
-}
-
-- (instancetype)initWithName: (NSString*)name andGender:(KSGenderType)gender  {
-    self = [super init];
-    if (self) {
-        self.childrenArray = [NSMutableArray array];
-        self.name = name;
-        self.gender = gender;
     }
 
     return self;
@@ -68,11 +56,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addChild: (KSCreature *)child {
+- (void)addChild:(KSCreature *)child {
     [self.childrenArray addObject:child];
 }
 
-- (void)removeChild: (KSCreature *)child {
+- (void)removeChild:(KSCreature *)child {
     [self.childrenArray removeObject:child];
 }
 
@@ -80,23 +68,13 @@
     [self.childrenArray removeAllObjects];
 }
 
--(void)sayHi {
+- (void)sayHi {
     NSLog(@"Hi!");
     [self.children makeObjectsPerformSelector:@selector(sayHi)];
 }
 
--(void)howManyChildren {
-NSLog(@"I have %lu children", (unsigned long)[self.children count]);
-}
+- (void)performGenderSpecificOperation {
 
-- (KSCreature*)giveBirthChild {
-    KSCreature *child = [[KSCreature new] autorelease];
-    
-    return child;
-}
-
-- (void)goToWar {
-    NSLog(@"You're the man! Go to War!");
 }
 
 @end

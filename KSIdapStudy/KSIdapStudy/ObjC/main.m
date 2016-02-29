@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "KSCreatureTest.h"
+#import "NSString+KSExtension.h"
 
 int main(int argc, const char * argv[]) {
+   @autoreleasepool {
+       
+    //[KSCreatureTest creatureTest];
+//       
+      NSLog(@"%@", [NSString randomString]);
+      NSLog(@"%@", [NSString randomStringWithLength:30]);
+      NSLog(@"%@", [NSString upperCaseAlphabet]);
+      NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
 
-    [KSCreatureTest creatureTest];
-    
     return 0;
+   }
 }
