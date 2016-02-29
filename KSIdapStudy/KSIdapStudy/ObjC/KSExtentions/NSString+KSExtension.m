@@ -15,24 +15,24 @@ const NSUInteger kKSDefaultLength  = 10;
 + (instancetype)stringWithRange:(NSRange)range;
 + (instancetype)stringWithCharactersInRange:(unichar)firstValue secondValue:(unichar)secondValue;
 
-+ (instancetype)alphabetWithAlphabet:(NSString *)firstAlphabet
-                      secondAlphabet:(NSString *)secondAlphabet;
+//+ (instancetype)alphabetWithAlphabet:(NSString *)firstAlphabet
+//                      secondAlphabet:(NSString *)secondAlphabet;
 @end
 
 @implementation NSString (KSExtension)
 
 #pragma mark -
-#pragma mark Privat Methods
+#pragma mark Privat Class Methods
 
 + (instancetype)stringWithRange:(NSRange)range{
-    NSString *string = [NSString string];
+    NSMutableString *string = [NSMutableString string];
     NSUInteger location = range.location;
 
     for (NSUInteger index = location; index < location + range.length; index++) {
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", (unichar)index]];
+        [string appendString:[NSString stringWithFormat:@"%c", (unichar)index]];
     }
     
-    return string;
+    return [[string copy] autorelease];
 }
 
 + (instancetype)stringWithCharactersInRange:(NSUInteger)firstValue secondValue:(NSUInteger)secondValue {
@@ -41,26 +41,24 @@ const NSUInteger kKSDefaultLength  = 10;
     return [NSString stringWithRange:range];
 }
 
-+ (instancetype)alphabetWithAlphabet:(NSString *)firstAlphabet
-                      secondAlphabet:(NSString *)secondAlphabet
-{
-    return [firstAlphabet stringByAppendingString:secondAlphabet];
-}
-
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark Public Class Methods
 
 + (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
-    NSString *string = [NSString string];
+    NSMutableString *string = [NSMutableString string];
     
     for (NSUInteger index = 0; index < length; index++) {
         NSUInteger randomValue = arc4random_uniform((uint32_t)alphabet.length - 1);
         unichar symbol = [alphabet characterAtIndex:randomValue];
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", symbol]];
+        [string stringByAppendingString:[NSString stringWithFormat:@"%c", symbol]];
     }
     
-    return string;
+    return [[string copy] autorelease];
     
+}
+
++ (instancetype)randomStringWithAlphabet:(NSString *)alphabet {
+    return [NSString randomStringWithLength:kKSDefaultLength alphabet:alphabet];
 }
 
 + (instancetype)randomStringWithLength:(NSUInteger)length {
@@ -90,13 +88,15 @@ const NSUInteger kKSDefaultLength  = 10;
 }
 
 + (instancetype)lowerCaseWithNumericAlphabet {
-    return [NSString alphabetWithAlphabet:[NSString lowerCaseAlphabet]
-                           secondAlphabet:[NSString numericLettersAlphabet]];
+    NSString *lowerCaseAlphabet = [NSString lowerCaseAlphabet];
+    
+    return [lowerCaseAlphabet stringByAppendingString:[NSString numericLettersAlphabet]];
 }
 
 + (instancetype)lowerCaseWithUpperCaseAlphabet {
-    return [NSString alphabetWithAlphabet:[NSString lowerCaseAlphabet]
-                           secondAlphabet:[NSString upperCaseAlphabet]];
+    NSString *lowerCaseAlphabet = [NSString lowerCaseAlphabet];
+    
+    return [lowerCaseAlphabet stringByAppendingString:[NSString upperCaseAlphabet]];
 }
 
 @end

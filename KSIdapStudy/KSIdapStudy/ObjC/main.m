@@ -18,8 +18,8 @@ int main(int argc, const char * argv[]) {
 //       
       NSLog(@"%@", [NSString randomString]);
       NSLog(@"%@", [NSString randomStringWithLength:30]);
-       NSLog(@"%@", [NSString upperCaseAlphabet]);
-       NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
+      NSLog(@"%@", [NSString upperCaseAlphabet]);
+      NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
 
     return 0;
    }
