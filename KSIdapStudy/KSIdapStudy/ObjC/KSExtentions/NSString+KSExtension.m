@@ -15,8 +15,6 @@ const NSUInteger kKSDefaultLength  = 10;
 + (instancetype)stringWithRange:(NSRange)range;
 + (instancetype)stringWithCharactersInRange:(unichar)firstValue secondValue:(unichar)secondValue;
 
-//+ (instancetype)alphabetWithAlphabet:(NSString *)firstAlphabet
-//                      secondAlphabet:(NSString *)secondAlphabet;
 @end
 
 @implementation NSString (KSExtension)
