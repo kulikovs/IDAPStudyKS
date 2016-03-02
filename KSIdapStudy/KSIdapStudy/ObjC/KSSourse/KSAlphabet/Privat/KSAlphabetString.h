@@ -1,5 +1,5 @@
 //
-//  KSAlphabetWithRange.h
+//  KSAlphabetWithString.h
 //  KSIdapStudy
 //
 //  Created by KulikovS on 29.02.16.
@@ -8,7 +8,6 @@
 
 #import "KSAlphabet.h"
 
-@interface KSAlphabetWithRange : KSAlphabet
-@property (nonatomic, readwrite) NSRange *range;
+@interface KSAlphabetString : KSAlphabet
 
 @end

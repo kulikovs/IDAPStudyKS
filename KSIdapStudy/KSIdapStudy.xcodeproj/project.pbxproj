@@ -13,10 +13,10 @@
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
 		C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
-		C95CF7FB1C84C749001120F7 /* KSAlphabetWithRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7F81C84C749001120F7 /* KSAlphabetWithRange.m */; };
-		C95CF7FC1C84C749001120F7 /* KSAlphabetWithRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7F81C84C749001120F7 /* KSAlphabetWithRange.m */; };
-		C95CF7FD1C84C749001120F7 /* KSAlphabetWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7FA1C84C749001120F7 /* KSAlphabetWithString.m */; };
-		C95CF7FE1C84C749001120F7 /* KSAlphabetWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7FA1C84C749001120F7 /* KSAlphabetWithString.m */; };
+		C95CF7FB1C84C749001120F7 /* KSAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7F81C84C749001120F7 /* KSAlphabetRange.m */; };
+		C95CF7FC1C84C749001120F7 /* KSAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7F81C84C749001120F7 /* KSAlphabetRange.m */; };
+		C95CF7FD1C84C749001120F7 /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7FA1C84C749001120F7 /* KSAlphabetString.m */; };
+		C95CF7FE1C84C749001120F7 /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7FA1C84C749001120F7 /* KSAlphabetString.m */; };
 		C97ABD571C831385003A4E3C /* TestObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97ABD561C831385003A4E3C /* TestObjC.m */; };
 		C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
@@ -63,10 +63,10 @@
 		C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureFemale.m; sourceTree = "<group>"; };
 		C95CF7E71C84B883001120F7 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C95CF7E81C84B883001120F7 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
-		C95CF7F71C84C749001120F7 /* KSAlphabetWithRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetWithRange.h; sourceTree = "<group>"; };
-		C95CF7F81C84C749001120F7 /* KSAlphabetWithRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetWithRange.m; sourceTree = "<group>"; };
-		C95CF7F91C84C749001120F7 /* KSAlphabetWithString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetWithString.h; sourceTree = "<group>"; };
-		C95CF7FA1C84C749001120F7 /* KSAlphabetWithString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetWithString.m; sourceTree = "<group>"; };
+		C95CF7F71C84C749001120F7 /* KSAlphabetRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetRange.h; sourceTree = "<group>"; };
+		C95CF7F81C84C749001120F7 /* KSAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetRange.m; sourceTree = "<group>"; };
+		C95CF7F91C84C749001120F7 /* KSAlphabetString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetString.h; sourceTree = "<group>"; };
+		C95CF7FA1C84C749001120F7 /* KSAlphabetString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetString.m; sourceTree = "<group>"; };
 		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
 		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,10 +169,10 @@
 		C95CF7F61C84C749001120F7 /* Privat */ = {
 			isa = PBXGroup;
 			children = (
-				C95CF7F71C84C749001120F7 /* KSAlphabetWithRange.h */,
-				C95CF7F81C84C749001120F7 /* KSAlphabetWithRange.m */,
-				C95CF7F91C84C749001120F7 /* KSAlphabetWithString.h */,
-				C95CF7FA1C84C749001120F7 /* KSAlphabetWithString.m */,
+				C95CF7F71C84C749001120F7 /* KSAlphabetRange.h */,
+				C95CF7F81C84C749001120F7 /* KSAlphabetRange.m */,
+				C95CF7F91C84C749001120F7 /* KSAlphabetString.h */,
+				C95CF7FA1C84C749001120F7 /* KSAlphabetString.m */,
 			);
 			path = Privat;
 			sourceTree = "<group>";
@@ -343,12 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
-				C95CF7FD1C84C749001120F7 /* KSAlphabetWithString.m in Sources */,
+				C95CF7FD1C84C749001120F7 /* KSAlphabetString.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
 				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
 				C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */,
 				C94C670E1C775F0A00B59836 /* main.m in Sources */,
-				C95CF7FB1C84C749001120F7 /* KSAlphabetWithRange.m in Sources */,
+				C95CF7FB1C84C749001120F7 /* KSAlphabetRange.m in Sources */,
 				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
 				C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */,
 				C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */,
@@ -361,12 +361,12 @@
 			files = (
 				C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */,
 				C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */,
-				C95CF7FE1C84C749001120F7 /* KSAlphabetWithString.m in Sources */,
+				C95CF7FE1C84C749001120F7 /* KSAlphabetString.m in Sources */,
 				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */,
 				C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */,
-				C95CF7FC1C84C749001120F7 /* KSAlphabetWithRange.m in Sources */,
+				C95CF7FC1C84C749001120F7 /* KSAlphabetRange.m in Sources */,
 				C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */,
 				C97ABD621C8313E3003A4E3C /* main.m in Sources */,
 				C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */,

@@ -7,52 +7,25 @@
 //
 
 #import "NSString+KSExtension.h"
+#import "KSAlphabet.h"
 
 const NSUInteger kKSDefaultLength  = 10;
-
-@interface NSString (KSPrivateExstension)
-
-+ (instancetype)stringWithRange:(NSRange)range;
-+ (instancetype)stringWithCharactersInRange:(unichar)firstValue secondValue:(unichar)secondValue;
-
-@end
 
 @implementation NSString (KSExtension)
 
 #pragma mark -
-#pragma mark Privat Class Methods
-
-+ (instancetype)stringWithRange:(NSRange)range{
-    NSMutableString *string = [NSMutableString string];
-    NSUInteger location = range.location;
-
-    for (NSUInteger index = location; index < location + range.length; index++) {
-        [string appendString:[NSString stringWithFormat:@"%c", (unichar)index]];
-    }
-    
-    return [[string copy] autorelease];
-}
-
-+ (instancetype)stringWithCharactersInRange:(NSUInteger)firstValue secondValue:(NSUInteger)secondValue {
-    NSRange range = NSMakeRange(firstValue, secondValue - firstValue + 1);
-    
-    return [NSString stringWithRange:range];
-}
-
-#pragma mark -
 #pragma mark Public Class Methods
 
-+ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(KSAlphabet *)alphabet {
     NSMutableString *string = [NSMutableString string];
     
     for (NSUInteger index = 0; index < length; index++) {
-        NSUInteger randomValue = arc4random_uniform((uint32_t)alphabet.length - 1);
-        unichar symbol = [alphabet characterAtIndex:randomValue];
+        NSUInteger randomValue = arc4random_uniform((uint32_t)alphabet.count - 1);
+        unichar symbol = [alphabet.alphabet characterAtIndex:randomValue];
         [string stringByAppendingString:[NSString stringWithFormat:@"%c", symbol]];
     }
     
     return [[string copy] autorelease];
-    
 }
 
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet {

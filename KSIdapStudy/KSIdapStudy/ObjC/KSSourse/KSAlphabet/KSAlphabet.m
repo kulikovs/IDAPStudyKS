@@ -7,10 +7,11 @@
 //
 
 #import "KSAlphabet.h"
+#import "KSAlphabetRange.h"
+#import "KSAlphabetString.h"
 
 @interface KSAlphabet ()
-@property (nonatomic, retain) NSMutableString *alphabet;
-@property (nonatomic, assign) NSUInteger *count;
+@property (nonatomic, retain) NSString *alphabetString;
 
 @end
 
@@ -20,32 +21,55 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.alphabet = nil;
-    self.count = nil;
     
     [super dealloc];
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.alphabet = [NSMutableString string];
-    }
+- (instancetype)initWithRange:(unichar)firstValue secondValue:(unichar)secondValue; {
+    [self autorelease];
     
-    return self;
+    return [[KSAlphabetRange alloc] initWithRange:firstValue secondValue:secondValue];
+}
+
+- (instancetype)initWithString:(NSString *)string {
+    return [[[KSAlphabetString alloc]initWithString:string ] autorelease];
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (instancetype)alphabet {
+    return [[self.alphabetString copy] autorelease];
+}
+
+- (instancetype)count {
+    return self.alphabetString.length;
 }
 
 #pragma mark
 #pragma mark Class Methods
 
-+ (instancetype)alphabetWithRange {
-
-    return nil;
++ (instancetype)alphabetWithRange:(unichar)firstValue secondValue:(unichar)secondValue {
+    return [KSAlphabetRange stringWithCharactersInRange:firstValue secondValue:secondValue];
 }
 
-+ (instancetype)alphabetWithString:(NSString*)string {
++ (instancetype)alphabetWithString:(NSString *)string {
+    return [KSAlphabetString alphabetWithString:string];
+}
 
-    return nil;
+#pragma mark
+#pragma mark Alphabets
+
++ (instancetype)alphabetWithLowerCaseLetters {
+    return [KSAlphabetRange stringWithCharactersInRange:'a' secondValue:'z'];
+}
+
++ (instancetype)alphabetWithUpperCaseLetters {
+    return [KSAlphabetRange stringWithCharactersInRange:'A' secondValue:'Z'];
+}
+
++ (instancetype)alphabetWithNumericSymbols {
+    return [KSAlphabetRange stringWithCharactersInRange:'0' secondValue:'9'];
 }
 
 @end

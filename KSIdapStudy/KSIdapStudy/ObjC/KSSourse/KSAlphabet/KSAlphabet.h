@@ -10,11 +10,17 @@
 
 @interface KSAlphabet : NSObject
 @property (nonatomic, readonly) NSString *alphabet;
-@property (nonatomic, readonly) NSUInteger *count;
-@property (nonatomic, readonly) NSRange *range;
+@property (nonatomic, readonly) NSUInteger count;
 
-+ (instancetype)alphabetWithRange;
-+ (instancetype)alphabetWithString:(NSString*)string;
+- (instancetype)initWithString:(NSString *)string;
+- (instancetype)initWithRange:(unichar)firstValue secondValue:(unichar)secondValue;
+
++ (instancetype)alphabetWithRange:(unichar)firstValue secondValue:(unichar)secondValue;;
++ (instancetype)alphabetWithString:(NSString *)string;
+
++ (instancetype)alphabetWithLowerCaseLetters;
++ (instancetype)alphabetWithUpperCaseLetters;
++ (instancetype)alphabetWithNumericSymbols;
 
 @end
 
