@@ -21,8 +21,8 @@ const NSUInteger kKSDefaultLength  = 10;
     
     for (NSUInteger index = 0; index < length; index++) {
         NSUInteger randomValue = arc4random_uniform((uint32_t)alphabet.count - 1);
-        unichar symbol = [alphabet.alphabet characterAtIndex:randomValue];
-        [string stringByAppendingString:[NSString stringWithFormat:@"%c", symbol]];
+        unichar symbol = [alphabet.alphabetString characterAtIndex:randomValue];
+        [string appendFormat:[NSString stringWithFormat:@"%c", symbol]];
     }
     
     return [[string copy] autorelease];
@@ -40,34 +40,6 @@ const NSUInteger kKSDefaultLength  = 10;
     return [NSString randomStringWithLength:kKSDefaultLength alphabet:[NSString lowerCaseAlphabet]];
 }
 
-#pragma mark -
-#pragma mark Alphabets
 
-+ (instancetype)lowerCaseAlphabet {
-    return [NSString stringWithCharactersInRange:'a' secondValue:'z'];
-
-}
-
-+ (instancetype)upperCaseAlphabet {
-    return [NSString stringWithCharactersInRange:'A' secondValue:'Z'];
-
-}
-
-+ (instancetype)numericLettersAlphabet {
-    return [NSString stringWithCharactersInRange:'0' secondValue:'9'];
-
-}
-
-+ (instancetype)lowerCaseWithNumericAlphabet {
-    NSString *lowerCaseAlphabet = [NSString lowerCaseAlphabet];
-    
-    return [lowerCaseAlphabet stringByAppendingString:[NSString numericLettersAlphabet]];
-}
-
-+ (instancetype)lowerCaseWithUpperCaseAlphabet {
-    NSString *lowerCaseAlphabet = [NSString lowerCaseAlphabet];
-    
-    return [lowerCaseAlphabet stringByAppendingString:[NSString upperCaseAlphabet]];
-}
 
 @end

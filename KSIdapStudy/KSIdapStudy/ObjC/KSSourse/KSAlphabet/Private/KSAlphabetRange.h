@@ -9,9 +9,5 @@
 #import "KSAlphabet.h"
 
 @interface KSAlphabetRange : KSAlphabet
-@property (nonatomic, assign) NSRange range;
-
-+ (instancetype)stringWithCharactersInRange:(unichar)firstValue
-                                secondValue:(unichar)secondValue;
 
 @end
