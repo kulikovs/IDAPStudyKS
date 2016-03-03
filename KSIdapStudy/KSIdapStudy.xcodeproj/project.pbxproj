@@ -25,6 +25,8 @@
 		C98021681C88EC07004D19DC /* KSAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C98021641C88EC07004D19DC /* KSAlphabetRange.m */; };
 		C98021691C88EC07004D19DC /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C98021661C88EC07004D19DC /* KSAlphabetString.m */; };
 		C980216A1C88EC07004D19DC /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C98021661C88EC07004D19DC /* KSAlphabetString.m */; };
+		C980216D1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */; };
+		C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
@@ -70,6 +72,8 @@
 		C98021641C88EC07004D19DC /* KSAlphabetRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetRange.m; sourceTree = "<group>"; };
 		C98021651C88EC07004D19DC /* KSAlphabetString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetString.h; sourceTree = "<group>"; };
 		C98021661C88EC07004D19DC /* KSAlphabetString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetString.m; sourceTree = "<group>"; };
+		C980216B1C88EC9B004D19DC /* KSAlphabetCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetCluster.h; sourceTree = "<group>"; };
+		C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetCluster.m; sourceTree = "<group>"; };
 		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +186,8 @@
 				C98021641C88EC07004D19DC /* KSAlphabetRange.m */,
 				C98021651C88EC07004D19DC /* KSAlphabetString.h */,
 				C98021661C88EC07004D19DC /* KSAlphabetString.m */,
+				C980216B1C88EC9B004D19DC /* KSAlphabetCluster.h */,
+				C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C980216D1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
 				C98021671C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
@@ -362,6 +369,7 @@
 				C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */,
 				C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */,
 				C98021681C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
+				C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C980216A1C88EC07004D19DC /* KSAlphabetString.m in Sources */,

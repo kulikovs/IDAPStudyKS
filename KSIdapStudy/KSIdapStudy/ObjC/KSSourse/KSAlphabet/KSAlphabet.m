@@ -9,6 +9,7 @@
 #import "KSAlphabet.h"
 #import "KSAlphabetRange.h"
 #import "KSAlphabetString.h"
+#import "KSAlphabetCluster.h"
 
 @implementation KSAlphabet
 
@@ -28,6 +29,10 @@
 
 + (instancetype)alphabetWithRange:(NSRange)range{
     return [[[[self class] alloc] initWithRange:range] autorelease];
+}
+
++ (instancetype)alphabetWithAlphabetsArray:(NSArray *)alphabetsArray;{
+    return [[[[self class] alloc] initWithAlphabetsArray:alphabetsArray] autorelease];
 }
 
 #pragma mark -
@@ -55,6 +60,12 @@
     [self autorelease];
     
     return [[KSAlphabetRange alloc] initWithRange:firstValue secondValue:secondValue];
+}
+
+- (instancetype)initWithAlphabetsArray:(NSArray *)alphabetsArray {
+    [self autorelease];
+    
+    return [[KSAlphabetCluster alloc] initWithAlphabetsArray:alphabetsArray];
 }
 
 #pragma mark

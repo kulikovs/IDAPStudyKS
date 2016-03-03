@@ -12,7 +12,6 @@ extern const NSUInteger kKSDefaultLength;
 
 @interface NSString (KSExstension)
 
-
 + (instancetype)randomString;
 + (instancetype)randomStringWithLength:(NSUInteger)length;
 + (instancetype)randomStringWithAlphabet:(NSString *)alphabet;

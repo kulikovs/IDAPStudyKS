@@ -39,7 +39,6 @@
 #pragma mark Accessors
 
 - (NSString *)alphabetString {
-    
     NSMutableString *string = [NSMutableString string];
     NSUInteger location = self.range.location;
     

@@ -18,13 +18,6 @@
 @implementation KSAlphabetString
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (instancetype)alphabetWithString:(NSString *)string {
-    return [[self alloc] initWithString:string];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {

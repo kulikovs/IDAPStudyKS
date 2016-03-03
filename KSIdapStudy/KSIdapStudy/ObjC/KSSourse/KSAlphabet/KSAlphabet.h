@@ -15,6 +15,7 @@
 + (instancetype)alphabetWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue;
 + (instancetype)alphabetWithString:(NSString *)string;
 + (instancetype)alphabetWithRange:(NSRange)range;
++ (instancetype)alphabetWithAlphabetsArray:(NSArray *)alphabetsArray;
 
 + (instancetype)lowerCaseLettersAlphabet;
 + (instancetype)upperCaseLettersAlphabet;
@@ -23,6 +24,7 @@
 - (instancetype)initWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue;
 - (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithRange:(NSRange)range;
++ (instancetype)initWithAlphabetsArray:(NSArray *)alphabetsArray;
 
 @end
 
