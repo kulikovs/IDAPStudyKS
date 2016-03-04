@@ -17,26 +17,23 @@ int main(int argc, const char * argv[]) {
        
     //[KSCreatureTest creatureTest];
 ////
-       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'f' lastValue:'z'] autorelease];
-      NSLog(@"%@", alphabet.alphabetString);
-       NSLog(@"%lu", alphabet.count);
-       
-     //  KSAlphabet *alphabetRange = [[[KSAlphabet alloc] initWithRange:NSMakeRange(40, 5)] autorelease];
-  //    KSAlphabet *alphabetRange1 = [KSAlphabet object];
-
-       
-       KSAlphabet *alphabetString = [[[KSAlphabet alloc] initWithString:(@"ASDFGKJKGKG")] autorelease];
-       NSLog(@"%@", alphabetString);
-       NSLog(@"%lu", alphabetString.count);
-       
-       
-       KSAlphabet *lowerAlphabet = [KSAlphabet lowerCaseLettersAlphabet];
+//       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'f' lastValue:'z'] autorelease];
+//      NSLog(@"%@", alphabet.alphabetString);
+//       NSLog(@"%lu", alphabet.count);
 //       
-       NSLog(@"%@", lowerAlphabet);
+//       
+//       KSAlphabet *alphabetString = [[[KSAlphabet alloc] initWithString:(@"ASDFGKJKGKG")] autorelease];
+//       NSLog(@"%@", alphabetString);
+//       NSLog(@"%lu", alphabetString.count);
+//       
+//       
+//       KSAlphabet *lowerAlphabet = [KSAlphabet lowerCaseLettersAlphabet];
+//
+//       NSLog(@"%@", lowerAlphabet);
 //       NSLog(@"%@", [NSString randomString]);
-      NSLog(@"%@", [NSString randomStringWithLength:30 alphabet:alphabet]);
-     //  NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:alphabetString]);
-//      NSLog(@"%@", [NSString upperCaseAlphabet]);
+//      NSLog(@"%@", [NSString randomStringWithLength:30 alphabet:alphabet]);
+//       NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:alphabetString]);
+ //     NSLog(@"%@", [NSString upperCaseAlphabet]);
 //      NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
 
     return 0;

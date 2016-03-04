@@ -8,6 +8,8 @@
 
 #import "NSString+KSExtension.h"
 
+#import "KSAlphabet.h"
+
 const NSUInteger kKSDefaultLength  = 10;
 
 @implementation NSString (KSExtension)

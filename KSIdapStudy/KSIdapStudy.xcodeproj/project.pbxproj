@@ -58,13 +58,13 @@
 		C94C67051C775F0A00B59836 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
 		C94C67061C775F0A00B59836 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
 		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../../Desktop/iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C95BED3B1C79C6BF00E853F6 /* KSCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureMale.h; sourceTree = "<group>"; };
 		C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureMale.m; sourceTree = "<group>"; };
 		C95BED3E1C79C6DE00E853F6 /* KSCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureFemale.h; sourceTree = "<group>"; };
 		C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureFemale.m; sourceTree = "<group>"; };
 		C95CF7E71C84B883001120F7 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C95CF7E81C84B883001120F7 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
+		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
 		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		C993CACC1C32D2C600593631 = {
 			isa = PBXGroup;
 			children = (
-				C95BED381C79B9DC00E853F6 /* iOS Study Plan.txt */,
+				C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */,
 				C94C67021C775F0A00B59836 /* ObjC */,
 				C97ABD551C831385003A4E3C /* TestObjC */,
 				C993CAD61C32D2C600593631 /* Products */,

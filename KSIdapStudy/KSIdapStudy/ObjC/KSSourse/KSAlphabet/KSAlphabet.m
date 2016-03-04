@@ -20,7 +20,7 @@
 #pragma mark Class Methods
 
 + (instancetype)alphabetWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue {
-    return [[[[self class] alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue)] autorelease];
+    return [[[[self class] alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue + 1)] autorelease];
 }
 
 + (instancetype)alphabetWithString:(NSString *)string {
@@ -53,7 +53,7 @@
 - (instancetype)initWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue {
     [self autorelease];
     
-    return [[KSAlphabetRange alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue)];
+    return [[KSAlphabetRange alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue + 1)];
 }
 
 - (instancetype)initWithAlphabetsArray:(NSArray *)alphabets {

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSAlphabet.h"
-
 extern const NSUInteger kKSDefaultLength;
+
+@class KSAlphabet;
 
 @interface NSString (KSExstension)
 
