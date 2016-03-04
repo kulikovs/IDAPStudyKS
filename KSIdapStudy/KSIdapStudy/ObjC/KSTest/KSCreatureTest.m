@@ -14,7 +14,7 @@
 
 + (void)creatureTest {
        
-       KSCreatureMale *male = [KSCreatureMale object];
+  //     KSCreatureMale *male = [KSCreatureMale object];
        
        KSCreatureMale *Bob = [[[KSCreatureMale alloc]
                            initWithName:@"Bob"]  autorelease];

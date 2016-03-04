@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
 ////
        KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'f' lastValue:'z'] autorelease];
       NSLog(@"%@", alphabet.alphabetString);
-       NSLog(@"%d", alphabet.count);
+       NSLog(@"%lu", alphabet.count);
        
      //  KSAlphabet *alphabetRange = [[[KSAlphabet alloc] initWithRange:NSMakeRange(40, 5)] autorelease];
   //    KSAlphabet *alphabetRange1 = [KSAlphabet object];
@@ -27,12 +27,12 @@ int main(int argc, const char * argv[]) {
        
        KSAlphabet *alphabetString = [[[KSAlphabet alloc] initWithString:(@"ASDFGKJKGKG")] autorelease];
        NSLog(@"%@", alphabetString);
-       NSLog(@"%d", alphabetString.count);
+       NSLog(@"%lu", alphabetString.count);
        
        
        KSAlphabet *lowerAlphabet = [KSAlphabet lowerCaseLettersAlphabet];
 //       
-       
+       NSLog(@"%@", lowerAlphabet);
 //       NSLog(@"%@", [NSString randomString]);
       NSLog(@"%@", [NSString randomStringWithLength:30 alphabet:alphabet]);
      //  NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:alphabetString]);

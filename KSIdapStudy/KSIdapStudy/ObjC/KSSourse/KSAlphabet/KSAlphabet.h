@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface KSAlphabet : NSObject
-@property (nonatomic, readonly) NSString *alphabetString;
-@property (nonatomic, readonly) NSUInteger count;
+@property (nonatomic, readonly) NSString    *alphabetString;
+@property (nonatomic, readonly) NSUInteger  count;
 
 + (instancetype)alphabetWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue;
 + (instancetype)alphabetWithString:(NSString *)string;
@@ -24,7 +24,7 @@
 - (instancetype)initWithCharacterRange:(unichar)firstValue lastValue:(unichar)lastValue;
 - (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithRange:(NSRange)range;
-+ (instancetype)initWithAlphabetsArray:(NSArray *)alphabetsArray;
+- (instancetype)initWithAlphabetsArray:(NSArray *)alphabets;
 
 @end
 

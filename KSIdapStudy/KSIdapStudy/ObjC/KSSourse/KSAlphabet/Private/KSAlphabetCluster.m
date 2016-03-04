@@ -18,10 +18,16 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initWithAlphabetsArray:(NSArray *)alphabetsArray {
+- (void)dealloc {
+    self.arrayAlphabets = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)initWithAlphabetsArray:(NSArray *)alphabets {
     self = [super init];
     if (self) {
-        self.arrayAlphabets = [[alphabetsArray copy] autorelease];
+        self.arrayAlphabets = [[alphabets copy] autorelease];
     }
     
     return self;
