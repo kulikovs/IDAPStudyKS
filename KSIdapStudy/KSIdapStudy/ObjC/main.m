@@ -16,8 +16,13 @@ int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
     //[KSCreatureTest creatureTest];
-////
-//       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'f' lastValue:'z'] autorelease];
+        NSMutableString *mutableString = [NSMutableString string];
+       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'G' lastValue:'z'] autorelease];
+       for (NSString *string in alphabet) {
+        [mutableString appendFormat:@"%@", string];
+       }
+       NSLog(@"%@", mutableString);
+       
 //      NSLog(@"%@", alphabet.alphabetString);
 //       NSLog(@"%lu", alphabet.count);
 //       

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSAlphabet : NSObject
+@interface KSAlphabet : NSObject <NSFastEnumeration>
 @property (nonatomic, readonly) NSString    *alphabetString;
 @property (nonatomic, readonly) NSUInteger  count;
 

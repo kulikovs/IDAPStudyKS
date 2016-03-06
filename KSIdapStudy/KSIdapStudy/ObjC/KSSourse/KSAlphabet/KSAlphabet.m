@@ -88,4 +88,31 @@
     return self.alphabetString.length;
 }
 
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)indeх {
+    NSMutableString *string = [NSMutableString string];
+    [string appendFormat:@"%c", [self.alphabetString characterAtIndex:indeх]];
+    return string;
+}
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id [])buffer
+                                    count:(NSUInteger)lenght
+{
+    state->mutationsPtr = (unsigned long *)self;
+    NSUInteger stateCount = state->state;
+    NSUInteger resultCount = MIN(self.count - stateCount, lenght);
+    state->state = stateCount + resultCount;
+    
+    for (NSUInteger index = stateCount; index < stateCount + resultCount; index++) {
+        buffer[index] = self[index];
+    }
+    
+    state->itemsPtr = buffer;
+    
+    return resultCount;
+}
+
 @end
