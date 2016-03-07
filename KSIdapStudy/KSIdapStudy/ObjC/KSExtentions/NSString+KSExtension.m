@@ -26,7 +26,7 @@ const NSUInteger kKSDefaultLength  = 10;
         [string appendString:[NSString stringWithFormat:@"%c", symbol]];
     }
     
-    return [[string copy] autorelease];
+    return [[string mutableCopy] autorelease];
 }
 
 + (instancetype)randomStringWithAlphabet:(KSAlphabet *)alphabet {

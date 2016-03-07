@@ -38,12 +38,9 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSUInteger)count {
-    return self.stringAlphabet.length;
-}
-
 - (NSString *)alphabetString {
     return self.stringAlphabet;
 }
+
 @end
 

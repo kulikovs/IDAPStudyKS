@@ -26,5 +26,9 @@
 - (instancetype)initWithRange:(NSRange)range;
 - (instancetype)initWithAlphabetsArray:(NSArray *)alphabets;
 
+- (NSString *)objectAtIndex:(NSUInteger)index;
+- (NSString *)stringAtIndex:(NSUInteger)index;
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)indeх;
+
 @end
 

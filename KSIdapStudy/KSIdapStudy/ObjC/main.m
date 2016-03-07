@@ -16,31 +16,13 @@ int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
     //[KSCreatureTest creatureTest];
-        NSMutableString *mutableString = [NSMutableString string];
+       NSMutableString *mutableString = [NSMutableString string];
        KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'G' lastValue:'z'] autorelease];
        for (NSString *string in alphabet) {
         [mutableString appendFormat:@"%@", string];
        }
        NSLog(@"%@", mutableString);
        
-//      NSLog(@"%@", alphabet.alphabetString);
-//       NSLog(@"%lu", alphabet.count);
-//       
-//       
-//       KSAlphabet *alphabetString = [[[KSAlphabet alloc] initWithString:(@"ASDFGKJKGKG")] autorelease];
-//       NSLog(@"%@", alphabetString);
-//       NSLog(@"%lu", alphabetString.count);
-//       
-//       
-//       KSAlphabet *lowerAlphabet = [KSAlphabet lowerCaseLettersAlphabet];
-//
-//       NSLog(@"%@", lowerAlphabet);
-//       NSLog(@"%@", [NSString randomString]);
-//      NSLog(@"%@", [NSString randomStringWithLength:30 alphabet:alphabet]);
-//       NSLog(@"%@", [NSString randomStringWithLength:10 alphabet:alphabetString]);
- //     NSLog(@"%@", [NSString upperCaseAlphabet]);
-//      NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
-
     return 0;
    }
 }

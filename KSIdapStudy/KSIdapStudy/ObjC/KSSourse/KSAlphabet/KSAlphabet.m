@@ -89,13 +89,24 @@
 }
 
 #pragma mark -
-#pragma mark NSFastEnumeration
+#pragma mark Public Methods
+
+
+- (NSString *)objectAtIndex:(NSUInteger)index {
+    return [self objectAtIndexedSubscript:index];
+}
+
+- (NSString *)stringAtIndex:(NSUInteger)index {
+    return [self objectAtIndexedSubscript:index];
+}
+
 
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)indeх {
-    NSMutableString *string = [NSMutableString string];
-    [string appendFormat:@"%c", [self.alphabetString characterAtIndex:indeх]];
-    return string;
+    return [NSString stringWithFormat:@"%c", [self.alphabetString characterAtIndex:indeх]];
 }
+
+#pragma mark -
+#pragma mark NSFastEnumeration
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(id [])buffer
@@ -107,7 +118,7 @@
     state->state = stateCount + resultCount;
     
     for (NSUInteger index = stateCount; index < stateCount + resultCount; index++) {
-        buffer[index] = self[index];
+        buffer[index - stateCount] = self[index];
     }
     
     state->itemsPtr = buffer;
