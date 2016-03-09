@@ -8,8 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import "NSString+KSExtension.h"
+#import "KSAlphabet.h"
 
 @interface TestObjC : XCTestCase
+@property (nonatomic, retain) KSAlphabet *alphabet;
+@property (nonatomic, retain) NSString *string;
 
 @end
 
@@ -17,73 +20,58 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample {
-    
-    NSString *upperCaseAlphabet = [NSString upperCaseAlphabet];
-    NSString *lowerCaseAlphabet = [NSString lowerCaseAlphabet];
-    NSString *numericAlphabet = [NSString numericLettersAlphabet];
-    NSString *lowerCaseWithNumericAlphabet = [NSString lowerCaseWithNumericAlphabet];
-    NSString *lowerCaseWithUpperCaseAlphabet = [NSString lowerCaseWithUpperCaseAlphabet];
-    
-    XCTAssert(upperCaseAlphabet.length == 26);
-    XCTAssert(lowerCaseAlphabet.length == 26);
-    XCTAssert(numericAlphabet.length == 10);
-    XCTAssert(lowerCaseWithUpperCaseAlphabet.length == 52);
-    XCTAssert(lowerCaseWithNumericAlphabet.length == 36);
-    
+- (void)testAlphabetsRange {
     NSLog(@"Alphabet is with capital letters. The first letter of alphabet is 'A' and the last is 'Z'");
-    NSLog(@"%@", upperCaseAlphabet);
+    self.alphabet = [KSAlphabet upperCaseLettersAlphabet];
+    NSLog(@"%@", self.alphabet.alphabetString);
+    XCTAssert(self.alphabet.count == 26);
     
     NSLog(@"Alphabet is with small letters. The first letter of alphabet is 'a' and the last is 'z'");
-    NSLog(@"%@", lowerCaseAlphabet);
+    self.alphabet = [KSAlphabet lowerCaseLettersAlphabet];
+    NSLog(@"%@", self.alphabet.alphabetString);
+    XCTAssert(self.alphabet.count == 26);
     
     NSLog(@"Alphabet is with numeric letters. The first symbol of alphabet is '0' and the last is '9'");
-    NSLog(@"%@", numericAlphabet);
-    
-    NSLog(@"Alphabet is with numeric letters and lower case letters.");
-    NSLog(@"%@", lowerCaseWithNumericAlphabet);
-    
-    NSLog(@"Alphabet is with lower case and upper case letters.");
-    NSLog(@"%@", lowerCaseWithUpperCaseAlphabet);
-    
-    //////////////////////////////////////////////////////
-    
-    NSString *randomStringWithLength = [NSString randomStringWithLength:30];
-    XCTAssert(randomStringWithLength.length == 30);
-    NSLog(@"This is random string created with 30 symbols lowerCase Alphabet");
-    NSLog(@"%@", randomStringWithLength);
-    
-    
-    NSString *randomStringDefault = [NSString randomString];
-    XCTAssert(randomStringDefault.length == 10);
-    NSLog(@"This is random string, created with 10 symbols lowerCase Alphabet");
-    NSLog(@"%@", [NSString randomString]);
-    
-    
-    NSString *randomStringWithAlphabet = [NSString randomStringWithLength:20
-                                                           alphabet:[NSString numericLettersAlphabet]];
-    
-    NSLog(@"This is random string, created with 20 symbols numericLetters Alphabet");
-    NSLog(@"%@", randomStringWithAlphabet);
-    XCTAssert(randomStringWithAlphabet.length == 20);
-    
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    self.alphabet = [KSAlphabet numericLettersAlphabet];
+    NSLog(@"%@", self.alphabet.alphabetString);
+    XCTAssert(self.alphabet.count == 10);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testAlphabetString {
+    NSLog(@"Alphabet is with String. The first letter of alphabet is 'A' and the last is 'H'");
+    self.alphabet = [KSAlphabet alphabetWithString:@"ABCDEFGH"];
+    NSLog(@"%@", self.alphabet.alphabetString);
+    XCTAssert(self.alphabet.count == 8);
+}
+
+- (void)testAlphabetsArray {
+    NSLog(@"RandomString with alphabets.");
+    KSAlphabet *lowerCaseAlphabet = [KSAlphabet lowerCaseLettersAlphabet];
+    KSAlphabet *upperCaseAlphabet = [KSAlphabet upperCaseLettersAlphabet];
+    NSArray *strings = [NSArray arrayWithObjects:lowerCaseAlphabet, upperCaseAlphabet, nil];
+    self.alphabet = [KSAlphabet alphabetWithAlphabetsArray:strings];
+    NSLog(@"%@", self.alphabet.alphabetString);
+    XCTAssert(self.alphabet.count == 52);
+}
+
+- (void)testRandomString {
+    NSLog(@"RandomString with default alphabet (lowerCaseLettersAlphabet).\n String lenght is 15");
+    self.string = [NSString randomStringWithLength:15];
+    NSLog(@"%@", self.string);
+    XCTAssert(self.string.length == 15);
+    
+    NSLog(@"RandomString with alphabet.\n String lenght is default");
+    self.alphabet = [KSAlphabet alphabetWithString:@"ABCDEFGH"];
+    self.string = [NSString randomStringWithAlphabet:self.alphabet];
+    NSLog(@"%@", self.string);
+    XCTAssert(self.string.length == 10);
 }
 
 @end

@@ -10,17 +10,19 @@
 
 #import "KSCreatureTest.h"
 #import "NSString+KSExtension.h"
+#import "KSAlphabet.h"
 
 int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
     //[KSCreatureTest creatureTest];
-//       
-      NSLog(@"%@", [NSString randomString]);
-      NSLog(@"%@", [NSString randomStringWithLength:30]);
-      NSLog(@"%@", [NSString upperCaseAlphabet]);
-      NSLog(@"%@", [NSString randomStringWithLength:20 alphabet:[NSString numericLettersAlphabet]]);
-
+       NSMutableString *mutableString = [NSMutableString string];
+       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'G' lastValue:'z'] autorelease];
+       for (NSString *string in alphabet) {
+        [mutableString appendFormat:@"%@", string];
+       }
+       NSLog(@"%@", mutableString);
+       
     return 0;
    }
 }

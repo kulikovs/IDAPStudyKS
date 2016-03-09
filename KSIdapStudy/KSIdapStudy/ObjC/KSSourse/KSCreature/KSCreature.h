@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, KSGenderType) {
 @property (nonatomic, readonly)   NSUInteger      age;
 @property (nonatomic, readonly)   CGFloat         weight;
 
-- (instancetype)initWithName:(NSString*)name;
+- (instancetype)initWithName:(NSString *)name;
 
 - (void)addChild:(KSCreature *)child;
 - (void)removeChild:(KSCreature *)child;

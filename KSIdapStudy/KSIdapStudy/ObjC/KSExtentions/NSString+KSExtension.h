@@ -10,19 +10,17 @@
 
 extern const NSUInteger kKSDefaultLength;
 
+@class KSAlphabet;
+
 @interface NSString (KSExstension)
 
-//There are lowerCasealphabet is default in this two methods
+//There are lowerCaseLettersAlphabet is default in this two methods
 + (instancetype)randomString;
 + (instancetype)randomStringWithLength:(NSUInteger)length;
-+ (instancetype)randomStringWithAlphabet:(NSString *)alphabet;
 
-+ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
++ (instancetype)randomStringWithAlphabet:(KSAlphabet *)alphabet;
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(KSAlphabet *)alphabet;
 
-+ (instancetype)lowerCaseAlphabet;
-+ (instancetype)upperCaseAlphabet;
-+ (instancetype)numericLettersAlphabet;
-+ (instancetype)lowerCaseWithNumericAlphabet;
-+ (instancetype)lowerCaseWithUpperCaseAlphabet;
+
 
 @end
