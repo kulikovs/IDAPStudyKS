@@ -16,6 +16,8 @@
 - (void)enterprise:(KSEnterprise *)enterprise washTheCar:(KSCar *)car {
     car.isDirty = NO;
     self.money = [car payMoney:100];
+    
+    [self.delegate carsWasher:self carIsPure:car];
 }
 
 @end

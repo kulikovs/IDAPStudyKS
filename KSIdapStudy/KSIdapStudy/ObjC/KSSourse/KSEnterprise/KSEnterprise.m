@@ -8,6 +8,8 @@
 
 #import "KSEnterprise.h"
 
+@protocol KSCarsWasherDelegate;
+
 @interface KSEnterprise ()
 @property (nonatomic, retain) KSCar *car;
 
@@ -24,13 +26,26 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)carsWasher:(KSCarsWasher *)carsWasher сarIsPure:(KSCar *)car {
+    [self removeCarFromEnterprise:car];
+}
+
 #pragma mark - 
-#pragma mark Class Methods Public
+#pragma mark Public Methods
 
 - (void)addCarToWash:(KSCar *)car {
     if (car.isDirty) {
         self.car = car;
         [self.delegate enterprise:self washTheCar:car];
+    }
+}
+
+- (void)removeCarFromEnterprise:(KSCar *)car {
+    if (self.car == car) {
+        self.car = nil;
     }
 }
 
