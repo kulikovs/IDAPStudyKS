@@ -12,4 +12,7 @@
 @property (nonatomic, assign) BOOL          isDirty;
 @property (nonatomic, assign) NSUInteger    cash;
 
+- (NSUInteger)payMoney:(NSUInteger)sum;
+
 @end
+

@@ -10,7 +10,18 @@
 
 #import "KSCar.h"
 
+@protocol KSEnterpriseDelegete;
+
 @interface KSEnterprise : NSObject
 @property (nonatomic, readonly) KSCar *car;
+@property (nonatomic, assign) id <KSEnterpriseDelegete> delegate;
+
+- (void)addCarToWash:(KSCar *)car;
+
+@end
+
+@protocol KSEnterpriseDelegete <NSObject>
+
+- (void)enterprise:(KSEnterprise *)enterprise washTheCar:(KSCar *)car;
 
 @end

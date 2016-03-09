@@ -10,13 +10,29 @@
 
 @interface KSEnterprise ()
 @property (nonatomic, retain) KSCar *car;
-@property (nonatomic, assign) id *boss;
-@property (nonatomic, assign) id *accountant;
-@property (nonatomic, assign) id *carsWasher;
 
 @end
 
 @implementation KSEnterprise
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+-(void)dealloc {
+    self.car = nil;
+    
+    [super dealloc];
+}
+
+#pragma mark - 
+#pragma mark Class Methods Public
+
+- (void)addCarToWash:(KSCar *)car {
+    if (car.isDirty) {
+        self.car = car;
+        [self.delegate enterprise:self washTheCar:car];
+    }
+}
 
 @end
+
