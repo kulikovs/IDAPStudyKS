@@ -13,6 +13,12 @@
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
 		C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
+		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
+		C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
+		C978A0791C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
+		C978A07A1C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
+		C978A07E1C906E590066530A /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A07D1C906E590066530A /* KSEmployee.m */; };
+		C978A07F1C906E590066530A /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A07D1C906E590066530A /* KSEmployee.m */; };
 		C97ABD571C831385003A4E3C /* TestObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97ABD561C831385003A4E3C /* TestObjC.m */; };
 		C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
@@ -65,6 +71,12 @@
 		C95CF7E71C84B883001120F7 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C95CF7E81C84B883001120F7 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
+		C9789FD41C904CD20066530A /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
+		C978A0771C905EBA0066530A /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
+		C978A0781C905EBA0066530A /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
+		C978A07C1C906E590066530A /* KSEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEmployee.h; sourceTree = "<group>"; };
+		C978A07D1C906E590066530A /* KSEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEmployee.m; sourceTree = "<group>"; };
 		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
 		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C9789FD21C904CD20066530A /* KSEnterprise */,
 				C95CF7E61C84B865001120F7 /* KSAlphabet */,
 				C94C67041C775F0A00B59836 /* KSCreature */,
 			);
@@ -168,6 +181,35 @@
 				C95CF7E81C84B883001120F7 /* KSAlphabet.m */,
 			);
 			path = KSAlphabet;
+			sourceTree = "<group>";
+		};
+		C9789FD21C904CD20066530A /* KSEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				C978A07B1C906E460066530A /* KSEmployee */,
+				C978A0761C905EBA0066530A /* KSCar */,
+				C9789FD31C904CD20066530A /* KSEnterprise.h */,
+				C9789FD41C904CD20066530A /* KSEnterprise.m */,
+			);
+			path = KSEnterprise;
+			sourceTree = "<group>";
+		};
+		C978A0761C905EBA0066530A /* KSCar */ = {
+			isa = PBXGroup;
+			children = (
+				C978A0771C905EBA0066530A /* KSCar.h */,
+				C978A0781C905EBA0066530A /* KSCar.m */,
+			);
+			path = KSCar;
+			sourceTree = "<group>";
+		};
+		C978A07B1C906E460066530A /* KSEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				C978A07C1C906E590066530A /* KSEmployee.h */,
+				C978A07D1C906E590066530A /* KSEmployee.m */,
+			);
+			path = KSEmployee;
 			sourceTree = "<group>";
 		};
 		C97ABD551C831385003A4E3C /* TestObjC */ = {
@@ -352,11 +394,14 @@
 				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
 				C98021671C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
+				C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */,
 				C98021691C88EC07004D19DC /* KSAlphabetString.m in Sources */,
 				C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */,
 				C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */,
 				C94C670E1C775F0A00B59836 /* main.m in Sources */,
 				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
+				C978A0791C905EBA0066530A /* KSCar.m in Sources */,
+				C978A07E1C906E590066530A /* KSEmployee.m in Sources */,
 				C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */,
 				C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */,
 			);
@@ -367,14 +412,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */,
+				C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */,
 				C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */,
 				C98021681C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
+				C978A07F1C906E590066530A /* KSEmployee.m in Sources */,
 				C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C980216A1C88EC07004D19DC /* KSAlphabetString.m in Sources */,
 				C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */,
 				C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */,
+				C978A07A1C905EBA0066530A /* KSCar.m in Sources */,
 				C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */,
 				C97ABD621C8313E3003A4E3C /* main.m in Sources */,
 				C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */,
