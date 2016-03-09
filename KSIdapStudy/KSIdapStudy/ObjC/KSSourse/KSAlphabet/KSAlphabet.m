@@ -115,12 +115,13 @@
     state->mutationsPtr = (unsigned long *)self;
     NSUInteger stateCount = state->state;
     NSUInteger resultCount = MIN(self.count - stateCount, lenght);
-    state->state = stateCount + resultCount;
+    NSUInteger finalCount = stateCount + resultCount;
     
-    for (NSUInteger index = stateCount; index < stateCount + resultCount; index++) {
+    for (NSUInteger index = stateCount; index < finalCount; index++) {
         buffer[index - stateCount] = self[index];
     }
     
+    state->state = finalCount;
     state->itemsPtr = buffer;
     
     return resultCount;
