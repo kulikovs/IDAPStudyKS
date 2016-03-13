@@ -12,32 +12,26 @@ static const NSUInteger carCash = 100;
 
 @implementation KSCar
 
+@synthesize money = _money;
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
--(void)dealloc {
-    self.cash = 0;
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
-    self.isDirty = YES;
-    self.cash = carCash;
+    self.carState = kKSCarStateDirty;
+    self.money = carCash;
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Money Protocol
 
-- (NSUInteger)payMoney:(NSUInteger)sum {
-    NSUInteger payCash = self.cash;
-    self.cash = self.cash - sum;
-    
-    return payCash;
+- (NSUInteger)giveMoney {
+    NSUInteger money = self.money;
+    self.money = 0;
+    return money;
 }
-
 
 @end

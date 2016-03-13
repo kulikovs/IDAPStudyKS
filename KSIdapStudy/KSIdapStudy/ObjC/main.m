@@ -17,12 +17,15 @@
 
 int main(int argc, const char * argv[]) {
    @autoreleasepool {
-
+       
        KSCar *car = [KSCar object];
        KSEnterprise *enterprise = [KSEnterprise object];
-       KSCarsWasher *carWasher = [KSCarsWasher object];
-       enterprise.delegate = carWasher;
-       [enterprise addCarToWash:car];
+       
+       for (NSUInteger index = 0; index < 10; index ++) {
+           [enterprise washCar:car];
+           car.carState = kKSCarStateDirty;
+           car.money = 100;
+       }
        
        NSLog(@"Car");
        

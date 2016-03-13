@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSEmployee : NSObject
+#import "KSWorkerProtocol.h"
+#import "KSMoneyProtocol.h"
+
+@interface KSEmployee : NSObject <KSMoneyProtocol, KSWorkerProtocol>
+@property (nonatomic, assign) id<KSWorkerProtocol> delegate;
+
+- (void)performWithObject:(id)object;
 
 @end
+

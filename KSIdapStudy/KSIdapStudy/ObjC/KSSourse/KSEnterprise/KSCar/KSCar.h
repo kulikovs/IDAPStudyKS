@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSCar : NSObject
-@property (nonatomic, assign) BOOL          isDirty;
-@property (nonatomic, assign) NSUInteger    cash;
+#import "KSMoneyProtocol.h"
 
-- (NSUInteger)payMoney:(NSUInteger)sum;
+typedef NS_ENUM(NSUInteger, KSCarState){
+    kKSCarStateUndefine,
+    kKSCarStateClean,
+    kKSCarStateDirty,
+};
+
+@interface KSCar : NSObject <KSMoneyProtocol>
+@property (nonatomic, assign) KSCarState   carState ;
 
 @end
 

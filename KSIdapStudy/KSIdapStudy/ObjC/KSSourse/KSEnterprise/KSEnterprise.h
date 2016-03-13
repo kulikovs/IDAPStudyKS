@@ -9,21 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #import "KSCar.h"
-#import "KSCarsWasher.h"
 
-@protocol KSEnterpriseDelegete;
+@interface KSEnterprise : NSObject
 
-@interface KSEnterprise : NSObject <KSEnterpriseDelegete>
-@property (nonatomic, readonly) KSCar *car;
-@property (nonatomic, assign) id <KSEnterpriseDelegete> delegate;
-
-- (void)addCarToWash:(KSCar *)car;
-- (void)removeCarFromEnterprise:(KSCar *)car;
+- (void)washCar:(KSCar *)car;
 
 @end
 
-@protocol KSEnterpriseDelegete
-
-- (void)enterprise:(KSEnterprise *)enterprise washTheCar:(KSCar *)car;
-
-@end

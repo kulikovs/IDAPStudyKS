@@ -7,11 +7,16 @@
 //
 
 #import "KSEnterprise.h"
-
-@protocol KSCarsWasherDelegate;
+#import "KSBoss.h"
+#import "KSAccountant.h"
+#import "KSCarsWasher.h"
 
 @interface KSEnterprise ()
-@property (nonatomic, retain) KSCar *car;
+@property (nonatomic, retain) NSMutableArray *staff;
+
+- (void)hireStaff;
+- (void)dismissStaff;
+- (id)vacantEmployeeWithClass:(Class)class;
 
 @end
 
@@ -20,33 +25,62 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
--(void)dealloc {
-    self.car = nil;
+- (void)dealloc {
+    [self dismissStaff];
+    self.staff = nil;
     
     [super dealloc];
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self hireStaff];
+    }
+    
+    return self;
+}
+
+
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)carsWasher:(KSCarsWasher *)carsWasher сarIsPure:(KSCar *)car {
-    [self removeCarFromEnterprise:car];
+- (void)hireStaff {
+    KSAccountant *accountant = [KSAccountant object];
+    KSBoss *boss = [KSBoss object];
+    KSCarsWasher *carsWasher = [KSCarsWasher object];
+    
+    accountant.workerState = kKSWorkerStateFree;
+    boss.workerState = kKSWorkerStateFree;
+    carsWasher.workerState = kKSWorkerStateFree;
+    
+    carsWasher.delegate = accountant;
+    accountant.delegate = boss;
+    
+    self.staff = [@[accountant, boss, carsWasher] mutableCopy];
 }
 
-#pragma mark - 
+- (void)dismissStaff {
+    [self.staff removeAllObjects];
+}
+
+- (id)vacantEmployeeWithClass:(Class)class {
+    for (KSEmployee *employee in self.staff) {
+        if ([employee isMemberOfClass:class] && employee.workerState == kKSWorkerStateFree) {
+            return employee;
+        }
+    }
+    
+    return nil;
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
-- (void)addCarToWash:(KSCar *)car {
-    if (car.isDirty) {
-        self.car = car;
-        [self.delegate enterprise:self washTheCar:car];
-    }
-}
-
-- (void)removeCarFromEnterprise:(KSCar *)car {
-    if (self.car == car) {
-        self.car = nil;
-    }
+- (void)washCar:(KSCar *)car {
+   KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
+    [carsWasher performWithObject:car];
 }
 
 @end
