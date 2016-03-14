@@ -11,6 +11,8 @@
 @interface KSEmployee ()
 
 - (void)performWithObject:(id)object;
+- (void)completeWorkingWithObject:(KSEmployee *)object;
+- (void)finishWork;
 
 @end
 
@@ -18,6 +20,45 @@
 
 @synthesize money = _money;
 @synthesize workerState = _workerState;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.workerState = kKSWorkerStateFree;
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performWithObject:(id)object {
+    self.workerState = kKSWorkerStateBusy;
+    
+    [self takeMoney:[object giveMoney]];
+    
+    [self completeWorkingWithObject:object];
+    
+    [self finishWork];
+
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)completeWorkingWithObject:(KSEmployee *)object {
+    object.workerState = kKSWorkerStateFree;
+}
+
+- (void)finishWork {
+    if (self.delegate) {
+        [self.delegate workerDidFinishWork:self];
+    }
+}
 
 #pragma mark -
 #pragma mark Money Protocol
@@ -39,19 +80,6 @@
 
 - (void)workerDidFinishWork:(id<KSMoneyProtocol>)object {
     [self performWithObject:object];
-}
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)performWithObject:(id)object {
-    self.workerState = kKSWorkerStateBusy;
-    [self takeMoney:[object giveMoney]];
-    self.workerState = kKSWorkerStateFree;
-    
-    if (self.delegate) {
-        [self.delegate workerDidFinishWork:self];
-    }
 }
 
 @end

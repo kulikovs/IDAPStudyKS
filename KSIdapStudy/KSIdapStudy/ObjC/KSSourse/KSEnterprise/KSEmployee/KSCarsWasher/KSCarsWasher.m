@@ -13,11 +13,8 @@
 #pragma mark
 #pragma mark Private Method
 
-- (void)performWithObject:(KSCar *)car {
-    if (car.money >= 100) {
-        [super performWithObject:car];
-        car.carState = kKSCarStateClean;
-    }
+- (void)completeWorkingWithObject:(KSCar *)car {
+    car.carState = kKSCarStateClean;
 }
 
 @end

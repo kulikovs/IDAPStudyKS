@@ -10,9 +10,11 @@
 
 @implementation KSBoss
 
-- (void)performWithObject:(id<KSMoneyProtocol>)object {
-    [super performWithObject:object];
-    
+- (void)completeWorkingWithObject:(KSEmployee *)object {
+    object.workerState = kKSWorkerStateFree;
     NSLog(@"Money count = %lu", self.money);
+    self.workerState = kKSWorkerStateFree;
 }
+
+
 @end

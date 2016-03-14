@@ -51,10 +51,6 @@
     KSBoss *boss = [KSBoss object];
     KSCarsWasher *carsWasher = [KSCarsWasher object];
     
-    accountant.workerState = kKSWorkerStateFree;
-    boss.workerState = kKSWorkerStateFree;
-    carsWasher.workerState = kKSWorkerStateFree;
-    
     carsWasher.delegate = accountant;
     accountant.delegate = boss;
     
