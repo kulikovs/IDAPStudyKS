@@ -19,6 +19,8 @@
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
 		C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
+		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
+		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C978A0791C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
@@ -85,6 +87,8 @@
 		C95CF7E71C84B883001120F7 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C95CF7E81C84B883001120F7 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
+		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
 		C9789FD41C904CD20066530A /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
 		C978A0771C905EBA0066530A /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C97088E61C984752003B6E6D /* KSObserver */,
 				C9789FD21C904CD20066530A /* KSEnterprise */,
 				C95CF7E61C84B865001120F7 /* KSAlphabet */,
 				C94C67041C775F0A00B59836 /* KSCreature */,
@@ -238,6 +243,15 @@
 				C95CF7E81C84B883001120F7 /* KSAlphabet.m */,
 			);
 			path = KSAlphabet;
+			sourceTree = "<group>";
+		};
+		C97088E61C984752003B6E6D /* KSObserver */ = {
+			isa = PBXGroup;
+			children = (
+				C97088E71C98476F003B6E6D /* KSObserver.h */,
+				C97088E81C98476F003B6E6D /* KSObserver.m */,
+			);
+			path = KSObserver;
 			sourceTree = "<group>";
 		};
 		C9789FD21C904CD20066530A /* KSEnterprise */ = {
@@ -458,6 +472,7 @@
 				C98021671C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
 				C93F0E671C95A55B00DB3FEC /* KSBoss.m in Sources */,
 				C93F0E6C1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
+				C97088E91C98476F003B6E6D /* KSObserver.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
 				C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */,
 				C98021691C88EC07004D19DC /* KSAlphabetString.m in Sources */,
@@ -494,6 +509,7 @@
 				C978A07A1C905EBA0066530A /* KSCar.m in Sources */,
 				C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */,
 				C97ABD621C8313E3003A4E3C /* main.m in Sources */,
+				C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */,
 				C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
