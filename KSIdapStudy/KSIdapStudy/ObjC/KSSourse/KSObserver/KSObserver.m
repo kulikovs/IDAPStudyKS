@@ -30,6 +30,7 @@
 
 - (instancetype)init {
     self = [super init];
+    
     if (self) {
         self.mutableObservers = [NSMutableArray array];
     }
@@ -42,6 +43,14 @@
 
 - (NSArray *)observers {
     return [[self.mutableObservers copy] autorelease];
+}
+
+- (void)setState:(NSUInteger)state {
+    if (_stateObject != state) {
+        _stateObject = state;
+        
+        [self notifyObserver];
+    }
 }
 
 - (NSUInteger)state {
@@ -59,5 +68,21 @@
     [self.mutableObservers removeObject:observer];
 }
 
+- (SEL)selectorForState:(NSUInteger)state {
+    return nil;
+}
+
+- (void)notifyObserver {
+[self notifyObjectWithSelector:[self selectorForState:self.state]];
+}
+
+- (void)notifyObjectWithSelector:(SEL)selector {
+    NSMutableArray *mutableObservers = self.mutableObservers;
+    for (id observer in mutableObservers) {
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:selector];
+        }
+    }
+}
 
 @end

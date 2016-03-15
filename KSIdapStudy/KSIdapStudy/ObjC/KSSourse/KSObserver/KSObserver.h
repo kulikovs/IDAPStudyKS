@@ -15,4 +15,10 @@
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
+//This method is intended for subclassing
+- (SEL)selectorForState:(NSUInteger)state;
+
+- (void)notifyObjectWithSelector:(SEL)selector;
+- (void)notifyObserver;
+
 @end
