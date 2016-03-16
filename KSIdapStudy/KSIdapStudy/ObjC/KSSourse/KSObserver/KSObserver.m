@@ -9,13 +9,13 @@
 #import "KSObserver.h"
 
 @interface KSObserver ()
-@property (nonatomic, assign) NSUInteger        stateObject;
+//@property (nonatomic, assign) NSUInteger        stateObject;
 @property (nonatomic, retain) NSMutableArray    *mutableObservers;
 
 @end
 
 @implementation KSObserver
-
+//@synthesize state;
 @dynamic observers;
 @dynamic state;
 
@@ -37,25 +37,25 @@
     
     return self;
 }
+//
+//#pragma mark -
+//#pragma mark Accessors
+//
+//- (NSArray *)observers {
+//    return [[self.mutableObservers copy] autorelease];
+//}
 
-#pragma mark -
-#pragma mark Accessors
+//- (void)setState:(NSUInteger)state {
+//    if (_state != state) {
+//        _state = state;
+//        
+//        [self notifyObserver];
+//    }
+//}
 
-- (NSArray *)observers {
-    return [[self.mutableObservers copy] autorelease];
-}
-
-- (void)setState:(NSUInteger)state {
-    if (_stateObject != state) {
-        _stateObject = state;
-        
-        [self notifyObserver];
-    }
-}
-
-- (NSUInteger)state {
-    return self.stateObject;
-}
+//- (NSUInteger)state {
+//    return self.stateObject;
+//}
 
 #pragma mark -
 #pragma mark Public Methods

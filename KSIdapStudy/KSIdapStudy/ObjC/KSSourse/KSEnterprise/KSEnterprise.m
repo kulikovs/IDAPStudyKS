@@ -10,6 +10,7 @@
 #import "KSBoss.h"
 #import "KSAccountant.h"
 #import "KSCarsWasher.h"
+#import "KSObserver.h"
 
 @interface KSEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;
@@ -42,7 +43,6 @@
     return self;
 }
 
-
 #pragma mark -
 #pragma mark Private Methods
 
@@ -51,8 +51,8 @@
     KSBoss *boss = [KSBoss object];
     KSCarsWasher *carsWasher = [KSCarsWasher object];
     
-    carsWasher.delegate = accountant;
-    accountant.delegate = boss;
+    [carsWasher addObserver:accountant];
+    [accountant addObserver:boss];
     
     self.staff = [@[accountant, boss, carsWasher] mutableCopy];
 }
@@ -63,7 +63,7 @@
 
 - (id)vacantEmployeeWithClass:(Class)class {
     for (KSEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && employee.workerState == kKSWorkerStateFree) {
+        if ([employee isMemberOfClass:class] && employee.state == kKSWorkerStateFree) {
             return employee;
         }
     }

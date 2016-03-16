@@ -10,9 +10,9 @@
 
 #import "KSWorkerProtocol.h"
 #import "KSMoneyProtocol.h"
+#import "KSObserver.h"
 
-@interface KSEmployee : NSObject <KSMoneyProtocol, KSWorkerProtocol>
-@property (nonatomic, assign) id<KSWorkerProtocol> delegate;
+@interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
 
 - (void)performWithObject:(id)object;
 

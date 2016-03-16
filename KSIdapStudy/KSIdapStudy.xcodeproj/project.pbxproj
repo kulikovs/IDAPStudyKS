@@ -257,11 +257,12 @@
 		C9789FD21C904CD20066530A /* KSEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				C9789FD31C904CD20066530A /* KSEnterprise.h */,
+				C9789FD41C904CD20066530A /* KSEnterprise.m */,
+				C978A07B1C906E460066530A /* KSEmployee */,
 				C93F0E701C95C79800DB3FEC /* KSWorkerProtocol */,
 				C93F0E6E1C95C6F300DB3FEC /* KSMoneyProtocol */,
 				C978A0761C905EBA0066530A /* KSCar */,
-				C9789FD31C904CD20066530A /* KSEnterprise.h */,
-				C9789FD41C904CD20066530A /* KSEnterprise.m */,
 			);
 			path = KSEnterprise;
 			sourceTree = "<group>";
@@ -271,7 +272,6 @@
 			children = (
 				C978A0771C905EBA0066530A /* KSCar.h */,
 				C978A0781C905EBA0066530A /* KSCar.m */,
-				C978A07B1C906E460066530A /* KSEmployee */,
 			);
 			path = KSCar;
 			sourceTree = "<group>";
@@ -285,8 +285,7 @@
 				C93F0E641C95A54D00DB3FEC /* KSBoss */,
 				C93F0E5F1C95A51500DB3FEC /* KSCarsWasher */,
 			);
-			name = KSEmployee;
-			path = ../KSEmployee;
+			path = KSEmployee;
 			sourceTree = "<group>";
 		};
 		C97ABD551C831385003A4E3C /* TestObjC */ = {

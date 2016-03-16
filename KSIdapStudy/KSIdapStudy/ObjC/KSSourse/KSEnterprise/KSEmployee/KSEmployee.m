@@ -9,6 +9,7 @@
 #import "KSEmployee.h"
 
 @interface KSEmployee ()
+@property (nonatomic, assign) KSWorkerState state;
 
 - (void)performWithObject:(id)object;
 - (void)completeWorkingWithObject:(KSEmployee *)object;
@@ -18,8 +19,8 @@
 
 @implementation KSEmployee
 
+@synthesize state = _state;
 @synthesize money = _money;
-@synthesize workerState = _workerState;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -27,36 +28,59 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.workerState = kKSWorkerStateFree;
+        self.state = kKSWorkerStateFree;
     }
     
     return self;
 }
 
+- (void)setState:(KSWorkerState)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObserver];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
+
 - (void)performWithObject:(id)object {
-    self.workerState = kKSWorkerStateBusy;
+    self.state = kKSWorkerStateBusy;
     
     [self takeMoney:[object giveMoney]];
-    
+    self.state = kKSWorkerStateFree;
     [self completeWorkingWithObject:object];
     
-    [self finishWork];
-
+   // [self finishWork];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)completeWorkingWithObject:(KSEmployee *)object {
-    object.workerState = kKSWorkerStateFree;
+    object.state = kKSWorkerStateFree;
 }
 
 - (void)finishWork {
-    if (self.delegate) {
-        [self.delegate workerDidFinishWork:self];
+
+    [self workerDidFinishWork:self];
+}
+
+#pragma mark -
+#pragma mark Observer Methods
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kKSWorkerStateBusy:
+            return [super selectorForState:state];
+            
+        case kKSWorkerStateFree:
+            return @selector(finishWork);
+        
+        default:
+            return [super selectorForState:state];
     }
 }
 
@@ -69,7 +93,6 @@
     
     return money;
 }
-
 
 - (void)takeMoney:(NSUInteger)money {
     self.money += money;

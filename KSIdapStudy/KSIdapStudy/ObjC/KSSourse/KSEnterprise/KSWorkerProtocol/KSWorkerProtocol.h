@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, KSWorkerState) {
 };
 
 @protocol KSWorkerProtocol <NSObject>
-@property (nonatomic, assign) KSWorkerState workerState;
+//@property (nonatomic, assign) KSWorkerState workerState;
 
 - (void)workerDidFinishWork:(id<KSMoneyProtocol>)object;
 

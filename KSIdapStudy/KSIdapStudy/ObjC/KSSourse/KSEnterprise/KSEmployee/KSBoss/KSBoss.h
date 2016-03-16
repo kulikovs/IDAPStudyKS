@@ -9,5 +9,6 @@
 #import "KSEmployee.h"
 
 @interface KSBoss : KSEmployee
+@property (nonatomic, assign) KSWorkerState state;
 
 @end

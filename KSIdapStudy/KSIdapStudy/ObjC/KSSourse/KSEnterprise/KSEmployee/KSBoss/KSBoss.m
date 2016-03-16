@@ -8,12 +8,14 @@
 
 #import "KSBoss.h"
 
-@implementation KSBoss
 
-- (void)completeWorkingWithObject:(KSEmployee *)object {
-    object.workerState = kKSWorkerStateFree;
+@implementation KSBoss
+@synthesize state = _state;
+
+- (void)completeWorkingWithObject:(KSBoss *)object {
+ //   object.state = kKSWorkerStateFree;
     NSLog(@"Money count = %lu", self.money);
-    self.workerState = kKSWorkerStateFree;
+  //  self.state = kKSWorkerStateFree;
 }
 
 
