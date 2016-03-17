@@ -56,7 +56,7 @@
     
     self.staff = [@[accountant, boss, carsWasher] mutableCopy];
     
-    [self dismissEmployee:accountant];
+    [self dismissEmployee:accountant]; //this string must be deleted, because string was added for testing method dismissEmployee
 }
 
 - (void)dismissStaff {
