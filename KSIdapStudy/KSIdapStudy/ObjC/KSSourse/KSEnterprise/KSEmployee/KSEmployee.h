@@ -14,7 +14,7 @@
 
 @interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
 
-- (void)performWithObject:(id)object;
+- (void)performWithObject:(id<KSMoneyProtocol>)object;
 
 @end
 

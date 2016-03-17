@@ -10,7 +10,7 @@
 
 @interface KSEmployee ()
 
-- (void)completeWorkingWithObject:(KSEmployee *)object;
+- (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
 
 @end
@@ -46,7 +46,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performWithObject:(id)object {
+- (void)performWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
 
     [self takeMoney:[object giveMoney]];
@@ -59,8 +59,9 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)completeWorkingWithObject:(KSEmployee *)object {
-    object.state = kKSWorkerStateFree;
+- (void)completeWorkingWithObject:(id)object {
+    KSEmployee *emloyee = (KSEmployee *)object;
+    emloyee.state = kKSWorkerStateFree;
 }
 
 - (void)completeWorking {
