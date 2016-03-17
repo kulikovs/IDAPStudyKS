@@ -55,10 +55,23 @@
     [accountant addObserver:boss];
     
     self.staff = [@[accountant, boss, carsWasher] mutableCopy];
+    
+    [self dismissEmployee:accountant];
 }
 
 - (void)dismissStaff {
     [self.staff removeAllObjects];
+}
+
+- (void)dismissEmployee:(KSEmployee *)object {
+    for (NSUInteger index = 0; index < self.staff.count; index++) {
+        KSEmployee *employee = self.staff[index];
+        if ([employee isObservedByObject:object]) {
+            [employee removeObserver:object];
+        }
+        
+        [self.staff removeObject:object];
+    }
 }
 
 - (id)vacantEmployeeWithClass:(Class)class {
