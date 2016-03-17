@@ -10,7 +10,6 @@
 
 @interface KSEmployee ()
 
-- (void)performWithObject:(id)object;
 - (void)completeWorkingWithObject:(KSEmployee *)object;
 - (void)completeWorking;
 

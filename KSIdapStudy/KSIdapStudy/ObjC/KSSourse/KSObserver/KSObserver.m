@@ -27,7 +27,6 @@
 
 - (instancetype)init {
     self = [super init];
-    
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
@@ -62,7 +61,7 @@
 }
 
 - (void)notifyObserver {
-[self notifyObjectWithSelector:[self selectorForState:self.state]];
+    [self notifyObjectWithSelector:[self selectorForState:self.state]];
 }
 
 - (void)notifyObjectWithSelector:(SEL)selector {

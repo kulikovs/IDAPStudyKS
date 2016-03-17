@@ -77,6 +77,7 @@
 - (id)vacantEmployeeWithClass:(Class)class {
     for (KSEmployee *employee in self.staff) {
         if ([employee isMemberOfClass:class] && employee.state == kKSWorkerStateFree) {
+            
             return employee;
         }
     }
