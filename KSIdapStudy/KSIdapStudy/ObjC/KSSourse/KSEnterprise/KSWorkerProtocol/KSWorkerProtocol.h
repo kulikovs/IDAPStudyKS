@@ -14,11 +14,13 @@ typedef NS_ENUM(NSUInteger, KSWorkerState) {
     kKSWorkerStateUndefine,
     kKSWorkerStateBusy,
     kKSWorkerStateFree,
+    kKSWorkerStateWaiting
 };
 
 @protocol KSWorkerProtocol <NSObject>
-//@property (nonatomic, assign) KSWorkerState workerState;
 
-- (void)workerDidFinishWork:(id<KSMoneyProtocol>)object;
+- (void)workerFinishedWork:(id<KSMoneyProtocol>)object;
+- (void)workerStartedWork:(id<KSMoneyProtocol>)object;
+- (void)workerBecameFree:(id<KSMoneyProtocol>)object;
 
 @end

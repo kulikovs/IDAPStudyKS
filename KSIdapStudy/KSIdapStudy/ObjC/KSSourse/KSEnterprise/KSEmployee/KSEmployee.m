@@ -9,18 +9,17 @@
 #import "KSEmployee.h"
 
 @interface KSEmployee ()
-@property (nonatomic, assign) KSWorkerState state;
 
 - (void)performWithObject:(id)object;
 - (void)completeWorkingWithObject:(KSEmployee *)object;
-- (void)finishWork;
+- (void)completeWorking;
 
 @end
 
 @implementation KSEmployee
 
-@synthesize state = _state;
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -34,7 +33,10 @@
     return self;
 }
 
-- (void)setState:(KSWorkerState)state {
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(NSUInteger)state {
     if (_state != state) {
         _state = state;
         
@@ -45,15 +47,14 @@
 #pragma mark -
 #pragma mark Public Methods
 
-
 - (void)performWithObject:(id)object {
     self.state = kKSWorkerStateBusy;
-    
+
     [self takeMoney:[object giveMoney]];
-    self.state = kKSWorkerStateFree;
+    
     [self completeWorkingWithObject:object];
     
-   // [self finishWork];
+    [self completeWorking];
 }
 
 #pragma mark -
@@ -63,21 +64,23 @@
     object.state = kKSWorkerStateFree;
 }
 
-- (void)finishWork {
-
-    [self workerDidFinishWork:self];
+- (void)completeWorking {
+    self.state = kKSWorkerStateWaiting;
 }
 
 #pragma mark -
-#pragma mark Observer Methods
+#pragma mark Observer Method
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kKSWorkerStateBusy:
-            return [super selectorForState:state];
+            return @selector(workerStartedWork:);
             
         case kKSWorkerStateFree:
-            return @selector(finishWork);
+            return @selector(workerBecameFree:);
+            
+        case kKSWorkerStateWaiting:
+            return @selector(workerFinishedWork:);
         
         default:
             return [super selectorForState:state];
@@ -101,8 +104,16 @@
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)workerDidFinishWork:(id<KSMoneyProtocol>)object {
+- (void)workerFinishedWork:(id<KSMoneyProtocol>)object {
     [self performWithObject:object];
+}
+
+- (void)workerStartedWork:(id<KSMoneyProtocol>)object {
+
+}
+
+- (void)workerBecameFree:(id<KSMoneyProtocol>)object {
+
 }
 
 @end

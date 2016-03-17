@@ -10,13 +10,10 @@
 
 
 @implementation KSBoss
-@synthesize state = _state;
 
-- (void)completeWorkingWithObject:(KSBoss *)object {
- //   object.state = kKSWorkerStateFree;
+- (void)completeWorking {
     NSLog(@"Money count = %lu", self.money);
-  //  self.state = kKSWorkerStateFree;
+    self.state = kKSWorkerStateFree;
 }
-
 
 @end
