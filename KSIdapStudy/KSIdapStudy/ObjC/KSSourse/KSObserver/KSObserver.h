@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface KSObserver : NSObject
-@property (nonatomic, assign)     NSUInteger         state;
-@property (nonatomic, readonly)   NSMutableArray     *observers;
+@property (nonatomic, assign)     NSUInteger    state;
+@property (nonatomic, readonly)   NSArray       *observers;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
@@ -20,5 +20,6 @@
 
 - (void)notifyObjectWithSelector:(SEL)selector;
 - (void)notifyObserver;
+- (BOOL)isObservedByObject:(id)object;
 
 @end

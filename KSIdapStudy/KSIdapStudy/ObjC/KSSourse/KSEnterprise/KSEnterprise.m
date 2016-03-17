@@ -17,6 +17,7 @@
 
 - (void)hireStaff;
 - (void)dismissStaff;
+- (void)dismissEmployee:(KSEmployee *)emlpoyee;
 - (id)vacantEmployeeWithClass:(Class)class;
 
 @end

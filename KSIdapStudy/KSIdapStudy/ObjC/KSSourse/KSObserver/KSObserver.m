@@ -9,7 +9,7 @@
 #import "KSObserver.h"
 
 @interface KSObserver ()
-@property (nonatomic, retain) NSMutableArray    *mutableObservers;
+@property (nonatomic, retain) NSHashTable    *mutableObservers;
 
 @end
 
@@ -29,8 +29,7 @@
     self = [super init];
     
     if (self) {
-        self.mutableObservers = [NSMutableArray array];
-    
+        self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
     
     return self;
@@ -54,6 +53,10 @@
     [self.mutableObservers removeObject:observer];
 }
 
+- (BOOL)isObservedByObject:(id)object {
+    return [self.mutableObservers containsObject:object];
+}
+
 - (SEL)selectorForState:(NSUInteger)state {
     return nil;
 }
@@ -63,7 +66,7 @@
 }
 
 - (void)notifyObjectWithSelector:(SEL)selector {
-    NSMutableArray *mutableObservers = self.mutableObservers;
+    NSHashTable *mutableObservers = self.mutableObservers;
     for (id observer in mutableObservers) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];
