@@ -38,7 +38,7 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [[self.mutableObservers copy] autorelease];
+    return [self.mutableObservers allObjects];
 }
 
 #pragma mark -

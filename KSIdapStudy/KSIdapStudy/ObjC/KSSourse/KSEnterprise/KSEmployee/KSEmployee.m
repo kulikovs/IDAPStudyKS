@@ -46,7 +46,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performWithObject:(id<KSMoneyProtocol>)object {
+- (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
 
     [self takeMoney:[object giveMoney]];
@@ -105,7 +105,7 @@
 #pragma mark Worker Protocol
 
 - (void)workerFinishedWork:(id<KSMoneyProtocol>)object {
-    [self performWithObject:object];
+    [self performWorkWithObject:object];
 }
 
 - (void)workerStartedWork:(id<KSMoneyProtocol>)object {

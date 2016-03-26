@@ -54,13 +54,15 @@
     [carsWasher addObserver:accountant];
     [accountant addObserver:boss];
     
-    self.staff = [@[accountant, boss, carsWasher] mutableCopy];
-    
-    [self dismissEmployee:accountant]; //this string must be deleted, because string was added for testing method dismissEmployee
+    self.staff = [[@[accountant, boss, carsWasher] mutableCopy] autorelease];
 }
 
 - (void)dismissStaff {
-    [self.staff removeAllObjects];
+    NSArray *staff = [self.staff copy];
+    
+    for (KSEmployee *employee in staff) {
+        [self dismissEmployee:employee];
+    }
 }
 
 - (void)dismissEmployee:(KSEmployee *)object {
@@ -90,7 +92,7 @@
 
 - (void)washCar:(KSCar *)car {
    KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
-    [carsWasher performWithObject:car];
+    [carsWasher performWorkWithObject:car];
 }
 
 @end
