@@ -58,7 +58,7 @@
 }
 
 - (void)dismissStaff {
-    NSArray *staff = [self.staff copy];
+    NSArray *staff = [[self.staff copy] autorelease];
     
     for (KSEmployee *employee in staff) {
         [self dismissEmployee:employee];
