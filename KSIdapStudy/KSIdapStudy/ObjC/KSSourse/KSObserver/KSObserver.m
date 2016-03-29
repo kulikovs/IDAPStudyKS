@@ -21,6 +21,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.handlerDictionary = nil;
     
     [super dealloc];
 }
@@ -29,6 +30,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.handlerDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;

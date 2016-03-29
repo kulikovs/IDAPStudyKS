@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface KSObserver : NSObject
-@property (nonatomic, assign)     NSUInteger    state;
-@property (nonatomic, readonly)   NSArray       *observers;
+@property (nonatomic, assign)     NSUInteger            state;
+@property (nonatomic, readonly)   NSArray               *observers;
+@property (nonatomic, retain)     NSMutableDictionary   *handlerDictionary;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
