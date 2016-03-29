@@ -51,7 +51,13 @@
     KSBoss *boss = [KSBoss object];
     KSCarsWasher *carsWasher = [KSCarsWasher object];
     
-    [carsWasher addObserver:accountant];
+   // [carsWasher addObserver:accountant];
+    [carsWasher addHandlerForState:^{
+        [accountant performWorkWithObject:carsWasher];} state:kKSWorkerStateWaiting];
+//    
+//    NSNumber *number = [NSNumber numberWithUnsignedLong:kKSWorkerStateWaiting];
+//    NSLog(@"%@", [carsWasher.handlerDictionary objectForKey:number]);
+    
     [accountant addObserver:boss];
     
     self.staff = [[@[accountant, boss, carsWasher] mutableCopy] autorelease];

@@ -47,12 +47,32 @@
     if (_state != state) {
         _state = state;
         
+        NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
+        HandlerForState handler = [self.handlerDictionary objectForKey:stateNumber];
+        
+        if (handler) {
+            handler();
+        }
+        
         [self notifyObserver];
     }
 }
 
 #pragma mark -
 #pragma mark Public Methods
+
+
+- (void)addHandlerForState:(HandlerForState)handler state:(NSUInteger)state {
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
+    
+    [self.handlerDictionary setObject:handler forKey:stateNumber];
+}
+
+- (void)removeHandlerForState:(NSUInteger)state {
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
+    
+    [self.handlerDictionary removeObjectForKey:stateNumber];
+}
 
 - (void)addObserver:(id)observer {
     [self.mutableObservers addObject:observer];
