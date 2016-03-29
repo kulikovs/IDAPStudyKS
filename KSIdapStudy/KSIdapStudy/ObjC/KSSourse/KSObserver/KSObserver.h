@@ -19,6 +19,7 @@
 //This method is intended for subclassing
 - (SEL)selectorForState:(NSUInteger)state;
 
+//- ()
 - (void)notifyObjectWithSelector:(SEL)selector;
 - (void)notifyObserver;
 - (BOOL)isObservedByObject:(id)object;

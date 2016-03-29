@@ -43,6 +43,14 @@
     return [self.mutableObservers allObjects];
 }
 
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObserver];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
