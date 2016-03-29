@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^HandlerForState)(void);
+typedef void(^HandlerForState)(void);
 
 
 @interface KSObserver : NSObject

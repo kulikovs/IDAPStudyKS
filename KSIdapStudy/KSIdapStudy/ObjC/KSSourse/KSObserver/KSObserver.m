@@ -47,14 +47,14 @@
     if (_state != state) {
         _state = state;
         
-        NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
+        NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
         HandlerForState handler = [self.handlerDictionary objectForKey:stateNumber];
         
         if (handler) {
             handler();
+        } else {
+            [self notifyObserver];
         }
-        
-        [self notifyObserver];
     }
 }
 
@@ -63,14 +63,14 @@
 
 
 - (void)addHandlerForState:(HandlerForState)handler state:(NSUInteger)state {
-    NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
+    [self removeHandlerForState:state];
     
-    [self.handlerDictionary setObject:handler forKey:stateNumber];
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlerDictionary setObject:[[handler copy] autorelease] forKey:stateNumber];
 }
 
 - (void)removeHandlerForState:(NSUInteger)state {
-    NSNumber *stateNumber = [NSNumber numberWithUnsignedLong:state];
-    
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
     [self.handlerDictionary removeObjectForKey:stateNumber];
 }
 

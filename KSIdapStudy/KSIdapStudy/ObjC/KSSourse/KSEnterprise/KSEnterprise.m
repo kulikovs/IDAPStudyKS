@@ -54,9 +54,6 @@
    // [carsWasher addObserver:accountant];
     [carsWasher addHandlerForState:^{
         [accountant performWorkWithObject:carsWasher];} state:kKSWorkerStateWaiting];
-//    
-//    NSNumber *number = [NSNumber numberWithUnsignedLong:kKSWorkerStateWaiting];
-//    NSLog(@"%@", [carsWasher.handlerDictionary objectForKey:number]);
     
     [accountant addObserver:boss];
     
