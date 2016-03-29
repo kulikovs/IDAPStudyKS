@@ -61,7 +61,6 @@
 #pragma mark -
 #pragma mark Public Methods
 
-
 - (void)addHandlerForState:(HandlerForState)handler state:(NSUInteger)state {
     [self removeHandlerForState:state];
     
