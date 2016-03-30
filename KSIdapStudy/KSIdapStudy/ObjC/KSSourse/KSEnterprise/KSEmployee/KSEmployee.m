@@ -36,11 +36,11 @@
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
+    
+    sleep(arc4random_uniform(3) + 1);
 
     [self takeMoney:[object giveMoney]];
-    
     [self completeWorkingWithObject:object];
-    
     [self completeWorking];
 }
 

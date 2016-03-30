@@ -61,7 +61,8 @@
     KSCarsWasher *carsWasher2 = [KSCarsWasher object];
     KSCarsWasher *carsWasher3 = [KSCarsWasher object];
     
-//    [carsWasher addObserver:accountant];
+    [carsWasher1 addObserver:accountant1];
+    
 //    [accountant addObserver:boss];
 
     self.staff = [[@[accountant1, accountant2, boss, carsWasher1, carsWasher2, carsWasher3]
@@ -107,7 +108,11 @@
 
 - (void)washCar:(KSCar *)car {
    KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
-    [carsWasher performWorkWithObject:car];
+    if (carsWasher) {
+        [carsWasher performWorkWithObject:car];
+    } else {
+        [self addCarToQueue:car];
+    }
 }
 
 @end
