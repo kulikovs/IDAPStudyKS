@@ -22,6 +22,7 @@
 - (id)vacantEmployeeWithClass:(Class)class;
 
 - (void)addCarToQueue:(KSCar*)car;
+- (void)workerBecameFree:(KSCarsWasher *)washer;
 
 @end
 
@@ -55,18 +56,19 @@
     KSBoss *boss = [KSBoss object];
     
     KSAccountant *accountant1 = [KSAccountant object];
-    KSAccountant *accountant2 = [KSAccountant object];
     
     KSCarsWasher *carsWasher1 = [KSCarsWasher object];
     KSCarsWasher *carsWasher2 = [KSCarsWasher object];
-    KSCarsWasher *carsWasher3 = [KSCarsWasher object];
     
     [carsWasher1 addObserver:accountant1];
+    [carsWasher1 addObserver:self];
     
-//    [accountant addObserver:boss];
+    [carsWasher2 addObserver:accountant1];
+    [carsWasher2 addObserver:self];
+    
+    [accountant1 addObserver:boss];
 
-    self.staff = [[@[accountant1, accountant2, boss, carsWasher1, carsWasher2, carsWasher3]
-                   mutableCopy] autorelease];
+    self.staff = [[@[accountant1, boss, carsWasher1, carsWasher2] mutableCopy] autorelease];
 }
 
 - (void)dismissStaff {
@@ -103,13 +105,21 @@
     [self.queueCars addObject:car];
 }
 
+- (void)workerBecameFree:(KSCarsWasher *)washer {
+    KSCar *car = [self.queueCars lastObject];
+    if (car) {
+        [washer performWorkWithObject:car];
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)washCar:(KSCar *)car {
    KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
     if (carsWasher) {
-        [carsWasher performWorkWithObject:car];
+          [carsWasher performWorkWithObject:car];
+    //    [carsWasher performSelectorInBackground:@selector(performWorkWithObject:) withObject:car];
     } else {
         [self addCarToQueue:car];
     }

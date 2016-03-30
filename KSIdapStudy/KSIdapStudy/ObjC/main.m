@@ -40,7 +40,8 @@ int main(int argc, const char * argv[]) {
 //       }
 //       NSLog(@"%@", mutableString);
        
-       
+       NSRunLoop *runloop = [NSRunLoop mainRunLoop];
+       [runloop run];
        
    }
     
