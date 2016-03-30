@@ -51,8 +51,13 @@
     KSBoss *boss = [KSBoss object];
     KSCarsWasher *carsWasher = [KSCarsWasher object];
     
-    [carsWasher addObserver:accountant];
-    [accountant addObserver:boss];
+    [carsWasher addHandlerForState:^{
+        [accountant performWorkWithObject:carsWasher];}
+                             state:kKSWorkerStateWaiting];
+    
+    [accountant addHandlerForState:^{
+        [boss performWorkWithObject:accountant];}
+                             state:kKSWorkerStateWaiting];
     
     self.staff = [[@[accountant, boss, carsWasher] mutableCopy] autorelease];
 }
@@ -72,6 +77,7 @@
             [employee removeObserver:object];
         }
         
+        [object.handlerDictionary removeAllObjects];
         [self.staff removeObject:object];
     }
 }

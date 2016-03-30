@@ -21,6 +21,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.handlerDictionary = nil;
     
     [super dealloc];
 }
@@ -29,6 +30,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.handlerDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -41,8 +43,35 @@
     return [self.mutableObservers allObjects];
 }
 
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        
+        NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
+        HandlerForState handler = [self.handlerDictionary objectForKey:stateNumber];
+        
+        if (handler) {
+            handler();
+        } else {
+            [self notifyObserver];
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
+
+- (void)addHandlerForState:(HandlerForState)handler state:(NSUInteger)state {
+    [self removeHandlerForState:state];
+    
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlerDictionary setObject:[[handler copy] autorelease] forKey:stateNumber];
+}
+
+- (void)removeHandlerForState:(NSUInteger)state {
+    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlerDictionary removeObjectForKey:stateNumber];
+}
 
 - (void)addObserver:(id)observer {
     [self.mutableObservers addObject:observer];

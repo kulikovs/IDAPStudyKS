@@ -18,7 +18,6 @@
 @implementation KSEmployee
 
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -30,17 +29,6 @@
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObserver];
-    }
 }
 
 #pragma mark -
