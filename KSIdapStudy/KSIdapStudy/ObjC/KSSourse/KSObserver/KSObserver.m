@@ -20,7 +20,6 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
-    self.handlerDictionary = nil;
     
     [super dealloc];
 }
@@ -29,7 +28,6 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
-        self.handlerDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -52,18 +50,6 @@
 
 #pragma mark -
 #pragma mark Public Methods
-
-- (void)addHandlerForState:(HandlerForState)handler state:(NSUInteger)state {
-    [self removeHandlerForState:state];
-    
-    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlerDictionary setObject:[[handler copy] autorelease] forKey:stateNumber];
-}
-
-- (void)removeHandlerForState:(NSUInteger)state {
-    NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlerDictionary removeObjectForKey:stateNumber];
-}
 
 - (void)addObserver:(id)observer {
     [self.mutableObservers addObject:observer];
