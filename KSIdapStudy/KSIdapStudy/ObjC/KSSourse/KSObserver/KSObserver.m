@@ -47,15 +47,7 @@
     if (_state != state) {
         _state = state;
         
-<<<<<<< HEAD
-        NSNumber *stateNumber = [NSNumber numberWithUnsignedInteger:state];
-        HandlerForState handler = [self.handlerDictionary objectForKey:stateNumber];
-        
-        if (handler) {
-            handler();
-        } else {
-            [self notifyObserver];
-        }
+        [self notifyObserver];
     }
 }
 
