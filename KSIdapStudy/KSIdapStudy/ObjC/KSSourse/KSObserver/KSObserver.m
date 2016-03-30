@@ -4,7 +4,6 @@
 //
 //  Created by KulikovS on 15.03.16.
 //  Copyright © 2016 KulikovS. All rights reserved.
-//
 
 #import "KSObserver.h"
 
