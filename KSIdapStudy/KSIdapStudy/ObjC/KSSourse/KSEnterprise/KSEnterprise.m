@@ -14,11 +14,14 @@
 
 @interface KSEnterprise ()
 @property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *queueCars;
 
 - (void)hireStaff;
 - (void)dismissStaff;
 - (void)dismissEmployee:(KSEmployee *)emlpoyee;
 - (id)vacantEmployeeWithClass:(Class)class;
+
+- (void)addCarToQueue:(KSCar*)car;
 
 @end
 
@@ -30,6 +33,7 @@
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
+    self.queueCars = nil;
     
     [super dealloc];
 }
@@ -37,6 +41,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.queueCars = [NSMutableArray object];
         [self hireStaff];
     }
     
@@ -47,14 +52,20 @@
 #pragma mark Private Methods
 
 - (void)hireStaff {
-    KSAccountant *accountant = [KSAccountant object];
     KSBoss *boss = [KSBoss object];
-    KSCarsWasher *carsWasher = [KSCarsWasher object];
     
-    [carsWasher addObserver:accountant];
-    [accountant addObserver:boss];
+    KSAccountant *accountant1 = [KSAccountant object];
+    KSAccountant *accountant2 = [KSAccountant object];
+    
+    KSCarsWasher *carsWasher1 = [KSCarsWasher object];
+    KSCarsWasher *carsWasher2 = [KSCarsWasher object];
+    KSCarsWasher *carsWasher3 = [KSCarsWasher object];
+    
+//    [carsWasher addObserver:accountant];
+//    [accountant addObserver:boss];
 
-    self.staff = [[@[accountant, boss, carsWasher] mutableCopy] autorelease];
+    self.staff = [[@[accountant1, accountant2, boss, carsWasher1, carsWasher2, carsWasher3]
+                   mutableCopy] autorelease];
 }
 
 - (void)dismissStaff {
