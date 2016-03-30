@@ -98,6 +98,10 @@
     return nil;
 }
 
+- (void)addCarToQueue:(KSCar*)car {
+    [self.queueCars addObject:car];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
