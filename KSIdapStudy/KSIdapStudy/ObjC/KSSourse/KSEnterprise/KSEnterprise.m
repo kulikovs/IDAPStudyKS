@@ -22,7 +22,6 @@
 - (id)vacantEmployeeWithClass:(Class)class;
 
 - (void)addCarToQueue:(KSCar*)car;
-- (void)workerBecameFree:(KSCarsWasher *)washer;
 
 @end
 
@@ -53,22 +52,19 @@
 #pragma mark Private Methods
 
 - (void)hireStaff {
+    
     KSBoss *boss = [KSBoss object];
+    KSAccountant *accountant = [KSAccountant object];
     
-    KSAccountant *accountant1 = [KSAccountant object];
+    [accountant addObserver:boss];
     
-    KSCarsWasher *carsWasher1 = [KSCarsWasher object];
-    KSCarsWasher *carsWasher2 = [KSCarsWasher object];
+    self.staff = [NSMutableArray arrayWithObjects:accountant, boss, nil];
     
-    [carsWasher1 addObserver:accountant1];
-    [carsWasher1 addObserver:self];
-    
-    [carsWasher2 addObserver:accountant1];
-    [carsWasher2 addObserver:self];
-    
-    [accountant1 addObserver:boss];
+    NSArray *carWashers = [KSEmployee employeesWithClass:[KSCarsWasher class]
+                                                   count:2
+                                               observers:@[accountant, self]];
 
-    self.staff = [[@[accountant1, boss, carsWasher1, carsWasher2] mutableCopy] autorelease];
+   [self.staff addObjectsFromArray:carWashers];
 }
 
 - (void)dismissStaff {
@@ -108,7 +104,7 @@
 - (void)workerBecameFree:(KSCarsWasher *)washer {
     KSCar *car = [self.queueCars lastObject];
     if (car) {
-        [self.queueCars removeObject:car]
+        [self.queueCars removeObject:car];
         [washer performWorkWithObject:car];
     }
 }

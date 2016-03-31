@@ -32,6 +32,25 @@
 }
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)employeesWithClass:(Class)theClass
+                          count:(NSUInteger)count
+                      observers:(NSArray *)observers
+{
+    NSArray *array = [NSArray objectsWithClass:theClass count:count];
+    
+    for (KSEmployee *employee in array) {
+        for (id object in observers) {
+            [employee addObserver:object];
+        }
+    }
+    
+    return [[array copy] autorelease];
+}
+
+
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
@@ -65,7 +84,7 @@
             return @selector(workerStartedWork:);
             
         case kKSWorkerStateFree:
-            return @selector(workerBecameFree:);
+            return @selector(workerIsBusy:);
             
         case kKSWorkerStateWaiting:
             return @selector(workerFinishedWork:);
@@ -96,12 +115,5 @@
     [self performWorkWithObject:object];
 }
 
-- (void)workerStartedWork:(id<KSMoneyProtocol>)object {
-
-}
-
-- (void)workerBecameFree:(id<KSMoneyProtocol>)object {
-
-}
 
 @end

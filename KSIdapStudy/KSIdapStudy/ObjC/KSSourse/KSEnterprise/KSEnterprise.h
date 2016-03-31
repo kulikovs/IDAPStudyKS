@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "KSCar.h"
+#import "KSWorkerProtocol.h"
 
-@interface KSEnterprise : NSObject
+@interface KSEnterprise : NSObject <KSWorkerProtocol>
 
 - (void)washCar:(KSCar *)car;
 

@@ -14,6 +14,10 @@
 
 @interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
 
++ (NSArray *)employeesWithClass:(Class)theClass
+                          count:(NSUInteger)count
+                      observers:(NSArray *)observers;
+
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object;
 
 @end
