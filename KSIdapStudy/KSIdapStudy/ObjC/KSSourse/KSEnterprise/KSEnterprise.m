@@ -21,8 +21,6 @@
 - (void)dismissEmployee:(KSEmployee *)emlpoyee;
 - (id)vacantEmployeeWithClass:(Class)class;
 
-- (void)addCarToQueue:(KSCar*)car;
-
 @end
 
 @implementation KSEnterprise
@@ -65,6 +63,7 @@
                                                observers:@[accountant, self]];
 
    [self.staff addObjectsFromArray:carWashers];
+
 }
 
 - (void)dismissStaff {
@@ -81,9 +80,9 @@
         if ([employee isObservedByObject:object]) {
             [employee removeObserver:object];
         }
-
-        [self.staff removeObject:object];
     }
+    
+    [self.staff removeObject:object];
 }
 
 - (id)vacantEmployeeWithClass:(Class)class {
@@ -97,11 +96,7 @@
     return nil;
 }
 
-- (void)addCarToQueue:(KSCar*)car {
-    [self.queueCars addObject:car];
-}
-
-- (void)workerBecameFree:(KSCarsWasher *)washer {
+- (void)workerFinishedWork:(KSCarsWasher *)washer {
     KSCar *car = [self.queueCars lastObject];
     if (car) {
         [self.queueCars removeObject:car];
@@ -113,12 +108,11 @@
 #pragma mark Public Methods
 
 - (void)washCar:(KSCar *)car {
-   KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
+    KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
     if (carsWasher) {
-          [carsWasher performWorkWithObject:car];
-    //    [carsWasher performSelectorInBackground:@selector(performWorkWithObject:) withObject:car];
+        [carsWasher performWorkWithObject:car];
     } else {
-        [self addCarToQueue:car];
+        [self.queueCars addObject:car];
     }
 }
 

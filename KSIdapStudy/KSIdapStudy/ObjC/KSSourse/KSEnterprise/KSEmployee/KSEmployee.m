@@ -84,10 +84,10 @@
             return @selector(workerStartedWork:);
             
         case kKSWorkerStateFree:
-            return @selector(workerIsBusy:);
+            return @selector(workerFinishedWork:);
             
         case kKSWorkerStateWaiting:
-            return @selector(workerFinishedWork:);
+            return @selector(workerIsWaiting:);
         
         default:
             return [super selectorForState:state];
@@ -111,7 +111,7 @@
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)workerFinishedWork:(id<KSMoneyProtocol>)object {
+- (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
     [self performWorkWithObject:object];
 }
 
