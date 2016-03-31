@@ -37,7 +37,7 @@
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
     
-    sleep(arc4random_uniform(3) + 1);
+    sleep(arc4random_uniform(2) + 1);
 
     [self takeMoney:[object giveMoney]];
     [self completeWorkingWithObject:object];

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^HandlerForState)(void);
-
 @interface KSObserver : NSObject
 @property (nonatomic, assign)     NSUInteger    state;
 @property (nonatomic, readonly)   NSArray       *observers;

@@ -108,6 +108,7 @@
 - (void)workerBecameFree:(KSCarsWasher *)washer {
     KSCar *car = [self.queueCars lastObject];
     if (car) {
+        [self.queueCars removeObject:car]
         [washer performWorkWithObject:car];
     }
 }
