@@ -27,18 +27,7 @@ int main(int argc, const char * argv[]) {
            car.money = 100;
        }
        
-       NSLog(@"Car");
        
-       
-       
-       
-    //[KSCreatureTest creatureTest];
-//       NSMutableString *mutableString = [NSMutableString string];
-//       KSAlphabet *alphabet = [[[KSAlphabet alloc] initWithCharacterRange:'G' lastValue:'z'] autorelease];
-//       for (NSString *string in alphabet) {
-//        [mutableString appendFormat:@"%@", string];
-//       }
-//       NSLog(@"%@", mutableString);
        
        NSRunLoop *runloop = [NSRunLoop mainRunLoop];
        [runloop run];

@@ -95,10 +95,12 @@
 }
 
 - (void)workerFinishedWork:(KSCarsWasher *)washer {
-    KSCar *car = [self.queueCars lastObject];
-    if (car) {
-        [self.queueCars removeObject:car];
-        [washer performWorkWithObject:car];
+    @synchronized(self) {
+        KSCar *car = [self.queueCars lastObject];
+        if (car) {
+            [self.queueCars removeObject:car];
+            [washer performWorkWithObject:car];
+        }
     }
 }
 
@@ -106,11 +108,13 @@
 #pragma mark Public Methods
 
 - (void)washCar:(KSCar *)car {
-    KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
-    if (carsWasher) {
-        [carsWasher performWorkWithObject:car];
-    } else {
-        [self.queueCars addObject:car];
+    @synchronized(self) {
+        KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
+        if (carsWasher) {
+            [carsWasher performWorkWithObject:car];
+        } else {
+            [self.queueCars addObject:car];
+        }
     }
 }
 

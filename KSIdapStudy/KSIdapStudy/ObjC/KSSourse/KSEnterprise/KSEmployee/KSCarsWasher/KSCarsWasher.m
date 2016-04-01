@@ -14,7 +14,7 @@
 #pragma mark Private Method
 
 - (void)completeWorkingWithObject:(KSCar *)car {
-    sleep(arc4random_uniform(2) + 1);
+    usleep(arc4random_uniform(10000) + 1);
     car.carState = kKSCarStateClean;
 }
 

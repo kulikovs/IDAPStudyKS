@@ -29,9 +29,11 @@ static const NSUInteger carCash = 100;
 #pragma mark Money Protocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger money = self.money;
-    self.money = 0;
-    return money;
+    @synchronized(self) {
+        NSUInteger money = self.money;
+        self.money = 0;
+        return money;
+    }
 }
 
 @end

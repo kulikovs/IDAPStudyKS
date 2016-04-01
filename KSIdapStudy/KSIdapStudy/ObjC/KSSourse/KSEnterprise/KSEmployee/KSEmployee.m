@@ -38,7 +38,6 @@
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
 
     NSArray *array = [self objectsWithCount:count];
-    
     for (KSEmployee *employee in array) {
         for (id object in observers) {
             [employee addObserver:object];
@@ -55,14 +54,14 @@
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
     
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:nil];
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
-    sleep(arc4random_uniform(2) + 1);
+    usleep(arc4random_uniform(10000) + 1);
     
     [self takeMoney:[object giveMoney]];
     [self completeWorkingWithObject:object];
@@ -102,14 +101,17 @@
 #pragma mark Money Protocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger money = self.money;
-    self.money = 0;
-    
-    return money;
+    @synchronized(self) {
+        NSUInteger money = self.money;
+        self.money = 0;
+        return money;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 #pragma mark -
@@ -118,6 +120,5 @@
 - (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
     [self performWorkWithObject:object];
 }
-
 
 @end
