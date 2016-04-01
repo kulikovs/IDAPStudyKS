@@ -12,6 +12,7 @@
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
+- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
 @end
 
@@ -54,15 +55,20 @@
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     self.state = kKSWorkerStateBusy;
     
-    sleep(arc4random_uniform(2) + 1);
-
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkingWithObject:object];
-    [self completeWorking];
+    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:nil];
 }
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
+    sleep(arc4random_uniform(2) + 1);
+    
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkingWithObject:object];
+    
+    [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
+}
 
 - (void)completeWorkingWithObject:(id)object {
     KSEmployee *emloyee = (KSEmployee *)object;
