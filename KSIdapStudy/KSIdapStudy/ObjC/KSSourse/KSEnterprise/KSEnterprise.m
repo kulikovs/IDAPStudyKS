@@ -58,9 +58,7 @@
     
     self.staff = [NSMutableArray arrayWithObjects:accountant, boss, nil];
     
-    NSArray *carWashers = [KSEmployee employeesWithClass:[KSCarsWasher class]
-                                                   count:2
-                                               observers:@[accountant, self]];
+    NSArray *carWashers = [KSCarsWasher employeesWithCount:2 observers:@[accountant, self]];
 
    [self.staff addObjectsFromArray:carWashers];
 

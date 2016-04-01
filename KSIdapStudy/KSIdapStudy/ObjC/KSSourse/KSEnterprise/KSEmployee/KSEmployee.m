@@ -34,11 +34,9 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSArray *)employeesWithClass:(Class)theClass
-                          count:(NSUInteger)count
-                      observers:(NSArray *)observers
-{
-    NSArray *array = [NSArray objectsWithClass:theClass count:count];
++ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
+
+    NSArray *array = [self objectsWithCount:count];
     
     for (KSEmployee *employee in array) {
         for (id object in observers) {

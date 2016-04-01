@@ -11,6 +11,6 @@
 @interface NSObject (KSObject)
 
 + (instancetype)object;
-+ (NSArray *)objectsWithClass:(Class)theClass count:(NSUInteger)count;
++ (NSArray *)objectsWithCount:(NSUInteger)count;
 
 @end
