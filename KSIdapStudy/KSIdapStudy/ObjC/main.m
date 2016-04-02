@@ -21,13 +21,9 @@ int main(int argc, const char * argv[]) {
        NSArray *arrayCars = [KSCar objectsWithCount:20];
        KSEnterprise *enterprise = [KSEnterprise object];
        
-
-    
        for (NSUInteger index = 0; index < arrayCars.count; index ++) {
            [enterprise washCar:arrayCars[index]];
        }
-       
-       
        
        NSRunLoop *runloop = [NSRunLoop mainRunLoop];
        [runloop run];

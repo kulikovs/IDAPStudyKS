@@ -11,10 +11,11 @@
 #import "KSAccountant.h"
 #import "KSCarsWasher.h"
 #import "KSObserver.h"
+#import "KSQueue.h"
 
 @interface KSEnterprise ()
-@property (nonatomic, retain) NSMutableArray *staff;
-@property (nonatomic, retain) NSMutableArray *queueCars;
+@property (nonatomic, retain) NSMutableArray    *staff;
+@property (nonatomic, retain) KSQueue           *queueCars;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -39,7 +40,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queueCars = [NSMutableArray object];
+        self.queueCars = [KSQueue object];
         [self hireStaff];
     }
     
@@ -94,12 +95,12 @@
     return nil;
 }
 
-- (void)workerFinishedWork:(KSCarsWasher *)washer {
+- (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
     @synchronized(self) {
-        KSCar *car = [self.queueCars lastObject];
+        KSCar *car = [self.queueCars firstObject];
         if (car) {
-            [self.queueCars removeObject:car];
-            [washer performWorkWithObject:car];
+            [self.queueCars removeObjectFromQueue:car];
+            [carsWasher performWorkWithObject:car];
         }
     }
 }
@@ -113,10 +114,9 @@
         if (carsWasher) {
             [carsWasher performWorkWithObject:car];
         } else {
-            [self.queueCars addObject:car];
+            [self.queueCars addObjectToQueue:car];
         }
     }
 }
 
 @end
-

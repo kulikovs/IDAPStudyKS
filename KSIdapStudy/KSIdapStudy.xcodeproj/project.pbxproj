@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C93D4C931CB0557A00E832A7 /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D4C921CB0557A00E832A7 /* KSQueue.m */; };
+		C93D4C941CB0557A00E832A7 /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D4C921CB0557A00E832A7 /* KSQueue.m */; };
 		C93F0E621C95A53400DB3FEC /* KSCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C93F0E611C95A53400DB3FEC /* KSCarsWasher.m */; };
 		C93F0E631C95A53400DB3FEC /* KSCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C93F0E611C95A53400DB3FEC /* KSCarsWasher.m */; };
 		C93F0E671C95A55B00DB3FEC /* KSBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = C93F0E661C95A55B00DB3FEC /* KSBoss.m */; };
@@ -68,6 +70,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C93D4C911CB0557A00E832A7 /* KSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQueue.h; sourceTree = "<group>"; };
+		C93D4C921CB0557A00E832A7 /* KSQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSQueue.m; sourceTree = "<group>"; };
 		C93F0E601C95A53400DB3FEC /* KSCarsWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCarsWasher.h; sourceTree = "<group>"; };
 		C93F0E611C95A53400DB3FEC /* KSCarsWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCarsWasher.m; sourceTree = "<group>"; };
 		C93F0E651C95A55B00DB3FEC /* KSBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBoss.h; sourceTree = "<group>"; };
@@ -139,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C93D4C901CB0557A00E832A7 /* KSQueue */ = {
+			isa = PBXGroup;
+			children = (
+				C93D4C911CB0557A00E832A7 /* KSQueue.h */,
+				C93D4C921CB0557A00E832A7 /* KSQueue.m */,
+			);
+			path = KSQueue;
+			sourceTree = "<group>";
+		};
 		C93F0E5F1C95A51500DB3FEC /* KSCarsWasher */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +270,7 @@
 		C9789FD21C904CD20066530A /* KSEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				C93D4C901CB0557A00E832A7 /* KSQueue */,
 				C9789FD31C904CD20066530A /* KSEnterprise.h */,
 				C9789FD41C904CD20066530A /* KSEnterprise.m */,
 				C978A07B1C906E460066530A /* KSEmployee */,
@@ -479,6 +493,7 @@
 				C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */,
 				C94C670E1C775F0A00B59836 /* main.m in Sources */,
 				C93F0E621C95A53400DB3FEC /* KSCarsWasher.m in Sources */,
+				C93D4C931CB0557A00E832A7 /* KSQueue.m in Sources */,
 				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
 				C978A0791C905EBA0066530A /* KSCar.m in Sources */,
 				C978A07E1C906E590066530A /* KSEmployee.m in Sources */,
@@ -498,6 +513,7 @@
 				C978A07F1C906E590066530A /* KSEmployee.m in Sources */,
 				C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
+				C93D4C941CB0557A00E832A7 /* KSQueue.m in Sources */,
 				C93F0E6D1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C93F0E681C95A55B00DB3FEC /* KSBoss.m in Sources */,
