@@ -12,8 +12,8 @@
 @implementation KSBoss
 
 - (void)completeWorking {
-    NSLog(@"Money count = %lu", self.money);
-    self.state = kKSWorkerStateFree;
+        NSLog(@"Money count = %lu", self.money);
+        self.state = kKSWorkerStateFree;
 }
 
 @end

@@ -61,10 +61,12 @@
 #pragma mark Private Methods
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
-    usleep(arc4random_uniform(10000) + 1);
-    
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkingWithObject:object];
+    @synchronized(object) {
+        usleep(arc4random_uniform(100000) + 1);
+        
+        [self takeMoney:[object giveMoney]];
+        [self completeWorkingWithObject:object];
+    }
     
     [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
 }
