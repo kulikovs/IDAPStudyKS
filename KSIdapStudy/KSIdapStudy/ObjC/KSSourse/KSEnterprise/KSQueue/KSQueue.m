@@ -15,6 +15,7 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
+    [self.queue removeAllObjects];
     self.queue = nil;
     
     [super dealloc];
@@ -32,10 +33,6 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (id)firstObject {
-   return [self.queue firstObject];
-}
-
 - (void)addObjectToQueue:(id)object {
     @synchronized(self.queue) {
         [self.queue addObject:object];
@@ -46,10 +43,6 @@
     @synchronized(self.queue) {
         [self.queue removeObject:object];
     }
-}
-
-- (void)removeAllObjectsFromQueue {
-    [self.queue removeAllObjects];
 }
 
 - (id)sendTheWorkFirstObjectFromQueue;{

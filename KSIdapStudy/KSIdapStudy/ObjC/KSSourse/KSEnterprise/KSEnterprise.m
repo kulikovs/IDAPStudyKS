@@ -97,8 +97,10 @@
 
 - (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
     @synchronized(self) {
-        [carsWasher performWorkWithObject:[self.queueCars sendTheWorkFirstObjectFromQueue]];
-        
+        KSCar *car = [self.queueCars sendTheWorkFirstObjectFromQueue];
+        if (car) {
+            [self washCar:car];
+        }
     }
 }
 

@@ -13,8 +13,6 @@
 
 - (void)addObjectToQueue:(id)object;
 - (void)removeObjectFromQueue:(id)object;
-- (void)removeAllObjectsFromQueue;
-- (id)firstObject;
 - (id)sendTheWorkFirstObjectFromQueue;
 
 @end
