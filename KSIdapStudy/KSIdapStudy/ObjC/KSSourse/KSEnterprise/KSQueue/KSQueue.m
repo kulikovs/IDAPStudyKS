@@ -50,8 +50,6 @@
         id object = [self.queue firstObject];
         if (object) {
             [self removeObjectFromQueue:object];
-        } else {
-
         }
         
         return object;
