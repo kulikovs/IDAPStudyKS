@@ -7,6 +7,7 @@
 //
 
 #import "KSQueue.h"
+#import "KSEmployee.h"
 
 @implementation KSQueue
 
@@ -31,19 +32,37 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObjectToQueue:(id)object {
-    [self.queue addObject:object];
-}
-- (void)removeObjectFromQueue:(id)object {
-    [self.queue removeObject:object];
+- (id)firstObject {
+   return [self.queue firstObject];
 }
 
-- (id)firstObject {
-    return [self.queue firstObject];
+- (void)addObjectToQueue:(id)object {
+    @synchronized(self.queue) {
+        [self.queue addObject:object];
+    }
+}
+
+- (void)removeObjectFromQueue:(id)object {
+    @synchronized(self.queue) {
+        [self.queue removeObject:object];
+    }
 }
 
 - (void)removeAllObjectsFromQueue {
     [self.queue removeAllObjects];
+}
+
+- (id)sendTheWorkFirstObjectFromQueue;{
+    @synchronized(self.queue) {
+        id object = [self.queue firstObject];
+        if (object) {
+            [self removeObjectFromQueue:object];
+        } else {
+
+        }
+        
+        return object;
+    }
 }
 
 @end

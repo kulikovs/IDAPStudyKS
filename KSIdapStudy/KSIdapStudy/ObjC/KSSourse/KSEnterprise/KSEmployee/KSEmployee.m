@@ -55,6 +55,7 @@
     self.state = kKSWorkerStateBusy;
     
     [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
+    
 }
 
 #pragma mark -
