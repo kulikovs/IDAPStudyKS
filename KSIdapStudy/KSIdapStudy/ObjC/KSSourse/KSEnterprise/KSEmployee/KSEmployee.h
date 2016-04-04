@@ -11,8 +11,10 @@
 #import "KSWorkerProtocol.h"
 #import "KSMoneyProtocol.h"
 #import "KSObserver.h"
+#import "KSQueue.h"
 
 @interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
+@property (nonatomic, retain) KSQueue *queue;
 
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers;
 

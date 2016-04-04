@@ -7,10 +7,9 @@
 //
 
 #import "KSEmployee.h"
-#import "KSQueue.h"
+
 
 @interface KSEmployee ()
-@property KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
@@ -54,6 +53,8 @@
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
+   // [self.queue addObjectToQueue:object];
+    
     self.state = kKSWorkerStateBusy;
     
     [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
@@ -67,6 +68,8 @@
         usleep(arc4random_uniform(100000) + 1);
         
         [self takeMoney:[object giveMoney]];
+        
+        
         [self completeWorkingWithObject:object];
     }
     
@@ -124,5 +127,6 @@
 - (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
     [self performWorkWithObject:object];
 }
+
 
 @end

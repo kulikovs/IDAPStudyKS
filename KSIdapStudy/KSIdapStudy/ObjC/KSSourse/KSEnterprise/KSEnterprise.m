@@ -100,11 +100,10 @@
 
 - (void)washCar:(KSCar *)car {
     @synchronized(self) {
+        [self.queueCars addObjectToQueue:car];
         KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
         if (carsWasher) {
-            [carsWasher performWorkWithObject:car];
-        } else {
-            [self.queueCars addObjectToQueue:car];
+            [carsWasher performWorkWithObject:[self.queueCars sendTheWorkFirstObjectFromQueue]];
         }
     }
 }
@@ -116,7 +115,7 @@
     @synchronized(self) {
         KSCar *car = [self.queueCars sendTheWorkFirstObjectFromQueue];
         if (car) {
-            [self washCar:car];
+            [carsWasher performWorkWithObject:car];
         }
     }
 }
