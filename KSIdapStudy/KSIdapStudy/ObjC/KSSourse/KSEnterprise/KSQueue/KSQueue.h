@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface KSQueue : NSObject
-@property (nonatomic, retain) NSMutableArray *queue;
+@property (nonatomic, readonly) NSArray *queue;
 
 - (void)addObjectToQueue:(id)object;
 - (void)removeObjectFromQueue:(id)object;
