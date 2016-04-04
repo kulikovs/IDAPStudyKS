@@ -54,13 +54,13 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    @synchronized(self.mutableObservers) {
+    @synchronized(self) {
         [self.mutableObservers addObject:observer];
     }
 }
 
 - (void)removeObserver:(id)observer {
-    @synchronized(self.mutableObservers) {
+    @synchronized(self) {
         [self.mutableObservers removeObject:observer];
     }
 }

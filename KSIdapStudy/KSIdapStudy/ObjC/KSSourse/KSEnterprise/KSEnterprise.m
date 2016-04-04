@@ -95,15 +95,6 @@
     return nil;
 }
 
-- (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
-    @synchronized(self) {
-        KSCar *car = [self.queueCars sendTheWorkFirstObjectFromQueue];
-        if (car) {
-            [self washCar:car];
-        }
-    }
-}
-
 #pragma mark -
 #pragma mark Public Methods
 
@@ -114,6 +105,18 @@
             [carsWasher performWorkWithObject:car];
         } else {
             [self.queueCars addObjectToQueue:car];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Worker Protocol
+
+- (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
+    @synchronized(self) {
+        KSCar *car = [self.queueCars sendTheWorkFirstObjectFromQueue];
+        if (car) {
+            [self washCar:car];
         }
     }
 }

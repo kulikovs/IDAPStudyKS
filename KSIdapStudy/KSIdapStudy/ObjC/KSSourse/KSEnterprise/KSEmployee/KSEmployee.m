@@ -7,8 +7,10 @@
 //
 
 #import "KSEmployee.h"
+#import "KSQueue.h"
 
 @interface KSEmployee ()
+@property KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
@@ -55,7 +57,6 @@
     self.state = kKSWorkerStateBusy;
     
     [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
-    
 }
 
 #pragma mark -
