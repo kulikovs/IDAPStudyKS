@@ -14,5 +14,6 @@
 - (void)addObjectToQueue:(id)object;
 - (void)removeObjectFromQueue:(id)object;
 - (id)sendTheWorkFirstObjectFromQueue;
+- (void)removeAllObject;
 
 @end

@@ -15,7 +15,7 @@
 
 @interface KSEnterprise ()
 @property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) KSQueue           *queueCars;
+@property (nonatomic, retain) KSQueue           *queue;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -32,7 +32,7 @@
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
-    self.queueCars = nil;
+    self.queue = nil;
     
     [super dealloc];
 }
@@ -40,7 +40,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queueCars = [KSQueue object];
+        self.queue = [KSQueue object];
         [self hireStaff];
     }
     
@@ -53,16 +53,17 @@
 - (void)hireStaff {
     
     KSBoss *boss = [KSBoss object];
+    
     KSAccountant *accountant = [KSAccountant object];
+    KSAccountant *accountant1 = [KSAccountant object];
     
     [accountant addObserver:boss];
+    [accountant1 addObserver:boss];
     
-    self.staff = [NSMutableArray arrayWithObjects:accountant, boss, nil];
+    NSArray *carWashers = [KSCarsWasher employeesWithCount:3 observers:@[accountant, accountant1, self]];
+    self.staff = [NSMutableArray arrayWithObjects:accountant, accountant1, boss, nil];
     
-    NSArray *carWashers = [KSCarsWasher employeesWithCount:2 observers:@[accountant, self]];
-
-   [self.staff addObjectsFromArray:carWashers];
-
+    [self.staff addObjectsFromArray:carWashers];
 }
 
 - (void)dismissStaff {
@@ -100,10 +101,10 @@
 
 - (void)washCar:(KSCar *)car {
     @synchronized(self) {
-        [self.queueCars addObjectToQueue:car];
+        [self.queue addObjectToQueue:car];
         KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
         if (carsWasher) {
-            [carsWasher performWorkWithObject:[self.queueCars sendTheWorkFirstObjectFromQueue]];
+            [carsWasher performWorkWithObject:[self.queue sendTheWorkFirstObjectFromQueue]];
         }
     }
 }
@@ -113,7 +114,7 @@
 
 - (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
     @synchronized(self) {
-        KSCar *car = [self.queueCars sendTheWorkFirstObjectFromQueue];
+        KSCar *car = [self.queue sendTheWorkFirstObjectFromQueue];
         if (car) {
             [carsWasher performWorkWithObject:car];
         }

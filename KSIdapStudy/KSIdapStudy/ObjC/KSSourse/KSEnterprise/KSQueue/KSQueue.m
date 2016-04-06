@@ -13,6 +13,7 @@
 @property (nonatomic, retain) NSMutableArray *queueArray;
 
 @end
+
 @implementation KSQueue
 
 #pragma mark -
@@ -53,6 +54,10 @@
     @synchronized(self) {
         [self.queueArray removeObject:object];
     }
+}
+
+- (void)removeAllObject {
+    [self.queueArray removeAllObjects];
 }
 
 - (id)sendTheWorkFirstObjectFromQueue;{

@@ -10,6 +10,7 @@
 
 
 @interface KSEmployee ()
+@property (nonatomic, retain) KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
@@ -24,10 +25,18 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    [self.queue removeAllObject];
+    self.queue = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kKSWorkerStateFree;
+        self.queue = [KSQueue object];
     }
     
     return self;
@@ -37,7 +46,7 @@
 #pragma mark Class Methods
 
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
-
+    
     NSArray *array = [self objectsWithCount:count];
     for (KSEmployee *employee in array) {
         for (id object in observers) {
@@ -48,32 +57,40 @@
     return [[array copy] autorelease];
 }
 
-
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
-   // [self.queue addObjectToQueue:object];
-    
-    self.state = kKSWorkerStateBusy;
-    
-    [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:) withObject:object];
+    @synchronized(self) {
+        if (object) {
+            NSLog(@"%@ start: perform with %@", self, object);
+            [self.queue addObjectToQueue:object];
+            
+            if (self.state == kKSWorkerStateFree) {
+                NSLog(@"%@ added to queue %@", self, object);
+                
+                self.state = kKSWorkerStateBusy;
+                [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                       withObject:[self.queue sendTheWorkFirstObjectFromQueue]];
+            }
+        }
+    }
 }
 
 #pragma mark -
 #pragma mark Private Methods
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
-    @synchronized(object) {
-        usleep(arc4random_uniform(100000) + 1);
+    @synchronized(self) {
+        NSLog(@"%@ start: perform with %@ background", self, object);
         
+        sleep(1);
         [self takeMoney:[object giveMoney]];
-        
+        NSLog(@"%@ take money from %@", self, object);
         
         [self completeWorkingWithObject:object];
+        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
     }
-    
-    [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
 }
 
 - (void)completeWorkingWithObject:(id)object {
@@ -82,7 +99,12 @@
 }
 
 - (void)completeWorking {
-    self.state = kKSWorkerStateWaiting;
+    KSEmployee *object = [self.queue sendTheWorkFirstObjectFromQueue];
+    if (object) {
+        [self performWorkWithObjectInBackground:object];
+    } else {
+        self.state = kKSWorkerStateWaiting;
+    }
 }
 
 #pragma mark -
@@ -98,7 +120,7 @@
             
         case kKSWorkerStateWaiting:
             return @selector(workerIsWaiting:);
-        
+            
         default:
             return [super selectorForState:state];
     }
@@ -127,6 +149,5 @@
 - (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
     [self performWorkWithObject:object];
 }
-
 
 @end
