@@ -41,10 +41,12 @@
 }
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObserver];
+    @synchronized(self) {
+        if (_state != state) {
+            _state = state;
+            
+            [self notifyObserver];
+        }
     }
 }
 
@@ -52,11 +54,15 @@
 #pragma mark Public Methods
 
 - (void)addObserver:(id)observer {
-    [self.mutableObservers addObject:observer];
+    @synchronized(self) {
+        [self.mutableObservers addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObservers removeObject:observer];
+    @synchronized(self) {
+        [self.mutableObservers removeObject:observer];
+    }
 }
 
 - (BOOL)isObservedByObject:(id)object {

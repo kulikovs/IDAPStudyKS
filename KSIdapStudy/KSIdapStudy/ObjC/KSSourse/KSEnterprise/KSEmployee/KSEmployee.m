@@ -8,10 +8,13 @@
 
 #import "KSEmployee.h"
 
+
 @interface KSEmployee ()
+@property (nonatomic, retain) KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
+- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
 @end
 
@@ -22,30 +25,73 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    [self.queue removeAllObject];
+    self.queue = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kKSWorkerStateFree;
+        self.queue = [KSQueue object];
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
+    
+    NSArray *array = [self objectsWithCount:count];
+    for (KSEmployee *employee in array) {
+        for (id object in observers) {
+            [employee addObserver:object];
+        }
+    }
+    
+    return [[array copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
-    self.state = kKSWorkerStateBusy;
-
-    [self takeMoney:[object giveMoney]];
-    
-    [self completeWorkingWithObject:object];
-    
-    [self completeWorking];
+    @synchronized(self) {
+        if (object) {
+            NSLog(@"%@ start: perform with %@", self, object);
+            [self.queue addObjectToQueue:object];
+            
+            if (self.state == kKSWorkerStateFree) {
+                NSLog(@"%@ added to queue %@", self, object);
+                
+                self.state = kKSWorkerStateBusy;
+                [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                       withObject:[self.queue sendTheWorkFirstObjectFromQueue]];
+            }
+        }
+    }
 }
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
+    @synchronized(self) {
+        NSLog(@"%@ start: perform with %@ background", self, object);
+        
+        sleep(1);
+        [self takeMoney:[object giveMoney]];
+        NSLog(@"%@ take money from %@", self, object);
+        
+        [self completeWorkingWithObject:object];
+        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
+    }
+}
 
 - (void)completeWorkingWithObject:(id)object {
     KSEmployee *emloyee = (KSEmployee *)object;
@@ -53,7 +99,12 @@
 }
 
 - (void)completeWorking {
-    self.state = kKSWorkerStateWaiting;
+    KSEmployee *object = [self.queue sendTheWorkFirstObjectFromQueue];
+    if (object) {
+        [self performWorkWithObjectInBackground:object];
+    } else {
+        self.state = kKSWorkerStateWaiting;
+    }
 }
 
 #pragma mark -
@@ -65,11 +116,11 @@
             return @selector(workerStartedWork:);
             
         case kKSWorkerStateFree:
-            return @selector(workerBecameFree:);
+            return @selector(workerFinishedWork:);
             
         case kKSWorkerStateWaiting:
-            return @selector(workerFinishedWork:);
-        
+            return @selector(workerIsWaiting:);
+            
         default:
             return [super selectorForState:state];
     }
@@ -79,29 +130,24 @@
 #pragma mark Money Protocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger money = self.money;
-    self.money = 0;
-    
-    return money;
+    @synchronized(self) {
+        NSUInteger money = self.money;
+        self.money = 0;
+        return money;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)workerFinishedWork:(id<KSMoneyProtocol>)object {
+- (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
     [self performWorkWithObject:object];
-}
-
-- (void)workerStartedWork:(id<KSMoneyProtocol>)object {
-
-}
-
-- (void)workerBecameFree:(id<KSMoneyProtocol>)object {
-
 }
 
 @end

@@ -18,8 +18,10 @@ typedef NS_ENUM(NSUInteger, KSWorkerState) {
 };
 
 @protocol KSWorkerProtocol <NSObject>
-- (void)workerFinishedWork:(id<KSMoneyProtocol>)object;
+
+@optional
+- (void)workerIsWaiting:(id<KSMoneyProtocol>)object;
 - (void)workerStartedWork:(id<KSMoneyProtocol>)object;
-- (void)workerBecameFree:(id<KSMoneyProtocol>)object;
+- (void)workerFinishedWork:(id<KSMoneyProtocol>)object;
 
 @end

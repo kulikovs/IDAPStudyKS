@@ -13,7 +13,9 @@
 
 - (void)completeWorking {
     NSLog(@"Money count = %lu", self.money);
+    
     self.state = kKSWorkerStateFree;
+    [self performWorkWithObject:[self.queue sendTheWorkFirstObjectFromQueue]];
 }
 
 @end
