@@ -46,7 +46,6 @@
 #pragma mark Class Methods
 
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
-    
     NSArray *array = [self objectsWithCount:count];
     for (KSEmployee *employee in array) {
         for (id object in observers) {
@@ -64,14 +63,14 @@
     @synchronized(self) {
         if (object) {
             NSLog(@"%@ start: perform with %@", self, object);
-            [self.queue addObjectToQueue:object];
+            [self.queue addObject:object];
             
             if (self.state == kKSWorkerStateFree) {
                 NSLog(@"%@ added to queue %@", self, object);
                 
                 self.state = kKSWorkerStateBusy;
                 [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                       withObject:[self.queue sendTheWorkFirstObjectFromQueue]];
+                                       withObject:[self.queue pushObject]];
             }
         }
     }
@@ -99,7 +98,7 @@
 }
 
 - (void)completeWorking {
-    KSEmployee *object = [self.queue sendTheWorkFirstObjectFromQueue];
+    KSEmployee *object = [self.queue pushObject];
     if (object) {
         [self performWorkWithObjectInBackground:object];
     } else {

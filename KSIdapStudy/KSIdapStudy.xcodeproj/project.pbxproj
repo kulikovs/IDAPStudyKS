@@ -22,6 +22,8 @@
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
 		C95CF7EA1C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
+		C96AF3C41CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
+		C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
@@ -93,6 +95,8 @@
 		C95CF7E71C84B883001120F7 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C95CF7E81C84B883001120F7 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
+		C96AF3C21CB5A1490019C743 /* KSDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatcher.h; sourceTree = "<group>"; };
+		C96AF3C31CB5A1490019C743 /* KSDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatcher.m; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
@@ -260,6 +264,15 @@
 			path = KSAlphabet;
 			sourceTree = "<group>";
 		};
+		C96AF3BD1CB596700019C743 /* KSDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				C96AF3C21CB5A1490019C743 /* KSDispatcher.h */,
+				C96AF3C31CB5A1490019C743 /* KSDispatcher.m */,
+			);
+			path = KSDispatcher;
+			sourceTree = "<group>";
+		};
 		C97088E61C984752003B6E6D /* KSObserver */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,7 @@
 		C9789FD21C904CD20066530A /* KSEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				C96AF3BD1CB596700019C743 /* KSDispatcher */,
 				C93D4C901CB0557A00E832A7 /* KSQueue */,
 				C9789FD31C904CD20066530A /* KSEnterprise.h */,
 				C9789FD41C904CD20066530A /* KSEnterprise.m */,
@@ -489,6 +503,7 @@
 				C93F0E671C95A55B00DB3FEC /* KSBoss.m in Sources */,
 				C93F0E6C1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
 				C97088E91C98476F003B6E6D /* KSObserver.m in Sources */,
+				C96AF3C41CB5A1490019C743 /* KSDispatcher.m in Sources */,
 				C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */,
 				C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */,
 				C98021691C88EC07004D19DC /* KSAlphabetString.m in Sources */,
@@ -521,6 +536,7 @@
 				C94494651CB166100082145C /* TestKSCarWasher.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C93F0E681C95A55B00DB3FEC /* KSBoss.m in Sources */,
+				C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */,
 				C980216A1C88EC07004D19DC /* KSAlphabetString.m in Sources */,
 				C93F0E631C95A53400DB3FEC /* KSCarsWasher.m in Sources */,
 				C97ABD5D1C8313D2003A4E3C /* NSString+KSExtension.m in Sources */,
