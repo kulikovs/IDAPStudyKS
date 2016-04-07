@@ -14,5 +14,4 @@
 - (void)pushObject:(id)object;
 - (id)popObject;
 
-
 @end

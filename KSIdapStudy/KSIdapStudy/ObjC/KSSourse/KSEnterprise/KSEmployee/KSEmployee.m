@@ -23,6 +23,21 @@
 @synthesize money = _money;
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
+    NSArray *array = [self objectsWithCount:count];
+    for (KSEmployee *employee in array) {
+        for (id object in observers) {
+            [employee addObserver:object];
+        }
+    }
+    
+    return [[array copy] autorelease];
+}
+
+
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -39,20 +54,6 @@
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
-    NSArray *array = [self objectsWithCount:count];
-    for (KSEmployee *employee in array) {
-        for (id object in observers) {
-            [employee addObserver:object];
-        }
-    }
-    
-    return [[array copy] autorelease];
 }
 
 #pragma mark -

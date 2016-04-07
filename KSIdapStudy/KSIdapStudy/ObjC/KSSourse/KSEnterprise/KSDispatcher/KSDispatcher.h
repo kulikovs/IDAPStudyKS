@@ -10,7 +10,14 @@
 
 #import "KSQueue.h"
 
+@class KSEmployee;
+
 @interface KSDispatcher : NSObject
-@property (nonatomic, readonly) KSQueue *queue;
+
+- (instancetype)initWithStaff:(KSEmployee *)staff  NS_DESIGNATED_INITIALIZER;
+
+- (void)addObject:(id)object;
+- (BOOL)containsObject:(id)object;
+- (void)performWorkWithObject:(id)object;
 
 @end
