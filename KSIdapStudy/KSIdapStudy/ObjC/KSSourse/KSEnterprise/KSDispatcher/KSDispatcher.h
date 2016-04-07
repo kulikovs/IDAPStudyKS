@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSQueue.h"
-
 @class KSEmployee;
 
 @interface KSDispatcher : NSObject
@@ -18,6 +16,5 @@
 
 - (void)addObject:(id)object;
 - (BOOL)containsObject:(id)object;
-- (void)performWorkWithObject:(id)object;
 
 @end

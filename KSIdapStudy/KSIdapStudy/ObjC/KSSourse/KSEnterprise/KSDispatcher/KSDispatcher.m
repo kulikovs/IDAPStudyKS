@@ -8,13 +8,15 @@
 
 #import "KSDispatcher.h"
 #import "KSEmployee.h"
+#import "KSQueue.h"
 
 @interface KSDispatcher ()
 @property (nonatomic, retain) NSMutableArray    *staff;
 @property (nonatomic, retain) KSQueue           *queue;
 
-@end
+- (KSEmployee *)vacantEmployee;
 
+@end
 
 @implementation KSDispatcher
 
@@ -28,34 +30,71 @@
     [super dealloc];
 }
 
-
 - (instancetype)init {
     return [self initWithStaff:nil];
 }
 
-- (instancetype)initWithStaff:(KSEmployee *)staff {
+- (instancetype)initWithStaff:(NSArray *)staff {
     self = [super init];
     if (self) {
-        self.staff = [NSMutableArray arrayWithArray:[[staff copy] autorelease]];
+        self.staff = [[staff mutableCopy] autorelease];
         self.queue = [KSQueue object];
     }
     
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)staff:(NSMutableArray *)staff {
+    if (_staff != staff) {
+        _staff = staff;
+        
+        [self.staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
+    }
+}
+
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObject:(id)object {
-
-}
-
 - (BOOL)containsObject:(id)object {
-
+    return [self.staff containsObject:object];
 }
 
-- (void)performWorkWithObject:(id)object {
-
+- (void)addObject:(id)object {
+    [self.queue pushObject:object];
+    KSEmployee *employee =  [self vacantEmployee];
+    if (employee) {
+        [employee performWorkWithObject:[self.queue popObject]];
+    }
 }
+
+#pragma mark -
+#pragma mark Worker Protocol
+    
+- (void)workerFinishedWork:(id)object {
+    @synchronized(self) {
+        id objectFromQueue = [self.queue popObject];
+        if (objectFromQueue) {
+            [object performWorkWithObject:objectFromQueue];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (KSEmployee *)vacantEmployee {
+    for (KSEmployee *employee in self.staff) {
+        if (employee.state == kKSWorkerStateFree) {
+            
+            return employee;
+        }
+    }
+    
+    return nil;
+}
+
 @end

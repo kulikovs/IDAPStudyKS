@@ -25,32 +25,22 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
++ (NSArray *)employeesWithCount:(NSUInteger)count observer:(id)observer {
     NSArray *array = [self objectsWithCount:count];
     for (KSEmployee *employee in array) {
-        for (id object in observers) {
-            [employee addObserver:object];
-        }
+        [employee addObserver:observer];
     }
     
     return [[array copy] autorelease];
 }
 
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
-
-- (void)dealloc {
-    self.queue = nil;
-    
-    [super dealloc];
-}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kKSWorkerStateFree;
-        self.queue = [KSQueue object];
     }
     
     return self;
@@ -63,10 +53,9 @@
     @synchronized(self) {
         if (object) {
             NSLog(@"%@ start: perform with %@", self, object);
-            [self.queue pushObject:object];
             
             if (self.state == kKSWorkerStateFree) {
-                NSLog(@"%@ added to queue %@", self, object);
+                
                 
                 self.state = kKSWorkerStateBusy;
                 [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
@@ -98,12 +87,7 @@
 }
 
 - (void)completeWorking {
-    KSEmployee *object = [self.queue popObject];
-    if (object) {
-        [self performWorkWithObjectInBackground:object];
-    } else {
-        self.state = kKSWorkerStateWaiting;
-    }
+    self.state = kKSWorkerStateWaiting;
 }
 
 #pragma mark -

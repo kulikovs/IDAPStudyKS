@@ -14,9 +14,8 @@
 #import "KSQueue.h"
 
 @interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
-@property (nonatomic, readonly) KSQueue *queue;
 
-+ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers;
++ (NSArray *)employeesWithCount:(NSUInteger)count observer:(id)observer;
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object;
 
