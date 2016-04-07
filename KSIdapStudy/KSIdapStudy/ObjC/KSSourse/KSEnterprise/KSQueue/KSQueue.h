@@ -11,8 +11,8 @@
 @interface KSQueue : NSObject
 @property (nonatomic, readonly) NSArray *queue;
 
-- (void)addObject:(id)object;
-- (id)pushObject;
-- (void)removeAllObject;
+- (void)pushObject:(id)object;
+- (id)popObject;
+
 
 @end

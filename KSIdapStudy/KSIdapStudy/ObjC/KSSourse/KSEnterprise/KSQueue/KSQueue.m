@@ -44,17 +44,13 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObject:(id)object {
+- (void)pushObject:(id)object {
     @synchronized(self) {
         [self.queueArray addObject:object];
     }
 }
 
-- (void)removeAllObject {
-    [self.queueArray removeAllObjects];
-}
-
-- (id)pushObject;{
+- (id)popObject;{
     @synchronized(self) {
         id object = [self.queue firstObject];
         if (object) {

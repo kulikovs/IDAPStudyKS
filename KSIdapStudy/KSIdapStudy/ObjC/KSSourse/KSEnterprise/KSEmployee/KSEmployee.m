@@ -26,7 +26,6 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self.queue removeAllObject];
     self.queue = nil;
     
     [super dealloc];
@@ -63,14 +62,14 @@
     @synchronized(self) {
         if (object) {
             NSLog(@"%@ start: perform with %@", self, object);
-            [self.queue addObject:object];
+            [self.queue pushObject:object];
             
             if (self.state == kKSWorkerStateFree) {
                 NSLog(@"%@ added to queue %@", self, object);
                 
                 self.state = kKSWorkerStateBusy;
                 [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                       withObject:[self.queue pushObject]];
+                                       withObject:[self.queue popObject]];
             }
         }
     }
@@ -98,7 +97,7 @@
 }
 
 - (void)completeWorking {
-    KSEmployee *object = [self.queue pushObject];
+    KSEmployee *object = [self.queue popObject];
     if (object) {
         [self performWorkWithObjectInBackground:object];
     } else {

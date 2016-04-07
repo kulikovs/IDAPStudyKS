@@ -8,7 +8,7 @@
 
 #import "KSDispatcher.h"
 
-@implementation KSDispatcher
-@property (nonatomic, readonly) KSQueue *queue;
-
-@end
+//@implementation KSDispatcher
+//@property (nonatomic, readonly) KSQueue *queue;
+//
+//@end
