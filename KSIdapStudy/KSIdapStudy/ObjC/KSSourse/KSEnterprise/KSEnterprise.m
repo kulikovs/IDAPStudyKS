@@ -13,15 +13,16 @@
 #import "KSObserver.h"
 #import "KSDispatcher.h"
 
+static const NSUInteger kKSAccauntantsCount    = 2;
+static const NSUInteger kKSBossCount           = 1;
+static const NSUInteger kKSCarWasherCount      = 2;
+
 @interface KSEnterprise ()
-@property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) KSDispatcher      *carsDispatcher;
+@property (nonatomic, retain) KSDispatcher      *bossDispatcher;
 @property (nonatomic, retain) KSDispatcher      *carWashersDispatcher;
-@property (nonatomic, retain) KSDispatcher      *accauntentsDispatcher;
+@property (nonatomic, retain) KSDispatcher      *accauntantsDispatcher;
 
 - (void)hireStaff;
-- (void)dismissStaff;
-- (void)dismissEmployee:(KSEmployee *)emlpoyee;
 
 @end
 
@@ -31,13 +32,10 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self dismissStaff];
-    self.staff = nil;
-    self.carsDispatcher = nil;
+    self.bossDispatcher = nil;
     self.carWashersDispatcher = nil;
-    self.accauntentsDispatcher = nil;
+    self.accauntantsDispatcher = nil;
 
-    
     [super dealloc];
 }
 
@@ -45,9 +43,6 @@
     self = [super init];
     if (self) {
         [self hireStaff];
-        self.carWashersDispatcher = [KSDispatcher object];
-        self.carsDispatcher = [KSDispatcher object];
-        self.accauntentsDispatcher = [KSDispatcher object];
     }
     
     return self;
@@ -57,35 +52,14 @@
 #pragma mark Private Methods
 
 - (void)hireStaff {
+    NSArray *boss = [KSBoss employeesWithCount:kKSBossCount observer:self];
+    self.bossDispatcher = [[[KSDispatcher alloc] initWithStaff:boss] autorelease];
     
-    KSBoss *boss = [KSBoss object];
+    NSArray *accountants = [KSAccountant employeesWithCount:kKSAccauntantsCount observer:self];
+    self.accauntantsDispatcher = [[[KSDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    NSArray *accountants = [KSAccountant employeesWithCount:2 observers:self;
-
-    
-    NSArray *carWashers = [KSCarsWasher employeesWithCount:3 observer:];
-    self.staff = [NSMutableArray arrayWithObjects:accountant, accountant1, boss, nil];
-    
-    [self.staff addObjectsFromArray:carWashers];
-}
-
-- (void)dismissStaff {
-    NSArray *staff = [[self.staff copy] autorelease];
-    
-    for (KSEmployee *employee in staff) {
-        [self dismissEmployee:employee];
-    }
-}
-
-- (void)dismissEmployee:(KSEmployee *)object {
-    for (NSUInteger index = 0; index < self.staff.count; index++) {
-        KSEmployee *employee = self.staff[index];
-        if ([employee isObservedByObject:object]) {
-            [employee removeObserver:object];
-        }
-    }
-    
-    [self.staff removeObject:object];
+    NSArray *carWashers = [KSCarsWasher employeesWithCount:kKSCarWasherCount observer:self];
+    self.carWashersDispatcher = [[[KSDispatcher alloc] initWithStaff:carWashers] autorelease];
 }
 
 #pragma mark -
@@ -93,28 +67,21 @@
 
 - (void)washCar:(KSCar *)car {
     @synchronized(self) {
-        [self.carsDispatcher addObject:car];
+        [self.carWashersDispatcher addObject:car];
     }
 }
 
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)workerFinishedWork:(KSEmployee *)employee {
-    @synchronized(self) {
-        if ([employee isMemberOfClass:[KSCarsWasher class]]) {
-            [self.carWashersDispatcher addObject:employee];
+- (void)workerIsWaiting:(KSEmployee *)employee {
+        if ([self.accauntantsDispatcher containsObject:employee]) {
+            [self.bossDispatcher addObject:employee];
         }
         
-        if ([employee isMemberOfClass:[KSAccountant class]]) {
-            [self.accauntentsDispatcher addObject:employee];
+        if ([self.carWashersDispatcher containsObject:employee]) {
+            [self.accauntantsDispatcher addObject:employee];
         }
-        
-        if ([employee isMemberOfClass:[KSCar class]]) {
-            [self.carsDispatcher addObject:employee];
-        }
-    }
 }
-
 
 @end

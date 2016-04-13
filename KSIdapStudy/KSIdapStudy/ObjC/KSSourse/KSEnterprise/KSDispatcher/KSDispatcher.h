@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "KSWorkerProtocol.h"
+
 @class KSEmployee;
 
-@interface KSDispatcher : NSObject
+@interface KSDispatcher : NSObject <KSWorkerProtocol>
 
-- (instancetype)initWithStaff:(KSEmployee *)staff  NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithStaff:(NSArray *)staff  NS_DESIGNATED_INITIALIZER;
 
 - (void)addObject:(id)object;
 - (BOOL)containsObject:(id)object;

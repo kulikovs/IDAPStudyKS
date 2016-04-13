@@ -51,16 +51,10 @@
 
 - (void)performWorkWithObject:(id<KSMoneyProtocol>)object {
     @synchronized(self) {
-        if (object) {
-            NSLog(@"%@ start: perform with %@", self, object);
-            
-            if (self.state == kKSWorkerStateFree) {
-                
-                
-                self.state = kKSWorkerStateBusy;
-                [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                       withObject:[self.queue popObject]];
-            }
+        if (object && self.state == kKSWorkerStateFree) {
+            self.state = kKSWorkerStateBusy;
+            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
+                                   withObject:object];
         }
     }
 }
@@ -70,20 +64,19 @@
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
     @synchronized(self) {
-        NSLog(@"%@ start: perform with %@ background", self, object);
+        usleep(arc4random_uniform(10000) + 1);
         
-        sleep(1);
         [self takeMoney:[object giveMoney]];
-        NSLog(@"%@ take money from %@", self, object);
-        
         [self completeWorkingWithObject:object];
         [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
     }
 }
 
 - (void)completeWorkingWithObject:(id)object {
-    KSEmployee *emloyee = (KSEmployee *)object;
-    emloyee.state = kKSWorkerStateFree;
+    @synchronized(self) {
+        KSEmployee *emloyee = (KSEmployee *)object;
+        emloyee.state = kKSWorkerStateFree;
+    }
 }
 
 - (void)completeWorking {
@@ -124,13 +117,6 @@
     @synchronized(self) {
         self.money += money;
     }
-}
-
-#pragma mark -
-#pragma mark Worker Protocol
-
-- (void)workerIsWaiting:(id<KSMoneyProtocol>)object {
-    [self performWorkWithObject:object];
 }
 
 @end

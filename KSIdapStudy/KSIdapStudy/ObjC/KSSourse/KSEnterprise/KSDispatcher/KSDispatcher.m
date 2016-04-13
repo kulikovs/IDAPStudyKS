@@ -15,6 +15,8 @@
 @property (nonatomic, retain) KSQueue           *queue;
 
 - (KSEmployee *)vacantEmployee;
+- (void)dismissStaff;
+- (void)dismissEmployee;
 
 @end
 
@@ -47,14 +49,13 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)staff:(NSMutableArray *)staff {
+- (void)setStaff:(NSMutableArray *)staff {
     if (_staff != staff) {
         _staff = staff;
         
         [self.staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
     }
 }
-
 
 #pragma mark -
 #pragma mark Public Methods
@@ -64,10 +65,15 @@
 }
 
 - (void)addObject:(id)object {
-    [self.queue pushObject:object];
-    KSEmployee *employee =  [self vacantEmployee];
-    if (employee) {
-        [employee performWorkWithObject:[self.queue popObject]];
+    @synchronized(self) {
+        if (object) {
+            [self.queue pushObject:object];
+            KSEmployee *employee =  [self vacantEmployee];
+            
+            if (employee) {
+                [employee performWorkWithObject:[self.queue popObject]];
+            }
+        }
     }
 }
 
@@ -76,6 +82,8 @@
     
 - (void)workerFinishedWork:(id)object {
     @synchronized(self) {
+   //     [self addObject:[self.queue popObject]];
+        
         id objectFromQueue = [self.queue popObject];
         if (objectFromQueue) {
             [object performWorkWithObject:objectFromQueue];
@@ -87,14 +95,18 @@
 #pragma mark Private Methods
 
 - (KSEmployee *)vacantEmployee {
-    for (KSEmployee *employee in self.staff) {
-        if (employee.state == kKSWorkerStateFree) {
-            
-            return employee;
+    @synchronized(self) {
+        for (KSEmployee *employee in self.staff) {
+            if (employee.state == kKSWorkerStateFree) {
+                
+                return employee;
+            }
         }
     }
     
     return nil;
 }
+
+
 
 @end
