@@ -49,6 +49,12 @@
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
+		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
+		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
+		C9D7BCD91CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
+		C9D7BCDA1CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
+		C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
+		C9D7BCDF1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,6 +128,12 @@
 		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
 		C9CC74D11C7F5D4300E2F161 /* NSString+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtension.h"; sourceTree = "<group>"; };
 		C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtension.m"; sourceTree = "<group>"; };
+		C9D7BCD21CBE781000F5DE57 /* KSObserverDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverDictionary.h; sourceTree = "<group>"; };
+		C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserverDictionary.m; sourceTree = "<group>"; };
+		C9D7BCD71CBE784000F5DE57 /* KSObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverArray.h; sourceTree = "<group>"; };
+		C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserverArray.m; sourceTree = "<group>"; };
+		C9D7BCDC1CBE786800F5DE57 /* KSObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverObject.h; sourceTree = "<group>"; };
+		C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserverObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +288,7 @@
 		C97088E61C984752003B6E6D /* KSObserver */ = {
 			isa = PBXGroup;
 			children = (
+				C9D7BCD01CBE77E800F5DE57 /* KSPrivate */,
 				C97088E71C98476F003B6E6D /* KSObserver.h */,
 				C97088E81C98476F003B6E6D /* KSObserver.m */,
 			);
@@ -389,6 +402,43 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9D7BCD01CBE77E800F5DE57 /* KSPrivate */ = {
+			isa = PBXGroup;
+			children = (
+				C9D7BCDB1CBE785900F5DE57 /* KSObserverObject */,
+				C9D7BCD61CBE783100F5DE57 /* KSObserverArray */,
+				C9D7BCD11CBE780300F5DE57 /* KSObserverDictionary */,
+			);
+			path = KSPrivate;
+			sourceTree = "<group>";
+		};
+		C9D7BCD11CBE780300F5DE57 /* KSObserverDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				C9D7BCD21CBE781000F5DE57 /* KSObserverDictionary.h */,
+				C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */,
+			);
+			path = KSObserverDictionary;
+			sourceTree = "<group>";
+		};
+		C9D7BCD61CBE783100F5DE57 /* KSObserverArray */ = {
+			isa = PBXGroup;
+			children = (
+				C9D7BCD71CBE784000F5DE57 /* KSObserverArray.h */,
+				C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */,
+			);
+			path = KSObserverArray;
+			sourceTree = "<group>";
+		};
+		C9D7BCDB1CBE785900F5DE57 /* KSObserverObject */ = {
+			isa = PBXGroup;
+			children = (
+				C9D7BCDC1CBE786800F5DE57 /* KSObserverObject.h */,
+				C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */,
+			);
+			path = KSObserverObject;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -499,6 +549,7 @@
 			files = (
 				C980216D1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */,
+				C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */,
 				C98021671C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
 				C93F0E671C95A55B00DB3FEC /* KSBoss.m in Sources */,
 				C93F0E6C1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
@@ -514,9 +565,11 @@
 				C93D4C931CB0557A00E832A7 /* KSQueue.m in Sources */,
 				C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */,
 				C978A0791C905EBA0066530A /* KSCar.m in Sources */,
+				C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */,
 				C978A07E1C906E590066530A /* KSEmployee.m in Sources */,
 				C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */,
 				C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */,
+				C9D7BCD91CBE784000F5DE57 /* KSObserverArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */,
+				C9D7BCDA1CBE784000F5DE57 /* KSObserverArray.m in Sources */,
 				C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */,
 				C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */,
 				C98021681C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
@@ -532,8 +586,10 @@
 				C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */,
 				C97ABD5F1C8313D9003A4E3C /* KSCreatureFemale.m in Sources */,
 				C93D4C941CB0557A00E832A7 /* KSQueue.m in Sources */,
+				C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */,
 				C93F0E6D1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
 				C94494651CB166100082145C /* TestKSCarWasher.m in Sources */,
+				C9D7BCDF1CBE786800F5DE57 /* KSObserverObject.m in Sources */,
 				C97ABD571C831385003A4E3C /* TestObjC.m in Sources */,
 				C93F0E681C95A55B00DB3FEC /* KSBoss.m in Sources */,
 				C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */,

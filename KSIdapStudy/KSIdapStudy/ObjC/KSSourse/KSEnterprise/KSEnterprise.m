@@ -23,6 +23,7 @@ static const NSUInteger kKSCarWasherCount      = 2;
 @property (nonatomic, retain) KSDispatcher      *accauntantsDispatcher;
 
 - (void)hireStaff;
+- (void)addHandlerForStateWaiting:(NSArray *)staff;
 
 @end
 
@@ -52,14 +53,28 @@ static const NSUInteger kKSCarWasherCount      = 2;
 #pragma mark Private Methods
 
 - (void)hireStaff {
-    NSArray *boss = [KSBoss employeesWithCount:kKSBossCount observer:self];
+    NSArray *boss = [KSBoss objectsWithCount:kKSBossCount];
     self.bossDispatcher = [[[KSDispatcher alloc] initWithStaff:boss] autorelease];
     
-    NSArray *accountants = [KSAccountant employeesWithCount:kKSAccauntantsCount observer:self];
+    NSArray *accountants = [KSAccountant objectsWithCount:kKSAccauntantsCount];
     self.accauntantsDispatcher = [[[KSDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    NSArray *carWashers = [KSCarsWasher employeesWithCount:kKSCarWasherCount observer:self];
+    NSArray *carWashers = [KSCarsWasher objectsWithCount:kKSCarWasherCount];
     self.carWashersDispatcher = [[[KSDispatcher alloc] initWithStaff:carWashers] autorelease];
+    
+    [self addHandlerForStateWaiting:accountants];
+    [self addHandlerForStateWaiting:carWashers];
+    
+}
+
+- (void)addHandlerForStateWaiting:(NSArray *)staff {
+    @synchronized(self) {
+        for (KSEmployee *employee in staff) {
+            [employee addHandler:^ {
+                [self workerIsWaiting:employee];
+            } state:kKSWorkerStateWaiting object:self];
+        }
+    }
 }
 
 #pragma mark -

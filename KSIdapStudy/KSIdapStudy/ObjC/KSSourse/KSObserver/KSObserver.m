@@ -6,20 +6,20 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 
 #import "KSObserver.h"
+#import "KSObserverDictionary.h"
 
 @interface KSObserver ()
-@property (nonatomic, retain) NSHashTable    *mutableObservers;
+@property (nonatomic, retain) NSMutableArray *observers;
 
 @end
 
 @implementation KSObserver
-@dynamic observers;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableObservers = nil;
+    self.observers = nil;
     
     [super dealloc];
 }
@@ -27,7 +27,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.observers = [NSMutableArray array];
     }
     
     return self;
@@ -36,16 +36,18 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)observers {
-    return [self.mutableObservers allObjects];
-}
-
 - (void)setState:(NSUInteger)state {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
             
-            [self notifyObserver];
+            for (KSObserverDictionary *observerDictionary in self.observers) {
+                if (observerDictionary.state == state) {
+                    for (KSObserverObject *observer in observerDictionary.arrayObject.handlers ) {
+                        observer.handler();
+                    }
+                }
+            }
         }
     }
 }
@@ -53,36 +55,26 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers addObject:observer];
-    }
+- (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object {
+    [self removeHandlersForState:state];
+    
+    KSObserverDictionary *observerDictionary = [KSObserverDictionary object];
+    [observerDictionary addHandler:handler state:state object:object];
+    
+    [self.observers addObject:observerDictionary];
 }
 
-- (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers removeObject:observer];
-    }
-}
-
-- (BOOL)isObservedByObject:(id)object {
-    return [self.mutableObservers containsObject:object];
-}
-
-- (SEL)selectorForState:(NSUInteger)state {
-    return nil;
-}
-
-- (void)notifyObserver {
-    [self notifyObjectWithSelector:[self selectorForState:self.state]];
-}
-
-- (void)notifyObjectWithSelector:(SEL)selector {
-    NSHashTable *mutableObservers = self.mutableObservers;
-    for (id observer in mutableObservers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+- (void)removeHandlersForState:(NSUInteger)state {
+    for (KSObserverDictionary *observerDictionary in self.observers) {
+        if (observerDictionary.state == state) {
+            [self.observers removeObject:observerDictionary];
         }
+    }
+}
+
+- (void)removeHandlersForObject:(id)object {
+    for (KSObserverDictionary *observerDictionary in self.observers) {
+        [observerDictionary removeHandlersForObject:object];
     }
 }
 

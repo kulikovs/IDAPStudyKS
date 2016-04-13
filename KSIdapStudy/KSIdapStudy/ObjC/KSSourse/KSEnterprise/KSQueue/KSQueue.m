@@ -34,6 +34,7 @@
     
     return self;
 }
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -45,20 +46,16 @@
 #pragma mark Public Methods
 
 - (void)pushObject:(id)object {
-    @synchronized(self) {
         [self.queueArray addObject:object];
-    }
 }
 
 - (id)popObject;{
-    @synchronized(self) {
         id object = [self.queue firstObject];
         if (object) {
             [self.queueArray removeObject:object];
         }
         
         return object;
-    }
 }
 
 @end

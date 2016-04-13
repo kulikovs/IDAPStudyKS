@@ -9,6 +9,7 @@
 #import "KSDispatcher.h"
 #import "KSEmployee.h"
 #import "KSQueue.h"
+#import "KSObserver.h"
 
 @interface KSDispatcher ()
 @property (nonatomic, retain) NSMutableArray    *staff;
@@ -16,7 +17,7 @@
 
 - (KSEmployee *)vacantEmployee;
 - (void)dismissStaff;
-- (void)dismissEmployee;
+- (void)dismissEmployee:(KSEmployee *)object;
 
 @end
 
@@ -26,6 +27,7 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
+    [self dismissStaff];
     self.staff = nil;
     self.queue = nil;
     
@@ -53,7 +55,11 @@
     if (_staff != staff) {
         _staff = staff;
         
-        [self.staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
+        for (KSEmployee *employee in staff) {
+            [employee addHandler:^ {
+                [self workerFinishedWork:employee];
+            } state:kKSWorkerStateFree object:self];
+        }
     }
 }
 
@@ -82,7 +88,7 @@
     
 - (void)workerFinishedWork:(id)object {
     @synchronized(self) {
-   //     [self addObject:[self.queue popObject]];
+//        [self addObject:[self.queue popObject]];
         
         id objectFromQueue = [self.queue popObject];
         if (objectFromQueue) {
@@ -93,6 +99,21 @@
 
 #pragma mark -
 #pragma mark Private Methods
+
+- (void)dismissStaff {
+    NSArray *staff = [[self.staff copy] autorelease];
+    for (KSEmployee *employee in staff) {
+        [self dismissEmployee:employee];
+    }
+}
+
+- (void)dismissEmployee:(KSEmployee *)object {
+    for (KSEmployee *employee in self.staff) {
+        [employee removeHandlersForObject:object];
+    }
+    
+    [self.staff removeObject:object];
+}
 
 - (KSEmployee *)vacantEmployee {
     @synchronized(self) {
@@ -106,7 +127,5 @@
     
     return nil;
 }
-
-
 
 @end

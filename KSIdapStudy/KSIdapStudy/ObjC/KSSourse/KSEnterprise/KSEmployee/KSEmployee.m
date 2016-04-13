@@ -13,6 +13,7 @@
 @property (nonatomic, retain) KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
+- (void)workWithObject:(id)object;
 - (void)completeWorking;
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
@@ -21,18 +22,6 @@
 @implementation KSEmployee
 
 @synthesize money = _money;
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (NSArray *)employeesWithCount:(NSUInteger)count observer:(id)observer {
-    NSArray *array = [self objectsWithCount:count];
-    for (KSEmployee *employee in array) {
-        [employee addObserver:observer];
-    }
-    
-    return [[array copy] autorelease];
-}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -64,11 +53,19 @@
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
     @synchronized(self) {
-        usleep(arc4random_uniform(10000) + 1);
-        
-        [self takeMoney:[object giveMoney]];
-        [self completeWorkingWithObject:object];
+        [self workWithObject:object];
         [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
+    }
+}
+
+- (void)workWithObject:(id)object {
+    @synchronized(self) {
+        
+    
+    usleep(arc4random_uniform(10000) + 1);
+    
+    [self takeMoney:[object giveMoney]];
+    [self completeWorkingWithObject:object];
     }
 }
 
@@ -81,25 +78,6 @@
 
 - (void)completeWorking {
     self.state = kKSWorkerStateWaiting;
-}
-
-#pragma mark -
-#pragma mark Observer Method
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kKSWorkerStateBusy:
-            return @selector(workerStartedWork:);
-            
-        case kKSWorkerStateFree:
-            return @selector(workerFinishedWork:);
-            
-        case kKSWorkerStateWaiting:
-            return @selector(workerIsWaiting:);
-            
-        default:
-            return [super selectorForState:state];
-    }
 }
 
 #pragma mark -
