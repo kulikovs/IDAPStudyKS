@@ -8,13 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSObserverArray.h"
+
+@class KSObserverArray;
+
+typedef void(^KSHandlerObject)(void);
 
 @interface KSObserverDictionary : NSObject
-@property (nonatomic, assign) NSUInteger        state;
-@property (nonatomic, retain) KSObserverArray   *arrayObject;
+@property (nonatomic, readonly) NSUInteger        state;
+@property (nonatomic, readonly) KSObserverArray   *arrayObject;
+@property (nonatomic, readonly) NSArray           *handlers;
 
-- (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object;
++ (instancetype)dictionaryWithState:(NSUInteger)state;
+
+- (instancetype)initWithState:(NSUInteger)state NS_DESIGNATED_INITIALIZER;
+
+- (void)addHandler:(KSHandlerObject)handler object:(id)object;
 - (void)removeHandlersForObject:(id)object;
 
 @end

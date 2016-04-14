@@ -11,7 +11,8 @@
 #import "KSWorkerProtocol.h"
 #import "KSMoneyProtocol.h"
 #import "KSObserver.h"
-#import "KSQueue.h"
+
+@class KSEmployee;
 
 @interface KSEmployee : KSObserver <KSMoneyProtocol, KSWorkerProtocol>
 

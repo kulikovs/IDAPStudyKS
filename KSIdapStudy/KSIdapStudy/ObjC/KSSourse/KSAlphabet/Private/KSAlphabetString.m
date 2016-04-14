@@ -10,7 +10,6 @@
 #import "KSAlphabet.h"
 
 @interface KSAlphabetString ()
-
 @property (nonatomic, copy) NSString *stringAlphabet;
 
 @end

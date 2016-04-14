@@ -7,7 +7,6 @@
 //
 
 #import "KSEmployee.h"
-#import "KSCar.h"
 
 @interface KSCarsWasher : KSEmployee
 

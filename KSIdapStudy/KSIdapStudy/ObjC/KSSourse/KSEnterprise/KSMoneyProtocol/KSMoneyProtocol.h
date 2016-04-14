@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol KSMoneyProtocol <NSObject>
 @property (nonatomic, assign) NSUInteger money;
 

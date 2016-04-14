@@ -6,10 +6,15 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 
 #import "KSObserver.h"
+#import "KSObserverObject.h"
 #import "KSObserverDictionary.h"
+#import "KSObserverArray.h"
 
 @interface KSObserver ()
-@property (nonatomic, retain) NSMutableArray *observers;
+@property (nonatomic, retain)     NSMutableArray    *observers;
+
+- (void)performHandlersForState:(NSUInteger)state;
+- (KSObserverDictionary *)dictionaryWithState:(NSUInteger)state;
 
 @end
 
@@ -41,13 +46,7 @@
         if (_state != state) {
             _state = state;
             
-            for (KSObserverDictionary *observerDictionary in self.observers) {
-                if (observerDictionary.state == state) {
-                    for (KSObserverObject *observer in observerDictionary.arrayObject.handlers ) {
-                        observer.handler();
-                    }
-                }
-            }
+            [self performHandlersForState:state];
         }
     }
 }
@@ -56,25 +55,42 @@
 #pragma mark Public Methods
 
 - (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object {
-    [self removeHandlersForState:state];
-    
-    KSObserverDictionary *observerDictionary = [KSObserverDictionary object];
-    [observerDictionary addHandler:handler state:state object:object];
-    
-    [self.observers addObject:observerDictionary];
+    if (object) {
+        KSObserverDictionary *observerDictionary = [self dictionaryWithState:state];
+        
+        [observerDictionary addHandler:handler object:object];
+        [self.observers addObject:observerDictionary];
+    }
 }
 
 - (void)removeHandlersForState:(NSUInteger)state {
-    for (KSObserverDictionary *observerDictionary in self.observers) {
-        if (observerDictionary.state == state) {
-            [self.observers removeObject:observerDictionary];
-        }
-    }
+    KSObserverDictionary *dictionary = [self dictionaryWithState:state];
+    [self.observers removeObject:dictionary];
 }
 
 - (void)removeHandlersForObject:(id)object {
     for (KSObserverDictionary *observerDictionary in self.observers) {
         [observerDictionary removeHandlersForObject:object];
+    }
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (KSObserverDictionary *)dictionaryWithState:(NSUInteger)state {
+    for (KSObserverDictionary *observerDictionary in self.observers) {
+        if (observerDictionary.state == state) {
+            return observerDictionary;
+        }
+    }
+    
+    return [KSObserverDictionary dictionaryWithState:state];
+}
+
+- (void)performHandlersForState:(NSUInteger)state {
+    KSObserverDictionary *observerDictionary = [self dictionaryWithState:state];
+    for (KSHandlerObject handler in observerDictionary.handlers) {
+        handler();
     }
 }
 

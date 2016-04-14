@@ -36,7 +36,7 @@ static const NSUInteger kKSCarWasherCount      = 2;
     self.bossDispatcher = nil;
     self.carWashersDispatcher = nil;
     self.accauntantsDispatcher = nil;
-
+    
     [super dealloc];
 }
 
@@ -64,7 +64,6 @@ static const NSUInteger kKSCarWasherCount      = 2;
     
     [self addHandlerForStateWaiting:accountants];
     [self addHandlerForStateWaiting:carWashers];
-    
 }
 
 - (void)addHandlerForStateWaiting:(NSArray *)staff {
@@ -72,7 +71,8 @@ static const NSUInteger kKSCarWasherCount      = 2;
         for (KSEmployee *employee in staff) {
             [employee addHandler:^ {
                 [self workerIsWaiting:employee];
-            } state:kKSWorkerStateWaiting object:self];
+            }              state:kKSWorkerStateWaiting
+                          object:self];
         }
     }
 }
@@ -90,13 +90,13 @@ static const NSUInteger kKSCarWasherCount      = 2;
 #pragma mark Worker Protocol
 
 - (void)workerIsWaiting:(KSEmployee *)employee {
-        if ([self.accauntantsDispatcher containsObject:employee]) {
-            [self.bossDispatcher addObject:employee];
-        }
-        
-        if ([self.carWashersDispatcher containsObject:employee]) {
-            [self.accauntantsDispatcher addObject:employee];
-        }
+    if ([self.accauntantsDispatcher containsObject:employee]) {
+        [self.bossDispatcher addObject:employee];
+    }
+    
+    if ([self.carWashersDispatcher containsObject:employee]) {
+        [self.accauntantsDispatcher addObject:employee];
+    }
 }
 
 @end

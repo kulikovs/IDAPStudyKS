@@ -58,7 +58,8 @@
         for (KSEmployee *employee in staff) {
             [employee addHandler:^ {
                 [self workerFinishedWork:employee];
-            } state:kKSWorkerStateFree object:self];
+            }              state:kKSWorkerStateFree
+                          object:self];
         }
     }
 }

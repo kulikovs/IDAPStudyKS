@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSObserverObject.h"
+typedef void(^KSHandlerObject)(void);
 
 @interface KSObserverArray : NSObject
-@property (nonatomic, retain) NSMutableArray *handlers;
+@property (nonatomic, readonly) NSArray *handlers;
 
 - (void)addHandler:(KSHandlerObject)handler forObject:(id)object;
 - (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

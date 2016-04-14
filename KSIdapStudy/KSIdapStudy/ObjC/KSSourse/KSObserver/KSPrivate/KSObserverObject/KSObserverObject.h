@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSObserver.h"
+typedef void(^KSHandlerObject)(void);
 
 @interface KSObserverObject : NSObject
-@property (nonatomic, retain) id                object;
-@property (nonatomic, assign) KSHandlerObject   handler;
+@property (nonatomic, weak) id                object;
+@property (nonatomic, copy) KSHandlerObject   handler;
 
 - (instancetype)initWithObject:(id)object handler:(KSHandlerObject)handler NS_DESIGNATED_INITIALIZER;
 

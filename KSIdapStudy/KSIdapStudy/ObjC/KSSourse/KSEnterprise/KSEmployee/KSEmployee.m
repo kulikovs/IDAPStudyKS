@@ -7,13 +7,12 @@
 //
 
 #import "KSEmployee.h"
-
+#import "KSQueue.h"
 
 @interface KSEmployee ()
 @property (nonatomic, retain) KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
-- (void)workWithObject:(id)object;
 - (void)completeWorking;
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
@@ -53,19 +52,12 @@
 
 - (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
     @synchronized(self) {
-        [self workWithObject:object];
-        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
-    }
-}
-
-- (void)workWithObject:(id)object {
-    @synchronized(self) {
+        usleep(arc4random_uniform(10000) + 1);
         
-    
-    usleep(arc4random_uniform(10000) + 1);
-    
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkingWithObject:object];
+        [self takeMoney:[object giveMoney]];
+        [self completeWorkingWithObject:object];
+        
+        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
     }
 }
 

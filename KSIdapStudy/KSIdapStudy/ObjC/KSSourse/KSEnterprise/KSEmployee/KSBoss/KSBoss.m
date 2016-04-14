@@ -8,7 +8,6 @@
 
 #import "KSBoss.h"
 
-
 @implementation KSBoss
 
 - (void)completeWorking {

@@ -53,7 +53,7 @@
 		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
 		C9D7BCD91CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
 		C9D7BCDA1CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
-		C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
+		C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		C9D7BCDF1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
 /* End PBXBuildFile section */
 

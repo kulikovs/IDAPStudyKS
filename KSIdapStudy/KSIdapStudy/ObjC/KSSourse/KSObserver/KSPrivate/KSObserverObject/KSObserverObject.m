@@ -13,12 +13,6 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    self.object = nil;
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
     return [self initWithObject:nil handler:nil];
 }
@@ -27,12 +21,10 @@
     self = [super init];
     if (self) {
         self.object = object;
-        self.handler = [[handler copy] autorelease];
+        self.handler = [handler copy];
     }
     
     return self;
 }
-
-
 
 @end
