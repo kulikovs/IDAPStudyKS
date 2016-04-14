@@ -41,7 +41,7 @@
     return [[self.handlersArray copy] autorelease];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)addHandler:(KSHandlerObject)handler forObject:(id)object {

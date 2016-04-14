@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
 
-       NSArray *arrayCars = [KSCar objectsWithCount:40];
+       NSArray *arrayCars = [KSCar objectsWithCount:20];
        KSEnterprise *enterprise = [KSEnterprise object];
        
        for (NSUInteger index = 0; index < arrayCars.count; index ++) {

@@ -62,10 +62,8 @@
 }
 
 - (void)completeWorkingWithObject:(id)object {
-    @synchronized(self) {
         KSEmployee *emloyee = (KSEmployee *)object;
         emloyee.state = kKSWorkerStateFree;
-    }
 }
 
 - (void)completeWorking {

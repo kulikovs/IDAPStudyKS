@@ -72,14 +72,14 @@
 }
 
 - (void)addObject:(id)object {
-    @synchronized(self) {
+ //   @synchronized(self) {
         if (object) {
             [self.queue pushObject:object];
             KSEmployee *employee =  [self vacantEmployee];
             
             if (employee) {
                 [employee performWorkWithObject:[self.queue popObject]];
-            }
+      //      }
         }
     }
 }
@@ -88,13 +88,9 @@
 #pragma mark Worker Protocol
     
 - (void)workerFinishedWork:(id)object {
-    @synchronized(self) {
-//        [self addObject:[self.queue popObject]];
-        
-        id objectFromQueue = [self.queue popObject];
-        if (objectFromQueue) {
-            [object performWorkWithObject:objectFromQueue];
-        }
+    id objectFromQueue = [self.queue popObject];
+    if (objectFromQueue) {
+        [object performWorkWithObject:objectFromQueue];
     }
 }
 

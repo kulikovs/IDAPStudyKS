@@ -12,7 +12,6 @@
 
 - (void)completeWorking {
     NSLog(@"Money count = %lu", self.money);
-    
     self.state = kKSWorkerStateFree;
 }
 
