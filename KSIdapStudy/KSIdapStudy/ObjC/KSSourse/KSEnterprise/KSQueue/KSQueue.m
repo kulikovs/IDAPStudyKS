@@ -34,6 +34,7 @@
     
     return self;
 }
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -44,31 +45,17 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addObjectToQueue:(id)object {
-    @synchronized(self) {
+- (void)pushObject:(id)object {
         [self.queueArray addObject:object];
-    }
 }
 
-- (void)removeObjectFromQueue:(id)object {
-    @synchronized(self) {
-        [self.queueArray removeObject:object];
-    }
-}
-
-- (void)removeAllObject {
-    [self.queueArray removeAllObjects];
-}
-
-- (id)sendTheWorkFirstObjectFromQueue;{
-    @synchronized(self) {
+- (id)popObject;{
         id object = [self.queue firstObject];
         if (object) {
-            [self removeObjectFromQueue:object];
+            [self.queueArray removeObject:object];
         }
         
         return object;
-    }
 }
 
 @end

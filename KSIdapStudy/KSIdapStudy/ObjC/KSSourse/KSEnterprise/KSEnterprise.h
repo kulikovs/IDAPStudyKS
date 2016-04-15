@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KSCar.h"
 #import "KSWorkerProtocol.h"
+
+@class KSCar;
 
 @interface KSEnterprise : NSObject <KSWorkerProtocol>
 

@@ -8,18 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^KSHandlerObject)(void);
+
 @interface KSObserver : NSObject
 @property (nonatomic, assign)     NSUInteger    state;
-@property (nonatomic, readonly)   NSArray       *observers;
 
-- (void)addObserver:(id)observer;
-- (void)removeObserver:(id)observer;
-
-//This method is intended for subclassing
-- (SEL)selectorForState:(NSUInteger)state;
-
-- (void)notifyObjectWithSelector:(SEL)selector;
-- (void)notifyObserver;
-- (BOOL)isObservedByObject:(id)object;
+- (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object;
+- (void)removeHandlersForState:(NSUInteger)state;
+- (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

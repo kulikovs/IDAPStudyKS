@@ -7,6 +7,7 @@
 //
 
 #import "KSCarsWasher.h"
+#import "KSCar.h"
 
 @implementation KSCarsWasher
 

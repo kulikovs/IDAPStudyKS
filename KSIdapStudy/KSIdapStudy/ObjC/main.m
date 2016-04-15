@@ -18,6 +18,7 @@
 int main(int argc, const char * argv[]) {
    @autoreleasepool {
        
+
        NSArray *arrayCars = [KSCar objectsWithCount:20];
        KSEnterprise *enterprise = [KSEnterprise object];
        

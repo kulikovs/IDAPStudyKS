@@ -11,16 +11,19 @@
 #import "KSAccountant.h"
 #import "KSCarsWasher.h"
 #import "KSObserver.h"
-#import "KSQueue.h"
+#import "KSDispatcher.h"
+
+static const NSUInteger kKSAccauntantsCount    = 2;
+static const NSUInteger kKSBossCount           = 1;
+static const NSUInteger kKSCarWasherCount      = 2;
 
 @interface KSEnterprise ()
-@property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) KSQueue           *queue;
+@property (nonatomic, retain) KSDispatcher      *bossDispatcher;
+@property (nonatomic, retain) KSDispatcher      *carWashersDispatcher;
+@property (nonatomic, retain) KSDispatcher      *accauntantsDispatcher;
 
 - (void)hireStaff;
-- (void)dismissStaff;
-- (void)dismissEmployee:(KSEmployee *)emlpoyee;
-- (id)vacantEmployeeWithClass:(Class)class;
+- (void)addHandlerForStateWaiting:(NSArray *)staff;
 
 @end
 
@@ -30,9 +33,9 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self dismissStaff];
-    self.staff = nil;
-    self.queue = nil;
+    self.bossDispatcher = nil;
+    self.carWashersDispatcher = nil;
+    self.accauntantsDispatcher = nil;
     
     [super dealloc];
 }
@@ -40,7 +43,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queue = [KSQueue object];
         [self hireStaff];
     }
     
@@ -51,49 +53,28 @@
 #pragma mark Private Methods
 
 - (void)hireStaff {
+    NSArray *boss = [KSBoss objectsWithCount:kKSBossCount];
+    self.bossDispatcher = [[[KSDispatcher alloc] initWithStaff:boss] autorelease];
     
-    KSBoss *boss = [KSBoss object];
+    NSArray *accountants = [KSAccountant objectsWithCount:kKSAccauntantsCount];
+    self.accauntantsDispatcher = [[[KSDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    KSAccountant *accountant = [KSAccountant object];
-    KSAccountant *accountant1 = [KSAccountant object];
+    NSArray *carWashers = [KSCarsWasher objectsWithCount:kKSCarWasherCount];
+    self.carWashersDispatcher = [[[KSDispatcher alloc] initWithStaff:carWashers] autorelease];
     
-    [accountant addObserver:boss];
-    [accountant1 addObserver:boss];
-    
-    NSArray *carWashers = [KSCarsWasher employeesWithCount:3 observers:@[accountant, accountant1, self]];
-    self.staff = [NSMutableArray arrayWithObjects:accountant, accountant1, boss, nil];
-    
-    [self.staff addObjectsFromArray:carWashers];
+    [self addHandlerForStateWaiting:accountants];
+    [self addHandlerForStateWaiting:carWashers];
 }
 
-- (void)dismissStaff {
-    NSArray *staff = [[self.staff copy] autorelease];
-    
-    for (KSEmployee *employee in staff) {
-        [self dismissEmployee:employee];
-    }
-}
-
-- (void)dismissEmployee:(KSEmployee *)object {
-    for (NSUInteger index = 0; index < self.staff.count; index++) {
-        KSEmployee *employee = self.staff[index];
-        if ([employee isObservedByObject:object]) {
-            [employee removeObserver:object];
+- (void)addHandlerForStateWaiting:(NSArray *)staff {
+    @synchronized(self) {
+        for (KSEmployee *employee in staff) {
+            [employee addHandler:^ {
+                [self workerIsWaiting:employee];
+            }              state:kKSWorkerStateWaiting
+                          object:self];
         }
     }
-    
-    [self.staff removeObject:object];
-}
-
-- (id)vacantEmployeeWithClass:(Class)class {
-    for (KSEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && employee.state == kKSWorkerStateFree) {
-            
-            return employee;
-        }
-    }
-    
-    return nil;
 }
 
 #pragma mark -
@@ -101,23 +82,20 @@
 
 - (void)washCar:(KSCar *)car {
     @synchronized(self) {
-        [self.queue addObjectToQueue:car];
-        KSCarsWasher *carsWasher =  [self vacantEmployeeWithClass:[KSCarsWasher class]];
-        if (carsWasher) {
-            [carsWasher performWorkWithObject:[self.queue sendTheWorkFirstObjectFromQueue]];
-        }
+        [self.carWashersDispatcher addObject:car];
     }
 }
 
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)workerFinishedWork:(KSCarsWasher *)carsWasher {
-    @synchronized(self) {
-        KSCar *car = [self.queue sendTheWorkFirstObjectFromQueue];
-        if (car) {
-            [carsWasher performWorkWithObject:car];
-        }
+- (void)workerIsWaiting:(KSEmployee *)employee {
+    if ([self.accauntantsDispatcher containsObject:employee]) {
+        [self.bossDispatcher addObject:employee];
+    }
+    
+    if ([self.carWashersDispatcher containsObject:employee]) {
+        [self.accauntantsDispatcher addObject:employee];
     }
 }
 
