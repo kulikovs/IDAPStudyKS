@@ -15,7 +15,6 @@ typedef void(^KSHandlerObject)(void);
 
 @interface KSObserverDictionary : NSObject
 @property (nonatomic, readonly) NSUInteger        state;
-@property (nonatomic, readonly) KSObserverArray   *arrayObject;
 @property (nonatomic, readonly) NSArray           *handlers;
 
 + (instancetype)dictionaryWithState:(NSUInteger)state;

@@ -12,7 +12,7 @@
 
 @interface KSObserverDictionary ()
 @property (nonatomic, assign) NSUInteger        state;
-@property (nonatomic, retain) KSObserverArray   *arrayObject;
+@property (nonatomic, retain) KSObserverArray   *observerArray;
 
 @end
 
@@ -29,8 +29,8 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self.arrayObject removeAllHandlers];
-    self.arrayObject = nil;
+    [self.observerArray removeAllHandlers];
+    self.observerArray = nil;
     
     [super dealloc];
 }
@@ -42,7 +42,7 @@
 - (instancetype)initWithState:(NSUInteger)state {
     self = [super init];
     if (self) {
-        self.arrayObject = [KSObserverArray object];
+        self.observerArray = [KSObserverArray object];
         self.state = state;
     }
     
@@ -53,10 +53,10 @@
 #pragma mark - Accessors
 
 - (NSArray *)handlers {
-    [self.arrayObject removeHandlersForObject:nil];
+    [self.observerArray removeHandlersForObject:nil];
     
     NSMutableArray *handlers = [NSMutableArray array];
-    for (KSObserverObject *object in self.arrayObject.handlers) {
+    for (KSObserverObject *object in self.observerArray.handlers) {
         [handlers addObject:object.handler];
     }
     
@@ -67,11 +67,11 @@
 #pragma mark - Public Methods
 
 - (void)addHandler:(KSHandlerObject)handler object:(id)object {
-    [self.arrayObject addHandler:handler forObject:object];
+    [self.observerArray addHandler:handler forObject:object];
 }
 
 - (void)removeHandlersForObject:(id)object {
-    [self.arrayObject removeHandlersForObject:object];
+    [self.observerArray removeHandlersForObject:object];
 }
 
 @end

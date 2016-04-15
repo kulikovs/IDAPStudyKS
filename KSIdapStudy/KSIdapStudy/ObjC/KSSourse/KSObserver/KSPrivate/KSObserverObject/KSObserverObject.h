@@ -11,8 +11,8 @@
 typedef void(^KSHandlerObject)(void);
 
 @interface KSObserverObject : NSObject
-@property (nonatomic, weak) id                object;
-@property (nonatomic, copy) KSHandlerObject   handler;
+@property (nonatomic, readonly, weak) id                object;
+@property (nonatomic, readonly, copy) KSHandlerObject   handler;
 
 - (instancetype)initWithObject:(id)object handler:(KSHandlerObject)handler NS_DESIGNATED_INITIALIZER;
 

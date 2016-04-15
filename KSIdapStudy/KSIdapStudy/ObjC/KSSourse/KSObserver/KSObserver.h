@@ -16,5 +16,6 @@ typedef void(^KSHandlerObject)(void);
 - (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object;
 - (void)removeHandlersForState:(NSUInteger)state;
 - (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

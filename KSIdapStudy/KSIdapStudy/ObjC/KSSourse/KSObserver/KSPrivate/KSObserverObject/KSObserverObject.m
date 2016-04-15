@@ -8,6 +8,12 @@
 
 #import "KSObserverObject.h"
 
+@interface KSObserverObject ()
+@property (nonatomic, weak) id                object;
+@property (nonatomic, copy) KSHandlerObject   handler;
+
+@end
+
 @implementation KSObserverObject
 
 #pragma mark -

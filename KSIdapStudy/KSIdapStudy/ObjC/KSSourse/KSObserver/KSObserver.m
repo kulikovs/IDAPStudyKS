@@ -46,7 +46,7 @@
         if (_state != state) {
             _state = state;
             
-            [self performHandlersForState:state];
+            [self performHandlersForState:_state];
         }
     }
 }
@@ -59,7 +59,6 @@
         KSObserverDictionary *observerDictionary = [self dictionaryWithState:state];
         
         [observerDictionary addHandler:handler object:object];
-        [self.observers addObject:observerDictionary];
     }
 }
 
@@ -74,6 +73,10 @@
     }
 }
 
+- (void)removeAllHandlers {
+    [self.observers removeAllObjects];
+}
+
 #pragma mark -
 #pragma mark Private Methods
 
@@ -84,7 +87,10 @@
         }
     }
     
-    return [KSObserverDictionary dictionaryWithState:state];
+    KSObserverDictionary *observerDictionary = [KSObserverDictionary dictionaryWithState:state];
+    [self.observers addObject:observerDictionary];
+    
+    return observerDictionary;
 }
 
 - (void)performHandlersForState:(NSUInteger)state {
