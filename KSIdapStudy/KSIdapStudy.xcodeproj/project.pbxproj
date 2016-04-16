@@ -103,6 +103,7 @@
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C96AF3C21CB5A1490019C743 /* KSDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatcher.h; sourceTree = "<group>"; };
 		C96AF3C31CB5A1490019C743 /* KSDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatcher.m; sourceTree = "<group>"; };
+		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C96EF6481CC22E560008FB8D /* KSMacro */,
 				C97088E61C984752003B6E6D /* KSObserver */,
 				C9789FD21C904CD20066530A /* KSEnterprise */,
 				C95CF7E61C84B865001120F7 /* KSAlphabet */,
@@ -283,6 +285,14 @@
 				C96AF3C31CB5A1490019C743 /* KSDispatcher.m */,
 			);
 			path = KSDispatcher;
+			sourceTree = "<group>";
+		};
+		C96EF6481CC22E560008FB8D /* KSMacro */ = {
+			isa = PBXGroup;
+			children = (
+				C96EF6491CC22E560008FB8D /* KSMacro.h */,
+			);
+			path = KSMacro;
 			sourceTree = "<group>";
 		};
 		C97088E61C984752003B6E6D /* KSObserver */ = {
@@ -619,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -630,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
