@@ -14,7 +14,6 @@
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
-- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
 @end
 
@@ -41,25 +40,22 @@
     @synchronized(self) {
         if (object && self.state == kKSWorkerStateFree) {
             self.state = kKSWorkerStateBusy;
-            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                   withObject:object];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                usleep(arc4random_uniform(10000) + 1);
+                [self takeMoney:[object giveMoney]];
+                [self completeWorkingWithObject:object];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self completeWorking];
+                });
+            });
         }
     }
 }
 
 #pragma mark -
 #pragma mark Private Methods
-
-- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
-    @synchronized(self) {
-        usleep(arc4random_uniform(10000) + 1);
-        
-        [self takeMoney:[object giveMoney]];
-        [self completeWorkingWithObject:object];
-        
-        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
-    }
-}
 
 - (void)completeWorkingWithObject:(id)object {
         KSEmployee *emloyee = (KSEmployee *)object;

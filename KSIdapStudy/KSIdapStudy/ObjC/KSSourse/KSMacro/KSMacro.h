@@ -10,18 +10,18 @@
 #ifndef KSOutputType_h
 #define KSOutputType_h
 
-//Language is Objective C
+//Objective C
 
 #define KSWeakSelf(classObject) \
-__weak classObject *weakSelf = self
+    __weak classObject *weakSelf = self
 
 #define KSStrongSelf(ClassObject) \
-__strong ClassObject *strongSelf = weakSelf; \
-if (!strongSelf) { \
-return; \
-}
+    __strong ClassObject *strongSelf = weakSelf; \
+        if (!strongSelf) { \
+            return; \
+    }
 
-//Language is C
+// C
 
 #define KSPrintSizeType(type) \
     printf("Size type "#type" = %lu\n", sizeof(type));
