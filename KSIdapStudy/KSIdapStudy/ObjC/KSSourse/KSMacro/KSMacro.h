@@ -12,11 +12,11 @@
 
 //Objective C
 
-#define KSWeakSelf(classObject) \
-    __weak classObject *weakSelf = self
+#define KSWeakifySelf \
+    __weak id weakSelf = self
 
-#define KSStrongSelf(ClassObject) \
-    __strong ClassObject *strongSelf = weakSelf; \
+#define KSStrongifySelfAndReturnIfNil \
+    __strong id strongSelf = weakSelf; \
         if (!strongSelf) { \
             return; \
     }

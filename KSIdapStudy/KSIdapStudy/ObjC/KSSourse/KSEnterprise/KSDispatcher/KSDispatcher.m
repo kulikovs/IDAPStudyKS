@@ -57,10 +57,10 @@
         
         for (KSEmployee *employee in staff) {
             
-            KSWeakSelf(KSDispatcher);
+            KSWeakifySelf;
             [employee addHandler:^ {
-                KSStrongSelf(KSDispatcher);
-                [self workerFinishedWork:employee];
+                KSStrongifySelfAndReturnIfNil;
+                [strongSelf workerFinishedWork:employee];
             }              state:kKSWorkerStateFree
                           object:self];
         }

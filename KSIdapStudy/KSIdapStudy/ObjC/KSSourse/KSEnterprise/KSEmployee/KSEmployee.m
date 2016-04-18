@@ -8,6 +8,9 @@
 
 #import "KSEmployee.h"
 #import "KSQueue.h"
+#import "KSDispatch.h"
+
+typedef void(^KSHandlerObject)(void);
 
 @interface KSEmployee ()
 @property (nonatomic, retain) KSQueue *queue;
@@ -40,14 +43,16 @@
     @synchronized(self) {
         if (object && self.state == kKSWorkerStateFree) {
             self.state = kKSWorkerStateBusy;
+            KSWeakifySelf;
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            KSDispatchAsyncInBackground( ^{
+                KSStrongifySelfAndReturnIfNil;
                 usleep(arc4random_uniform(10000) + 1);
-                [self takeMoney:[object giveMoney]];
-                [self completeWorkingWithObject:object];
+                [strongSelf takeMoney:[object giveMoney]];
+                [strongSelf completeWorkingWithObject:object];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self completeWorking];
+                KSDispatchAsyncOnMainThred( ^{
+                    [strongSelf completeWorking];
                 });
             });
         }
