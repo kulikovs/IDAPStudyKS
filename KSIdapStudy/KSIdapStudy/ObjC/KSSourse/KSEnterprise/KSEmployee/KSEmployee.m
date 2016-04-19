@@ -8,13 +8,15 @@
 
 #import "KSEmployee.h"
 #import "KSQueue.h"
+#import "KSDispatch.h"
+
+typedef void(^KSHandlerObject)(void);
 
 @interface KSEmployee ()
 @property (nonatomic, retain) KSQueue *queue;
 
 - (void)completeWorkingWithObject:(id)object;
 - (void)completeWorking;
-- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object;
 
 @end
 
@@ -41,25 +43,24 @@
     @synchronized(self) {
         if (object && self.state == kKSWorkerStateFree) {
             self.state = kKSWorkerStateBusy;
-            [self performSelectorInBackground:@selector(performWorkWithObjectInBackground:)
-                                   withObject:object];
+            KSWeakifySelf;
+            
+            KSDispatchAsyncInBackground( ^{
+                KSStrongifySelfAndReturnIfNil;
+                usleep(arc4random_uniform(10000) + 1);
+                [strongSelf takeMoney:[object giveMoney]];
+                [strongSelf completeWorkingWithObject:object];
+                
+                KSDispatchAsyncOnMainThred( ^{
+                    [strongSelf completeWorking];
+                });
+            });
         }
     }
 }
 
 #pragma mark -
 #pragma mark Private Methods
-
-- (void)performWorkWithObjectInBackground:(id<KSMoneyProtocol>)object {
-    @synchronized(self) {
-        usleep(arc4random_uniform(10000) + 1);
-        
-        [self takeMoney:[object giveMoney]];
-        [self completeWorkingWithObject:object];
-        
-        [self performSelectorOnMainThread:@selector(completeWorking) withObject:nil waitUntilDone:NO];
-    }
-}
 
 - (void)completeWorkingWithObject:(id)object {
         KSEmployee *emloyee = (KSEmployee *)object;

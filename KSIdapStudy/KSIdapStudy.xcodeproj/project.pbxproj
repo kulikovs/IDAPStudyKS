@@ -18,6 +18,7 @@
 		C94494651CB166100082145C /* TestKSCarWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C94494641CB166100082145C /* TestKSCarWasher.m */; };
 		C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
 		C94C670E1C775F0A00B59836 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
+		C94F38E01CC51E30006229E1 /* KSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F38DF1CC51E30006229E1 /* KSDispatch.m */; };
 		C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */; };
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C95CF7E91C84B883001120F7 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C95CF7E81C84B883001120F7 /* KSAlphabet.m */; };
@@ -94,6 +95,8 @@
 		C94C67051C775F0A00B59836 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
 		C94C67061C775F0A00B59836 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
 		C94C670B1C775F0A00B59836 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C94F38DE1CC51E30006229E1 /* KSDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatch.h; sourceTree = "<group>"; };
+		C94F38DF1CC51E30006229E1 /* KSDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatch.m; sourceTree = "<group>"; };
 		C95BED3B1C79C6BF00E853F6 /* KSCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureMale.h; sourceTree = "<group>"; };
 		C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureMale.m; sourceTree = "<group>"; };
 		C95BED3E1C79C6DE00E853F6 /* KSCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureFemale.h; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C96AF3C21CB5A1490019C743 /* KSDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatcher.h; sourceTree = "<group>"; };
 		C96AF3C31CB5A1490019C743 /* KSDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatcher.m; sourceTree = "<group>"; };
+		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C94F38D81CC51D97006229E1 /* KSDispatch */,
+				C96EF6481CC22E560008FB8D /* KSMacro */,
 				C97088E61C984752003B6E6D /* KSObserver */,
 				C9789FD21C904CD20066530A /* KSEnterprise */,
 				C95CF7E61C84B865001120F7 /* KSAlphabet */,
@@ -246,6 +252,15 @@
 				C94C67061C775F0A00B59836 /* KSCreature.h */,
 			);
 			path = KSCreature;
+			sourceTree = "<group>";
+		};
+		C94F38D81CC51D97006229E1 /* KSDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				C94F38DE1CC51E30006229E1 /* KSDispatch.h */,
+				C94F38DF1CC51E30006229E1 /* KSDispatch.m */,
+			);
+			path = KSDispatch;
 			sourceTree = "<group>";
 		};
 		C95BED391C79C67F00E853F6 /* KSCreatureMale */ = {
@@ -283,6 +298,14 @@
 				C96AF3C31CB5A1490019C743 /* KSDispatcher.m */,
 			);
 			path = KSDispatcher;
+			sourceTree = "<group>";
+		};
+		C96EF6481CC22E560008FB8D /* KSMacro */ = {
+			isa = PBXGroup;
+			children = (
+				C96EF6491CC22E560008FB8D /* KSMacro.h */,
+			);
+			path = KSMacro;
 			sourceTree = "<group>";
 		};
 		C97088E61C984752003B6E6D /* KSObserver */ = {
@@ -552,6 +575,7 @@
 				C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */,
 				C98021671C88EC07004D19DC /* KSAlphabetRange.m in Sources */,
 				C93F0E671C95A55B00DB3FEC /* KSBoss.m in Sources */,
+				C94F38E01CC51E30006229E1 /* KSDispatch.m in Sources */,
 				C93F0E6C1C95A59D00DB3FEC /* KSAccountant.m in Sources */,
 				C97088E91C98476F003B6E6D /* KSObserver.m in Sources */,
 				C96AF3C41CB5A1490019C743 /* KSDispatcher.m in Sources */,
@@ -619,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -630,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/KSIdapStudy/ObjC/Supporting Files/KSIdapStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

@@ -56,8 +56,11 @@
         _staff = staff;
         
         for (KSEmployee *employee in staff) {
+            
+            KSWeakifySelf;
             [employee addHandler:^ {
-                [self workerFinishedWork:employee];
+                KSStrongifySelfAndReturnIfNil;
+                [strongSelf workerFinishedWork:employee];
             }              state:kKSWorkerStateFree
                           object:self];
         }
@@ -72,14 +75,12 @@
 }
 
 - (void)addObject:(id)object {
- //   @synchronized(self) {
         if (object) {
             [self.queue pushObject:object];
             KSEmployee *employee =  [self vacantEmployee];
             
             if (employee) {
                 [employee performWorkWithObject:[self.queue popObject]];
-      //      }
         }
     }
 }

@@ -69,8 +69,11 @@ static const NSUInteger kKSCarWasherCount      = 2;
 - (void)addHandlerForStateWaiting:(NSArray *)staff {
     @synchronized(self) {
         for (KSEmployee *employee in staff) {
+            
+            KSWeakifySelf;
             [employee addHandler:^ {
-                [self workerIsWaiting:employee];
+                KSStrongifySelfAndReturnIfNil;
+                [strongSelf workerIsWaiting:employee];
             }              state:kKSWorkerStateWaiting
                           object:self];
         }
