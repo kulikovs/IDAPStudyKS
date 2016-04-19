@@ -30,9 +30,11 @@ void KSDispatchAsyncOnMainThred(KSHandlerObject handler) {
 }
 
 void KSDispatchSyncWithPriority(KSDispatchPriority priority, KSHandlerObject handler) {
-    dispatch_async(KSQueueWithPriority(priority), ^{
+    if ([NSThread mainThread]) {
+        dispatch_async(KSQueueWithPriority(priority), handler);
+    } else {
         dispatch_sync(KSQueueWithPriority(priority), handler);
-    });
+    }
 }
 
 void KSDispatchSyncInBackground(KSHandlerObject handler) {
@@ -42,7 +44,6 @@ void KSDispatchSyncInBackground(KSHandlerObject handler) {
 void KSDispatchSyncOnMainThred(KSHandlerObject handler) {
     KSDispatchSyncWithPriority(kKSPriorityMain, handler);
 }
-
 
 #pragma mark -
 #pragma mark Private Implementations
