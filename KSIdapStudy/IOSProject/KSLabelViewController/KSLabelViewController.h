@@ -1,0 +1,14 @@
+//
+//  KSLabelViewController.h
+//  KSIdapStudy
+//
+//  Created by KulikovS on 20.04.16.
+//  Copyright © 2016 KulikovS. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface KSLabelViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIView *viewTest;
+
+@end
