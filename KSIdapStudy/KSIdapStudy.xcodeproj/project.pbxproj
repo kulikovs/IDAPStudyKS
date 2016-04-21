@@ -30,9 +30,9 @@
 		C96B76231CC939D200EFB76A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96B761A1CC939D200EFB76A /* Assets.xcassets */; };
 		C96B76241CC939D200EFB76A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96B761B1CC939D200EFB76A /* LaunchScreen.storyboard */; };
 		C96B76251CC939D200EFB76A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96B761D1CC939D200EFB76A /* Main.storyboard */; };
-		C96B76261CC939D200EFB76A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96B761F1CC939D200EFB76A /* Info.plist */; };
 		C96B76271CC939D200EFB76A /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B76211CC939D200EFB76A /* KSAppDelegate.m */; };
 		C96B76281CC939D200EFB76A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B76221CC939D200EFB76A /* main.m */; };
+		C96B762A1CC93CA300EFB76A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96B76291CC93CA300EFB76A /* Info.plist */; };
 		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
@@ -121,10 +121,10 @@
 		C96B761A1CC939D200EFB76A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C96B761C1CC939D200EFB76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96B761E1CC939D200EFB76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C96B761F1CC939D200EFB76A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96B76201CC939D200EFB76A /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
 		C96B76211CC939D200EFB76A /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
 		C96B76221CC939D200EFB76A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C96B76291CC93CA300EFB76A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IOSProject/Info.plist; sourceTree = SOURCE_ROOT; };
 		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
@@ -351,9 +351,9 @@
 				C96B761A1CC939D200EFB76A /* Assets.xcassets */,
 				C96B761B1CC939D200EFB76A /* LaunchScreen.storyboard */,
 				C96B761D1CC939D200EFB76A /* Main.storyboard */,
-				C96B761F1CC939D200EFB76A /* Info.plist */,
 				C96B76201CC939D200EFB76A /* KSAppDelegate.h */,
 				C96B76211CC939D200EFB76A /* KSAppDelegate.m */,
+				C96B76291CC93CA300EFB76A /* Info.plist */,
 				C96B76221CC939D200EFB76A /* main.m */,
 			);
 			path = "Supporting Files";
@@ -646,7 +646,7 @@
 				C96B76241CC939D200EFB76A /* LaunchScreen.storyboard in Resources */,
 				C96B76231CC939D200EFB76A /* Assets.xcassets in Resources */,
 				C942D3C81CC7C80D00D8FE84 /* KSLabelViewController.xib in Resources */,
-				C96B76261CC939D200EFB76A /* Info.plist in Resources */,
+				C96B762A1CC93CA300EFB76A /* Info.plist in Resources */,
 				C96B76251CC939D200EFB76A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
