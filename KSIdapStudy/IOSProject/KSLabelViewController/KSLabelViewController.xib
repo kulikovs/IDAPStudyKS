@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSLabelViewController">
             <connections>
-                <outlet property="uiViewTest" destination="I5y-x8-Ult" id="sft-NA-LCk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="ZqK-9r-cuY"/>
             </connections>
         </placeholder>
