@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class KSLabelView;
+
 @interface KSLabelViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UIView *viewTest;
+
+- (IBAction)onClickAnimationButton:(id)sender;
+- (IBAction)onClickStepButton:(id)sender;
 
 @end

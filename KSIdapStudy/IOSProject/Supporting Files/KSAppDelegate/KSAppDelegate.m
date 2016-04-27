@@ -20,7 +20,9 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [KSLabelViewController new];
+    [window makeKeyAndVisible];
+    
+    window.rootViewController = [KSLabelViewController controllerFromNib];
     
     return YES;
 }
