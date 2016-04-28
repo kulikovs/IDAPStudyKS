@@ -37,7 +37,7 @@
                     <color key="backgroundColor" red="0.6019750284302946" green="1" blue="0.46122631706513517" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GcZ-Km-GDE">
-                    <rect key="frame" x="40" y="480" width="70" height="30"/>
+                    <rect key="frame" x="35" y="480" width="70" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.99208575487136841" green="0.99208134412765503" blue="0.9962114691734314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -53,7 +53,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wpA-dW-I3z">
-                    <rect key="frame" x="227" y="480" width="70" height="30"/>
+                    <rect key="frame" x="215" y="480" width="70" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.99208575487136841" green="0.99208134412765503" blue="0.9962114691734314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>

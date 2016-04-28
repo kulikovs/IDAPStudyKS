@@ -10,6 +10,8 @@
 
 static const CGFloat kKSAnimationDuration = 0.8;
 
+typedef void (^KSLabelHandler)(void);
+
 @interface KSLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
 
@@ -28,7 +30,6 @@ static const CGFloat kKSAnimationDuration = 0.8;
 - (void)setSquarePosition:(NSUInteger)squarePosition {
     [self setSquarePosition:squarePosition animated:NO];
 }
-
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
@@ -71,15 +72,15 @@ static const CGFloat kKSAnimationDuration = 0.8;
 }
 
 - (CGRect)frameForSquarePosition:(KSLabelLocation)position {
-    CGFloat subViewHeight = self.subView.frame.size.height;
-    CGFloat subViewWidht = self.subView.frame.size.width;
-    CGFloat labelWidth = self.label.frame.size.width;
-    CGFloat labelHeight = self.label.frame.size.height;
+    CGFloat subViewHeight   = self.subView.frame.size.height;
+    CGFloat subViewWidht    = self.subView.frame.size.width;
+    CGFloat labelWidth      = self.label.frame.size.width;
+    CGFloat labelHeight     = self.label.frame.size.height;
     
     CGFloat pointX = 0;
     CGFloat pointY = 0;
     
-    CGFloat pointWidht = subViewWidht - labelWidth;
+    CGFloat pointWidht  = subViewWidht - labelWidth;
     CGFloat pointHeight = subViewHeight - labelHeight;
     
     switch (position) {

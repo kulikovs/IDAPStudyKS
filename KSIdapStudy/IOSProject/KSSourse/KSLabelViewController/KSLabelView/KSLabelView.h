@@ -15,8 +15,6 @@ typedef enum KSLabelLocation : NSUInteger {
     kKSLabelLowerRightLocation
 } KSLabelLocation;
 
-typedef void (^KSLabelHandler)(void);
-
 @interface KSLabelView : UIView
 @property (nonatomic, strong) IBOutlet UIView   *subView;
 @property (nonatomic, strong) IBOutlet UILabel  *label;
