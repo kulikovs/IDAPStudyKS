@@ -33,7 +33,8 @@ typedef void (^KSLabelHandler)(void);
 
 - (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
-        [self setSquarePosition:squarePosition animated:animated handler:nil];
+        [self setSquarePosition:squarePosition animated:self.animationSwitch.on ? YES : NO
+                        handler:nil];
     }
 }
 
@@ -49,6 +50,11 @@ typedef void (^KSLabelHandler)(void);
                          }
                          
                          _squarePosition = squarePosition;
+                         
+                         if (self.motionLoopSwitch.on) {
+                             [self setSquarePosition:[self nextSquarePosition:self.squarePosition]
+                                            animated:animated];
+                         }
                      }];
 }
 
@@ -103,6 +109,14 @@ typedef void (^KSLabelHandler)(void);
 
 - (void)moveLabelWithAnimated:(BOOL)animated {
     [self setSquarePosition:[self nextSquarePosition:self.squarePosition] animated:animated];
+}
+
+- (void)changeNameForAnimationSwitch {
+
+}
+
+- (void)changeNameForLoopSwitch {
+
 }
 
 @end

@@ -89,6 +89,9 @@
                         <bool key="isElement" value="YES"/>
                     </accessibility>
                     <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onAnimationSwitch:" destination="-1" eventType="touchUpInside" id="lJN-H1-Wpr"/>
+                    </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion loop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z0P-19-fhf">
                     <rect key="frame" x="35" y="437" width="250" height="31"/>
@@ -108,11 +111,18 @@
                     <rect key="frame" x="236" y="437" width="51" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onMotionLoopSwitch:" destination="-1" eventType="touchUpInside" id="9qH-EZ-cSY"/>
+                    </connections>
                 </switch>
             </subviews>
             <color key="backgroundColor" red="0.71426417415252219" green="0.77065877393829463" blue="1" alpha="0.74005429964539005" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="animationLabel" destination="qfd-Hc-vB1" id="3hh-ti-Vny"/>
+                <outlet property="animationSwitch" destination="Yqd-xT-ViZ" id="xW3-BU-KBH"/>
                 <outlet property="label" destination="pUy-rV-dZB" id="a7N-YE-aSa"/>
+                <outlet property="motionLoopLabel" destination="Z0P-19-fhf" id="dJ1-Fh-pm1"/>
+                <outlet property="motionLoopSwitch" destination="Mw4-1A-nZK" id="iNA-LI-9Ex"/>
                 <outlet property="subView" destination="I5y-x8-Ult" id="koa-yI-t9h"/>
             </connections>
             <point key="canvasLocation" x="552" y="307"/>
