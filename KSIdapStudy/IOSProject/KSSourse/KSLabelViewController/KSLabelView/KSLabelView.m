@@ -8,7 +8,7 @@
 
 #import "KSLabelView.h"
 
-static const CGFloat kKSAnimationDuration = 0.1;
+static const CGFloat kKSAnimationDuration = 2;
 
 @interface KSLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
@@ -47,7 +47,7 @@ static const CGFloat kKSAnimationDuration = 0.1;
                              handler();
                          }
                          
-                         [self setSquarePosition:squarePosition];
+                         _squarePosition = squarePosition;
                      }];
 }
 
@@ -71,18 +71,23 @@ static const CGFloat kKSAnimationDuration = 0.1;
 }
 
 - (CGRect)frameForSquarePosition:(KSLabelLocation)position {
+    CGFloat subViewHeight = self.subView.frame.size.height;
+    CGFloat subViewWidht = self.subView.frame.size.width;
+    CGFloat labelWidth = self.label.frame.size.width;
+    CGFloat labelHeight = self.label.frame.size.height;
+    
     switch (position) {
         case kKSLabelUpperLeftLocation:
-            return CGRectMake(0, 100, self.label.frame.size.width, self.label.frame.size.height);
+            return CGRectMake(0, 0, labelWidth, labelHeight);
             
         case kKSLabelUpperRightLocation:
-            return CGRectMake(100, 200, self.label.frame.size.width, self.label.frame.size.height);;
+            return CGRectMake(subViewWidht - labelWidth, subViewHeight-subViewHeight, labelWidth, labelHeight);
             
         case kKSLabelLowerRightLocation:
-            return CGRectMake(0, 100, self.label.frame.size.width, self.label.frame.size.height);;
+            return CGRectMake(subViewWidht - labelWidth, subViewHeight - labelWidth, labelWidth, labelHeight);
             
         default:
-            return CGRectMake(0, 100, self.label.frame.size.width, self.label.frame.size.height);;
+            return CGRectMake(0, subViewWidht - labelWidth, labelWidth, labelHeight);
     }
 }
 
@@ -90,7 +95,7 @@ static const CGFloat kKSAnimationDuration = 0.1;
 #pragma mark Public Implementations
 
 - (void)moveLabelWithAnimated:(BOOL)animated {
-    self.squarePosition = [self nextSquarePosition:self.squarePosition];
+    [self setSquarePosition:[self nextSquarePosition:self.squarePosition] animated:animated];
 }
 
 @end
