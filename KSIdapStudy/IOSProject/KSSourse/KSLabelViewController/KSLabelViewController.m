@@ -34,10 +34,6 @@
     [self.rootView moveLabelWithAnimated:YES];
 }
 
-- (IBAction)onClickStepButton:(id)sender {
-    [self.rootView moveLabelWithAnimated:NO];
-}
-
 - (IBAction)onAnimationSwitch:(id)sender {
     [self.rootView changeNameForAnimationSwitch];
 }
