@@ -38,4 +38,12 @@
     [self.rootView moveLabelWithAnimated:NO];
 }
 
+- (IBAction)onAnimationSwitch:(id)sender {
+    [self.rootView changeNameForAnimationSwitch];
+}
+
+- (IBAction)onMotionLoopSwitch:(id)sender {
+    [self.rootView changeNameForLoopSwitch];
+}
+
 @end
