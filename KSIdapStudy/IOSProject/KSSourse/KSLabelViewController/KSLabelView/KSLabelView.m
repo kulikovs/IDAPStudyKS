@@ -8,7 +8,7 @@
 
 #import "KSLabelView.h"
 
-static const CGFloat kKSAnimationDuration = 2;
+static const CGFloat kKSAnimationDuration = 0.8;
 
 @interface KSLabelView ()
 @property (nonatomic, assign) NSUInteger squarePosition;
@@ -76,18 +76,24 @@ static const CGFloat kKSAnimationDuration = 2;
     CGFloat labelWidth = self.label.frame.size.width;
     CGFloat labelHeight = self.label.frame.size.height;
     
+    CGFloat pointX = 0;
+    CGFloat pointY = 0;
+    
+    CGFloat pointWidht = subViewWidht - labelWidth;
+    CGFloat pointHeight = subViewHeight - labelHeight;
+    
     switch (position) {
         case kKSLabelUpperLeftLocation:
-            return CGRectMake(0, 0, labelWidth, labelHeight);
+            return CGRectMake(pointX, pointY, labelWidth, labelHeight);
             
         case kKSLabelUpperRightLocation:
-            return CGRectMake(subViewWidht - labelWidth, subViewHeight-subViewHeight, labelWidth, labelHeight);
+            return CGRectMake(pointWidht, pointY, labelWidth, labelHeight);
             
         case kKSLabelLowerRightLocation:
-            return CGRectMake(subViewWidht - labelWidth, subViewHeight - labelWidth, labelWidth, labelHeight);
+            return CGRectMake(pointWidht, pointHeight, labelWidth, labelHeight);
             
         default:
-            return CGRectMake(0, subViewWidht - labelWidth, labelWidth, labelHeight);
+            return CGRectMake(pointX, pointHeight, labelWidth, labelHeight);
     }
 }
 
