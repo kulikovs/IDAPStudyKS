@@ -100,11 +100,9 @@
 		C92539691CD095CE0060760E /* KSLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSLabelViewController.xib; sourceTree = "<group>"; };
 		C925396E1CD095DA0060760E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C92539701CD095DA0060760E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C92539721CD095DA0060760E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C92539741CD095DA0060760E /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
 		C92539751CD095DA0060760E /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
 		C92539761CD095DA0060760E /* KSIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIOSProject-Prefix.pch"; sourceTree = "<group>"; };
-		C92539771CD095DA0060760E /* KSMacroForIOSProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacroForIOSProject.h; sourceTree = "<group>"; };
 		C92539781CD095DA0060760E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C925397E1CD095E50060760E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IOSProject/Info.plist; sourceTree = SOURCE_ROOT; };
 		C93D4C911CB0557A00E832A7 /* KSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSQueue.h; sourceTree = "<group>"; };
@@ -166,6 +164,7 @@
 		C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserverArray.m; sourceTree = "<group>"; };
 		C9D7BCDC1CBE786800F5DE57 /* KSObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverObject.h; sourceTree = "<group>"; };
 		C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserverObject.m; sourceTree = "<group>"; };
+		C9E0109B1CD22A6800473F9B /* KSMacroForIOSProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacroForIOSProject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +214,7 @@
 		C92539621CD095CE0060760E /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C9E0109A1CD22A1100473F9B /* KSMacroForIOSProject */,
 				C92539631CD095CE0060760E /* KSLabelViewController */,
 			);
 			path = KSSourse;
@@ -247,9 +247,7 @@
 				C925397E1CD095E50060760E /* Info.plist */,
 				C925396E1CD095DA0060760E /* Assets.xcassets */,
 				C925396F1CD095DA0060760E /* LaunchScreen.storyboard */,
-				C92539711CD095DA0060760E /* Main.storyboard */,
 				C92539761CD095DA0060760E /* KSIOSProject-Prefix.pch */,
-				C92539771CD095DA0060760E /* KSMacroForIOSProject.h */,
 				C92539781CD095DA0060760E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -573,6 +571,14 @@
 			path = KSObserverObject;
 			sourceTree = "<group>";
 		};
+		C9E0109A1CD22A1100473F9B /* KSMacroForIOSProject */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0109B1CD22A6800473F9B /* KSMacroForIOSProject.h */,
+			);
+			path = KSMacroForIOSProject;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -801,14 +807,6 @@
 				C92539701CD095DA0060760E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		C92539711CD095DA0060760E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C92539721CD095DA0060760E /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

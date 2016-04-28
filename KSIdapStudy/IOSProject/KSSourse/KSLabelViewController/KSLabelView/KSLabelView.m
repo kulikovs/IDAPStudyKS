@@ -8,14 +8,42 @@
 
 #import "KSLabelView.h"
 
+@interface KSLabelView ()
+@property (nonatomic, assign) NSUInteger squarePosition;
+
+- (KSLabelLocation)nextSquarePosition:(KSLabelLocation)position;
+
+@end
+
 @implementation KSLabelView
 
-- (void)moveLabel {
+
+#pragma mark -
+#pragma mark Private Implementations
+
+- (KSLabelLocation)nextSquarePosition:(KSLabelLocation)position {
+    switch (self.squarePosition) {
+        case kKSLabelUpperLeftLocation:
+            return kKSLabelUpperRightLocation;
+            
+        case kKSLabelUpperRightLocation:
+            return kKSLabelLowerRightLocation;
+            
+        case kKSLabelLowerRightLocation:
+            return kKSLabelLowerLeftLocation;
+            
+        default:
+            return kKSLabelUpperLeftLocation;
+    }
+}
+
+#pragma mark -
+#pragma mark Public Implementations
+
+- (void)moveLabelWithAnimated:(BOOL)animated {
 
 }
 
-- (void)animateLabel {
 
-}
 
 @end

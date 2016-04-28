@@ -10,7 +10,6 @@
 
 @interface NSObject (KSObject)
 
-+ (instancetype)object;
 + (NSArray *)objectsWithCount:(NSUInteger)count;
 
 @end

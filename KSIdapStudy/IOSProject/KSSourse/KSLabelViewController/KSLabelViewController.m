@@ -10,7 +10,7 @@
 #import "KSLabelView.h"
 
 @interface KSLabelViewController ()
-@property (nonatomic, strong) IBOutlet KSLabelView *rootView;
+@property (nonatomic, readonly) IBOutlet KSLabelView *rootView;
 
 @end
 
@@ -19,17 +19,23 @@
 #pragma mark -
 #pragma mark Accessors
 
-KSRootViewAndReturnNilMacro(KSLabelView);
-
+- (KSLabelView *)rootView {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[KSLabelView class]]) {
+        return (KSLabelView *)self.view;
+    }
+    
+    return nil;
+}
 
 #pragma mark -
 #pragma mark Handling Interface
 
 - (IBAction)onClickAnimationButton:(id)sender {
-    [self.rootView animateLabel];
+    [self.rootView moveLabelWithAnimated:YES];
 }
 
 - (IBAction)onClickStepButton:(id)sender {
-    [self.rootView moveLabel];
+    [self.rootView moveLabelWithAnimated:NO];
 }
+
 @end

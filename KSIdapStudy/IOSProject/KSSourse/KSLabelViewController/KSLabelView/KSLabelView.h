@@ -21,7 +21,6 @@ typedef void (^KSLabelHandler)(void);
 @property (nonatomic, strong) IBOutlet UIView   *subView;
 @property (nonatomic, strong) IBOutlet UILabel  *label;
 
-- (void)moveLabel;
-- (void)animateLabel;
+- (void)moveLabelWithAnimated:(BOOL)animated;
 
 @end
