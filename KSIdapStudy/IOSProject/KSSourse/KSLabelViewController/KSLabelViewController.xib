@@ -102,10 +102,8 @@
             </subviews>
             <color key="backgroundColor" red="0.71426417415252219" green="0.77065877393829463" blue="1" alpha="0.74005429964539005" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="animationLabel" destination="qfd-Hc-vB1" id="3hh-ti-Vny"/>
                 <outlet property="animationSwitch" destination="Yqd-xT-ViZ" id="xW3-BU-KBH"/>
                 <outlet property="label" destination="pUy-rV-dZB" id="a7N-YE-aSa"/>
-                <outlet property="motionLoopLabel" destination="Z0P-19-fhf" id="dJ1-Fh-pm1"/>
                 <outlet property="motionLoopSwitch" destination="Mw4-1A-nZK" id="iNA-LI-9Ex"/>
                 <outlet property="subView" destination="I5y-x8-Ult" id="koa-yI-t9h"/>
             </connections>

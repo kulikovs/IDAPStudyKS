@@ -31,15 +31,15 @@
 #pragma mark Handling Interface
 
 - (IBAction)onClickAnimationButton:(id)sender {
-    [self.rootView moveLabelWithAnimated:YES];
+    [self.rootView moveLabel];
 }
 
 - (IBAction)onAnimationSwitch:(id)sender {
-    [self.rootView changeNameForAnimationSwitch];
+
 }
 
 - (IBAction)onMotionLoopSwitch:(id)sender {
-    [self.rootView changeNameForLoopSwitch];
+
 }
 
 @end

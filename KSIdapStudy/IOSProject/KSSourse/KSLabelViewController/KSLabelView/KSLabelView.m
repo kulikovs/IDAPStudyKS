@@ -103,16 +103,8 @@ static const CGFloat kKSAnimationDuration = 0.8;
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)moveLabelWithAnimated:(BOOL)animated {
-    [self setSquarePosition:[self nextSquarePosition] animated:animated];
-}
-
-- (void)changeNameForAnimationSwitch {
-
-}
-
-- (void)changeNameForLoopSwitch {
-
+- (void)moveLabel {
+    [self setSquarePosition:[self nextSquarePosition]];
 }
 
 @end

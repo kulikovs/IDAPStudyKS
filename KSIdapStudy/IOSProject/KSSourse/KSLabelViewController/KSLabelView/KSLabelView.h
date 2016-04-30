@@ -23,16 +23,12 @@ typedef void (^KSLabelHandler)(void);
 
 @property (nonatomic, strong) IBOutlet UISwitch *animationSwitch;
 @property (nonatomic, strong) IBOutlet UISwitch *motionLoopSwitch;
-@property (nonatomic, strong) IBOutlet UILabel  *motionLoopLabel;
-@property (nonatomic, strong) IBOutlet UILabel  *animationLabel;
 
 - (void)setSquarePosition:(KSLabelLocation)squarePosition animated:(BOOL)animated;
 - (void)setSquarePosition:(KSLabelLocation)squarePosition
                  animated:(BOOL)animated
                   handler:(KSLabelHandler)handler;
 
-- (void)moveLabelWithAnimated:(BOOL)animated;
-- (void)changeNameForAnimationSwitch;
-- (void)changeNameForLoopSwitch;
+- (void)moveLabel;
 
 @end
