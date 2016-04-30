@@ -10,15 +10,11 @@
 
 static const CGFloat kKSAnimationDuration = 0.8;
 
-typedef void (^KSLabelHandler)(void);
-
 @interface KSLabelView ()
-@property (nonatomic, assign) NSUInteger squarePosition;
+@property (nonatomic, assign) KSLabelLocation squarePosition;
 
-- (KSLabelLocation)nextSquarePosition:(KSLabelLocation)position;
+- (KSLabelLocation)nextSquarePosition;
 - (CGRect)frameForSquarePosition:(KSLabelLocation)position;
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated;
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated handler:(KSLabelHandler)handler;
 
 @end
 
@@ -27,18 +23,20 @@ typedef void (^KSLabelHandler)(void);
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquarePosition:(NSUInteger)squarePosition {
+- (void)setSquarePosition:(KSLabelLocation)squarePosition {
     [self setSquarePosition:squarePosition animated:NO];
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
+- (void)setSquarePosition:(KSLabelLocation)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
-        [self setSquarePosition:squarePosition animated:self.animationSwitch.on ? YES : NO
-                        handler:nil];
+        [self setSquarePosition:squarePosition animated:animated handler:nil];
     }
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated handler:(KSLabelHandler)handler {
+- (void)setSquarePosition:(KSLabelLocation)squarePosition
+                 animated:(BOOL)animated
+                  handler:(KSLabelHandler)handler
+{
     [UIView animateWithDuration: animated ? kKSAnimationDuration : 0
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
@@ -52,8 +50,8 @@ typedef void (^KSLabelHandler)(void);
                          _squarePosition = squarePosition;
                          
                          if (self.motionLoopSwitch.on) {
-                             [self setSquarePosition:[self nextSquarePosition:self.squarePosition]
-                                            animated:animated];
+                             [self setSquarePosition:[self nextSquarePosition]
+                                            animated:self.animationSwitch.on];
                          }
                      }];
 }
@@ -61,7 +59,7 @@ typedef void (^KSLabelHandler)(void);
 #pragma mark -
 #pragma mark Private Implementations
 
-- (KSLabelLocation)nextSquarePosition:(KSLabelLocation)position {
+- (KSLabelLocation)nextSquarePosition {
     switch (self.squarePosition) {
         case kKSLabelUpperLeftLocation:
             return kKSLabelUpperRightLocation;
@@ -78,29 +76,27 @@ typedef void (^KSLabelHandler)(void);
 }
 
 - (CGRect)frameForSquarePosition:(KSLabelLocation)position {
-    CGFloat subViewHeight   = self.subView.frame.size.height;
-    CGFloat subViewWidht    = self.subView.frame.size.width;
-    CGFloat labelWidth      = self.label.frame.size.width;
-    CGFloat labelHeight     = self.label.frame.size.height;
-    
+    CGSize subViewSize = self.subView.frame.size;
+    CGSize labelSize = self.label.frame.size;
+
     CGFloat pointX = 0;
     CGFloat pointY = 0;
     
-    CGFloat pointWidht  = subViewWidht - labelWidth;
-    CGFloat pointHeight = subViewHeight - labelHeight;
+    CGFloat pointWidht  = subViewSize.width - labelSize.width;
+    CGFloat pointHeight = subViewSize.height - labelSize.height;
     
     switch (position) {
         case kKSLabelUpperLeftLocation:
-            return CGRectMake(pointX, pointY, labelWidth, labelHeight);
+            return CGRectMake(pointX, pointY, labelSize.width, labelSize.height);
             
         case kKSLabelUpperRightLocation:
-            return CGRectMake(pointWidht, pointY, labelWidth, labelHeight);
+            return CGRectMake(pointWidht, pointY, labelSize.width, labelSize.height);
             
         case kKSLabelLowerRightLocation:
-            return CGRectMake(pointWidht, pointHeight, labelWidth, labelHeight);
+            return CGRectMake(pointWidht, pointHeight, labelSize.width, labelSize.height);
             
         default:
-            return CGRectMake(pointX, pointHeight, labelWidth, labelHeight);
+            return CGRectMake(pointX, pointHeight, labelSize.width, labelSize.height);
     }
 }
 
@@ -108,7 +104,7 @@ typedef void (^KSLabelHandler)(void);
 #pragma mark Public Implementations
 
 - (void)moveLabelWithAnimated:(BOOL)animated {
-    [self setSquarePosition:[self nextSquarePosition:self.squarePosition] animated:animated];
+    [self setSquarePosition:[self nextSquarePosition] animated:animated];
 }
 
 - (void)changeNameForAnimationSwitch {

@@ -15,6 +15,8 @@ typedef enum KSLabelLocation : NSUInteger {
     kKSLabelLowerRightLocation
 } KSLabelLocation;
 
+typedef void (^KSLabelHandler)(void);
+
 @interface KSLabelView : UIView
 @property (nonatomic, strong) IBOutlet UIView   *subView;
 @property (nonatomic, strong) IBOutlet UILabel  *label;
@@ -23,6 +25,11 @@ typedef enum KSLabelLocation : NSUInteger {
 @property (nonatomic, strong) IBOutlet UISwitch *motionLoopSwitch;
 @property (nonatomic, strong) IBOutlet UILabel  *motionLoopLabel;
 @property (nonatomic, strong) IBOutlet UILabel  *animationLabel;
+
+- (void)setSquarePosition:(KSLabelLocation)squarePosition animated:(BOOL)animated;
+- (void)setSquarePosition:(KSLabelLocation)squarePosition
+                 animated:(BOOL)animated
+                  handler:(KSLabelHandler)handler;
 
 - (void)moveLabelWithAnimated:(BOOL)animated;
 - (void)changeNameForAnimationSwitch;
