@@ -36,6 +36,7 @@
 		C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
+		C9722A131CD68B8C005F6D82 /* CGGeometry+KSExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C978A0791C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
@@ -135,6 +136,8 @@
 		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
+		C9722A111CD68B8C005F6D82 /* CGGeometry+KSExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtentions.h"; sourceTree = "<group>"; };
+		C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtentions.m"; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
 		C9789FD41C904CD20066530A /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
 		C978A0771C905EBA0066530A /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				C925395D1CD095C70060760E /* NSObject+KSExtension.m */,
 				C925395E1CD095C70060760E /* UIViewController+KSExtentions.h */,
 				C925395F1CD095C70060760E /* UIViewController+KSExtentions.m */,
+				C9722A111CD68B8C005F6D82 /* CGGeometry+KSExtentions.h */,
+				C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */,
 				C925396D1CD095DA0060760E /* Supporting Files */,
 			);
 			path = KSExtentions;
@@ -755,6 +760,7 @@
 				C92539611CD095C70060760E /* UIViewController+KSExtentions.m in Sources */,
 				C925396B1CD095CE0060760E /* KSLabelViewController.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,
+				C9722A131CD68B8C005F6D82 /* CGGeometry+KSExtentions.m in Sources */,
 				C925397C1CD095DA0060760E /* KSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

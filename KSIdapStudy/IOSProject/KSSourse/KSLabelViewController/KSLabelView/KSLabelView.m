@@ -87,16 +87,16 @@ static const CGFloat kKSAnimationDuration = 0.8;
     
     switch (position) {
         case kKSLabelUpperLeftLocation:
-            return CGRectMake(pointX, pointY, labelSize.width, labelSize.height);
+            return CGRectMakeWithSize(pointX, pointY, labelSize);
             
         case kKSLabelUpperRightLocation:
-            return CGRectMake(pointWidht, pointY, labelSize.width, labelSize.height);
+            return CGRectMakeWithSize(pointWidht, pointY, labelSize);
             
         case kKSLabelLowerRightLocation:
-            return CGRectMake(pointWidht, pointHeight, labelSize.width, labelSize.height);
+            return CGRectMakeWithSize(pointWidht, pointHeight, labelSize);
             
         default:
-            return CGRectMake(pointX, pointHeight, labelSize.width, labelSize.height);
+            return CGRectMakeWithSize(pointX, pointHeight, labelSize);
     }
 }
 

@@ -11,5 +11,6 @@
 
 #import "UIViewController+KSExtentions.h"
 #import "KSMacroForIOSProject.h"
+#import "CGGeometry+KSExtentions.h"
 
 #endif /* KSIOSProject_Prefix_pch */
