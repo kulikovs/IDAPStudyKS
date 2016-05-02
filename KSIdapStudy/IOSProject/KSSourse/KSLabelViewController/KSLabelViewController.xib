@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSLabelViewController">
@@ -15,13 +16,72 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="I5y-x8-Ult">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcZ-Km-GDE">
+                    <rect key="frame" x="35" y="480" width="86" height="30"/>
+                    <color key="backgroundColor" red="0.99208575487136841" green="0.99208134412765503" blue="0.9962114691734314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="GcZ-Km-GDE" secondAttribute="height" multiplier="43:15" id="66F-g9-Zbh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="Send square"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickAnimationButton:" destination="-1" eventType="touchUpInside" id="TkV-Wo-1rd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start animation " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-Hc-vB1">
+                    <rect key="frame" x="35" y="398" width="250" height="31"/>
+                    <color key="backgroundColor" red="0.83422833681106567" green="0.95697468519210815" blue="0.83273565769195557" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqd-xT-ViZ" userLabel="Animation switch">
+                    <rect key="frame" x="236" y="398" width="51" height="31"/>
+                    <accessibility key="accessibilityConfiguration" label="Animation switch">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                    <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onAnimationSwitch:" destination="-1" eventType="touchUpInside" id="lJN-H1-Wpr"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion loop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0P-19-fhf">
+                    <rect key="frame" x="35" y="437" width="250" height="31"/>
+                    <color key="backgroundColor" red="0.76078431372549016" green="0.95294117647058818" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-1A-nZK" userLabel="motion loop switch">
+                    <rect key="frame" x="236" y="437" width="51" height="31"/>
+                    <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onMotionLoopSwitch:" destination="-1" eventType="touchUpInside" id="9qH-EZ-cSY"/>
+                    </connections>
+                </switch>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5y-x8-Ult">
                     <rect key="frame" x="35" y="40" width="250" height="350"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pUy-rV-dZB">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-rV-dZB">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.90997147560119629" green="0.88362830877304077" blue="0.039037745445966721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" red="1" green="0.00062910950509831309" blue="0.10283491760492325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,78 +96,39 @@
                     </subviews>
                     <color key="backgroundColor" red="0.6019750284302946" green="1" blue="0.46122631706513517" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GcZ-Km-GDE">
-                    <rect key="frame" x="35" y="480" width="86" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.99208575487136841" green="0.99208134412765503" blue="0.9962114691734314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="Send square"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="onClickAnimationButton:" destination="-1" eventType="touchUpInside" id="TkV-Wo-1rd"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start animation " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qfd-Hc-vB1">
-                    <rect key="frame" x="35" y="398" width="250" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.83422833681106567" green="0.95697468519210815" blue="0.83273565769195557" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Yqd-xT-ViZ" userLabel="Animation switch">
-                    <rect key="frame" x="236" y="398" width="51" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <accessibility key="accessibilityConfiguration" label="Animation switch">
-                        <bool key="isElement" value="YES"/>
-                    </accessibility>
-                    <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="onAnimationSwitch:" destination="-1" eventType="touchUpInside" id="lJN-H1-Wpr"/>
-                    </connections>
-                </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion loop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z0P-19-fhf">
-                    <rect key="frame" x="35" y="437" width="250" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.76078431372549016" green="0.95294117647058818" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Mw4-1A-nZK" userLabel="motion loop switch">
-                    <rect key="frame" x="236" y="437" width="51" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="onMotionLoopSwitch:" destination="-1" eventType="touchUpInside" id="9qH-EZ-cSY"/>
-                    </connections>
-                </switch>
             </subviews>
             <color key="backgroundColor" red="0.71426417415252219" green="0.77065877393829463" blue="1" alpha="0.74005429964539005" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Yqd-xT-ViZ" firstAttribute="centerY" secondItem="qfd-Hc-vB1" secondAttribute="centerY" id="1uy-KJ-Enk"/>
+                <constraint firstItem="I5y-x8-Ult" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="7La-zN-OyO"/>
+                <constraint firstItem="qfd-Hc-vB1" firstAttribute="top" secondItem="I5y-x8-Ult" secondAttribute="bottom" constant="8" id="987-bB-ENo"/>
+                <constraint firstItem="Z0P-19-fhf" firstAttribute="top" secondItem="qfd-Hc-vB1" secondAttribute="bottom" constant="8" id="Bv3-lZ-dmj"/>
+                <constraint firstAttribute="bottom" secondItem="GcZ-Km-GDE" secondAttribute="bottom" constant="58" id="EIP-cl-3iR"/>
+                <constraint firstItem="GcZ-Km-GDE" firstAttribute="top" secondItem="Z0P-19-fhf" secondAttribute="bottom" constant="12" id="FS9-Xb-GeF"/>
+                <constraint firstItem="Z0P-19-fhf" firstAttribute="width" secondItem="qfd-Hc-vB1" secondAttribute="width" id="Fha-Gs-iy1"/>
+                <constraint firstItem="Mw4-1A-nZK" firstAttribute="leading" secondItem="Z0P-19-fhf" secondAttribute="trailing" constant="-49" id="JOt-8r-2YU"/>
+                <constraint firstItem="I5y-x8-Ult" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="OjK-7s-SBy"/>
+                <constraint firstItem="Z0P-19-fhf" firstAttribute="width" secondItem="qfd-Hc-vB1" secondAttribute="width" id="bi8-qe-FEU"/>
+                <constraint firstItem="GcZ-Km-GDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="dJI-Te-70x"/>
+                <constraint firstItem="Mw4-1A-nZK" firstAttribute="centerY" secondItem="Z0P-19-fhf" secondAttribute="centerY" id="epI-GI-eGf"/>
+                <constraint firstItem="Z0P-19-fhf" firstAttribute="centerX" secondItem="qfd-Hc-vB1" secondAttribute="centerX" id="gcU-SI-qh8"/>
+                <constraint firstItem="Yqd-xT-ViZ" firstAttribute="leading" secondItem="qfd-Hc-vB1" secondAttribute="trailing" constant="-49" id="iDB-lL-0zb"/>
+                <constraint firstItem="Yqd-xT-ViZ" firstAttribute="top" secondItem="I5y-x8-Ult" secondAttribute="bottom" constant="8" id="jkk-QB-3in"/>
+                <constraint firstItem="Mw4-1A-nZK" firstAttribute="top" secondItem="Yqd-xT-ViZ" secondAttribute="bottom" constant="8" id="mL8-iR-94r"/>
+                <constraint firstAttribute="bottom" secondItem="I5y-x8-Ult" secondAttribute="bottom" constant="178" id="rNR-Ve-pDi"/>
+                <constraint firstItem="qfd-Hc-vB1" firstAttribute="width" secondItem="I5y-x8-Ult" secondAttribute="width" id="rfH-gW-Zm4"/>
+                <constraint firstItem="qfd-Hc-vB1" firstAttribute="centerX" secondItem="I5y-x8-Ult" secondAttribute="centerX" id="sJo-2T-WcJ"/>
+                <constraint firstItem="I5y-x8-Ult" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tlS-TF-rHC"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="animationSwitch" destination="Yqd-xT-ViZ" id="xW3-BU-KBH"/>
                 <outlet property="label" destination="pUy-rV-dZB" id="a7N-YE-aSa"/>
                 <outlet property="motionLoopSwitch" destination="Mw4-1A-nZK" id="iNA-LI-9Ex"/>
                 <outlet property="subView" destination="I5y-x8-Ult" id="koa-yI-t9h"/>
             </connections>
-            <point key="canvasLocation" x="552" y="307"/>
+            <point key="canvasLocation" x="450" y="311"/>
         </view>
     </objects>
 </document>
