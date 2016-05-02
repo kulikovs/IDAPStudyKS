@@ -10,7 +10,7 @@
 #import "KSLabelView.h"
 
 @interface KSLabelViewController ()
-@property (nonatomic, readonly) IBOutlet KSLabelView *rootView;
+@property (nonatomic, readonly) KSLabelView *rootView;
 
 @end
 
