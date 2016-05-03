@@ -8,6 +8,7 @@
 
 #import "KSAppDelegate.h"
 #import "KSLabelViewController.h"
+#import "KSUserTableViewController.h"
 
 @interface KSAppDelegate ()
 
@@ -20,7 +21,7 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [KSLabelViewController controllerFromNib];
+    window.rootViewController = [KSUserTableViewController controllerFromNib];
     [window makeKeyAndVisible];
     
     return YES;
