@@ -9,7 +9,6 @@
 #import "KSUserTableViewController.h"
 #import "KSTableView.h"
 
-static const NSUInteger kKSDefaultNumberRowsForTableView = 15;
 static const NSUInteger kKSRandomStringCount = 40;
 
 @interface KSUserTableViewController ()
@@ -62,8 +61,8 @@ KSRootViewAndReturnNilMacro(KSTableView);
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellIdentifire = @"RandomString";
     
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifire];
+    
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:cellIdentifire];
