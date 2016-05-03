@@ -14,34 +14,18 @@
 
 @end
 
-
-
 @implementation KSLabelViewController
 
 #pragma mark -
 #pragma mark Accessors
 
-- (KSLabelView *)rootView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[KSLabelView class]]) {
-        return (KSLabelView *)self.view;
-    }
-    
-    return nil;
-}
+KSRootViewAndReturnNilMacro(KSLabelView);
 
 #pragma mark -
 #pragma mark Handling Interface
 
 - (IBAction)onClickAnimationButton:(id)sender {
     [self.rootView moveLabel];
-}
-
-- (IBAction)onAnimationSwitch:(id)sender {
-
-}
-
-- (IBAction)onMotionLoopSwitch:(id)sender {
-
 }
 
 @end

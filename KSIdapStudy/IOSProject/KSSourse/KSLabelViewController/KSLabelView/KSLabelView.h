@@ -23,6 +23,7 @@ typedef void (^KSLabelHandler)(void);
 
 @property (nonatomic, strong) IBOutlet UISwitch *animationSwitch;
 @property (nonatomic, strong) IBOutlet UISwitch *motionLoopSwitch;
+@property (nonatomic, strong) IBOutlet UIButton *sendSquareButton;
 
 - (void)setSquarePosition:(KSLabelLocation)squarePosition animated:(BOOL)animated;
 - (void)setSquarePosition:(KSLabelLocation)squarePosition

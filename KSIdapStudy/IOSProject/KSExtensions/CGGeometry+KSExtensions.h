@@ -12,7 +12,7 @@ CGRectMakeWithSize(CGFloat x, CGFloat y, CGSize size) {
 }
 
 CG_INLINE CGRect
-CGRectMakeWithPointAndSize(CGPoint point, CGSize size) {
+CGRectMakeWithPointSize(CGPoint point, CGSize size) {
     return CGRectMake(point.x, point.y, size.width, size.height);
     
 }
@@ -20,4 +20,9 @@ CGRectMakeWithPointAndSize(CGPoint point, CGSize size) {
 CG_INLINE CGRect
 CGRectMakeWithPoint(CGPoint point, CGFloat widht, CGFloat height) {
     return CGRectMake(point.x, point.y, widht, height);
+}
+
+CG_INLINE CGRect
+CGRectMakeWithPointZero(CGFloat widht, CGFloat height) {
+    return CGRectMake(0, 0, widht, height);
 }

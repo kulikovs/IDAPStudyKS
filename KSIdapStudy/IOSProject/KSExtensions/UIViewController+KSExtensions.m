@@ -6,7 +6,7 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "UIViewController+KSExtentions.h"
+#import "UIViewController+KSExtensions.h"
 
 @implementation UIViewController (KSExtentions)
 

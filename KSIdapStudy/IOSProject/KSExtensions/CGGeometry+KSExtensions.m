@@ -6,5 +6,5 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "CGGeometry+KSExtentions.h"
+#import "CGGeometry+KSExtensions.h"
 

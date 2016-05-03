@@ -14,7 +14,4 @@
 
 - (IBAction)onClickAnimationButton:(id)sender;
 
-- (IBAction)onAnimationSwitch:(id)sender;
-- (IBAction)onMotionLoopSwitch:(id)sender;
-
 @end

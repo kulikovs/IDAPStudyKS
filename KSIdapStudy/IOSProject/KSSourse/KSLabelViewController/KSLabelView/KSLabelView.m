@@ -52,6 +52,8 @@ static const CGFloat kKSAnimationDuration = 0.8;
                          if (self.motionLoopSwitch.on) {
                              [self setSquarePosition:[self nextSquarePosition]
                                             animated:self.animationSwitch.on];
+                         } else {
+                             KSSelfButtonEnable(sendSquareButton)
                          }
                      }];
 }
@@ -104,7 +106,8 @@ static const CGFloat kKSAnimationDuration = 0.8;
 #pragma mark Public Implementations
 
 - (void)moveLabel {
-    [self setSquarePosition:[self nextSquarePosition]];
+    KSSelfButtonDisable(sendSquareButton)
+    [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
 }
 
 @end

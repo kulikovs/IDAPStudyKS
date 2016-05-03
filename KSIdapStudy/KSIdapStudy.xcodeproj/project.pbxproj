@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92539601CD095C70060760E /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C925395D1CD095C70060760E /* NSObject+KSExtension.m */; };
-		C92539611CD095C70060760E /* UIViewController+KSExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = C925395F1CD095C70060760E /* UIViewController+KSExtentions.m */; };
 		C925396A1CD095CE0060760E /* KSLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92539661CD095CE0060760E /* KSLabelView.m */; };
 		C925396B1CD095CE0060760E /* KSLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92539681CD095CE0060760E /* KSLabelViewController.m */; };
 		C925396C1CD095CE0060760E /* KSLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92539691CD095CE0060760E /* KSLabelViewController.xib */; };
@@ -36,7 +34,6 @@
 		C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
-		C9722A131CD68B8C005F6D82 /* CGGeometry+KSExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C978A0791C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
@@ -57,6 +54,9 @@
 		C980216A1C88EC07004D19DC /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C98021661C88EC07004D19DC /* KSAlphabetString.m */; };
 		C980216D1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */; };
 		C980216E1C88EC9B004D19DC /* KSAlphabetCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */; };
+		C98B197E1CD9011D00D69EBD /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C98B19791CD9011D00D69EBD /* CGGeometry+KSExtensions.m */; };
+		C98B197F1CD9011D00D69EBD /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C98B197B1CD9011D00D69EBD /* NSObject+KSExtension.m */; };
+		C98B19801CD9011D00D69EBD /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C98B197D1CD9011D00D69EBD /* UIViewController+KSExtensions.m */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9CC74D31C7F5D4300E2F161 /* NSString+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74D21C7F5D4300E2F161 /* NSString+KSExtension.m */; };
@@ -90,10 +90,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C925395C1CD095C70060760E /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
-		C925395D1CD095C70060760E /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
-		C925395E1CD095C70060760E /* UIViewController+KSExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSExtentions.h"; sourceTree = "<group>"; };
-		C925395F1CD095C70060760E /* UIViewController+KSExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSExtentions.m"; sourceTree = "<group>"; };
 		C92539651CD095CE0060760E /* KSLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLabelView.h; sourceTree = "<group>"; };
 		C92539661CD095CE0060760E /* KSLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLabelView.m; sourceTree = "<group>"; };
 		C92539671CD095CE0060760E /* KSLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLabelViewController.h; sourceTree = "<group>"; };
@@ -136,8 +132,6 @@
 		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
-		C9722A111CD68B8C005F6D82 /* CGGeometry+KSExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtentions.h"; sourceTree = "<group>"; };
-		C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtentions.m"; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
 		C9789FD41C904CD20066530A /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
 		C978A0771C905EBA0066530A /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
@@ -153,6 +147,12 @@
 		C98021661C88EC07004D19DC /* KSAlphabetString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetString.m; sourceTree = "<group>"; };
 		C980216B1C88EC9B004D19DC /* KSAlphabetCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabetCluster.h; sourceTree = "<group>"; };
 		C980216C1C88EC9B004D19DC /* KSAlphabetCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetCluster.m; sourceTree = "<group>"; };
+		C98B19781CD9011D00D69EBD /* CGGeometry+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtensions.h"; sourceTree = "<group>"; };
+		C98B19791CD9011D00D69EBD /* CGGeometry+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtensions.m"; sourceTree = "<group>"; };
+		C98B197A1CD9011D00D69EBD /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
+		C98B197B1CD9011D00D69EBD /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
+		C98B197C1CD9011D00D69EBD /* UIViewController+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSExtensions.h"; sourceTree = "<group>"; };
+		C98B197D1CD9011D00D69EBD /* UIViewController+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSExtensions.m"; sourceTree = "<group>"; };
 		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,20 +202,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C925395B1CD095C70060760E /* KSExtentions */ = {
-			isa = PBXGroup;
-			children = (
-				C925395C1CD095C70060760E /* NSObject+KSExtension.h */,
-				C925395D1CD095C70060760E /* NSObject+KSExtension.m */,
-				C925395E1CD095C70060760E /* UIViewController+KSExtentions.h */,
-				C925395F1CD095C70060760E /* UIViewController+KSExtentions.m */,
-				C9722A111CD68B8C005F6D82 /* CGGeometry+KSExtentions.h */,
-				C9722A121CD68B8C005F6D82 /* CGGeometry+KSExtentions.m */,
-				C925396D1CD095DA0060760E /* Supporting Files */,
-			);
-			path = KSExtentions;
-			sourceTree = "<group>";
-		};
 		C92539621CD095CE0060760E /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +242,7 @@
 				C92539781CD095DA0060760E /* main.m */,
 			);
 			name = "Supporting Files";
-			path = "../Supporting Files";
+			path = "IOSProject/Supporting Files";
 			sourceTree = "<group>";
 		};
 		C92539731CD095DA0060760E /* KSAppDelegate */ = {
@@ -361,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				C92539621CD095CE0060760E /* KSSourse */,
-				C925395B1CD095C70060760E /* KSExtentions */,
 			);
 			path = IOSProject;
 			sourceTree = "<group>";
@@ -489,6 +474,20 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		C98B19771CD9011D00D69EBD /* KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C98B19781CD9011D00D69EBD /* CGGeometry+KSExtensions.h */,
+				C98B19791CD9011D00D69EBD /* CGGeometry+KSExtensions.m */,
+				C98B197A1CD9011D00D69EBD /* NSObject+KSExtension.h */,
+				C98B197B1CD9011D00D69EBD /* NSObject+KSExtension.m */,
+				C98B197C1CD9011D00D69EBD /* UIViewController+KSExtensions.h */,
+				C98B197D1CD9011D00D69EBD /* UIViewController+KSExtensions.m */,
+			);
+			name = KSExtensions;
+			path = IOSProject/KSExtensions;
+			sourceTree = "<group>";
+		};
 		C99254491C7E38E20067DABA /* KSTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,7 +504,9 @@
 				C94C67021C775F0A00B59836 /* ObjC */,
 				C97ABD551C831385003A4E3C /* TestObjC */,
 				C94C754C1CC6800C008014FB /* IOSProject */,
+				C98B19771CD9011D00D69EBD /* KSExtensions */,
 				C993CAD61C32D2C600593631 /* Products */,
+				C925396D1CD095DA0060760E /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -756,12 +757,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C925396A1CD095CE0060760E /* KSLabelView.m in Sources */,
-				C92539601CD095C70060760E /* NSObject+KSExtension.m in Sources */,
-				C92539611CD095C70060760E /* UIViewController+KSExtentions.m in Sources */,
+				C98B197E1CD9011D00D69EBD /* CGGeometry+KSExtensions.m in Sources */,
 				C925396B1CD095CE0060760E /* KSLabelViewController.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,
-				C9722A131CD68B8C005F6D82 /* CGGeometry+KSExtentions.m in Sources */,
+				C98B19801CD9011D00D69EBD /* UIViewController+KSExtensions.m in Sources */,
 				C925397C1CD095DA0060760E /* KSAppDelegate.m in Sources */,
+				C98B197F1CD9011D00D69EBD /* NSObject+KSExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

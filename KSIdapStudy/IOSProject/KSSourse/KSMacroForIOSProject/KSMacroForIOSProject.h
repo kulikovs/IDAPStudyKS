@@ -17,4 +17,12 @@
     return nil; \
 }
 
+#define KSSelfButtonEnable(NamePropertyButton) \
+self.NamePropertyButton.userInteractionEnabled = YES; \
+self.NamePropertyButton.enabled = YES;
+
+#define KSSelfButtonDisable(NamePropertyButton) \
+self.NamePropertyButton.userInteractionEnabled = NO; \
+self.NamePropertyButton.enabled = NO;
+
 #endif /* KSMacroForIOSProject_h */

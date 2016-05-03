@@ -9,8 +9,8 @@
 #ifndef KSIOSProject_Prefix_pch
 #define KSIOSProject_Prefix_pch
 
-#import "UIViewController+KSExtentions.h"
+#import "UIViewController+KSExtensions.h"
 #import "KSMacroForIOSProject.h"
-#import "CGGeometry+KSExtentions.h"
+#import "CGGeometry+KSExtensions.h"
 
 #endif /* KSIOSProject_Prefix_pch */

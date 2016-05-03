@@ -34,7 +34,7 @@
                         <action selector="onClickAnimationButton:" destination="-1" eventType="touchUpInside" id="TkV-Wo-1rd"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start animation " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-Hc-vB1">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start animation " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfd-Hc-vB1" userLabel="Start animation">
                     <rect key="frame" x="35" y="398" width="250" height="31"/>
                     <color key="backgroundColor" red="0.83422833681106567" green="0.95697468519210815" blue="0.83273565769195557" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -53,9 +53,6 @@
                         <bool key="isElement" value="YES"/>
                     </accessibility>
                     <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="onAnimationSwitch:" destination="-1" eventType="touchUpInside" id="lJN-H1-Wpr"/>
-                    </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion loop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0P-19-fhf">
                     <rect key="frame" x="35" y="437" width="250" height="31"/>
@@ -73,9 +70,6 @@
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mw4-1A-nZK" userLabel="motion loop switch">
                     <rect key="frame" x="236" y="437" width="51" height="31"/>
                     <color key="onTintColor" red="0.5490196078431373" green="1" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="onMotionLoopSwitch:" destination="-1" eventType="touchUpInside" id="9qH-EZ-cSY"/>
-                    </connections>
                 </switch>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5y-x8-Ult">
                     <rect key="frame" x="35" y="40" width="250" height="350"/>
@@ -126,6 +120,7 @@
                 <outlet property="animationSwitch" destination="Yqd-xT-ViZ" id="xW3-BU-KBH"/>
                 <outlet property="label" destination="pUy-rV-dZB" id="a7N-YE-aSa"/>
                 <outlet property="motionLoopSwitch" destination="Mw4-1A-nZK" id="iNA-LI-9Ex"/>
+                <outlet property="sendSquareButton" destination="GcZ-Km-GDE" id="NJ2-CZ-n9t"/>
                 <outlet property="subView" destination="I5y-x8-Ult" id="koa-yI-t9h"/>
             </connections>
             <point key="canvasLocation" x="450" y="311"/>
