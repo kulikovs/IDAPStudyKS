@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSUserTableViewController : UIViewController
+@interface KSUserTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
