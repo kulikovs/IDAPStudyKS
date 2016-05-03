@@ -10,10 +10,13 @@
 #import "KSTableView.h"
 
 static const NSUInteger kKSDefaultNumberRowsForTableView = 15;
+static const NSUInteger kKSRandomStringCount = 40;
 
 @interface KSUserTableViewController ()
 @property (nonatomic, readonly) KSTableView     *rootView;
-@property (nonatomic, strong)   NSArray  *stringArray;
+@property (nonatomic, strong)   NSMutableArray  *stringArray;
+
+- (NSArray *)randomStringsWithCount:(NSUInteger)count;
 
 @end
 
@@ -25,6 +28,19 @@ static const NSUInteger kKSDefaultNumberRowsForTableView = 15;
 KSRootViewAndReturnNilMacro(KSTableView);
 
 #pragma mark -
+#pragma mark Private Methods
+
+- (NSArray *)randomStringsWithCount:(NSUInteger)count {
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    
+    for (NSUInteger index = 0; index < count; index++) {
+        [mutableArray addObject:[NSString randomString]];
+    }
+    
+    return [mutableArray copy];
+}
+
+#pragma mark -
 #pragma mark Life cycle
 
 - (void)viewDidLoad {
@@ -32,7 +48,7 @@ KSRootViewAndReturnNilMacro(KSTableView);
     
     [self.rootView.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RandomString"];
     
-    self.stringArray = [NSMutableArray arrayWithObject:[NSString randomString]];
+    self.stringArray = [NSMutableArray arrayWithArray:[self randomStringsWithCount:kKSRandomStringCount]];
 }
 
 #pragma mark -
@@ -40,20 +56,24 @@ KSRootViewAndReturnNilMacro(KSTableView);
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kKSDefaultNumberRowsForTableView;
+    return self.stringArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellIdentifire = @"RandomString";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:cellIdentifire];
-
-    cell.textLabel.text = self.stringArray[0];
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifire];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifire];
+    }
+    
+    if (indexPath.row < self.stringArray.count) {
+        cell.textLabel.text = self.stringArray[indexPath.row];
+    }
     
     return cell;
 }
-
-#pragma mark -
-#pragma mark UITableViewDelegate Protocol
 
 @end
