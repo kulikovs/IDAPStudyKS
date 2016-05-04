@@ -53,7 +53,8 @@ static const CGFloat kKSAnimationDuration = 0.8;
                              [self setSquarePosition:[self nextSquarePosition]
                                             animated:self.animationSwitch.on];
                          } else {
-                             KSSelfButtonEnable(sendSquareButton)
+                             self.sendSquareButton.userInteractionEnabled = YES;
+                             self.sendSquareButton.enabled = YES;
                          }
                      }];
 }
@@ -106,7 +107,8 @@ static const CGFloat kKSAnimationDuration = 0.8;
 #pragma mark Public Implementations
 
 - (void)moveLabel {
-    KSSelfButtonDisable(sendSquareButton)
+    self.sendSquareButton.userInteractionEnabled = NO;
+    self.sendSquareButton.enabled = NO;
     [self setSquarePosition:[self nextSquarePosition] animated:self.animationSwitch.on];
 }
 
