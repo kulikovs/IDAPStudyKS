@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSTableView : UIView
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@interface KSUserView : UIView
+@property (nonatomic, strong) IBOutlet UITableView *tabelView;
 
 @end

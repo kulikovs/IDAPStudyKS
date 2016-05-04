@@ -6,8 +6,8 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "KSTableView.h"
+#import "KSUserView.h"
 
-@implementation KSTableView
+@implementation KSUserView
 
 @end
