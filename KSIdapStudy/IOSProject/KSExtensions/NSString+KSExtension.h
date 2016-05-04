@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern const NSUInteger kKSDefaultLength;
+extern const NSUInteger kKSMaxDefaultStringsCount;
 
 @class KSAlphabet;
 
@@ -20,6 +21,11 @@ extern const NSUInteger kKSDefaultLength;
 
 + (instancetype)randomStringWithAlphabet:(KSAlphabet *)alphabet;
 + (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(KSAlphabet *)alphabet;
+
+//There are MaxDefaultStringsCount - 40 is default in this method
++ (NSArray *)randomStringsWithRandomCount;
+
++ (NSArray *)randomStringsWithCount:(NSUInteger)count;
 
 
 

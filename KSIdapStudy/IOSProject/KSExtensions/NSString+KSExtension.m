@@ -10,7 +10,8 @@
 
 #import "KSAlphabet.h"
 
-const NSUInteger kKSDefaultLength  = 10;
+const NSUInteger kKSDefaultLength          = 10;
+const NSUInteger kKSMaxDefaultStringsCount = 40;
 
 @implementation NSString (KSExtension)
 
@@ -41,6 +42,18 @@ const NSUInteger kKSDefaultLength  = 10;
     return [NSString randomStringWithLength:kKSDefaultLength alphabet:[KSAlphabet lowerCaseLettersAlphabet]];
 }
 
++ (NSArray *)randomStringsWithRandomCount {
+    return [self randomStringsWithCount:arc4random_uniform(kKSMaxDefaultStringsCount)+ 1];
+}
 
++ (NSArray *)randomStringsWithCount:(NSUInteger)count {
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    
+    for (NSUInteger index = 0; index < count; index++) {
+        [mutableArray addObject:[NSString randomString]];
+    }
+    
+    return [mutableArray copy];
+}
 
 @end

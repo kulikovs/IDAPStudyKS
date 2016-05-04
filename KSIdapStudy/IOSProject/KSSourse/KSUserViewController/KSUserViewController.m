@@ -9,13 +9,9 @@
 #import "KSUserViewController.h"
 #import "KSUserView.h"
 
-static const NSUInteger kKSRandomStringCount = 40;
-
 @interface KSUserViewController ()
 @property (nonatomic, readonly) KSUserView      *rootView;
-@property (nonatomic, strong)   NSMutableArray  *stringArray;
-
-- (NSArray *)randomStringsWithCount:(NSUInteger)count;
+@property (nonatomic, strong)   NSArray         *stringArray;
 
 @end
 
@@ -29,15 +25,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
 #pragma mark -
 #pragma mark Private Methods
 
-- (NSArray *)randomStringsWithCount:(NSUInteger)count {
-    NSMutableArray *mutableArray = [NSMutableArray array];
-    
-    for (NSUInteger index = 0; index < count; index++) {
-        [mutableArray addObject:[NSString randomString]];
-    }
-    
-    return [mutableArray copy];
-}
+
 
 #pragma mark -
 #pragma mark Life cycle
@@ -47,7 +35,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
     
     [self.rootView.tabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RandomString"];
     
-    self.stringArray = [NSMutableArray arrayWithArray:[self randomStringsWithCount:kKSRandomStringCount]];
+    self.stringArray = [NSArray arrayWithArray:[NSString randomStringsWithRandomCount]];
 }
 
 #pragma mark -
