@@ -8,10 +8,10 @@
 
 #import "KSUserViewController.h"
 #import "KSUserView.h"
+#import "KSStringsModel.h"
 
 @interface KSUserViewController ()
-@property (nonatomic, readonly) KSUserView      *rootView;
-@property (nonatomic, strong)   NSArray         *stringArray;
+@property (nonatomic, retain)   KSStringsModel   *stringsModel;
 
 @end
 
@@ -23,26 +23,26 @@
 KSRootViewAndReturnNilMacro(KSUserView);
 
 #pragma mark -
-#pragma mark Private Methods
-
-
-
-#pragma mark -
 #pragma mark Life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.rootView.tabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RandomString"];
-    
-    self.stringArray = [NSArray arrayWithArray:[NSString randomStringsWithRandomCount]];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)addStringsModelWithRandomStringsRandomCount {
+    self.stringsModel = [[KSStringsModel alloc] initWithRandomStringRandomCount];
 }
 
 #pragma mark -
 #pragma mark UITableViewDataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.stringArray.count;
+    return self.stringsModel.strings.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,7 +55,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
                                       reuseIdentifier:cellIdentifire];
     }
     
-    cell.textLabel.text = self.stringArray[indexPath.row];
+    cell.textLabel.text = self.stringsModel.strings[indexPath.row];
     
     return cell;
 }

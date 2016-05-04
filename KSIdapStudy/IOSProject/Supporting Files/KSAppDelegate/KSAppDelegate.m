@@ -21,7 +21,12 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [KSUserViewController controllerFromNib];
+    KSUserViewController *viewController = [KSUserViewController controllerFromNib];
+    if (!viewController.rootView) {
+        [viewController addStringsModelWithRandomStringsRandomCount];
+    }
+    
+    window.rootViewController = viewController;
     [window makeKeyAndVisible];
     
     return YES;

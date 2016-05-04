@@ -80,43 +80,6 @@
     return self.alphabetString.length;
 }
 
-#pragma mark -
-#pragma mark Public Methods
 
-
-- (NSString *)objectAtIndex:(NSUInteger)index {
-    return [self objectAtIndexedSubscript:index];
-}
-
-- (NSString *)stringAtIndex:(NSUInteger)index {
-    return [self objectAtIndexedSubscript:index];
-}
-
-
-- (NSString *)objectAtIndexedSubscript:(NSUInteger)indeх {
-    return [NSString stringWithFormat:@"%c", [self.alphabetString characterAtIndex:indeх]];
-}
-
-//#pragma mark -
-//#pragma mark NSFastEnumeration
-//
-//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-//                                  objects:(id [])buffer
-//                                    count:(NSUInteger)lenght
-//{
-//    state->mutationsPtr = (unsigned long *)self;
-//    NSUInteger stateCount = state->state;
-//    NSUInteger resultCount = MIN(self.count - stateCount, lenght);
-//    NSUInteger finalCount = stateCount + resultCount;
-//    
-//    for (NSUInteger index = stateCount; index < finalCount; index++) {
-//        buffer[index - stateCount] = self[index];
-//    }
-//    
-//    state->state = finalCount;
-//    state->itemsPtr = buffer;
-//    
-//    return resultCount;
-//}
 
 @end
