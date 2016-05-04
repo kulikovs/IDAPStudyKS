@@ -13,5 +13,6 @@
 #import "CGGeometry+KSExtensions.h"
 #import "NSString+KSExtension.h"
 #import "KSMacro.h"
+#import "UIWindow+KSExtension.h"
 
 #endif /* KSIOSProject_Prefix_pch */
