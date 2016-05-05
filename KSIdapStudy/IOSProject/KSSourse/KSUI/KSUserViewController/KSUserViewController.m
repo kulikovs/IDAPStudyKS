@@ -41,7 +41,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    KSUserViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[KSUserViewCell class]];
+    KSUserViewCell *cell = [tableView dequeueReusableCellFromBundleWithClass:[KSUserViewCell class]];
     cell.stringsLabel.text = self.stringsModel.strings[indexPath.row];
 
     return cell;

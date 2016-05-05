@@ -32,12 +32,14 @@
 }
 
 - (id)dequeueReusableCellFromBundleWithClass:(Class)theClass {
-//NSBundle *bundle = [NSBundle mainBundle];
-//[[bundle loadNibNamed:NSStringFromClass([KSUserViewCell class]) owner:self options:nil] firstObject;
-// 
-// 
- return nil;
- }
+    id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(theClass)];
+    if (!cell) {
+        NSBundle *bundle = [NSBundle mainBundle];
+        cell = [[bundle loadNibNamed:NSStringFromClass(theClass) owner:self options:nil] firstObject];
+    }
+    
+    return cell;
+}
 
 
 @end
