@@ -10,7 +10,7 @@
 
 @interface UIWindow (KSExstension)
 
-+ (UIWindow *)newWindow;
++ (UIWindow *)window;
 
 @end
 

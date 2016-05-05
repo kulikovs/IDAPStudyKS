@@ -10,7 +10,7 @@
 
 @implementation UIWindow (KSExtension)
 
-+ (UIWindow *)newWindow {
++ (UIWindow *)window {
     return [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }
 

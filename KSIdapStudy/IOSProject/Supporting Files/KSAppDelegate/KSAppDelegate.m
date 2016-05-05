@@ -18,13 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [UIWindow newWindow];
+    UIWindow *window = [UIWindow window];
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    if (!viewController.rootView) {
-        [viewController addStringsModelWithRandomStringsRandomCount];
-    }
+    [viewController addStringsModelWithRandomStringsRandomCount];
+    
     
     window.rootViewController = viewController;
     [window makeKeyAndVisible];

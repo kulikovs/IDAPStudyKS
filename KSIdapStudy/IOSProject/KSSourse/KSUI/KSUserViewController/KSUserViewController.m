@@ -23,15 +23,6 @@
 KSRootViewAndReturnNilMacro(KSUserView);
 
 #pragma mark -
-#pragma mark Life cycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self.rootView.tabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RandomString"];
-}
-
-#pragma mark -
 #pragma mark Public Methods
 
 - (void)addStringsModelWithRandomStringsRandomCount {
