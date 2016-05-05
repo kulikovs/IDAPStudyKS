@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,34 +16,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gizmo" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-WT-AP9">
-                        <rect key="frame" x="195" y="0.0" width="86" height="43"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="String Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cib-Tb-0O9" userLabel="String Label">
-                        <rect key="frame" x="0.0" y="0.0" width="197" height="43"/>
+                        <rect key="frame" x="10" y="0.0" width="185" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="185" id="D8x-FI-0bz"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gizmo" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-WT-AP9">
+                        <rect key="frame" x="209" y="6" width="64" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Wy8-WT-AP9" secondAttribute="height" multiplier="2:1" id="Pqu-D8-mep"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.MasksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cib-Tb-0O9" secondAttribute="bottom" id="ED2-Tm-mCE"/>
+                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="centerY" secondItem="btV-aM-REt" secondAttribute="centerY" id="RTk-HK-Lck"/>
+                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-2" id="T8Z-5T-SYo"/>
+                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="leading" secondItem="cib-Tb-0O9" secondAttribute="trailing" constant="14" id="dsm-C4-iPb"/>
+                    <constraint firstItem="cib-Tb-0O9" firstAttribute="leading" secondItem="btV-aM-REt" secondAttribute="leadingMargin" constant="2" id="non-yH-DNl"/>
+                    <constraint firstItem="cib-Tb-0O9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="top" id="xc4-LL-Dx5"/>
+                </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="Wy8-WT-AP9" firstAttribute="leading" secondItem="RvN-if-sFm" secondAttribute="leading" constant="195" id="2aT-nJ-gC6"/>
-                <constraint firstItem="cib-Tb-0O9" firstAttribute="leading" secondItem="RvN-if-sFm" secondAttribute="leading" id="TSJ-5S-oyM"/>
-                <constraint firstItem="cib-Tb-0O9" firstAttribute="top" secondItem="RvN-if-sFm" secondAttribute="top" id="a7n-EG-bqY"/>
-                <constraint firstAttribute="trailing" secondItem="Wy8-WT-AP9" secondAttribute="trailing" id="eRA-4y-BbD"/>
-                <constraint firstItem="Wy8-WT-AP9" firstAttribute="width" secondItem="RvN-if-sFm" secondAttribute="height" multiplier="43:22" id="gHQ-u1-OnR"/>
-                <constraint firstAttribute="trailing" secondItem="cib-Tb-0O9" secondAttribute="trailing" constant="84" id="hr7-tJ-HPc"/>
-                <constraint firstItem="Wy8-WT-AP9" firstAttribute="top" secondItem="RvN-if-sFm" secondAttribute="top" id="qh3-uf-A9o"/>
-                <constraint firstAttribute="bottom" secondItem="cib-Tb-0O9" secondAttribute="bottom" constant="1" id="sFi-mu-100"/>
-                <constraint firstAttribute="bottom" secondItem="Wy8-WT-AP9" secondAttribute="bottom" constant="1" id="sIA-qu-CGq"/>
-                <constraint firstItem="cib-Tb-0O9" firstAttribute="width" secondItem="RvN-if-sFm" secondAttribute="height" multiplier="197:44" id="v7W-Xx-NK1"/>
-            </constraints>
             <connections>
                 <outlet property="stringsImage" destination="Wy8-WT-AP9" id="FG2-y8-sYy"/>
                 <outlet property="stringsLabel" destination="cib-Tb-0O9" id="yKo-GP-Nyu"/>
             </connections>
-            <point key="canvasLocation" x="218.5" y="437"/>
+            <point key="canvasLocation" x="250.5" y="613"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -13,4 +13,6 @@
 @interface KSUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) KSStringsModel *stringsModel;
 
+- (void)reloadData;
+
 @end

@@ -23,6 +23,14 @@
 
 KSRootViewAndReturnNilMacro(KSUserView);
 
+
+#pragma mark -
+#pragma mark Public
+
+- (void)reloadData {
+    [self.rootView.tabelView reloadData];
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource Protocol
 
@@ -33,14 +41,21 @@ KSRootViewAndReturnNilMacro(KSUserView);
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([KSUserViewCell class])];
+    KSUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([KSUserViewCell class])];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:NSStringFromClass([KSUserViewCell class])];
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([KSUserViewCell class])
+                                    bundle:[NSBundle mainBundle]];
+        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
+        
+        //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([KSUserViewCell class])];
+        //if (!cell) {
+     //   cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+    //                                  reuseIdentifier:NSStringFromClass([KSUserViewCell class])];
+    // }
     }
     
-    cell.textLabel.text = self.stringsModel.strings[indexPath.row];
+    cell.stringsLabel.text = self.stringsModel.strings[indexPath.row];
     
     return cell;
 }
