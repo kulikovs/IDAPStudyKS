@@ -40,23 +40,10 @@ KSRootViewAndReturnNilMacro(KSUserView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    KSUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([KSUserViewCell class])];
     
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([KSUserViewCell class])
-                                    bundle:[NSBundle mainBundle]];
-        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
-        
-        //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([KSUserViewCell class])];
-        //if (!cell) {
-     //   cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-    //                                  reuseIdentifier:NSStringFromClass([KSUserViewCell class])];
-    // }
-    }
-    
+    KSUserViewCell *cell = [tableView dequeueReusableCellFromNibWithClass:[KSUserViewCell class]];
     cell.stringsLabel.text = self.stringsModel.strings[indexPath.row];
-    
+
     return cell;
 }
 

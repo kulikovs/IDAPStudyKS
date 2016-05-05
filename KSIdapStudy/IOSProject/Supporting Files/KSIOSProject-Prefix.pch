@@ -14,5 +14,6 @@
 #import "NSString+KSExtension.h"
 #import "KSMacro.h"
 #import "UIWindow+KSExtension.h"
+#import "UITableView+KSExtensions.h"
 
 #endif /* KSIOSProject_Prefix_pch */
