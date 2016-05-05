@@ -11,7 +11,7 @@
 #import "KSStringsModel.h"
 
 @interface KSUserViewController ()
-@property (nonatomic, retain)   KSStringsModel   *stringsModel;
+@property (nonatomic, readonly) KSUserView *rootView;
 
 @end
 
@@ -21,13 +21,6 @@
 #pragma mark Accessors
 
 KSRootViewAndReturnNilMacro(KSUserView);
-
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)addStringsModelWithRandomStringsRandomCount {
-    self.stringsModel = [[KSStringsModel alloc] initWithRandomStringRandomCount];
-}
 
 #pragma mark -
 #pragma mark UITableViewDataSource Protocol

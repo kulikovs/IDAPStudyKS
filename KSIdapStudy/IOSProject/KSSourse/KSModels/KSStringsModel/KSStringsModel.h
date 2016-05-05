@@ -11,6 +11,6 @@
 @interface KSStringsModel : NSObject
 @property (nonatomic, strong) NSArray *strings;
 
-- (instancetype)initWithRandomStringRandomCount;
++ (instancetype)randomStringsRandomCount;
 
 @end

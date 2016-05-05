@@ -10,16 +10,10 @@
 
 @implementation KSStringsModel
 
-#pragma mark -
-#pragma mark Initializations 
-
-- (instancetype)initWithRandomStringRandomCount {
-    self = [super init];
-    if (self) {
-        self.strings = [NSString randomStringsWithRandomCount];
-    }
-    
-    return self;
++ (instancetype)randomStringsRandomCount; {
+    KSStringsModel *strinsModel = [[KSStringsModel alloc] init];
+    strinsModel.strings = [NSString randomStringsWithRandomCount];
+    return strinsModel;
 }
 
 
