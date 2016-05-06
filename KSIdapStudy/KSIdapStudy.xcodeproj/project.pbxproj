@@ -223,7 +223,6 @@
 			children = (
 				C94768861CDB7D4A00EA36EC /* KSModels */,
 				C947688A1CDB7D4A00EA36EC /* KSUI */,
-				C98B19941CD9447A00D69EBD /* KSAlphabet */,
 			);
 			path = KSSourse;
 			sourceTree = "<group>";
@@ -306,6 +305,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
+				C98B19941CD9447A00D69EBD /* KSAlphabet */,
 				C94768871CDB7D4A00EA36EC /* KSStringsModel */,
 			);
 			path = KSModels;
@@ -599,7 +599,8 @@
 				C98B19961CD9447A00D69EBD /* KSAlphabet.m */,
 				C98B19971CD9447A00D69EBD /* Private */,
 			);
-			path = KSAlphabet;
+			name = KSAlphabet;
+			path = ../KSAlphabet;
 			sourceTree = "<group>";
 		};
 		C98B19971CD9447A00D69EBD /* Private */ = {

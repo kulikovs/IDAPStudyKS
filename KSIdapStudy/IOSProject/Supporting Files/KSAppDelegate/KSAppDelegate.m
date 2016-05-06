@@ -23,12 +23,8 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    if ([viewController isViewLoaded]) {
-        [viewController reloadData];
-    } else {
-        viewController.stringsModel = [KSStringsModel randomStringsRandomCount];
-        window.rootViewController = viewController;
-    }
+    viewController.stringsModel = [KSStringsModel randomStringsRandomCount];
+    window.rootViewController = viewController;
     
     [window makeKeyAndVisible];
     

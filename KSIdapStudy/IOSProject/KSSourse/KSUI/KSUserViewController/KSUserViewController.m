@@ -23,17 +23,15 @@
 
 KSRootViewAndReturnNilMacro(KSUserView);
 
-
-#pragma mark -
-#pragma mark Public
-
-- (void)reloadData {
-    [self.rootView.tabelView reloadData];
+-(void)setStringsModel:(KSStringsModel *)stringsModel {
+    if (_stringsModel != stringsModel) {
+        _stringsModel = stringsModel;
+        [self.rootView.tabelView reloadData];
+    }
 }
 
 #pragma mark -
 #pragma mark UITableViewDataSource Protocol
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.stringsModel.strings.count;
