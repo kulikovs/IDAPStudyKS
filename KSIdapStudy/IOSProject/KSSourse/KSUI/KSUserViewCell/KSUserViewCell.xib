@@ -22,13 +22,13 @@
                             <constraint firstAttribute="width" constant="185" id="D8x-FI-0bz"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gizmo" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-WT-AP9">
                         <rect key="frame" x="209" y="6" width="64" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Wy8-WT-AP9" secondAttribute="height" multiplier="2:1" id="Pqu-D8-mep"/>
+                            <constraint firstAttribute="width" secondItem="Wy8-WT-AP9" secondAttribute="height" multiplier="2:1" id="5ez-hh-3aP"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.MasksToBounds" value="YES"/>
@@ -39,12 +39,12 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="cib-Tb-0O9" secondAttribute="bottom" id="ED2-Tm-mCE"/>
-                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="centerY" secondItem="btV-aM-REt" secondAttribute="centerY" id="RTk-HK-Lck"/>
-                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-2" id="T8Z-5T-SYo"/>
-                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="leading" secondItem="cib-Tb-0O9" secondAttribute="trailing" constant="14" id="dsm-C4-iPb"/>
-                    <constraint firstItem="cib-Tb-0O9" firstAttribute="leading" secondItem="btV-aM-REt" secondAttribute="leadingMargin" constant="2" id="non-yH-DNl"/>
-                    <constraint firstItem="cib-Tb-0O9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="top" id="xc4-LL-Dx5"/>
+                    <constraint firstItem="Wy8-WT-AP9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-2" id="0P3-X4-YEP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cib-Tb-0O9" secondAttribute="bottom" constant="-8" id="WQ2-ld-ebT"/>
+                    <constraint firstItem="cib-Tb-0O9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-8" id="fQV-qf-H4n"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Wy8-WT-AP9" secondAttribute="trailing" id="s5I-j6-5U4"/>
+                    <constraint firstItem="cib-Tb-0O9" firstAttribute="leading" secondItem="btV-aM-REt" secondAttribute="leadingMargin" constant="2" id="tQy-n0-IwT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Wy8-WT-AP9" secondAttribute="bottom" constant="-3" id="vDS-xS-ZbJ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
