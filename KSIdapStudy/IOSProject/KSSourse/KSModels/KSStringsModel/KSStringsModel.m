@@ -8,13 +8,63 @@
 
 #import "KSStringsModel.h"
 
+@interface KSStringsModel ()
+@property (nonatomic, strong) NSMutableArray *stringsArray;
+
+@end
+
 @implementation KSStringsModel
+
+#pragma mark -
+#pragma mark Initialization
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+      [self generateNewRandomStrings];
+    }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Class Methods
 
 + (instancetype)randomStringsRandomCount; {
     KSStringsModel *strinsModel = [[KSStringsModel alloc] init];
-    strinsModel.strings = [NSString randomStringsWithRandomCount];
     return strinsModel;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSUInteger)count {
+    return self.strings.count;
+}
+
+- (NSArray *)strings {
+   return [self.stringsArray copy];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+-(void)addString:(NSString *)string {
+    [self.stringsArray addObject:string];
+}
+
+- (void)generateNewRandomStrings {
+    self.stringsArray = [NSMutableArray arrayWithArray:[NSString randomStringsWithRandomCount]];
+}
+
+- (NSString *)stringAtIndex:(NSUInteger)index {
+    return [self.strings objectAtIndex:index];
+}
+
+- (BOOL)containsString:(NSString *)string {
+    return nil;
 }
 
 
 @end
+

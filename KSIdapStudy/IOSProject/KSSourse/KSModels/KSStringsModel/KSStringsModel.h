@@ -9,8 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @interface KSStringsModel : NSObject
-@property (nonatomic, strong) NSArray *strings;
+@property (nonatomic, readonly) NSArray       *strings;
+@property (nonatomic, readonly) NSUInteger    count;
 
 + (instancetype)randomStringsRandomCount;
+
+- (NSString *)stringAtIndex:(NSUInteger)index;
+- (BOOL)containsString:(NSString *)string;
+
+- (void)addString:(NSString *)string;
+- (void)generateNewRandomStrings;
+
+- (void)removeString:(NSString *)string;
+- (void)removeStringAtIndex:(NSUInteger)index;
+- (void)removeAllStrings;
 
 @end

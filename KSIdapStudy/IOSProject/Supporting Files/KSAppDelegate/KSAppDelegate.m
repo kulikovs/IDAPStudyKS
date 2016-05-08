@@ -9,7 +9,8 @@
 #import "KSAppDelegate.h"
 #import "KSLabelViewController.h"
 #import "KSUserViewController.h"
-#import "KSStringsModel.h"
+#import "KSArrayModel.h"
+#import "KSStringModel.h"
 
 @interface KSAppDelegate ()
 
@@ -23,7 +24,7 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    viewController.stringsModel = [KSStringsModel randomStringsRandomCount];
+    viewController.arrayModel = [KSArrayModel arrayModelWithObjects:[KSStringModel stringsModelsWithRandomStringRandomCount]];
     window.rootViewController = viewController;
     
     [window makeKeyAndVisible];

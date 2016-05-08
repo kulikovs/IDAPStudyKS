@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class KSStringsModel;
+@class KSArrayModel;
 
 @interface KSUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) KSStringsModel *stringsModel;
+@property (nonatomic, strong) KSArrayModel *arrayModel;
 
 @end
