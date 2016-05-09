@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//#import "KSObserver.h"
+
 @interface KSArrayModel : NSObject
 @property (nonatomic, readonly) NSUInteger  count;
 

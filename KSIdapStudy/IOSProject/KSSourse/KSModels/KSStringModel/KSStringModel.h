@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface KSStringModel : NSObject
-@property (nonatomic, readonly) NSString *string;
+@property (nonatomic, readonly) NSString  *string;
+@property (nonatomic, readonly) UIImage   *image;
 
 + (instancetype)randomStringModel;
 + (instancetype)stringModelWithString:(NSString *)string;

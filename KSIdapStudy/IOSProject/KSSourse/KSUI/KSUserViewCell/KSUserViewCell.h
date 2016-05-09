@@ -13,4 +13,5 @@
 @property (nonatomic, strong) IBOutlet UIImageView  *stringsImage;
 
 - (void)fillWithModel:(id)model;
+
 @end

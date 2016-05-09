@@ -13,6 +13,7 @@
 
 - (void)fillWithModel:(KSStringModel *)model {
     self.stringsLabel.text = [model string];
+    self.stringsImage = [[UIImageView alloc] initWithImage:[model image]];
 }
 
 @end
