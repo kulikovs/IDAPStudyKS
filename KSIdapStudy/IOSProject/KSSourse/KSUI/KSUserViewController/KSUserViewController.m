@@ -40,9 +40,8 @@ KSRootViewAndReturnNilMacro(KSUserView);
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     KSUserViewCell *cell = [tableView dequeueReusableCellFromBundleWithClass:[KSUserViewCell class]];
-    id object = self.arrayModel.objects[indexPath.row];
-    cell.stringsLabel.text = [object string];
-
+    id object = self.arrayModel[indexPath.row];
+    [cell fillWithModel:object];
     return cell;
 }
 

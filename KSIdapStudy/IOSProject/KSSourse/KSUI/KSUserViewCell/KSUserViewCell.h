@@ -12,4 +12,5 @@
 @property (nonatomic, strong) IBOutlet UILabel      *stringsLabel;
 @property (nonatomic, strong) IBOutlet UIImageView  *stringsImage;
 
+- (void)fillWithModel:(id)model;
 @end
