@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface KSStringModel : NSObject
-@property (nonatomic, retain) NSString *string;
+@property (nonatomic, readonly) NSString *string;
 
-+ (instancetype)stringModelWithRandomString;
++ (instancetype)randomStringModel;
 + (instancetype)stringModelWithString:(NSString *)string;
 
-//Super init initialized with random string and random count.
+//This two methods initialized with random string and random count.
 - (instancetype)initWithString:(NSString *)string;
 
-+ (NSArray *)stringsModelsWithRandomStringRandomCount;
++ (NSArray *)randomStringsModels;
 
 @end

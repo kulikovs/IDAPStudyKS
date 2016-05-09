@@ -23,13 +23,13 @@
 }
 
 + (instancetype)arrayModelWithObjects:(NSArray *)objects {
-    return [[[self class] alloc] initWithObject:objects];
+    return [[[self class] alloc] initModelWithArray:objects];
 }
 
 #pragma mark -
-#pragma mark Initializations
+#pragma mark Initializations and Deallocations
 
-- (instancetype)initWithObject:(id)object {
+- (instancetype)initModelWithObject:(id)object {
     self = [super init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithObject:object];
@@ -38,7 +38,7 @@
     return self;
 }
 
-- (instancetype)initWithObjects:(NSArray *)objects {
+- (instancetype)initModelWithArray:(NSArray *)objects {
     self = [super init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithArray:objects];
@@ -49,10 +49,6 @@
 
 #pragma mark -
 #pragma mark Accessors
-
-- (NSArray *)objects {
-    return [self.arrayObjects copy];
-}
 
 - (NSUInteger)count {
   return self.arrayObjects.count;
@@ -66,7 +62,7 @@
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return self.objects[index];
+    return [self objectAtIndex:index];
 }
 
 - (NSUInteger)indexOfObject:(id)object {

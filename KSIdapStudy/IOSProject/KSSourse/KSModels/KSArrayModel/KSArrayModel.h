@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface KSArrayModel : NSObject
-@property (nonatomic, readonly) NSArray     *objects;
 @property (nonatomic, readonly) NSUInteger  count;
 
 + (instancetype)arrayModelWithObject:(id)object;
 + (instancetype)arrayModelWithObjects:(NSArray *)objects;
 
-- (instancetype)initWithObject:(id)object;
-- (instancetype)initWithObjects:(NSArray *)objects;
+- (instancetype)initModelWithObject:(id)object;
+- (instancetype)initModelWithArray:(NSArray *)objects;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;

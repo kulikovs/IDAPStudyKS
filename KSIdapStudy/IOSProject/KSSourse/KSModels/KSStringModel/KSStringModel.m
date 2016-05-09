@@ -11,14 +11,14 @@
 static const NSUInteger kKSDefaultStringsCount = 40;
 
 @interface KSStringModel ()
-//@property (nonatomic, retain) NSString *string;
+@property (nonatomic, copy) NSString *string;
 
 @end
 
 @implementation KSStringModel
 
 #pragma mark -
-#pragma mark Initialization
+#pragma mark Initialization and Deallocations
 
 - (instancetype)init {
     self = [super init];
@@ -41,7 +41,7 @@ static const NSUInteger kKSDefaultStringsCount = 40;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)stringModelWithRandomString {
++ (instancetype)randomStringModel {
     return [[self class] new];
 }
 
@@ -49,7 +49,7 @@ static const NSUInteger kKSDefaultStringsCount = 40;
     return [[[self class] alloc] initWithString:string];
 }
 
-+ (NSArray *)stringsModelsWithRandomStringRandomCount {
++ (NSArray *)randomStringsModels {
     NSMutableArray *mutableArray = [NSMutableArray array];
     
     for (NSUInteger index = 0; index < arc4random_uniform(kKSDefaultStringsCount) + 1; index++) {
@@ -57,13 +57,6 @@ static const NSUInteger kKSDefaultStringsCount = 40;
     }
     
     return [mutableArray copy];
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (NSString *)string {
-    return self.string;
 }
 
 @end

@@ -24,7 +24,7 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    viewController.arrayModel = [KSArrayModel arrayModelWithObjects:[KSStringModel stringsModelsWithRandomStringRandomCount]];
+    viewController.arrayModel = [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
     window.rootViewController = viewController;
     
     [window makeKeyAndVisible];
