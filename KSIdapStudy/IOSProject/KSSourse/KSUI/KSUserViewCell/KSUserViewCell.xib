@@ -25,7 +25,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gizmo" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-WT-AP9">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wy8-WT-AP9">
                         <rect key="frame" x="209" y="6" width="64" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Wy8-WT-AP9" secondAttribute="height" multiplier="2:1" id="5ez-hh-3aP"/>
@@ -54,7 +54,4 @@
             <point key="canvasLocation" x="250.5" y="613"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="gizmo" width="160" height="80"/>
-    </resources>
 </document>

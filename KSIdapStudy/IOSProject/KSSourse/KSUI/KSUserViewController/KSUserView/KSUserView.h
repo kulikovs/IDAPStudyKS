@@ -10,5 +10,8 @@
 
 @interface KSUserView : UIView
 @property (nonatomic, strong) IBOutlet UITableView *tabelView;
+@property (nonatomic, strong) IBOutlet UISwitch    *editTableSwitch;
+@property (nonatomic, strong) IBOutlet UIButton    *reloadButton;
+
 
 @end

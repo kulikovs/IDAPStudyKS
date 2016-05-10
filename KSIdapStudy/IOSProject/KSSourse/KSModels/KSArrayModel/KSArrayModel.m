@@ -69,6 +69,10 @@
     return [self.arrayObjects indexOfObject:object];
 }
 
+- (void)moveObjectAtIndex:(NSUInteger)index onObjectAtIndex:(NSUInteger)onIndex {
+    [self.arrayObjects exchangeObjectAtIndex:index withObjectAtIndex:onIndex];
+}
+
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
 }

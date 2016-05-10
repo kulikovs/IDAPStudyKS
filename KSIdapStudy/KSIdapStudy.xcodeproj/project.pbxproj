@@ -472,6 +472,7 @@
 		C94C67031C775F0A00B59836 /* KSSourse */ = {
 			isa = PBXGroup;
 			children = (
+				C97088E61C984752003B6E6D /* KSObserver */,
 				C94F38D81CC51D97006229E1 /* KSDispatch */,
 				C96EF6481CC22E560008FB8D /* KSMacro */,
 				C9789FD21C904CD20066530A /* KSEnterprise */,
@@ -551,8 +552,7 @@
 				C97088E71C98476F003B6E6D /* KSObserver.h */,
 				C97088E81C98476F003B6E6D /* KSObserver.m */,
 			);
-			name = KSObserver;
-			path = ../../../KSIdapStudy/ObjC/KSSourse/KSObserver;
+			path = KSObserver;
 			sourceTree = "<group>";
 		};
 		C9789FD21C904CD20066530A /* KSEnterprise */ = {
@@ -690,7 +690,6 @@
 		C9DB980E1CE0CE9800779D36 /* KSLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				C97088E61C984752003B6E6D /* KSObserver */,
 				C9DB98131CE0CF1100779D36 /* KSAlphabet */,
 			);
 			path = KSLibrary;

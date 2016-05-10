@@ -13,4 +13,8 @@
 @interface KSUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) KSArrayModel *arrayModel;
 
+- (IBAction)onEditTable:(id)sender;
+- (IBAction)onReloadTable:(id)sender;
+
+
 @end

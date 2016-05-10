@@ -10,6 +10,6 @@
 
 @interface UINib (KSExtensions)
 
-+ (id)cellFroNibWithClass:(Class)theClass;
++ (id)objectFromNibWithClass:(Class)theClass;
 
 @end

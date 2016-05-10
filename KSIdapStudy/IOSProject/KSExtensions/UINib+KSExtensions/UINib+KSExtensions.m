@@ -10,14 +10,14 @@
 
 @implementation UINib (KSExtensions)
 
-+ (id)cellFroNibWithClass:(Class)theClass {
++ (id)objectFromNibWithClass:(Class)theClass {
     UINib *nib = [UINib nibWithNibName:NSStringFromClass(theClass)
                                 bundle:[NSBundle mainBundle]];
     
     NSArray *array = [nib instantiateWithOwner:self options:nil];
-    for (id cell in array) {
-        if ([cell isMemberOfClass:[theClass class]]) {
-            return cell;
+    for (id object in array) {
+        if ([object isMemberOfClass:[theClass class]]) {
+            return object;
         }
     }
     
