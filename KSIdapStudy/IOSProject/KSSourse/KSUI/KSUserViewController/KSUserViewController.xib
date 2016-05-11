@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSUserViewController">
@@ -24,16 +23,6 @@
                         <outlet property="delegate" destination="-1" id="TYh-eE-Pyt"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTZ-jZ-j2W">
-                    <rect key="frame" x="58" y="607" width="47" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="mTZ-jZ-j2W" secondAttribute="height" multiplier="47:30" id="voq-Q4-hE2"/>
-                    </constraints>
-                    <state key="normal" title="Reload"/>
-                    <connections>
-                        <action selector="onReloadTable:" destination="-1" eventType="touchUpInside" id="rH9-TO-RFz"/>
-                    </connections>
-                </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-2F-viW" userLabel="EditTableSwitch">
                     <rect key="frame" x="317" y="608" width="48" height="29"/>
                     <connections>
@@ -52,20 +41,16 @@
                 <constraint firstItem="C4a-JR-C2b" firstAttribute="leading" secondItem="A4J-1N-YvP" secondAttribute="trailing" constant="-131" id="6Cp-AI-KxZ"/>
                 <constraint firstItem="A4J-1N-YvP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BfP-Ce-wHg"/>
                 <constraint firstItem="A4J-1N-YvP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="ByE-4Q-Xo8"/>
-                <constraint firstItem="mTZ-jZ-j2W" firstAttribute="top" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="20" id="GhP-hk-dOB"/>
-                <constraint firstAttribute="bottom" secondItem="mTZ-jZ-j2W" secondAttribute="bottom" constant="30" id="MRT-q4-ndO"/>
                 <constraint firstItem="C4a-JR-C2b" firstAttribute="centerY" secondItem="UHY-2F-viW" secondAttribute="centerY" id="ZQg-7M-0nd"/>
                 <constraint firstAttribute="trailing" secondItem="A4J-1N-YvP" secondAttribute="trailing" id="ej9-je-yLT"/>
                 <constraint firstAttribute="bottom" secondItem="UHY-2F-viW" secondAttribute="bottom" constant="30" id="fCd-V0-UL2"/>
                 <constraint firstAttribute="bottom" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="80" id="iBh-mA-VM5"/>
                 <constraint firstAttribute="trailing" secondItem="UHY-2F-viW" secondAttribute="trailing" constant="12" id="iiz-5P-YCp"/>
                 <constraint firstAttribute="bottom" secondItem="C4a-JR-C2b" secondAttribute="bottom" constant="28" id="lSP-yN-HRl"/>
-                <constraint firstItem="mTZ-jZ-j2W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="58" id="pqw-0X-xV0"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
                 <outlet property="editTableSwitch" destination="UHY-2F-viW" id="ff5-46-bw2"/>
-                <outlet property="reloadButton" destination="mTZ-jZ-j2W" id="hlw-sq-ord"/>
                 <outlet property="tabelView" destination="A4J-1N-YvP" id="9fS-K9-dXo"/>
             </connections>
             <point key="canvasLocation" x="417.5" y="451.5"/>

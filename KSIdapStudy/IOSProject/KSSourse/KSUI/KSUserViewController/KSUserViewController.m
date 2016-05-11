@@ -27,8 +27,19 @@ KSRootViewAndReturnNilMacro(KSUserView);
 -(void)setArrayModel:(KSArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
-        [self.rootView.tabelView reloadData];
-    }
+        KSWeakifySelf;
+        [_arrayModel addHandler:^{
+            KSStrongifySelfAndReturnIfNil;
+            UITableView *tableView = [strongSelf rootView].tabelView;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[strongSelf arrayModel].index inSection:0];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationTop];
+        }
+                              state:kKSRemoveState
+                             object:self];
+    };
+    
+    [self.rootView.tabelView reloadData];
 }
 
 #pragma mark -
@@ -37,10 +48,6 @@ KSRootViewAndReturnNilMacro(KSUserView);
 - (IBAction)onEditTable:(id)sender {
     KSUserView *rootview = self.rootView;
     rootview.tabelView.editing = !rootview.editTableSwitch.on;
-}
-
-- (IBAction)onReloadTable:(id)sender {
- [self.rootView.tabelView reloadData];
 }
 
 #pragma mark -
@@ -63,8 +70,8 @@ KSRootViewAndReturnNilMacro(KSUserView);
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.arrayModel removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                         withRowAnimation:UITableViewRowAnimationFade];
     }
     
     if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -95,7 +102,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 3) {
+    if (indexPath.row == 0) {
         return UITableViewCellEditingStyleInsert;
     } else {
         return UITableViewCellEditingStyleDelete;

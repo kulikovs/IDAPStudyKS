@@ -38,11 +38,15 @@
 		C94C670C1C775F0A00B59836 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
 		C94C670E1C775F0A00B59836 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
 		C94F38E01CC51E30006229E1 /* KSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F38DF1CC51E30006229E1 /* KSDispatch.m */; };
+		C94F7EA11CE32CE90085E97B /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C94F7EA21CE32CF00085E97B /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C94F7EA31CE32CF40085E97B /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
 		C95BED3D1C79C6BF00E853F6 /* KSCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */; };
 		C95BED401C79C6DE00E853F6 /* KSCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3F1C79C6DE00E853F6 /* KSCreatureFemale.m */; };
 		C96AF3C41CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
-		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
+		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C97088EA1C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; };
 		C9789FD51C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
 		C9789FD61C904CD20066530A /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C9789FD41C904CD20066530A /* KSEnterprise.m */; };
@@ -59,9 +63,9 @@
 		C97ABD621C8313E3003A4E3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
-		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
+		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
-		C9D7BCD91CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
+		C9D7BCD91CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9D7BCDA1CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
 		C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		C9D7BCDF1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
@@ -906,6 +910,7 @@
 			files = (
 				C9DB98121CE0CEFF00779D36 /* KSArrayModel.m in Sources */,
 				C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */,
+				C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */,
 				C94768B11CDB7DE400EA36EC /* NSObject+KSExtension.m in Sources */,
 				C94768C61CDBDC7500EA36EC /* UITableView+KSExtensions.m in Sources */,
 				C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */,
@@ -919,11 +924,14 @@
 				C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */,
 				C94768BE1CDB978C00EA36EC /* KSUserViewCell.m in Sources */,
 				C947689B1CDB7D4A00EA36EC /* KSLabelViewController.m in Sources */,
+				C94F7EA21CE32CF00085E97B /* KSObserverDictionary.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,
 				C9DB981E1CE0CF1100779D36 /* KSAlphabetCluster.m in Sources */,
 				C94768B41CDB7DE400EA36EC /* UIWindow+KSExtension.m in Sources */,
 				C925397C1CD095DA0060760E /* KSAppDelegate.m in Sources */,
 				C947689E1CDB7D4A00EA36EC /* KSUserViewController.m in Sources */,
+				C94F7EA11CE32CE90085E97B /* KSObserver.m in Sources */,
+				C94F7EA31CE32CF40085E97B /* KSObserverArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

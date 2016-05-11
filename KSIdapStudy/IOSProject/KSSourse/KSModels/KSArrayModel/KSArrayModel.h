@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-//#import "KSObserver.h"
+#import "KSObserver.h"
 
-@interface KSArrayModel : NSObject
+typedef NS_ENUM(NSUInteger) {
+    kKSAddedState,
+    kKSRemoveState,
+    kKSChangedState
+} kKSArrayModelState;
+
+@interface KSArrayModel : KSObserver
 @property (nonatomic, readonly) NSUInteger  count;
+@property (nonatomic, assign) NSUInteger  index;
 
 + (instancetype)arrayModelWithObject:(id)object;
 + (instancetype)arrayModelWithObjects:(NSArray *)objects;

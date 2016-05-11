@@ -7,6 +7,7 @@
 //
 
 #import "KSArrayModel.h"
+#import "KSStringModel.h"
 
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -71,18 +72,22 @@
 
 - (void)moveObjectAtIndex:(NSUInteger)index onObjectAtIndex:(NSUInteger)onIndex {
     [self.arrayObjects exchangeObjectAtIndex:index withObjectAtIndex:onIndex];
+    self.state = kKSChangedState;
 }
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
+    self.state = kKSAddedState;
 }
 
 - (void)removeObject:(id)object {
-    [self.arrayObjects removeObject:object];
+    [self removeObjectAtIndex:[self indexOfObject:object]];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
+    self.index = index;
+    self.state = kKSRemoveState;
 }
 
 - (void)removeAllObject {
