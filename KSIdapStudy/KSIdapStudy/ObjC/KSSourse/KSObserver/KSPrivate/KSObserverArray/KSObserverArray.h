@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^KSHandlerObject)(void);
+typedef void(^KSHandlerObject)(id object);
 
 @interface KSObserverArray : NSObject
 @property (nonatomic, readonly) NSArray *handlers;

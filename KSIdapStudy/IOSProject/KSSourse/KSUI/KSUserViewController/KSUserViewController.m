@@ -11,6 +11,7 @@
 #import "KSArrayModel.h"
 #import "KSUserViewCell.h"
 #import "KSStringModel.h"
+#import "KSStateModel.h"
 
 @interface KSUserViewController ()
 @property (nonatomic, readonly) KSUserView *rootView;
@@ -27,33 +28,25 @@ KSRootViewAndReturnNilMacro(KSUserView);
 -(void)setArrayModel:(KSArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
+        
         KSWeakifySelfWithClass(KSUserViewController);
-        [_arrayModel addHandler:^{
+        [_arrayModel addHandler:^(KSStateModel *object) {
             KSStrongifySelfWithClass(KSUserViewController);
             UITableView *tableView = strongSelf.rootView.tabelView;
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                             withRowAnimation:UITableViewRowAnimationTop];
-     //               [strongSelf.rootView.tabelView reloadData];
+            if (object.state == kKSRemoveState) {
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                 withRowAnimation:UITableViewRowAnimationTop];
+            } else {
+                [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                 withRowAnimation:UITableViewRowAnimationLeft];
+                
+            }
         }
-                              state:kKSRemoveState
-                             object:self];
-    };
-    
-     KSWeakifySelfWithClass(KSUserViewController);
-    [_arrayModel addHandler:^{
-        KSStrongifySelfWithClass(KSUserViewController);
-        UITableView *tableView = strongSelf.rootView.tabelView;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
-        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationLeft];
-     //   [strongSelf.rootView.tabelView reloadData];
+                          state:kKSChangedState
+                         object:self];
     }
-                      state:kKSAddedState
-                     object:self];
-};
-
-
+}
 
 #pragma mark -
 #pragma mark Handling
@@ -83,15 +76,9 @@ KSRootViewAndReturnNilMacro(KSUserView);
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.arrayModel removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                         withRowAnimation:UITableViewRowAnimationFade];
-    }
-    
-    if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else {
         KSStringModel *string = [KSStringModel new];
         [self.arrayModel addObject:string];
-//        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                         withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 

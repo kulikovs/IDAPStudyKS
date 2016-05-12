@@ -8,6 +8,7 @@
 
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
+#import "KSStateModel.h"
 
 static const NSUInteger kKSNumberRowForAdding = 0;
 
@@ -74,13 +75,15 @@ static const NSUInteger kKSNumberRowForAdding = 0;
 
 - (void)moveObjectAtIndex:(NSUInteger)index onObjectAtIndex:(NSUInteger)onIndex {
     [self.arrayObjects exchangeObjectAtIndex:index withObjectAtIndex:onIndex];
-    self.state = kKSChangedState;
 }
 
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
-    self.state = kKSAddedState;
-    self.index = kKSNumberRowForAdding;
+    
+    KSStateModel *stateModel = [KSStateModel new];
+    stateModel.state = kKSAddedState;
+    self.index = self.arrayObjects.count - 1;
+    [self setState:kKSChangedState withObject:stateModel];
 }
 
 - (void)removeObject:(id)object {
@@ -89,8 +92,11 @@ static const NSUInteger kKSNumberRowForAdding = 0;
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
+    
+    KSStateModel *stateModel = [KSStateModel new];
+    stateModel.state = kKSRemoveState;
     self.index = index;
-    self.state = kKSRemoveState;
+    [self setState:kKSChangedState withObject:stateModel];
 }
 
 - (void)removeAllObject {

@@ -12,6 +12,7 @@
 
 @interface KSObserver ()
 @property (nonatomic, retain)     NSMutableArray    *observers;
+@property (nonatomic, retain)     id                object;
 
 - (void)performHandlersForState:(NSUInteger)state;
 - (KSObserverDictionary *)dictionaryWithState:(NSUInteger)state;
@@ -49,6 +50,11 @@
         
         [self performHandlersForState:_state];
     }
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
+    self.object = object;
+    self.state = state;
 }
 
 #pragma mark -
@@ -96,7 +102,7 @@
 - (void)performHandlersForState:(NSUInteger)state {
     KSObserverDictionary *observerDictionary = [self dictionaryWithState:state];
     for (KSHandlerObject handler in observerDictionary.handlers) {
-        handler();
+        handler(self.object);
     }
 }
 
