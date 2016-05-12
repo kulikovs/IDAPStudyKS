@@ -9,6 +9,8 @@
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
 
+static const NSUInteger kKSNumberRowForAdding = 0;
+
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -78,6 +80,7 @@
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
     self.state = kKSAddedState;
+    self.index = kKSNumberRowForAdding;
 }
 
 - (void)removeObject:(id)object {

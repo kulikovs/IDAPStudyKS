@@ -45,9 +45,9 @@
     @synchronized(self) {
         if (_state != state) {
             _state = state;
-            
-            [self performHandlersForState:_state];
         }
+        
+        [self performHandlersForState:_state];
     }
 }
 

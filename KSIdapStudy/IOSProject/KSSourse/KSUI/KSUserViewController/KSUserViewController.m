@@ -34,13 +34,26 @@ KSRootViewAndReturnNilMacro(KSUserView);
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationTop];
-                            [strongSelf.rootView.tabelView reloadData];
+     //               [strongSelf.rootView.tabelView reloadData];
         }
                               state:kKSRemoveState
                              object:self];
-        
     };
-}
+    
+     KSWeakifySelfWithClass(KSUserViewController);
+    [_arrayModel addHandler:^{
+        KSStrongifySelfWithClass(KSUserViewController);
+        UITableView *tableView = strongSelf.rootView.tabelView;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationLeft];
+     //   [strongSelf.rootView.tabelView reloadData];
+    }
+                      state:kKSAddedState
+                     object:self];
+};
+
+
 
 #pragma mark -
 #pragma mark Handling
@@ -77,8 +90,8 @@ KSRootViewAndReturnNilMacro(KSUserView);
     if (editingStyle == UITableViewCellEditingStyleInsert) {
         KSStringModel *string = [KSStringModel new];
         [self.arrayModel addObject:string];
-        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationLeft];
+//        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                         withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 
