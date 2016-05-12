@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSUserViewController">
@@ -23,14 +24,20 @@
                         <outlet property="delegate" destination="-1" id="TYh-eE-Pyt"/>
                     </connections>
                 </tableView>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-2F-viW" userLabel="EditTableSwitch">
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-2F-viW" userLabel="EditTableSwitch">
                     <rect key="frame" x="317" y="608" width="48" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UHY-2F-viW" secondAttribute="height" multiplier="46:29" id="QoP-TJ-9T7"/>
+                    </constraints>
                     <connections>
                         <action selector="onEditTable:" destination="-1" eventType="touchUpInside" id="fpl-wR-K9x"/>
                     </connections>
                 </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Edit table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-JR-C2b">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-JR-C2b">
                     <rect key="frame" x="244" y="607" width="119" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="C4a-JR-C2b" secondAttribute="height" multiplier="119:31" id="n30-3E-ys4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -38,15 +45,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="C4a-JR-C2b" firstAttribute="leading" secondItem="A4J-1N-YvP" secondAttribute="trailing" constant="-131" id="6Cp-AI-KxZ"/>
+                <constraint firstItem="UHY-2F-viW" firstAttribute="top" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="21" id="1nF-F9-pZt"/>
                 <constraint firstItem="A4J-1N-YvP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BfP-Ce-wHg"/>
                 <constraint firstItem="A4J-1N-YvP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="ByE-4Q-Xo8"/>
-                <constraint firstItem="C4a-JR-C2b" firstAttribute="centerY" secondItem="UHY-2F-viW" secondAttribute="centerY" id="ZQg-7M-0nd"/>
+                <constraint firstAttribute="trailing" secondItem="C4a-JR-C2b" secondAttribute="trailing" constant="12" id="Cft-Ru-Vrv"/>
+                <constraint firstAttribute="trailing" secondItem="UHY-2F-viW" secondAttribute="trailing" constant="9" id="GSV-lN-XRQ"/>
+                <constraint firstItem="C4a-JR-C2b" firstAttribute="top" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="20" id="Lvm-BY-rZt"/>
+                <constraint firstAttribute="bottom" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="80" id="dsn-st-q2L"/>
                 <constraint firstAttribute="trailing" secondItem="A4J-1N-YvP" secondAttribute="trailing" id="ej9-je-yLT"/>
-                <constraint firstAttribute="bottom" secondItem="UHY-2F-viW" secondAttribute="bottom" constant="30" id="fCd-V0-UL2"/>
-                <constraint firstAttribute="bottom" secondItem="A4J-1N-YvP" secondAttribute="bottom" constant="80" id="iBh-mA-VM5"/>
-                <constraint firstAttribute="trailing" secondItem="UHY-2F-viW" secondAttribute="trailing" constant="12" id="iiz-5P-YCp"/>
-                <constraint firstAttribute="bottom" secondItem="C4a-JR-C2b" secondAttribute="bottom" constant="28" id="lSP-yN-HRl"/>
+                <constraint firstAttribute="bottom" secondItem="C4a-JR-C2b" secondAttribute="bottom" constant="29" id="vtA-Fr-B0v"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
