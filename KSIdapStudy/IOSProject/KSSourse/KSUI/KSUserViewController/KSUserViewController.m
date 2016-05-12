@@ -27,19 +27,19 @@ KSRootViewAndReturnNilMacro(KSUserView);
 -(void)setArrayModel:(KSArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
-        KSWeakifySelf;
+        KSWeakifySelfWithClass(KSUserViewController);
         [_arrayModel addHandler:^{
-            KSStrongifySelfAndReturnIfNil;
-            UITableView *tableView = [strongSelf rootView].tabelView;
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[strongSelf arrayModel].index inSection:0];
+            KSStrongifySelfWithClass(KSUserViewController);
+            UITableView *tableView = strongSelf.rootView.tabelView;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationTop];
+                            [strongSelf.rootView.tabelView reloadData];
         }
                               state:kKSRemoveState
                              object:self];
+        
     };
-    
-    [self.rootView.tabelView reloadData];
 }
 
 #pragma mark -

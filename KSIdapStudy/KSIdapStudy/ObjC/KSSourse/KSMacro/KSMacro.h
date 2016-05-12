@@ -12,6 +12,17 @@
 
 //Objective C
 
+#define KSWeakifySelfWithClass(classObject) \
+    __weak classObject *weakSelf = self
+
+#define KSStrongifySelfWithClass(classObject) \
+    __strong classObject *strongSelf = weakSelf; \
+        if (!strongSelf) { \
+            return; \
+    }
+
+
+
 #define KSWeakifySelf \
     __weak id weakSelf = self
 
