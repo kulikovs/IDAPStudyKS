@@ -10,8 +10,6 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
-static const NSUInteger kKSNumberRowForAdding = 0;
-
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -73,8 +71,8 @@ static const NSUInteger kKSNumberRowForAdding = 0;
     return [self.arrayObjects indexOfObject:object];
 }
 
-- (void)moveObjectAtIndex:(NSUInteger)index onObjectAtIndex:(NSUInteger)onIndex {
-    [self.arrayObjects exchangeObjectAtIndex:index withObjectAtIndex:onIndex];
+- (void)moveObjectAtIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex {
+    [self.arrayObjects exchangeObjectAtIndex:index withObjectAtIndex:toIndex];
 }
 
 - (void)addObject:(id)object {
@@ -101,6 +99,17 @@ static const NSUInteger kKSNumberRowForAdding = 0;
 
 - (void)removeAllObject {
     [self.arrayObjects removeAllObjects];
+}
+
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id [])buffer
+                                    count:(NSUInteger)len
+
+{
+    return [self countByEnumeratingWithState:state objects:buffer count:len];
 }
 
 @end

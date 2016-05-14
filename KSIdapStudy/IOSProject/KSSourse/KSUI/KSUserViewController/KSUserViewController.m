@@ -13,8 +13,12 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
+static const NSString *kKSStringForRemoveButton = @"Remove";
+
 @interface KSUserViewController ()
 @property (nonatomic, readonly) KSUserView *rootView;
+
+- (void)performChangeWithObject:(KSStateModel *)object;
 
 @end
 
@@ -32,19 +36,25 @@ KSRootViewAndReturnNilMacro(KSUserView);
         KSWeakifySelfWithClass(KSUserViewController);
         [_arrayModel addHandler:^(KSStateModel *object) {
             KSStrongifySelfWithClass(KSUserViewController);
-            UITableView *tableView = strongSelf.rootView.tabelView;
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:strongSelf.arrayModel.index inSection:0];
-            if (object.state == kKSRemoveState) {
-                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                 withRowAnimation:UITableViewRowAnimationTop];
-            } else {
-                [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                 withRowAnimation:UITableViewRowAnimationLeft];
-                
-            }
+            [strongSelf performChangeWithObject:object];
         }
-                          state:kKSChangedState
-                         object:self];
+         state:kKSChangedState
+         object:self];
+    }
+}
+
+#pragma mark
+#pragma mark - Private Methods
+
+- (void)performChangeWithObject:(KSStateModel *)object {
+    UITableView *tableView = self.rootView.tabelView;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.arrayModel.index inSection:0];
+    if (object.state == kKSRemoveState) {
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationTop];
+    } else {
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 
@@ -85,7 +95,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
 - (NSString *)                              tableView:(UITableView *)tableView
     titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"Remove";
+    return [kKSStringForRemoveButton copy];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,7 +106,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
            moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
                   toIndexPath:(NSIndexPath *)toIndexPath
 {
-    [self.arrayModel moveObjectAtIndex:fromIndexPath.row onObjectAtIndex:toIndexPath.row];
+    [self.arrayModel moveObjectAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
