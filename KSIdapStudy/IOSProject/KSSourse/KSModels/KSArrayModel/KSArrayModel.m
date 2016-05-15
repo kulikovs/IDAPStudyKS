@@ -104,12 +104,12 @@
 #pragma mark -
 #pragma mark NSFastEnumeration
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id [])buffer
-                                    count:(NSUInteger)len
-
-{
-    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
-}
+//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+//                                  objects:(id [])buffer
+//                                    count:(NSUInteger)len
+//
+//{
+//    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+//}
 
 @end

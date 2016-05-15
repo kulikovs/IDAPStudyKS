@@ -36,8 +36,8 @@ typedef NS_ENUM(NSUInteger) {
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id [])buffer
-                                    count:(NSUInteger)len;
+//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+//                                  objects:(id [])buffer
+//                                    count:(NSUInteger)len;
 
 @end

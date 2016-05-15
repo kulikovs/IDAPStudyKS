@@ -231,6 +231,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90100011CE8570100E99EAA /* KSResources */ = {
+			isa = PBXGroup;
+			children = (
+				C90100021CE8570100E99EAA /* KSPictures */,
+			);
+			path = KSResources;
+			sourceTree = "<group>";
+		};
+		C90100021CE8570100E99EAA /* KSPictures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KSPictures;
+			sourceTree = "<group>";
+		};
 		C91943031CDF98B60060100A /* KSStringModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +527,7 @@
 		C94C754C1CC6800C008014FB /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
+				C90100011CE8570100E99EAA /* KSResources */,
 				C94768A01CDB7DE400EA36EC /* KSExtensions */,
 				C92539621CD095CE0060760E /* KSSourse */,
 			);
