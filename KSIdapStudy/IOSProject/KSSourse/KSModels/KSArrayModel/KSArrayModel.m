@@ -109,7 +109,7 @@
                                     count:(NSUInteger)len
 
 {
-    return [self countByEnumeratingWithState:state objects:buffer count:len];
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
 }
 
 @end
