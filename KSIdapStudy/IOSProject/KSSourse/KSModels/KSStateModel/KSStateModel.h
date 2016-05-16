@@ -11,10 +11,10 @@
 typedef NS_ENUM(NSUInteger) {
     kKSAddedState,
     kKSRemoveState,
-} kKSObjectState;
+} KSObjectState;
 
 @interface KSStateModel : NSObject
-@property (nonatomic, assign) kKSObjectState   state;
+@property (nonatomic, assign) KSObjectState   state;
 @property (nonatomic, assign) NSUInteger       index;
 
 @end

@@ -8,8 +8,9 @@
 
 #import "KSStringModel.h"
 
-static const NSUInteger kKSDefaultStringsCount = 40;
-static const NSString *kKSPathToPictureForCell = @"/Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/IOSProject/Supporting Files/Assets.xcassets/gizmo.imageset/gizmo.jpg";
+static const NSUInteger     kKSDefaultStringsCount = 40;
+static const NSString   *   kKSPathToPictureForCell = @"/Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/IOSProject/Supporting Files/Assets.xcassets/gizmo.imageset/gizmo.jpg";
+static const NSString   *   kKSStringForDecoder = @"string";
 
 @interface KSStringModel ()
 @property (nonatomic, copy)     NSString    *string;
@@ -53,6 +54,15 @@ static const NSString *kKSPathToPictureForCell = @"/Users/kulikovs/Documents/Les
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [self init];
+    if (self) {
+        self.string = [decoder decodeObjectForKey:[kKSStringForDecoder copy]];
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithString:(NSString *)string {
     self = [super init];
     if (self) {
@@ -60,6 +70,13 @@ static const NSString *kKSPathToPictureForCell = @"/Users/kulikovs/Documents/Les
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.string forKey:[kKSStringForDecoder copy]];
 }
 
 @end

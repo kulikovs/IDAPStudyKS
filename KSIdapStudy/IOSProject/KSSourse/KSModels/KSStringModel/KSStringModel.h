@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSStringModel : NSObject
+@interface KSStringModel : NSObject <NSCoding>
 @property (nonatomic, readonly) NSString  *string;
 @property (nonatomic, readonly) UIImage   *image;
 

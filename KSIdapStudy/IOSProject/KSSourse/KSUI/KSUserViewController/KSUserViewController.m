@@ -13,7 +13,7 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
-static const NSString *kKSStringForRemoveButton = @"Remove";
+static const NSString * kKSStringForRemoveButton = @"Remove";
 
 @interface KSUserViewController ()
 @property (nonatomic, readonly) KSUserView *rootView;

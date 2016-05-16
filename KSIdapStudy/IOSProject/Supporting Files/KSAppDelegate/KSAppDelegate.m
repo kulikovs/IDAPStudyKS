@@ -27,6 +27,10 @@
     viewController.arrayModel = [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
     window.rootViewController = viewController;
     
+    
+    //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    //        NSString *documentsPath = [paths objectAtIndex:0];
+    
     [window makeKeyAndVisible];
     
     return YES;

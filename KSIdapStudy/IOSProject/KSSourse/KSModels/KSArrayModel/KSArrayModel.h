@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger) {
 
 @class KSStateModel;
 
-@interface KSArrayModel : KSObserver <NSFastEnumeration>
+@interface KSArrayModel : KSObserver <NSCoding, NSFastEnumeration>
 @property (nonatomic, readonly) NSUInteger  count;
 
 + (instancetype)arrayModelWithObject:(id)object;
