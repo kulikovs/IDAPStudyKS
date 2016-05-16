@@ -80,7 +80,7 @@
     
     KSStateModel *stateModel = [KSStateModel new];
     stateModel.state = kKSAddedState;
-    self.index = self.arrayObjects.count - 1;
+    stateModel.index = self.arrayObjects.count - 1;
     [self setState:kKSChangedState withObject:stateModel];
 }
 
@@ -93,7 +93,7 @@
     
     KSStateModel *stateModel = [KSStateModel new];
     stateModel.state = kKSRemoveState;
-    self.index = index;
+    stateModel.index = index;
     [self setState:kKSChangedState withObject:stateModel];
 }
 
@@ -104,12 +104,11 @@
 #pragma mark -
 #pragma mark NSFastEnumeration
 
-//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-//                                  objects:(id [])buffer
-//                                    count:(NSUInteger)len
-//
-//{
-//    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
-//}
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(__unsafe_unretained id [])buffer
+                                    count:(NSUInteger)len
+{
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
 
 @end

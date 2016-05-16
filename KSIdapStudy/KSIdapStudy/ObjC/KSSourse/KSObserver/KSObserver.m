@@ -12,9 +12,8 @@
 
 @interface KSObserver ()
 @property (nonatomic, retain)     NSMutableArray    *observers;
-@property (nonatomic, retain)     id                object;
 
-- (void)performHandlersForState:(NSUInteger)state;
+- (void)performHandlersForState:(NSUInteger)state  object:(id)object;
 - (KSObserverDictionary *)dictionaryWithState:(NSUInteger)state;
 
 @end
@@ -43,18 +42,17 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
         }
         
-        [self performHandlersForState:_state];
+        [self performHandlersForState:_state object:nil];
     }
-}
-
-- (void)setState:(NSUInteger)state withObject:(id)object {
-    self.object = object;
-    self.state = state;
 }
 
 #pragma mark -
@@ -99,10 +97,10 @@
     return observerDictionary;
 }
 
-- (void)performHandlersForState:(NSUInteger)state {
+- (void)performHandlersForState:(NSUInteger)state object:(id)object {
     KSObserverDictionary *observerDictionary = [self dictionaryWithState:state];
     for (KSHandlerObject handler in observerDictionary.handlers) {
-        handler(self.object);
+        handler(object);
     }
 }
 

@@ -13,7 +13,6 @@ typedef NS_ENUM(NSUInteger) {
     kKSRemoveState,
 } kKSObjectState;
 
-
 @interface KSStateModel : NSObject
 @property (nonatomic, assign) kKSObjectState   state;
 @property (nonatomic, assign) NSUInteger       index;

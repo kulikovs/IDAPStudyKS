@@ -48,7 +48,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
 
 - (void)performChangeWithObject:(KSStateModel *)object {
     UITableView *tableView = self.rootView.tabelView;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.arrayModel.index inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:object.index inSection:0];
     if (object.state == kKSRemoveState) {
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationTop];
