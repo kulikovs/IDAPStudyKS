@@ -26,9 +26,9 @@ static const NSString * kKSSaveStateName = @"/saveStateProgram.plist";
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    KSArrayModel *model =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
-    
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
+    
+    KSArrayModel *model =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
     viewController.arrayModel = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
     window.rootViewController = viewController;
     
@@ -62,14 +62,14 @@ static const NSString * kKSSaveStateName = @"/saveStateProgram.plist";
 
 - (NSString *)pathToFileInDocumentsWithName:(NSString *)fileName {
     NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentsPaths firstObject];
+    NSString *documentsDir = [documentsPaths firstObject]; //first object ?
     NSString *path = [documentsDir stringByAppendingString:fileName];
     
     return path;
 }
 
 - (void)archiveRootObjectToFile:(NSString *)fileName {
-    KSUserViewController *viewController = (KSUserViewController *)self.window.rootViewController;
+    KSUserViewController *viewController = (KSUserViewController *)self.window.rootViewController; //Class UserView ???
 
     [NSKeyedArchiver archiveRootObject:viewController.arrayModel
                                 toFile:[self pathToFileInDocumentsWithName:fileName]];
