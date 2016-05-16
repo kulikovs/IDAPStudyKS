@@ -51,7 +51,7 @@
             _state = state;
         }
         
-        [self performHandlersForState:_state object:nil];
+        [self performHandlersForState:_state object:object];
     }
 }
 

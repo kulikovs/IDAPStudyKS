@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger) {
 } KSObjectState;
 
 @interface KSStateModel : NSObject
-@property (nonatomic, assign) KSObjectState   state;
+@property (nonatomic, assign) KSObjectState    state;
 @property (nonatomic, assign) NSUInteger       index;
 
 @end
