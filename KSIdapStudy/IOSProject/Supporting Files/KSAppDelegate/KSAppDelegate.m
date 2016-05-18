@@ -12,11 +12,12 @@
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
 
-static const NSString * kKSSaveStateName = @"/saveStateProgram.plist";
+static const NSString * kKSSaveStateName = @"saveStateProgram.plist";
 
 @interface KSAppDelegate ()
+@property (nonatomic, strong) KSUserViewController *viewController;
+
 - (void)archiveRootObjectToFile:(NSString *)fileName;
-- (NSString *)pathToFileInDocumentsWithName:(NSString *)fileName;
 
 @end
 
@@ -27,8 +28,11 @@ static const NSString * kKSSaveStateName = @"/saveStateProgram.plist";
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
+    self.viewController = viewController;
     
-    KSArrayModel *model =  [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
+    KSArrayModel *model =  [NSKeyedUnarchiver unarchiveObjectWithFile:
+                            [NSFileManager pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
+    
     viewController.arrayModel = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
     window.rootViewController = viewController;
     
@@ -58,21 +62,11 @@ static const NSString * kKSSaveStateName = @"/saveStateProgram.plist";
 }
 
 #pragma mark -
-#pragma mark Private Methods 
-
-- (NSString *)pathToFileInDocumentsWithName:(NSString *)fileName {
-    NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentsPaths firstObject]; //first object ?
-    NSString *path = [documentsDir stringByAppendingString:fileName];
-    
-    return path;
-}
+#pragma mark Private Methods
 
 - (void)archiveRootObjectToFile:(NSString *)fileName {
-    KSUserViewController *viewController = (KSUserViewController *)self.window.rootViewController; //Class UserView ???
-
-    [NSKeyedArchiver archiveRootObject:viewController.arrayModel
-                                toFile:[self pathToFileInDocumentsWithName:fileName]];
+    [NSKeyedArchiver archiveRootObject:self.viewController.arrayModel
+                                toFile:[NSFileManager pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
 }
 
 @end

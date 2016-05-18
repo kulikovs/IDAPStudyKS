@@ -62,7 +62,8 @@
 		C97ABD601C8313DC003A4E3C /* KSCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = C95BED3C1C79C6BF00E853F6 /* KSCreatureMale.m */; };
 		C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
 		C97ABD621C8313E3003A4E3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
-		C98DAB771CEA677100B5F911 /* gizmo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C98DAB761CEA677100B5F911 /* gizmo.jpg */; };
+		C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C98165501CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m */; };
+		C98DAB771CEA677100B5F911 /* gremlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C98DAB761CEA677100B5F911 /* gremlin.jpg */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -174,7 +175,9 @@
 		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
 		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C98DAB761CEA677100B5F911 /* gizmo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gizmo.jpg; sourceTree = "<group>"; };
+		C981654F1CEC8E4F0092EF27 /* NSFileManager+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+KSExtensions.h"; sourceTree = "<group>"; };
+		C98165501CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+KSExtensions.m"; sourceTree = "<group>"; };
+		C98DAB761CEA677100B5F911 /* gremlin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gremlin.jpg; sourceTree = "<group>"; };
 		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,7 +247,7 @@
 		C90100021CE8570100E99EAA /* KSPictures */ = {
 			isa = PBXGroup;
 			children = (
-				C98DAB761CEA677100B5F911 /* gizmo.jpg */,
+				C98DAB761CEA677100B5F911 /* gremlin.jpg */,
 			);
 			path = KSPictures;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 		C94768A01CDB7DE400EA36EC /* KSExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				C981654E1CEC8E140092EF27 /* NSFileManager+KSExtensions */,
 				C9DB98251CE0FE6400779D36 /* UINib+KSExtensions */,
 				C94768C21CDBDAD400EA36EC /* UITableView+KSExtensions */,
 				C94768A11CDB7DE400EA36EC /* CGGeometry+KSExtensions */,
@@ -635,6 +639,15 @@
 				C94494641CB166100082145C /* TestKSCarWasher.m */,
 			);
 			path = TestObjC;
+			sourceTree = "<group>";
+		};
+		C981654E1CEC8E140092EF27 /* NSFileManager+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C981654F1CEC8E4F0092EF27 /* NSFileManager+KSExtensions.h */,
+				C98165501CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m */,
+			);
+			path = "NSFileManager+KSExtensions";
 			sourceTree = "<group>";
 		};
 		C99254491C7E38E20067DABA /* KSTest */ = {
@@ -896,7 +909,7 @@
 				C925397A1CD095DA0060760E /* LaunchScreen.storyboard in Resources */,
 				C947689F1CDB7D4A00EA36EC /* KSUserViewController.xib in Resources */,
 				C92539791CD095DA0060760E /* Assets.xcassets in Resources */,
-				C98DAB771CEA677100B5F911 /* gizmo.jpg in Resources */,
+				C98DAB771CEA677100B5F911 /* gremlin.jpg in Resources */,
 				C947689C1CDB7D4A00EA36EC /* KSLabelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,6 +958,7 @@
 				C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */,
 				C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */,
 				C94768B11CDB7DE400EA36EC /* NSObject+KSExtension.m in Sources */,
+				C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */,
 				C94768C61CDBDC7500EA36EC /* UITableView+KSExtensions.m in Sources */,
 				C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */,
 				C94768B21CDB7DE400EA36EC /* NSString+KSExtension.m in Sources */,

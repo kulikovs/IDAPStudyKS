@@ -8,9 +8,9 @@
 
 #import "KSStringModel.h"
 
-static const NSUInteger     kKSDefaultStringsCount = 40;
-static const NSString   *   kKSPathToPictureForCell = @"/Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/IOSProject/Supporting Files/Assets.xcassets/gizmo.imageset/gizmo.jpg";
-static const NSString   *   kKSStringForDecoder = @"string";
+static const NSUInteger     kKSDefaultStringsCount  =   40;
+static const NSString   *   kKSStringForDecoder     =   @"string";
+static const NSString   *   kKSImageForCell         =   @"gremlin.jpg";
 
 @interface KSStringModel ()
 @property (nonatomic, copy)     NSString    *string;
@@ -47,7 +47,9 @@ static const NSString   *   kKSStringForDecoder = @"string";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.image = [[UIImage alloc] initWithContentsOfFile:[kKSPathToPictureForCell copy]];
+        NSString *path = [[[NSBundle mainBundle] resourcePath]
+                          stringByAppendingPathComponent:[kKSImageForCell copy]];
+        self.image = [[UIImage alloc] initWithContentsOfFile:path];
         self.string = [NSString randomString];
     }
     
