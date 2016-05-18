@@ -12,12 +12,8 @@
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
 
-static const NSString * kKSSaveStateName = @"saveStateProgram.plist";
-
 @interface KSAppDelegate ()
-@property (nonatomic, strong) KSUserViewController *viewController;
-
-- (void)archiveRootObjectToFile:(NSString *)fileName;
+@property (nonatomic, strong) KSArrayModel *arrayModel;
 
 @end
 
@@ -28,12 +24,11 @@ static const NSString * kKSSaveStateName = @"saveStateProgram.plist";
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    self.viewController = viewController;
-    
-    KSArrayModel *model =  [NSKeyedUnarchiver unarchiveObjectWithFile:
-                            [NSFileManager pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
-    
-    viewController.arrayModel = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
+    KSArrayModel *arrayModel = [KSArrayModel new];
+    [arrayModel load];
+    viewController.arrayModel = arrayModel;
+    self.arrayModel = arrayModel;
+
     window.rootViewController = viewController;
     
     [window makeKeyAndVisible];
@@ -46,7 +41,7 @@ static const NSString * kKSSaveStateName = @"saveStateProgram.plist";
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self archiveRootObjectToFile:[kKSSaveStateName copy]];
+    [self.arrayModel save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -58,15 +53,7 @@ static const NSString * kKSSaveStateName = @"saveStateProgram.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self archiveRootObjectToFile:[kKSSaveStateName copy]];
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)archiveRootObjectToFile:(NSString *)fileName {
-    [NSKeyedArchiver archiveRootObject:self.viewController.arrayModel
-                                toFile:[NSFileManager pathToFileInDocumentsWithName:[kKSSaveStateName copy]]];
+    [self.arrayModel save];
 }
 
 @end

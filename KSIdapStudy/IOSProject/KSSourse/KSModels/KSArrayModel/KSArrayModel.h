@@ -35,4 +35,7 @@ typedef NS_ENUM(NSUInteger) {
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;
 
+- (void)load;
+- (void)save;
+
 @end

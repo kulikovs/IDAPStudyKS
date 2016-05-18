@@ -11,6 +11,7 @@
 #import "KSStateModel.h"
 
 static const NSString * kKSArrayObjectsForCoder = @"arrayObjects";
+static const NSString * kKSSaveModel = @"saveArrayModel.plist";
 
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -32,6 +33,15 @@ static const NSString * kKSArrayObjectsForCoder = @"arrayObjects";
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.arrayObjects = [NSMutableArray array];
+    }
+    
+    return self;
+}
 
 - (instancetype)initModelWithObject:(id)object {
     self = [super init];
@@ -111,6 +121,20 @@ static const NSString * kKSArrayObjectsForCoder = @"arrayObjects";
 - (void)removeAllObject {
     [self.arrayObjects removeAllObjects];
 }
+
+- (void)load {
+    KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:
+                           [NSFileManager pathToFileInDocumentsWithName:[kKSSaveModel copy]]];
+
+    model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
+    self.arrayObjects = model.arrayObjects;
+}
+
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self
+                                toFile:[NSFileManager pathToFileInDocumentsWithName:[kKSSaveModel copy]]];
+}
+
 
 #pragma mark -
 #pragma mark NSCoding
