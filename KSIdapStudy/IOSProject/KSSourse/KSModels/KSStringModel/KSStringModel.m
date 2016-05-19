@@ -69,7 +69,7 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
         self.string = [string copy];
     }
     
-    return self;
+    return self; 
 }
 
 #pragma mark -

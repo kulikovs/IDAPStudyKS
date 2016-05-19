@@ -18,5 +18,6 @@
 #import "UINib+KSExtensions.h"
 #import "NSFileManager+KSExtensions.h"
 #import "NSBundle+KSExtensions.h"
+#import "KSDispatch.h"
 
 #endif /* KSIOSProject_Prefix_pch */

@@ -12,7 +12,7 @@
 
 typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
     kKSArrayModelStateChanged,
-    kKSArrayModelStateLoaded
+    kKSArrayModelStateLoaded,
 };
 
 @class KSStateModel;

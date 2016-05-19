@@ -41,6 +41,13 @@ KSRootViewAndReturnNilMacro(KSUserView);
                          state:kKSArrayModelStateChanged
                          object:self];
         
+        [_arrayModel addHandler:^(KSStateModel *object) {
+        KSStrongifySelfWithClass(KSUserViewController);
+            [strongSelf.rootView.tabelView reloadData];
+        }
+                          state:kKSArrayModelStateLoaded
+                         object:self];
+        
         [self.arrayModel load];
     }
 }

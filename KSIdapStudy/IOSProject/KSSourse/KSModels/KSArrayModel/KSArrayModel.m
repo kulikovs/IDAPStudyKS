@@ -111,11 +111,21 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 }
 
 - (void)load {
-    KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:
-                           [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
-
-    model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
-    self.arrayObjects = model.arrayObjects;
+    KSWeakifySelfWithClass(KSArrayModel);
+    KSDispatchAsyncInBackground(^ {
+        KSStrongifySelfWithClass(KSArrayModel)
+        sleep(3);
+        KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:
+                               [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
+        
+        model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
+        self.arrayObjects = model.arrayObjects;
+        
+        KSDispatchAsyncOnMainThred(^ {
+            KSStrongifySelfWithClass(KSArrayModel)
+            strongSelf.state = kKSArrayModelStateLoaded;
+        });
+    });
 }
 
 - (void)save {
