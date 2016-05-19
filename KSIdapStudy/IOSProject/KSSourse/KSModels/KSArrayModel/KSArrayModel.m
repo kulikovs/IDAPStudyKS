@@ -136,7 +136,7 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:kKSSaveArrayModelKey];
+    [aCoder encodeObject:self.arrayObjects forKey:kKSArrayObjectsForCoderKey];
 }
 
 #pragma mark -

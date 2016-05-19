@@ -8,9 +8,9 @@
 
 #import "KSStringModel.h"
 
-static const NSUInteger     kKSDefaultStringsCount  =   40;
-static const NSString   *   kKSStringForDecoder     =   @"string";
-static const NSString   *   kKSImageForCell         =   @"gremlin.jpg";
+static NSUInteger       const  kKSDefaultStringsCount  =   40;
+static NSString   *     const  kKSStringForDecoder     =   @"string";
+static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 
 @interface KSStringModel ()
 @property (nonatomic, copy)     NSString    *string;
@@ -47,9 +47,7 @@ static const NSString   *   kKSImageForCell         =   @"gremlin.jpg";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSString *path = [[[NSBundle mainBundle] resourcePath]
-                          stringByAppendingPathComponent:[kKSImageForCell copy]];
-        self.image = [[UIImage alloc] initWithContentsOfFile:path];
+        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
         self.string = [NSString randomString];
     }
     
@@ -59,7 +57,7 @@ static const NSString   *   kKSImageForCell         =   @"gremlin.jpg";
 - (instancetype)initWithCoder:(NSCoder *)decoder {
     self = [self init];
     if (self) {
-        self.string = [decoder decodeObjectForKey:[kKSStringForDecoder copy]];
+        self.string = [decoder decodeObjectForKey:kKSStringForDecoder];
     }
     
     return self;
@@ -78,7 +76,7 @@ static const NSString   *   kKSImageForCell         =   @"gremlin.jpg";
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.string forKey:[kKSStringForDecoder copy]];
+    [aCoder encodeObject:self.string forKey:kKSStringForDecoder];
 }
 
 @end

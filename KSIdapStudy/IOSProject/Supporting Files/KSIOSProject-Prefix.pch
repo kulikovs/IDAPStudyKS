@@ -17,5 +17,6 @@
 #import "UITableView+KSExtensions.h"
 #import "UINib+KSExtensions.h"
 #import "NSFileManager+KSExtensions.h"
+#import "NSBundle+KSExtensions.h"
 
 #endif /* KSIOSProject_Prefix_pch */
