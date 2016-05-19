@@ -90,10 +90,9 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 - (void)addObject:(id)object {
     [self.arrayObjects addObject:object];
     
-    KSStateModel *stateModel = [KSStateModel new];
-    stateModel.state = kKSAddedState;
-    stateModel.index = self.arrayObjects.count - 1;
-    [self setState:kKSArrayModelStateChanged withObject:stateModel];
+    NSUInteger index = self.arrayObjects.count - 1;
+    KSStateModel *model = [KSStateModel stateModelWithState:kKSStateModelAddedState index:index];
+    [self setState:kKSArrayModelStateChanged withObject:model];
 }
 
 - (void)removeObject:(id)object {
@@ -103,10 +102,8 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.arrayObjects removeObjectAtIndex:index];
     
-    KSStateModel *stateModel = [KSStateModel new];
-    stateModel.state = kKSRemoveState;
-    stateModel.index = index;
-    [self setState:kKSArrayModelStateChanged withObject:stateModel];
+    KSStateModel *model = [KSStateModel stateModelWithState:kKSStateModelRemoveState index:index];
+    [self setState:kKSArrayModelStateChanged withObject:model];
 }
 
 - (void)removeAllObject {
