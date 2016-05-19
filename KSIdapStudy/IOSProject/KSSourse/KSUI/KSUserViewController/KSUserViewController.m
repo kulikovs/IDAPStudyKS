@@ -38,8 +38,10 @@ KSRootViewAndReturnNilMacro(KSUserView);
             KSStrongifySelfWithClass(KSUserViewController);
             [strongSelf performChangeWithObject:object];
         }
-         state:kKSChangedState
-         object:self];
+                         state:kKSArrayModelStateChanged
+                         object:self];
+        
+        [self.arrayModel load];
     }
 }
 

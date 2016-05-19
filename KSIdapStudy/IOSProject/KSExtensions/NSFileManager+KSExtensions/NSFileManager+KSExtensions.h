@@ -10,7 +10,8 @@
 
 @interface NSFileManager (KSExtensions)
 
-+ (NSString *)pathToDocumentsDir;
++ (NSString *)pathToDocumentsDirectory;
++ (NSString *)pathToDocumentsForDirectory:(NSSearchPathDirectory)directory;
 + (NSString *)pathToFileInDocumentsWithName:(NSString *)fileName;
 
 @end

@@ -10,14 +10,20 @@
 
 @implementation NSFileManager (KSExtensions)
 
-+ (NSString *)pathToDocumentsDir {
-    NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
++ (NSString *)pathToDocumentsDirectory {
+    return [self pathToDocumentsForDirectory:NSDocumentDirectory];
+}
+
++ (NSString *)pathToDocumentsForDirectory:(NSSearchPathDirectory)directory {
+    NSArray *documentsPaths = NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentsPaths firstObject];
+    
     return documentsDir;
 }
 
 + (NSString *)pathToFileInDocumentsWithName:(NSString *)fileName {
-    NSString *documentsDir = [self pathToDocumentsDir];
+    NSString *documentsDir = [self pathToDocumentsDirectory];
+    
     return [documentsDir stringByAppendingPathComponent:fileName];
 }
 

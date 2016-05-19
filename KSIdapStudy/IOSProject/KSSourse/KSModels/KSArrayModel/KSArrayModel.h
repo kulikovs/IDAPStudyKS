@@ -10,9 +10,10 @@
 
 #import "KSObserver.h"
 
-typedef NS_ENUM(NSUInteger) {
-    kKSChangedState
-} kKSArrayModelState;
+typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
+    kKSArrayModelStateChanged,
+    kKSArrayModelStateLoaded
+};
 
 @class KSStateModel;
 

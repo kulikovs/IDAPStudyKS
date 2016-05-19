@@ -10,8 +10,8 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
-static const NSString * kKSArrayObjectsForCoder = @"arrayObjects";
-static const NSString * kKSSaveModel = @"saveArrayModel.plist";
+static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
+static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -61,15 +61,6 @@ static const NSString * kKSSaveModel = @"saveArrayModel.plist";
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super init];
-    if (self) {
-        self.arrayObjects = [decoder decodeObjectForKey:[kKSArrayObjectsForCoder copy]];
-    }
-    
-    return self;
-}
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -102,7 +93,7 @@ static const NSString * kKSSaveModel = @"saveArrayModel.plist";
     KSStateModel *stateModel = [KSStateModel new];
     stateModel.state = kKSAddedState;
     stateModel.index = self.arrayObjects.count - 1;
-    [self setState:kKSChangedState withObject:stateModel];
+    [self setState:kKSArrayModelStateChanged withObject:stateModel];
 }
 
 - (void)removeObject:(id)object {
@@ -115,7 +106,7 @@ static const NSString * kKSSaveModel = @"saveArrayModel.plist";
     KSStateModel *stateModel = [KSStateModel new];
     stateModel.state = kKSRemoveState;
     stateModel.index = index;
-    [self setState:kKSChangedState withObject:stateModel];
+    [self setState:kKSArrayModelStateChanged withObject:stateModel];
 }
 
 - (void)removeAllObject {
@@ -124,7 +115,7 @@ static const NSString * kKSSaveModel = @"saveArrayModel.plist";
 
 - (void)load {
     KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:
-                           [NSFileManager pathToFileInDocumentsWithName:[kKSSaveModel copy]]];
+                           [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
 
     model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
     self.arrayObjects = model.arrayObjects;
@@ -132,15 +123,23 @@ static const NSString * kKSSaveModel = @"saveArrayModel.plist";
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self
-                                toFile:[NSFileManager pathToFileInDocumentsWithName:[kKSSaveModel copy]]];
+                                toFile:[NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
 }
-
 
 #pragma mark -
 #pragma mark NSCoding
 
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+        self.arrayObjects = [decoder decodeObjectForKey:kKSArrayObjectsForCoderKey];
+    }
+    
+    return self;
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:[kKSArrayObjectsForCoder copy]];
+    [aCoder encodeObject:self.arrayObjects forKey:kKSSaveArrayModelKey];
 }
 
 #pragma mark -

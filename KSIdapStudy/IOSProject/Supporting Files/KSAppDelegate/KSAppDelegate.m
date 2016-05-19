@@ -24,10 +24,10 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
+    
     KSArrayModel *arrayModel = [KSArrayModel new];
-    [arrayModel load];
     viewController.arrayModel = arrayModel;
-    self.arrayModel = arrayModel;
+    self.arrayModel = viewController.arrayModel;
 
     window.rootViewController = viewController;
     
