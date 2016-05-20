@@ -28,7 +28,7 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 }
 
 + (instancetype)arrayModelWithObjects:(NSArray *)objects {
-    return [[[self class] alloc] initModelWithArray:objects];
+    return [[[self class] alloc] initWithArray:objects];
 }
 
 #pragma mark -
@@ -38,13 +38,21 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
     self = [super init];
     if (self) {
         self.arrayObjects = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
+                                                     name:UIApplicationWillTerminateNotification
+                                                   object:nil];
     }
     
     return self;
 }
 
-- (instancetype)initModelWithObject:(id)object {
-    self = [super init];
+- (instancetype)initWithObject:(id)object {
+    self = [self init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithObject:object];
     }
@@ -52,8 +60,8 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
     return self;
 }
 
-- (instancetype)initModelWithArray:(NSArray *)objects {
-    self = [super init];
+- (instancetype)initWithArray:(NSArray *)objects {
+    self = [self init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithArray:objects];
     }
@@ -93,6 +101,10 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
     NSUInteger index = self.arrayObjects.count - 1;
     KSStateModel *model = [KSStateModel stateModelWithState:kKSStateModelAddedState index:index];
     [self setState:kKSArrayModelStateChanged withObject:model];
+}
+
+- (void)addObjects:(NSArray *)objects {
+    [self.arrayObjects addObjectsFromArray:objects];
 }
 
 - (void)removeObject:(id)object {

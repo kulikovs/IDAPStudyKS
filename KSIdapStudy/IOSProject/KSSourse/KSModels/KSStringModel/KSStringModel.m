@@ -54,15 +54,6 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [self init];
-    if (self) {
-        self.string = [decoder decodeObjectForKey:kKSStringForDecoder];
-    }
-    
-    return self;
-}
-
 - (instancetype)initWithString:(NSString *)string {
     self = [super init];
     if (self) {
@@ -74,6 +65,15 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 
 #pragma mark -
 #pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [self init];
+    if (self) {
+        self.string = [decoder decodeObjectForKey:kKSStringForDecoder];
+    }
+    
+    return self;
+}
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.string forKey:kKSStringForDecoder];

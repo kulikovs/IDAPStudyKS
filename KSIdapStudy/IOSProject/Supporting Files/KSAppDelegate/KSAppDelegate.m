@@ -12,11 +12,6 @@
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
 
-@interface KSAppDelegate ()
-@property (nonatomic, strong) KSArrayModel *arrayModel;
-
-@end
-
 @implementation KSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -24,13 +19,9 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    
-    KSArrayModel *arrayModel = [KSArrayModel new];
-    viewController.arrayModel = arrayModel;
-    self.arrayModel = viewController.arrayModel;
+    viewController.arrayModel = [KSArrayModel new];
 
     window.rootViewController = viewController;
-    
     [window makeKeyAndVisible];
     
     return YES;
@@ -41,7 +32,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.arrayModel save];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -53,7 +44,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.arrayModel save];
+
 }
 
 @end

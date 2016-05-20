@@ -23,8 +23,8 @@ typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
 + (instancetype)arrayModelWithObject:(id)object;
 + (instancetype)arrayModelWithObjects:(NSArray *)objects;
 
-- (instancetype)initModelWithObject:(id)object;
-- (instancetype)initModelWithArray:(NSArray *)objects;
+- (instancetype)initWithObject:(id)object;
+- (instancetype)initWithArray:(NSArray *)objects;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
 
 - (void)moveObjectAtIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
 - (void)addObject:(id)object;
+- (void)addObjects:(NSArray *)objects;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;

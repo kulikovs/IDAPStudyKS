@@ -12,7 +12,7 @@
 
 @interface KSViewModel : UIView
 
-- (void)showLoad;
+- (void)showLoadView;
 - (void)removeLoad;
 
 @end

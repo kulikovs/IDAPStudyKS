@@ -13,7 +13,7 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
-static const NSString * kKSStringForRemoveButton = @"Remove";
+static NSString * const kKSStringForRemoveButton = @"Remove";
 
 @interface KSUserViewController ()
 @property (nonatomic, readonly) KSUserView *rootView;
@@ -93,18 +93,19 @@ KSRootViewAndReturnNilMacro(KSUserView);
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    KSArrayModel *model = self.arrayModel;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.arrayModel removeObjectAtIndex:indexPath.row];
+        [model removeObjectAtIndex:indexPath.row];
     } else {
         KSStringModel *string = [KSStringModel new];
-        [self.arrayModel addObject:string];
+        [model addObject:string];
     }
 }
 
 - (NSString *)                              tableView:(UITableView *)tableView
     titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [kKSStringForRemoveButton copy];
+    return kKSStringForRemoveButton;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
