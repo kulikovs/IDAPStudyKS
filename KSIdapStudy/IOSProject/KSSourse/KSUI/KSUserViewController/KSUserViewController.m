@@ -12,6 +12,7 @@
 #import "KSUserViewCell.h"
 #import "KSStringModel.h"
 #import "KSStateModel.h"
+#import "KSArrayModelManager.h"
 
 static NSString * const kKSStringForRemoveButton = @"Remove";
 

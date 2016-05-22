@@ -8,14 +8,10 @@
 
 #import "KSViewModel.h"
 
-static NSString * const kKSDefaulLoadingText = @"Loading";
-static CGFloat    const kKSLoadingAlpha = 0.5;
-static CGFloat    const kKSRemovingAlpha = 0.0;
-static CGFloat    const kKSDefaultDurations = 0.8;
-
-@interface KSViewModel ()
-
-@end
+static NSString * const kKSDefaulLoadingText    = @"Loading";
+static CGFloat    const kKSLoadingAlpha         = 0.5;
+static CGFloat    const kKSRemovingAlpha        = 0.0;
+static CGFloat    const kKSDefaultDurations     = 0.8;
 
 @implementation KSViewModel
 

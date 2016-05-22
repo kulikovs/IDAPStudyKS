@@ -8,7 +8,7 @@
 
 #import "KSArrayModel.h"
 
-@interface KSArrayModelManager : KSArrayModel
+@interface KSArrayModelManager : KSArrayModel <NSCoding>
 
 - (void)load;
 - (void)save;

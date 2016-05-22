@@ -11,6 +11,7 @@
 #import "KSUserViewController.h"
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
+#import "KSArrayModelManager.h"
 
 @implementation KSAppDelegate
 
@@ -19,7 +20,7 @@
     self.window = window;
     
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
-    viewController.arrayModel = [KSArrayModel new];
+    viewController.arrayModel = [KSArrayModelManager new];
 
     window.rootViewController = viewController;
     [window makeKeyAndVisible];

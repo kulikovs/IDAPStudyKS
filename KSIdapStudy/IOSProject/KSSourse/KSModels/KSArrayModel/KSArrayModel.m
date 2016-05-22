@@ -10,12 +10,8 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
-static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
-static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
-
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
-@property (nonatomic, strong) NSString       *path;
 
 @end
 
@@ -39,14 +35,6 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
     self = [super init];
     if (self) {
         self.arrayObjects = [NSMutableArray array];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
-                                                     name:UIApplicationWillTerminateNotification
-                                                   object:nil];
     }
     
     return self;
@@ -73,12 +61,12 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSUInteger)count {
-  return self.arrayObjects.count;
+- (NSArray *)objects {
+    return [self.arrayObjects copy];
 }
 
-- (NSString *)path {
-    return [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey];
+- (NSUInteger)count {
+  return self.arrayObjects.count;
 }
 
 #pragma mark -
@@ -125,49 +113,6 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 
 - (void)removeAllObject {
     [self.arrayObjects removeAllObjects];
-}
-
-- (void)load {
-    if (self.state == kKSArrayModelStateLoading) {
-        return;
-    } else {
-    self.state = kKSArrayModelStateLoading;
-    }
-    
-    KSWeakifySelfWithClass(KSArrayModel);
-    KSDispatchAsyncInBackground(^ {
-        KSStrongifySelfWithClass(KSArrayModel)
-        sleep(3);
-        KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-        
-        model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
-        self.arrayObjects = model.arrayObjects;
-        
-        KSDispatchAsyncOnMainThred(^ {
-            KSStrongifySelfWithClass(KSArrayModel)
-            strongSelf.state = kKSArrayModelStateLoaded;
-        });
-    });
-}
-
-- (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
-}
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super init];
-    if (self) {
-        self.arrayObjects = [decoder decodeObjectForKey:kKSArrayObjectsForCoderKey];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:kKSArrayObjectsForCoderKey];
 }
 
 #pragma mark -

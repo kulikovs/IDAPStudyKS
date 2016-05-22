@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class KSArrayModel;
+@class KSArrayModelManager;
 
 @interface KSUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) KSArrayModel *arrayModel;
+@property (nonatomic, strong) KSArrayModelManager *arrayModel;
 
 - (IBAction)onEditTable:(id)sender;
 
