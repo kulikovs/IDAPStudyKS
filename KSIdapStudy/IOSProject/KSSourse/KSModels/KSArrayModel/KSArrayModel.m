@@ -15,6 +15,7 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
+@property (nonatomic, strong) NSString       *path;
 
 @end
 
@@ -76,6 +77,10 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
   return self.arrayObjects.count;
 }
 
+- (NSString *)path {
+    return [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -123,12 +128,17 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 }
 
 - (void)load {
+    if (self.state == kKSArrayModelStateLoading) {
+        return;
+    } else {
+    self.state = kKSArrayModelStateLoading;
+    }
+    
     KSWeakifySelfWithClass(KSArrayModel);
     KSDispatchAsyncInBackground(^ {
         KSStrongifySelfWithClass(KSArrayModel)
         sleep(3);
-        KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:
-                               [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
+        KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
         
         model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
         self.arrayObjects = model.arrayObjects;
@@ -141,8 +151,7 @@ static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
 }
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self
-                                toFile:[NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey]];
+    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
 
 #pragma mark -

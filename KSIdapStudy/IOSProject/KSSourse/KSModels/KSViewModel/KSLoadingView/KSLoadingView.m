@@ -8,11 +8,6 @@
 
 #import "KSLoadingView.h"
 
-@interface KSLoadingView ()
-
-@end
-
 @implementation KSLoadingView
-
 
 @end

@@ -19,6 +19,8 @@ static NSString * const kKSStringForRemoveButton = @"Remove";
 @property (nonatomic, readonly) KSUserView *rootView;
 
 - (void)performChangeWithObject:(KSStateModel *)object;
+- (void)load;
+- (void)addHandlers;
 
 @end
 
@@ -33,27 +35,36 @@ KSRootViewAndReturnNilMacro(KSUserView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        KSWeakifySelfWithClass(KSUserViewController);
-        [_arrayModel addHandler:^(KSStateModel *object) {
-            KSStrongifySelfWithClass(KSUserViewController);
-            [strongSelf performChangeWithObject:object];
-        }
-                         state:kKSArrayModelStateChanged
-                         object:self];
-        
-        [_arrayModel addHandler:^(KSStateModel *object) {
-        KSStrongifySelfWithClass(KSUserViewController);
-            [strongSelf.rootView.tabelView reloadData];
-        }
-                          state:kKSArrayModelStateLoaded
-                         object:self];
-        
-        [self.arrayModel load];
+        [self addHandlers];
+        [self load];
     }
 }
 
-#pragma mark
-#pragma mark - Private Methods
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)load {
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    [self.arrayModel load];
+}
+
+- (void)addHandlers {
+    KSWeakifySelfWithClass(KSUserViewController);
+    [_arrayModel addHandler:^(KSStateModel *object) {
+        KSStrongifySelfWithClass(KSUserViewController);
+        [strongSelf performChangeWithObject:object];
+    }
+                      state:kKSArrayModelStateChanged
+                     object:self];
+    
+    [_arrayModel addHandler:^(KSStateModel *object) {
+        KSStrongifySelfWithClass(KSUserViewController);
+        [strongSelf.rootView.tabelView reloadData];
+        [strongSelf.rootView removeLoadingViewAnimated:YES];
+    }
+                      state:kKSArrayModelStateLoaded
+                     object:self];
+}
 
 - (void)performChangeWithObject:(KSStateModel *)object {
     UITableView *tableView = self.rootView.tabelView;
@@ -65,6 +76,15 @@ KSRootViewAndReturnNilMacro(KSUserView);
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationLeft];
     }
+}
+
+#pragma mark -
+#pragma mark View LifeCycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self load];
 }
 
 #pragma mark -

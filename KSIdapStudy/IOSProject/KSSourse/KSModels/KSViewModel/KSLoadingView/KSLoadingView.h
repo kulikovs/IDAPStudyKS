@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface KSLoadingView : UIView
-@property (nonatomic, strong) KSLoadingView *loadingView;
+@property (nonatomic, strong) IBOutlet UILabel *loadingLabel;
 
 @end

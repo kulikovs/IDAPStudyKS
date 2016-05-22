@@ -11,6 +11,8 @@
 #import "KSObserver.h"
 
 typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
+    kKSArrayModelStateUndefined,
+    kKSArrayModelStateLoading,
     kKSArrayModelStateChanged,
     kKSArrayModelStateLoaded,
 };

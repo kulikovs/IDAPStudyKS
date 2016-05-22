@@ -11,8 +11,15 @@
 #import "KSLoadingView.h"
 
 @interface KSViewModel : UIView
+@property (nonatomic, strong) KSLoadingView *loadingView;
 
-- (void)showLoadView;
-- (void)removeLoad;
+- (void)showLoadingView;
+- (void)showLoadingViewWithDefaultText;
+- (void)showLoadingViewWithDefaultTextAnimated:(BOOL)animated;
+- (void)showLoadingViewWithText:(NSString *)text;
+- (void)showLoadingViewWithText:(NSString *)text animated:(BOOL)animated;
+
+- (void)removeLoadingView;
+- (void)removeLoadingViewAnimated:(BOOL)animated;
 
 @end

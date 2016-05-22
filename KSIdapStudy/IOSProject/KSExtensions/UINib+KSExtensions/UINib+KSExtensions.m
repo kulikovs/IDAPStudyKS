@@ -10,7 +10,7 @@
 
 @implementation UINib (KSExtensions)
 
-+ (id)objectFromNibWithClass:(Class)theClass {
++ (id)loadFromNibWithClass:(Class)theClass {
     UINib *nib = [UINib nibWithNibName:NSStringFromClass(theClass)
                                 bundle:[NSBundle mainBundle]];
     

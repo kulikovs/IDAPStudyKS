@@ -5,26 +5,33 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSLoadingView">
-            <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="KSLoadingView">
+        <view alpha="0.5" contentMode="scaleToFill" id="iN0-l3-epB" customClass="KSLoadingView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VJg-Z1-w3U">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Qo-mbh">
                     <rect key="frame" x="169" y="315" width="37" height="37"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSF-cz-YZZ">
+                    <rect key="frame" x="147" y="366" width="80" height="45"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="VJg-Z1-w3U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WwL-7g-gbe"/>
-                <constraint firstItem="VJg-Z1-w3U" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="bRT-PJ-5al"/>
+                <constraint firstItem="jRW-Qo-mbh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HKr-bd-rys"/>
+                <constraint firstItem="gSF-cz-YZZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="R7U-wa-INy"/>
+                <constraint firstItem="gSF-cz-YZZ" firstAttribute="top" secondItem="jRW-Qo-mbh" secondAttribute="bottom" constant="14" id="aGu-Wx-fXN"/>
+                <constraint firstItem="jRW-Qo-mbh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wnh-6b-1n1"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="loadingLabel" destination="gSF-cz-YZZ" id="d2c-0S-Hdn"/>
+            </connections>
         </view>
     </objects>
 </document>

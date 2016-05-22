@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSUserView : UIView
+#import "KSViewModel.h"
+
+@interface KSUserView : KSViewModel
 @property (nonatomic, strong) IBOutlet UITableView *tabelView;
 @property (nonatomic, strong) IBOutlet UISwitch    *editTableSwitch;
 
