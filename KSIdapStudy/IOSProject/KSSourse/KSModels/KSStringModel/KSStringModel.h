@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSStringModel : NSObject <NSCoding>
+#import "KSObserver.h"
+
+typedef NS_ENUM(NSUInteger, kKSStringModelState) {
+    kKSStringModelStateUndefined,
+    kKSStringModelStateLoading,
+    kKSStringModelStateChanged,
+    kKSStringModelStateLoaded,
+};
+
+@interface KSStringModel : KSObserver <NSCoding>
 @property (nonatomic, readonly) NSString  *string;
 @property (nonatomic, readonly) UIImage   *image;
 
@@ -19,5 +28,7 @@
 - (instancetype)initWithString:(NSString *)string;
 
 + (NSArray *)randomStringsModels;
+
+- (void)load;
 
 @end

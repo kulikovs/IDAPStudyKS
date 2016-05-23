@@ -36,6 +36,7 @@ static CGFloat    const kKSDefaultDurations     = 0.8;
     if (!loadingView) {
        loadingView = [UINib loadFromNibWithClass:[KSLoadingView class]];
         loadingView.loadingLabel.text = text;
+        loadingView.frame = self.frame;
         self.loadingView = loadingView;
     }
 

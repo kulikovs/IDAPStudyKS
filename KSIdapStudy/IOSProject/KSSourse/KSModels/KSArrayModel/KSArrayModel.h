@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
 
 @class KSStateModel;
 
-@interface KSArrayModel : KSObserver <NSFastEnumeration>
+@interface KSArrayModel : KSObserver <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSArray     *objects;
 @property (nonatomic, readonly) NSUInteger  count;
 
@@ -39,5 +39,7 @@ typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;
+
+- (void)load;
 
 @end

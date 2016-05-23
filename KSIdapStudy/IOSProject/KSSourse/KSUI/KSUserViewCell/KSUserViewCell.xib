@@ -37,10 +37,15 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l44-SI-Jt3">
+                        <rect key="frame" x="231" y="12" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Wy8-WT-AP9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-2" id="0P3-X4-YEP"/>
+                    <constraint firstItem="l44-SI-Jt3" firstAttribute="centerX" secondItem="Wy8-WT-AP9" secondAttribute="centerX" id="5Zw-5j-wkU"/>
                     <constraint firstAttribute="bottomMargin" secondItem="cib-Tb-0O9" secondAttribute="bottom" constant="-8" id="WQ2-ld-ebT"/>
+                    <constraint firstItem="l44-SI-Jt3" firstAttribute="centerY" secondItem="Wy8-WT-AP9" secondAttribute="centerY" id="dBp-9A-k6o"/>
                     <constraint firstItem="cib-Tb-0O9" firstAttribute="top" secondItem="btV-aM-REt" secondAttribute="topMargin" constant="-8" id="fQV-qf-H4n"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Wy8-WT-AP9" secondAttribute="trailing" id="s5I-j6-5U4"/>
                     <constraint firstItem="cib-Tb-0O9" firstAttribute="leading" secondItem="btV-aM-REt" secondAttribute="leadingMargin" constant="2" id="tQy-n0-IwT"/>
@@ -48,6 +53,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activeIndicator" destination="l44-SI-Jt3" id="Cjk-sX-XdV"/>
                 <outlet property="stringsImage" destination="Wy8-WT-AP9" id="FG2-y8-sYy"/>
                 <outlet property="stringsLabel" destination="cib-Tb-0O9" id="yKo-GP-Nyu"/>
             </connections>

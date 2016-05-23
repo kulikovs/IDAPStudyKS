@@ -9,11 +9,12 @@
 #import "KSArrayModelManager.h"
 #import "KSStringModel.h"
 
-static NSString * const kKSSaveArrayModelKey       = @"saveArrayModel.plist";
-static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
+static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 
 @interface KSArrayModelManager ()
 @property (nonatomic, readonly) NSString    *path;
+
+- (void)addObserverWithKeys:(NSArray *)keys;
 
 @end
 
@@ -29,13 +30,9 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save)
-                                                     name:UIApplicationWillTerminateNotification
-                                                   object:nil];
+        NSArray *array = @[UIApplicationDidEnterBackgroundNotification,
+                           UIApplicationWillTerminateNotification];
+        [self addObserverWithKeys:array];
     }
     
     return self;
@@ -46,6 +43,18 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
 
 - (NSString *)path {
     return [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)addObserverWithKeys:(NSArray *)keys {
+    for (NSString *key in keys) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:key
+                                                   object:nil];
+    }
 }
 
 #pragma mark -
@@ -77,22 +86,5 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super init];
-    if (self) {
-        [self addObjects:[decoder decodeObjectForKey:kKSArrayObjectsForCoderKey]];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.objects forKey:kKSArrayObjectsForCoderKey];
-}
-
 
 @end

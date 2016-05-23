@@ -16,6 +16,8 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 @property (nonatomic, copy)     NSString    *string;
 @property (nonatomic, strong)   UIImage     *image;
 
+- (void)load;
+
 @end
 
 @implementation KSStringModel
@@ -47,7 +49,6 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
         self.string = [NSString randomString];
     }
     
@@ -61,6 +62,30 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
     }
     
     return self; 
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)load {
+    if (self.state == kKSStringModelStateLoading) {
+        return;
+    } else {
+        self.state = kKSStringModelStateLoading;
+    }
+    
+    KSWeakifySelfWithClass(KSStringModel);
+    KSDispatchAsyncInBackground(^ {
+        KSStrongifySelfWithClass(KSStringModel)
+        sleep(3);
+        
+        strongSelf.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
+        
+        KSDispatchAsyncOnMainThred(^ {
+            KSStrongifySelfWithClass(KSStringModel)
+            [strongSelf setState:kKSStringModelStateLoaded withObject:self.image];
+        });
+    });
 }
 
 #pragma mark -

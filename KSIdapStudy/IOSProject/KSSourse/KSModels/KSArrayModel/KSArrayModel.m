@@ -10,6 +10,8 @@
 #import "KSStringModel.h"
 #import "KSStateModel.h"
 
+static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
+
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -113,6 +115,27 @@
 
 - (void)removeAllObject {
     [self.arrayObjects removeAllObjects];
+}
+
+
+- (void)load {
+
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+         self.arrayObjects = [decoder decodeObjectForKey:kKSArrayObjectsForCoderKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.arrayObjects forKey:kKSArrayObjectsForCoderKey];
 }
 
 #pragma mark -
