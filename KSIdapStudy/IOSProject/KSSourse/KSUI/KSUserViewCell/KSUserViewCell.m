@@ -21,9 +21,10 @@
 
 - (void)setStringModel:(KSStringModel *)stringModel {
     if (_stringModel != stringModel) {
-        stringModel = stringModel;
+        _stringModel = stringModel;
 
         self.stringsImage.image = nil;
+        self.stringsLabel.text = stringModel.string;
         
         KSWeakifySelfWithClass(KSUserViewCell);
         
@@ -35,7 +36,6 @@
           } state:kKSStringModelStateLoaded
                               object:self];
         
-         self.stringsLabel.text = stringModel.string;
         [stringModel load];
         [self.activeIndicator startAnimating];
     }

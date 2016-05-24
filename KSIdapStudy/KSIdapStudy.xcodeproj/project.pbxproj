@@ -364,6 +364,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
+				C9F9979C1CF4CDA4009CEF80 /* KSModel */,
 				C94BDA6F1CEE559200E8F4FB /* KSViewModel */,
 				C94A6D811CE50C5900367D5A /* KSStateModel */,
 				C9DB980F1CE0CEFF00779D36 /* KSArrayModel */,
@@ -839,6 +840,13 @@
 				C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */,
 			);
 			path = "UINib+KSExtensions";
+			sourceTree = "<group>";
+		};
+		C9F9979C1CF4CDA4009CEF80 /* KSModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KSModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
