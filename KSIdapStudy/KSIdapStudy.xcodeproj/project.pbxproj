@@ -84,6 +84,7 @@
 		C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB981C1CE0CF1100779D36 /* KSAlphabetString.m */; };
 		C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */; };
 		C9F92FF91CF0DEC300CE71E0 /* KSLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F92FF81CF0DEC300CE71E0 /* KSLoadingView.xib */; };
+		C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F9979E1CF4D663009CEF80 /* KSModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -217,6 +218,8 @@
 		C9DB98261CE0FE6400779D36 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
 		C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+KSExtensions.m"; sourceTree = "<group>"; };
 		C9F92FF81CF0DEC300CE71E0 /* KSLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSLoadingView.xib; sourceTree = "<group>"; };
+		C9F9979D1CF4D663009CEF80 /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
+		C9F9979E1CF4D663009CEF80 /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -845,6 +848,8 @@
 		C9F9979C1CF4CDA4009CEF80 /* KSModel */ = {
 			isa = PBXGroup;
 			children = (
+				C9F9979D1CF4D663009CEF80 /* KSModel.h */,
+				C9F9979E1CF4D663009CEF80 /* KSModel.m */,
 			);
 			path = KSModel;
 			sourceTree = "<group>";
@@ -1038,6 +1043,7 @@
 				C94768B01CDB7DE400EA36EC /* CGGeometry+KSExtensions.m in Sources */,
 				C94A6D841CE50C7000367D5A /* KSStateModel.m in Sources */,
 				C94768B31CDB7DE400EA36EC /* UIViewController+KSExtensions.m in Sources */,
+				C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */,
 				C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */,
 				C94768BE1CDB978C00EA36EC /* KSUserViewCell.m in Sources */,
 				C947689B1CDB7D4A00EA36EC /* KSLabelViewController.m in Sources */,

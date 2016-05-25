@@ -67,25 +67,13 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)load {
-    if (self.state == kKSStringModelStateLoading) {
-        return;
-    } else {
-        self.state = kKSStringModelStateLoading;
-    }
-    
-    KSWeakifySelfWithClass(KSStringModel);
-    KSDispatchAsyncInBackground(^ {
-        KSStrongifySelfWithClass(KSStringModel)
-        sleep(3);
-        
-        strongSelf.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
-        
-        KSDispatchAsyncOnMainThred(^ {
-            KSStrongifySelfWithClass(KSStringModel)
-            [strongSelf setState:kKSStringModelStateLoaded withObject:self.image];
-        });
-    });
+- (void)prepareToLoad {
+    sleep(3);
+    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
+}
+
+- (void)finishLoading {
+    [self setState:kKSModelStateLoaded withObject:self.image];
 }
 
 #pragma mark -

@@ -55,20 +55,20 @@ KSRootViewAndReturnNilMacro(KSUserView);
         KSStrongifySelfWithClass(KSUserViewController);
         [strongSelf performChangeWithObject:object];
     }
-                      state:kKSArrayModelStateChanged
+                      state:kKSModelStateChanged
                      object:self];
     
     [self.arrayModel addHandler:^(KSStateModel *object) {
         KSStrongifySelfWithClass(KSUserViewController);
-        [strongSelf.rootView.tabelView reloadData];
+        [strongSelf.rootView.tableView reloadData];
         [strongSelf.rootView removeLoadingViewAnimated:YES];
     }
-                      state:kKSArrayModelStateLoaded
+                      state:kKSModelStateLoaded
                      object:self];
 }
 
 - (void)performChangeWithObject:(KSStateModel *)object {
-    UITableView *tableView = self.rootView.tabelView;
+    UITableView *tableView = self.rootView.tableView;
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:object.index inSection:0];
     if (object.state == kKSStateModelRemoveState) {
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
@@ -92,8 +92,8 @@ KSRootViewAndReturnNilMacro(KSUserView);
 #pragma mark Handling
 
 - (IBAction)onEditTable:(id)sender {
-    KSUserView *rootview = self.rootView;
-    rootview.tabelView.editing = !rootview.editTableSwitch.on;
+    KSUserView *rootView = self.rootView;
+    rootView.tableView.editing = !rootView.editTableSwitch.on;
 }
 
 #pragma mark -

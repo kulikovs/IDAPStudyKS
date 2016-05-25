@@ -33,10 +33,13 @@
             
             strongSelf.stringsImage.image = image;
             [strongSelf.activeIndicator stopAnimating];
-          } state:kKSStringModelStateLoaded
-                              object:self];
+          } state:kKSModelStateLoaded object:self];
         
         [stringModel load];
+        
+//        if (self.stringModel.state == kKSModelStateLoaded) {
+//            return;
+//        }
         [self.activeIndicator startAnimating];
     }
 }

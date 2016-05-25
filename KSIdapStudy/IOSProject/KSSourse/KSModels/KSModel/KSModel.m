@@ -10,4 +10,47 @@
 
 @implementation KSModel
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)setUpLoading {
+
+}
+
+- (void)prepareToLoad {
+
+}
+
+- (void)finishLoading {
+
+}
+
+- (void)load {
+    if (self.state == kKSModelStateLoading) {
+        return;
+    }
+        if (self.state == kKSModelStateLoaded) {
+            self.state = kKSModelStateLoading;
+            [self finishLoading];
+            return;
+        } else {
+            
+        self.state = kKSModelStateLoading;
+    }
+    
+    KSWeakifySelf;
+    KSDispatchAsyncInBackground(^ {
+        KSStrongifySelfWithClass(KSModel)
+        
+        [self prepareToLoad];
+        
+        KSDispatchAsyncOnMainThred(^ {
+            KSStrongifySelfWithClass(KSModel)
+            
+            [self finishLoading];
+        });
+    });
+}
+
+
 @end

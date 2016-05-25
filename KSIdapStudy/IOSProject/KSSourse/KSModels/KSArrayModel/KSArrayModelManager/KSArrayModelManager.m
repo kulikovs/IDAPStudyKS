@@ -60,27 +60,16 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)load {
-    if (self.state == kKSArrayModelStateLoading) {
-        return;
-    } else {
-        self.state = kKSArrayModelStateLoading;
-    }
+- (void)prepareToLoad {
+    sleep(3);
     
-    KSWeakifySelfWithClass(KSArrayModel);
-    KSDispatchAsyncInBackground(^ {
-        KSStrongifySelfWithClass(KSArrayModel)
-        sleep(3);
-        KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-        
-        model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
-        [strongSelf addObjects:model.objects];
-        
-        KSDispatchAsyncOnMainThred(^ {
-            KSStrongifySelfWithClass(KSArrayModel)
-            strongSelf.state = kKSArrayModelStateLoaded;
-        });
-    });
+    KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+    model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];
+    [self addObjects:model.objects];
+}
+
+- (void)finishLoading {
+    self.state = kKSModelStateLoaded;
 }
 
 - (void)save {

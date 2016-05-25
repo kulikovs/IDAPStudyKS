@@ -19,6 +19,9 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
 
 @implementation KSArrayModel
 
+@dynamic objects;
+@dynamic count;
+
 #pragma mark -
 #pragma mark Class Methods
 
@@ -95,7 +98,7 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
     
     NSUInteger index = self.arrayObjects.count - 1;
     KSStateModel *model = [KSStateModel stateModelWithState:kKSStateModelAddedState index:index];
-    [self setState:kKSArrayModelStateChanged withObject:model];
+    [self setState:kKSModelStateChanged withObject:model];
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -110,16 +113,11 @@ static NSString * const kKSArrayObjectsForCoderKey = @"arrayObjects";
     [self.arrayObjects removeObjectAtIndex:index];
     
     KSStateModel *model = [KSStateModel stateModelWithState:kKSStateModelRemoveState index:index];
-    [self setState:kKSArrayModelStateChanged withObject:model];
+    [self setState:kKSModelStateChanged withObject:model];
 }
 
 - (void)removeAllObject {
     [self.arrayObjects removeAllObjects];
-}
-
-
-- (void)load {
-
 }
 
 #pragma mark -

@@ -58,7 +58,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
                 <outlet property="editTableSwitch" destination="UHY-2F-viW" id="ff5-46-bw2"/>
-                <outlet property="tabelView" destination="A4J-1N-YvP" id="9fS-K9-dXo"/>
+                <outlet property="tableView" destination="A4J-1N-YvP" id="BLL-FX-pHi"/>
             </connections>
             <point key="canvasLocation" x="417.5" y="451.5"/>
         </view>
