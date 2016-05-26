@@ -60,8 +60,9 @@ KSRootViewAndReturnNilMacro(KSUserView);
     
     [self.arrayModel addHandler:^(KSStateModel *object) {
         KSStrongifySelfWithClass(KSUserViewController);
-        [strongSelf.rootView.tableView reloadData];
-        [strongSelf.rootView removeLoadingViewAnimated:YES];
+       KSUserView *rootView = strongSelf.rootView;
+        [rootView.tableView reloadData];
+        [rootView removeLoadingViewAnimated:YES];
     }
                       state:kKSModelStateLoaded
                      object:self];

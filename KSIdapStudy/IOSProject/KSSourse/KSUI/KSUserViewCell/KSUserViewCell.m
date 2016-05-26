@@ -35,12 +35,8 @@
             [strongSelf.activeIndicator stopAnimating];
           } state:kKSModelStateLoaded object:self];
         
-        [stringModel load];
-        
-//        if (self.stringModel.state == kKSModelStateLoaded) {
-//            return;
-//        }
         [self.activeIndicator startAnimating];
+        [_stringModel load];
     }
 }
 

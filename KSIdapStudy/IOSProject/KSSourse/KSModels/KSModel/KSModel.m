@@ -29,14 +29,13 @@
     if (self.state == kKSModelStateLoading) {
         return;
     }
-        if (self.state == kKSModelStateLoaded) {
-            self.state = kKSModelStateLoading;
-            [self finishLoading];
-            return;
-        } else {
-            
-        self.state = kKSModelStateLoading;
+    
+    if (self.state == kKSModelStateLoaded) {
+        [self finishLoading];
+        return;
     }
+    
+    self.state = kKSModelStateLoading;
     
     KSWeakifySelf;
     KSDispatchAsyncInBackground(^ {

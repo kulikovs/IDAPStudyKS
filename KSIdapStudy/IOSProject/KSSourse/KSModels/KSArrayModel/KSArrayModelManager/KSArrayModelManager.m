@@ -13,26 +13,29 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 
 @interface KSArrayModelManager ()
 @property (nonatomic, readonly) NSString    *path;
+@property (nonatomic, readonly) NSArray     *notificationKey;
 
 - (void)addObserverWithKeys:(NSArray *)keys;
+- (void)removeObserverWithKeys:(NSArray *)keys;
 
 @end
 
 @implementation KSArrayModelManager
 
+@dynamic path;
+@dynamic notificationKey;
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeObserverWithKeys:self.notificationKey];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSArray *array = @[UIApplicationDidEnterBackgroundNotification,
-                           UIApplicationWillTerminateNotification];
-        [self addObserverWithKeys:array];
+        [self addObserverWithKeys:self.notificationKey];
     }
     
     return self;
@@ -45,6 +48,10 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
     return [NSFileManager pathToFileInDocumentsWithName:kKSSaveArrayModelKey];
 }
 
+- (NSArray *)notificationKey {
+    return @[UIApplicationDidEnterBackgroundNotification, UIApplicationWillTerminateNotification];
+}
+
 #pragma mark -
 #pragma mark Private Methods
 
@@ -54,6 +61,12 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
                                                  selector:@selector(save)
                                                      name:key
                                                    object:nil];
+    }
+}
+
+- (void)removeObserverWithKeys:(NSArray *)keys {
+    for (NSString *key in keys) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:key object:nil];
     }
 }
 
