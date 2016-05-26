@@ -70,6 +70,8 @@
 		C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C98165501CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m */; };
 		C98DAB771CEA677100B5F911 /* gremlin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C98DAB761CEA677100B5F911 /* gremlin.jpg */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
+		C9AADD7B1CF74FED00764FB3 /* KSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AADD7A1CF74FED00764FB3 /* KSImageView.m */; };
+		C9AADD821CF7503F00764FB3 /* KSImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AADD811CF7503F00764FB3 /* KSImageModel.m */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
@@ -196,6 +198,10 @@
 		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9AADD791CF74FED00764FB3 /* KSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageView.h; sourceTree = "<group>"; };
+		C9AADD7A1CF74FED00764FB3 /* KSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSImageView.m; sourceTree = "<group>"; };
+		C9AADD801CF7503F00764FB3 /* KSImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageModel.h; sourceTree = "<group>"; };
+		C9AADD811CF7503F00764FB3 /* KSImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSImageModel.m; sourceTree = "<group>"; };
 		C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
 		C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
 		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
@@ -367,6 +373,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
+				C9AADD7F1CF7503F00764FB3 /* KSImageModel */,
 				C9F9979C1CF4CDA4009CEF80 /* KSModel */,
 				C94BDA6F1CEE559200E8F4FB /* KSViewModel */,
 				C94A6D811CE50C5900367D5A /* KSStateModel */,
@@ -379,6 +386,7 @@
 		C947688A1CDB7D4A00EA36EC /* KSUI */ = {
 			isa = PBXGroup;
 			children = (
+				C9AADD781CF74FED00764FB3 /* KSImageView */,
 				C947688B1CDB7D4A00EA36EC /* KSLabelViewController */,
 				C94768921CDB7D4A00EA36EC /* KSUserViewController */,
 			);
@@ -741,6 +749,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C9AADD781CF74FED00764FB3 /* KSImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C9AADD791CF74FED00764FB3 /* KSImageView.h */,
+				C9AADD7A1CF74FED00764FB3 /* KSImageView.m */,
+			);
+			path = KSImageView;
+			sourceTree = "<group>";
+		};
+		C9AADD7F1CF7503F00764FB3 /* KSImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				C9AADD801CF7503F00764FB3 /* KSImageModel.h */,
+				C9AADD811CF7503F00764FB3 /* KSImageModel.m */,
+			);
+			path = KSImageModel;
+			sourceTree = "<group>";
+		};
 		C9CC74CB1C7F578400E2F161 /* KSExtentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1052,7 @@
 			files = (
 				C9DB98121CE0CEFF00779D36 /* KSArrayModel.m in Sources */,
 				C94BDA5C1CEE473200E8F4FB /* KSDispatch.m in Sources */,
+				C9AADD7B1CF74FED00764FB3 /* KSImageView.m in Sources */,
 				C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */,
 				C94BDA761CEE559200E8F4FB /* KSLoadingView.m in Sources */,
 				C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */,
@@ -1050,6 +1077,7 @@
 				C94F7EA21CE32CF00085E97B /* KSObserverDictionary.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,
 				C9DB981E1CE0CF1100779D36 /* KSAlphabetCluster.m in Sources */,
+				C9AADD821CF7503F00764FB3 /* KSImageModel.m in Sources */,
 				C94768B41CDB7DE400EA36EC /* UIWindow+KSExtension.m in Sources */,
 				C925397C1CD095DA0060760E /* KSAppDelegate.m in Sources */,
 				C947689E1CDB7D4A00EA36EC /* KSUserViewController.m in Sources */,

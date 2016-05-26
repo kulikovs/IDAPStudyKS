@@ -17,6 +17,7 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 
 - (void)addObserverWithKeys:(NSArray *)keys;
 - (void)removeObserverWithKeys:(NSArray *)keys;
+- (void)save;
 
 @end
 

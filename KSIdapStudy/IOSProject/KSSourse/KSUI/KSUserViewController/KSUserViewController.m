@@ -27,6 +27,8 @@ static NSString * const kKSStringForRemoveButton = @"Remove";
 
 @implementation KSUserViewController
 
+@dynamic rootView;
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -119,8 +121,7 @@ KSRootViewAndReturnNilMacro(KSUserView);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [model removeObjectAtIndex:indexPath.row];
     } else {
-        KSStringModel *string = [KSStringModel new];
-        [model addObject:string];
+        [model addObject:[KSStringModel new]];
     }
 }
 

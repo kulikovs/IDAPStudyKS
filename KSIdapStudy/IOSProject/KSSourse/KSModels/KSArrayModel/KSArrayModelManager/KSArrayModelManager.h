@@ -10,6 +10,4 @@
 
 @interface KSArrayModelManager : KSArrayModel
 
-- (void)save;
-
 @end
