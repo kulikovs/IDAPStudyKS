@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class KSImageView;
+
 @interface KSUserViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel                 *stringsLabel;
-@property (nonatomic, strong) IBOutlet UIImageView             *stringsImage;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activeIndicator;
+@property (nonatomic, strong) IBOutlet KSImageView             *imageView;
+//@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activeIndicator;
 
 - (void)fillWithModel:(id)model;
 

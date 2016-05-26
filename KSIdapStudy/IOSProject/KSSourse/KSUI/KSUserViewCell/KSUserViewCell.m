@@ -16,29 +16,29 @@
 
 @implementation KSUserViewCell
 
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setStringModel:(KSStringModel *)stringModel {
-    if (_stringModel != stringModel) {
-        _stringModel = stringModel;
-
-        self.stringsImage.image = nil;
-        self.stringsLabel.text = stringModel.string;
-        
-        KSWeakifySelfWithClass(KSUserViewCell);
-        
-        [_stringModel addHandler:^(UIImage *image) {
-            KSStrongifySelfWithClass(KSUserViewCell);
-            
-            strongSelf.stringsImage.image = image;
-            [strongSelf.activeIndicator stopAnimating];
-          } state:kKSModelStateLoaded object:self];
-        
-        [self.activeIndicator startAnimating];
-        [_stringModel load];
-    }
-}
+//#pragma mark -
+//#pragma mark Accessors
+//
+//- (void)setStringModel:(KSStringModel *)stringModel {
+//    if (_stringModel != stringModel) {
+//        _stringModel = stringModel;
+//
+//        self.stringsImage.image = nil;
+//        self.stringsLabel.text = stringModel.string;
+//        
+//        KSWeakifySelfWithClass(KSUserViewCell);
+//        
+//        [_stringModel addHandler:^(UIImage *image) {
+//            KSStrongifySelfWithClass(KSUserViewCell);
+//            
+//            strongSelf.stringsImage.image = image;
+//            [strongSelf.activeIndicator stopAnimating];
+//          } state:kKSModelStateLoaded object:self];
+//        
+//        [self.activeIndicator startAnimating];
+//        [_stringModel load];
+//    }
+//}
 
 #pragma mark -
 #pragma mark Public Methods
