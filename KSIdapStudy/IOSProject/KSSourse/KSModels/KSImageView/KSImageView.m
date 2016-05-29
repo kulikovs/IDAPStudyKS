@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIImageView               *customImageView;
 
 - (void)baseInit;
-- (void)showSpinner;
+- (void)performSpinner;
 
 @end
 
@@ -47,7 +47,7 @@
     self.customImageView = imageView;
     
     self.backgroundColor = [UIColor clearColor];
-    [self showSpinner];
+    [self performSpinner];
     self.imageModel = [KSImageModel new];
 }
 
@@ -80,7 +80,7 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)showSpinner {
+- (void)performSpinner {
 
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
                                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
