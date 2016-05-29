@@ -34,6 +34,7 @@
 #pragma mark Public Methods
 
 - (void)prepareToLoad {
+    sleep(3);
     if (self.isCached) {
         self.imageInModel = [UIImage imageWithContentsOfFile:self.URL];
     }

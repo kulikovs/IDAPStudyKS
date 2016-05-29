@@ -75,7 +75,7 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 #pragma mark Public Methods
 
 - (void)prepareToLoad {
-    sleep(3);
+   // sleep(3);
     
     KSArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
     model = model ? model : [KSArrayModel arrayModelWithObjects:[KSStringModel randomStringsModels]];

@@ -47,6 +47,7 @@
     self.customImageView = imageView;
     
     self.backgroundColor = [UIColor clearColor];
+    [self showSpinner];
     self.imageModel = [KSImageModel new];
 }
 
@@ -80,13 +81,16 @@
 #pragma mark Private Methods
 
 - (void)showSpinner {
-    
+
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
                                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
-    spinner.center = self.customImageView.center;
-    spinner.hidesWhenStopped = YES;
-    self.spinner = spinner;
+    UIImageView *imageView = self.customImageView;
+    spinner.center = imageView.center;
+    [spinner startAnimating];
+    [imageView addSubview:spinner];
+    
+     self.spinner = spinner;
 }
 
 @end

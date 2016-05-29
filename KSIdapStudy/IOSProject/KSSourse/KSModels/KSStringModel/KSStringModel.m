@@ -70,11 +70,6 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
     return [NSBundle pathToFileWithName:kKSNameImageForCell];
 }
 
- //   self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
-//- (void)finishLoading {
-//    [self setState:kKSModelStateLoaded withObject:self.image];
-//}
-
 #pragma mark -
 #pragma mark NSCoding
 
