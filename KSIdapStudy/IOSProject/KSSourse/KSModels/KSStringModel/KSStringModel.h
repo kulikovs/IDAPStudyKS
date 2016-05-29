@@ -12,7 +12,7 @@
 
 @interface KSStringModel : KSModel <NSCoding>
 @property (nonatomic, readonly) NSString  *string;
-@property (nonatomic, readonly) UIImage   *image;
+@property (nonatomic, readonly) NSString  *URL;
 
 + (instancetype)randomStringModel;
 + (instancetype)stringModelWithString:(NSString *)string;

@@ -8,6 +8,7 @@
 
 #import "KSUserViewCell.h"
 #import "KSStringModel.h"
+#import "KSImageView.h"
 
 @interface KSUserViewCell ()
 @property (nonatomic, strong) KSStringModel *stringModel;
@@ -16,16 +17,16 @@
 
 @implementation KSUserViewCell
 
-//#pragma mark -
-//#pragma mark Accessors
-//
-//- (void)setStringModel:(KSStringModel *)stringModel {
-//    if (_stringModel != stringModel) {
-//        _stringModel = stringModel;
-//
-//        self.stringsImage.image = nil;
-//        self.stringsLabel.text = stringModel.string;
-//        
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setStringModel:(KSStringModel *)stringModel {
+    if (_stringModel != stringModel) {
+        _stringModel = stringModel;
+
+        self.customImageView.URL = stringModel.URL;
+        self.stringsLabel.text = stringModel.string;
+        
 //        KSWeakifySelfWithClass(KSUserViewCell);
 //        
 //        [_stringModel addHandler:^(UIImage *image) {
@@ -37,8 +38,8 @@
 //        
 //        [self.activeIndicator startAnimating];
 //        [_stringModel load];
-//    }
-//}
+    }
+}
 
 #pragma mark -
 #pragma mark Public Methods

@@ -14,13 +14,12 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 
 @interface KSStringModel ()
 @property (nonatomic, copy)     NSString    *string;
-@property (nonatomic, strong)   UIImage     *image;
-
-- (void)load;
 
 @end
 
 @implementation KSStringModel
+
+@dynamic URL;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -65,16 +64,16 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Accessors
 
-- (void)prepareToLoad {
-    sleep(3);
-    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
+- (NSString *)URL {
+    return [NSBundle pathToFileWithName:kKSNameImageForCell];
 }
 
-- (void)finishLoading {
-    [self setState:kKSModelStateLoaded withObject:self.image];
-}
+ //   self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kKSNameImageForCell]];
+//- (void)finishLoading {
+//    [self setState:kKSModelStateLoaded withObject:self.image];
+//}
 
 #pragma mark -
 #pragma mark NSCoding

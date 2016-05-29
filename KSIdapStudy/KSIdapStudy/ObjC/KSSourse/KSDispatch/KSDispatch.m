@@ -25,7 +25,7 @@ void KSDispatchAsyncInBackground(KSDispatchHandler handler) {
     KSDispatchAsyncWithPriority(kKSPriorityBackground, handler);
 }
 
-void KSDispatchAsyncOnMainThred(KSDispatchHandler handler) {
+void KSDispatchAsyncOnMainThread(KSDispatchHandler handler) {
     KSDispatchAsyncWithPriority(kKSPriorityMain, handler);
 }
 
@@ -41,7 +41,7 @@ void KSDispatchSyncInBackground(KSDispatchHandler handler) {
     KSDispatchSyncWithPriority(kKSPriorityBackground, handler);
 }
 
-void KSDispatchSyncOnMainThred(KSDispatchHandler handler) {
+void KSDispatchSyncOnMainThread(KSDispatchHandler handler) {
     KSDispatchSyncWithPriority(kKSPriorityMain, handler);
 }
 

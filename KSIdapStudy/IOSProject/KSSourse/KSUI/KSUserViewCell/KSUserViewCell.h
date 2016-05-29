@@ -12,8 +12,7 @@
 
 @interface KSUserViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel                 *stringsLabel;
-@property (nonatomic, strong) IBOutlet KSImageView             *imageView;
-//@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activeIndicator;
+@property (nonatomic, strong) IBOutlet KSImageView             *customImageView;
 
 - (void)fillWithModel:(id)model;
 

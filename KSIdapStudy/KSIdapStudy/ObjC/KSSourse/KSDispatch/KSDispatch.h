@@ -20,8 +20,8 @@ typedef enum {
 
 void KSDispatchAsyncWithPriority(KSDispatchPriority priority, KSDispatchHandler handler);
 void KSDispatchAsyncInBackground(KSDispatchHandler handler);
-void KSDispatchAsyncOnMainThred(KSDispatchHandler handler);
+void KSDispatchAsyncOnMainThread(KSDispatchHandler handler);
 
 void KSDispatchSyncWithPriority(KSDispatchPriority priority, KSDispatchHandler handler);
 void KSDispatchSyncInBackground(KSDispatchHandler handler);
-void KSDispatchSyncOnMainThred(KSDispatchHandler handler);
+void KSDispatchSyncOnMainThread(KSDispatchHandler handler);

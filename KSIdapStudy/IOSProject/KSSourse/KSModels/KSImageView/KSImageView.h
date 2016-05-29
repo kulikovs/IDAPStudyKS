@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class KSImageModel;
+
 @interface KSImageView : UIView
-@property (nonatomic, readonly) NSString *url;
+@property (nonatomic, copy)     NSString        *URL;
+@property (nonatomic, strong)   KSImageModel    *imageModel;
 
 @end

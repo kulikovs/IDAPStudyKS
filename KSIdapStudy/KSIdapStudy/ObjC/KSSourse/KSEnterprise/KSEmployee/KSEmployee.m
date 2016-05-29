@@ -51,7 +51,7 @@ typedef void(^KSHandlerObject)(void);
                 [strongSelf takeMoney:[object giveMoney]];
                 [strongSelf completeWorkingWithObject:object];
                 
-                KSDispatchAsyncOnMainThred( ^{
+                KSDispatchAsyncOnMainThread( ^{
                     [strongSelf completeWorking];
                 });
             });

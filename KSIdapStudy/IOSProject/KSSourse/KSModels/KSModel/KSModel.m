@@ -43,7 +43,7 @@
         
         [self prepareToLoad];
         
-        KSDispatchAsyncOnMainThred(^ {
+        KSDispatchAsyncOnMainThread(^ {
             KSStrongifySelfWithClass(KSModel)
             
             [self finishLoading];
