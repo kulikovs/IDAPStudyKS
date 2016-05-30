@@ -103,10 +103,7 @@
      }];
 }
 
-#pragma mark -
-#pragma mark Public Methods
-
-- (void)prepareToLoad {
+- (void)performSetImage {
     if (self.isCached) {
         UIImage *image = [UIImage imageWithContentsOfFile:self.path];
         
@@ -115,8 +112,18 @@
         } else {
             self.image = image;
         }
-    } else
+    }
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)prepareToLoad {
+    if ([self.URL.scheme isEqualToString:@"http"]) {
         [self performDownload];
+    } else {
+        [self performSetImage];
+    }
 }
 
 - (void)dump {
