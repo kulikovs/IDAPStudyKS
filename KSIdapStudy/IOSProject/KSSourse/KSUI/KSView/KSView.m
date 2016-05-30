@@ -6,14 +6,14 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "KSViewModel.h"
+#import "KSView.h"
 
 static NSString * const kKSDefaulLoadingText    = @"Loading";
 static CGFloat    const kKSLoadingAlpha         = 0.5;
 static CGFloat    const kKSRemovingAlpha        = 0.0;
 static CGFloat    const kKSDefaultDurations     = 0.8;
 
-@implementation KSViewModel
+@implementation KSView
 
 - (void)showLoadingView {
     [self showLoadingViewWithText:nil];

@@ -9,8 +9,8 @@
 #import "KSModel.h"
 
 @interface KSImageModel : KSModel
-@property (nonatomic, copy)     NSString    *URL;
-@property (nonatomic, strong)   UIImage     *imageInModel;
+@property (nonatomic, copy)     NSURL    *URL;
+@property (nonatomic, strong)   UIImage     *image;
 
 @end
 

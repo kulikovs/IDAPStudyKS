@@ -24,7 +24,7 @@
     if (_stringModel != stringModel) {
         _stringModel = stringModel;
 
-        self.customImageView.URL = stringModel.URL;
+        self.customImageView.URLString = stringModel.URLString;
         self.stringsLabel.text = stringModel.string;
         
 //        KSWeakifySelfWithClass(KSUserViewCell);

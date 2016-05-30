@@ -10,7 +10,7 @@
 
 #import "KSLoadingView.h"
 
-@interface KSViewModel : UIView
+@interface KSView : UIView
 @property (nonatomic, strong) KSLoadingView *loadingView;
 
 - (void)showLoadingView;

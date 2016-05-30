@@ -11,7 +11,7 @@
 @class KSImageModel;
 
 @interface KSImageView : UIView
-@property (nonatomic, copy)     NSString        *URL;
+@property (nonatomic, copy)     NSString        *URLString;
 @property (nonatomic, strong)   KSImageModel    *imageModel;
 
 @end

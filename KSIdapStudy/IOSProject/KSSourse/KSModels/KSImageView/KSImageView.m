@@ -15,6 +15,7 @@
 
 - (void)baseInit;
 - (void)performSpinner;
+- (void)dump;
 
 @end
 
@@ -54,12 +55,13 @@
 #pragma mark -
 #pragma mark Accessor
 
-- (void)setURL:(NSString *)URL {
-    if (_URL != URL) {
-        _URL = URL;
+- (void)setURLString:(NSString *)URLString {
+    if (_URLString != URLString) {
+        _URLString = URLString;
     }
     
-    self.imageModel.URL = self.URL;
+    self.imageModel.URL = [NSURL URLWithString:self.URLString];
+    [self dump];
 }
 
 - (void)setImageModel:(KSImageModel *)imageModel {
@@ -73,8 +75,6 @@
             strongSelf.customImageView.image = image;
             [strongSelf.spinner stopAnimating];
         } state:kKSModelStateLoaded object:self];
-    
-    [self.spinner startAnimating];
 }
 
 #pragma mark -
@@ -91,6 +91,10 @@
     [imageView addSubview:spinner];
     
      self.spinner = spinner;
+}
+
+- (void)dump {
+    self.imageModel.image = nil;
 }
 
 @end

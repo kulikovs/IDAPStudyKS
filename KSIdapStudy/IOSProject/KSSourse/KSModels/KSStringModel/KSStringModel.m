@@ -19,7 +19,7 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 
 @implementation KSStringModel
 
-@dynamic URL;
+@dynamic URLString;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -66,7 +66,7 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)URL {
+- (NSString *)URLString {
     return [NSBundle pathToFileWithName:kKSNameImageForCell];
 }
 
