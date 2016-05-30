@@ -26,18 +26,6 @@
 
         self.customImageView.URLString = stringModel.URLString;
         self.stringsLabel.text = stringModel.string;
-        
-//        KSWeakifySelfWithClass(KSUserViewCell);
-//        
-//        [_stringModel addHandler:^(UIImage *image) {
-//            KSStrongifySelfWithClass(KSUserViewCell);
-//            
-//            strongSelf.stringsImage.image = image;
-//            [strongSelf.activeIndicator stopAnimating];
-//          } state:kKSModelStateLoaded object:self];
-//        
-//        [self.activeIndicator startAnimating];
-//        [_stringModel load];
     }
 }
 

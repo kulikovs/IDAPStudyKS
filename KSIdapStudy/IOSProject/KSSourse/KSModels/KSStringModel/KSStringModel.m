@@ -11,6 +11,7 @@
 static NSUInteger       const  kKSDefaultStringsCount  =   40;
 static NSString   *     const  kKSStringForDecoder     =   @"string";
 static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
+static NSString   *     const  kKSImageForCellFromInternet = @"http://art-assorty.ru/uploads/posts/2015-12/1449838251_5.jpg";
 
 @interface KSStringModel ()
 @property (nonatomic, copy)     NSString    *string;
@@ -67,7 +68,8 @@ static NSString   *     const  kKSNameImageForCell     =   @"gremlin.jpg";
 #pragma mark Accessors
 
 - (NSString *)URLString {
-    return [NSBundle pathToFileWithName:kKSNameImageForCell];
+//    return [NSBundle pathToFileWithName:kKSImageForCellFromInternet];
+    return kKSImageForCellFromInternet;
 }
 
 #pragma mark -

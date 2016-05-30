@@ -10,7 +10,7 @@
 
 @interface KSImageModel : KSModel
 @property (nonatomic, copy)     NSURL    *URL;
-@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   UIImage  *image;
 
 @end
 

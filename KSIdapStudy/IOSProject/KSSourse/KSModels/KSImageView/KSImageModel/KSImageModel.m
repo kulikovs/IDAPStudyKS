@@ -9,12 +9,16 @@
 #import "KSImageModel.h"
 
 @interface KSImageModel ()
-@property (nonatomic, readonly, getter=isCached) BOOL     cached;
-@property (nonatomic, readonly)                  NSString *path;
-@property (nonatomic, readonly)                  NSString *fileName;
+@property (nonatomic, readonly, getter=isCached) BOOL                       cached;
+@property (nonatomic, readonly)                  NSString                   *path;
+@property (nonatomic, readonly)                  NSString                   *fileName;
+@property (nonatomic, strong)                    NSURLSession               *URLSession;
+@property (nonatomic, strong)                    NSURLSessionDownloadTask   *downloadTask;
 
 - (void)removeIfNeeded;
 - (void)dump;
+- (void)performDownload;
+- (void)performSetImage;
 
 @end
 
@@ -22,6 +26,19 @@
 
 @dynamic path;
 @dynamic fileName;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        self.URLSession = [NSURLSession sessionWithConfiguration:
+                           [NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -41,12 +58,20 @@
 }
 
 - (NSString *)path {
-    return [self.URL absoluteString];
-   //return [NSFileManager pathToFileInDocumentsWithName:self.fileName];
+   return [NSFileManager pathToFileInDocumentsWithName:self.fileName];
 }
 
 - (NSString *)fileName {
    return [[self.URL absoluteString] lastPathComponent];
+}
+
+- (void)setDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
+    if (_downloadTask != downloadTask) {
+        [_downloadTask cancel];
+        
+         _downloadTask = downloadTask;
+        [downloadTask resume];
+    }
 }
 
 #pragma mark -
@@ -57,6 +82,25 @@
         NSError *error = nil;
         [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
     }
+}
+
+- (void)performDownload {
+    self.downloadTask = [self.URLSession downloadTaskWithURL:self.URL
+                                           completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+    {
+        NSError *fileError = nil;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL * url = [NSURL fileURLWithPath:self.path];
+                             
+        [fileManager copyItemAtURL:location toURL:url error:&fileError];
+        self.image = [UIImage imageWithContentsOfFile:self.path];
+        NSLog(@"");
+            KSWeakifySelf;
+            KSDispatchAsyncOnMainThread(^{
+                KSStrongifySelfWithClass(KSImageModel);
+                [strongSelf setState:kKSModelStateLoaded withObject:self.image];
+            });
+     }];
 }
 
 #pragma mark -
@@ -71,7 +115,8 @@
         } else {
             self.image = image;
         }
-    }
+    } else
+        [self performDownload];
 }
 
 - (void)dump {
