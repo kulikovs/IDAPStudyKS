@@ -7,6 +7,7 @@
 //
 
 #import "KSImageModel.h"
+#import "KSCachedFilesModel.h"
 
 @interface KSImageModel ()
 @property (nonatomic, readonly, getter=isCached) BOOL                       cached;
@@ -44,7 +45,7 @@
 #pragma mark Accessors
 
 - (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+   return [[KSCachedFilesModel cachedFilesModel] fileIsCashed:self.URL.absoluteString];
 }
 
 - (void)setURL:(NSURL *)URL {
@@ -80,7 +81,9 @@
 - (void)removeIfNeeded {
     if (self.isCached) {
         NSError *error = nil;
-        [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
+        if ([[NSFileManager defaultManager] removeItemAtPath:self.path error:&error]) {
+            [[KSCachedFilesModel cachedFilesModel] removeURLString:self.URL.absoluteString];
+        }
     }
 }
 
@@ -96,6 +99,8 @@
         NSError *fileError = nil;
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:self.path] error:&fileError];
+       [[KSCachedFilesModel cachedFilesModel] addURLString:self.URL.absoluteString];
+        self.image = [UIImage imageWithContentsOfFile:self.path];
         [self loadFromFileSystem];
      }];
     }
@@ -109,7 +114,7 @@
             [self removeIfNeeded];
         } else {
             self.image = image;
-            [self finishLoading];
+            [self completeLoading];
         }
     }
 }
@@ -126,11 +131,16 @@
     self.state = kKSModelStateUndefined;
 }
 
-- (void)finishLoading {
+- (void)completeLoading {
     KSWeakifySelf;
     KSDispatchAsyncOnMainThread(^{
         KSStrongifySelfWithClass(KSImageModel);
-        NSUInteger state = self.image ? kKSModelStateLoaded : kKSModelStateFailed;
+        NSUInteger state = kKSModelStateFailed;
+        if (self.image) {
+            state = kKSModelStateLoaded;
+            [[KSCachedFilesModel cachedFilesModel] addURLString:self.URL.absoluteString];
+        }
+        
         [self setState:state withObject:self.image];
     });
 }

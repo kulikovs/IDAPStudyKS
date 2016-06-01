@@ -86,6 +86,7 @@
 		C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB981A1CE0CF1100779D36 /* KSAlphabetRange.m */; };
 		C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB981C1CE0CF1100779D36 /* KSAlphabetString.m */; };
 		C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */; };
+		C9F911491CFEFB1500F3B4A2 /* KSCachedFilesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */; };
 		C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F9979E1CF4D663009CEF80 /* KSModel.m */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,8 @@
 		C9DB981C1CE0CF1100779D36 /* KSAlphabetString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetString.m; sourceTree = "<group>"; };
 		C9DB98261CE0FE6400779D36 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
 		C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+KSExtensions.m"; sourceTree = "<group>"; };
+		C9F911471CFEFB1500F3B4A2 /* KSCachedFilesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCachedFilesModel.h; sourceTree = "<group>"; };
+		C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCachedFilesModel.m; sourceTree = "<group>"; };
 		C9F9979D1CF4D663009CEF80 /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		C9F9979E1CF4D663009CEF80 /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +376,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
+				C9F911461CFEFB1500F3B4A2 /* KSCachedFilesModel */,
 				C9C06E131CFA3C5900870A65 /* KSImageView */,
 				C9F9979C1CF4CDA4009CEF80 /* KSModel */,
 				C94A6D811CE50C5900367D5A /* KSStateModel */,
@@ -872,6 +876,15 @@
 			path = "UINib+KSExtensions";
 			sourceTree = "<group>";
 		};
+		C9F911461CFEFB1500F3B4A2 /* KSCachedFilesModel */ = {
+			isa = PBXGroup;
+			children = (
+				C9F911471CFEFB1500F3B4A2 /* KSCachedFilesModel.h */,
+				C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */,
+			);
+			path = KSCachedFilesModel;
+			sourceTree = "<group>";
+		};
 		C9F9979C1CF4CDA4009CEF80 /* KSModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1059,6 +1072,7 @@
 				C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */,
 				C94768B11CDB7DE400EA36EC /* NSObject+KSExtension.m in Sources */,
 				C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */,
+				C9F911491CFEFB1500F3B4A2 /* KSCachedFilesModel.m in Sources */,
 				C94768C61CDBDC7500EA36EC /* UITableView+KSExtensions.m in Sources */,
 				C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */,
 				C94768B21CDB7DE400EA36EC /* NSString+KSExtension.m in Sources */,

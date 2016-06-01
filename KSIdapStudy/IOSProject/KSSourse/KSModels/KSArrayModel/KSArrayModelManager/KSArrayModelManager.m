@@ -71,6 +71,10 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
     }
 }
 
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -82,10 +86,6 @@ static NSString * const kKSSaveArrayModelKey = @"saveArrayModel.plist";
 
 - (void)finishLoading {
     self.state = kKSModelStateLoaded;
-}
-
-- (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
 
 @end

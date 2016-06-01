@@ -35,7 +35,7 @@
     }
     
     if (self.state == kKSModelStateLoaded) {
-        [self finishLoading];
+        [self completeLoading];
         return;
     }
     
