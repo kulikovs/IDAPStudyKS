@@ -55,19 +55,19 @@
 #pragma mark -
 #pragma mark Accessor
 
-- (void)setURLString:(NSString *)URLString {
-    if (_URLString != URLString) {
-        _URLString = URLString;
+- (void)setURL:(NSURL *)URL {
+    if (_URL != URL) {
+        _URL = URL;
     }
     
-    self.imageModel.URL = [NSURL URLWithString:self.URLString];
     [self dump];
+    self.imageModel.URL = self.URL;
 }
 
 - (void)setImageModel:(KSImageModel *)imageModel {
     if (_imageModel != imageModel) {
         _imageModel = imageModel;
-    }
+    
         KSWeakifySelf;
         [_imageModel addHandler:^(UIImage *image) {
             KSStrongifySelfWithClass(KSImageView);
@@ -75,6 +75,7 @@
             strongSelf.customImageView.image = image;
             [strongSelf.spinner stopAnimating];
         } state:kKSModelStateLoaded object:self];
+    }
 }
 
 #pragma mark -

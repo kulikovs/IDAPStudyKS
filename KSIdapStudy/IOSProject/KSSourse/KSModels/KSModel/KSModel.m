@@ -25,6 +25,10 @@
 
 }
 
+- (void)completeLoading {
+    [self finishLoading];
+}
+
 - (void)load {
     if (self.state == kKSModelStateLoading) {
         return;

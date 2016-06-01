@@ -18,7 +18,7 @@
 - (void)removeIfNeeded;
 - (void)dump;
 - (void)performDownload;
-- (void)performSetImage;
+- (void)loadFromFileSystem;
 
 @end
 
@@ -70,7 +70,7 @@
         [_downloadTask cancel];
         
          _downloadTask = downloadTask;
-        [downloadTask resume];
+        [_downloadTask resume];
     }
 }
 
@@ -85,25 +85,23 @@
 }
 
 - (void)performDownload {
-    self.downloadTask = [self.URLSession downloadTaskWithURL:self.URL
-                                           completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error)
+    if (self.isCached) {
+        [self loadFromFileSystem];
+    } else {
+        self.downloadTask = [self.URLSession downloadTaskWithURL:self.URL
+                                               completionHandler:^(NSURL *location,
+                                                                   NSURLResponse *response,
+                                                                   NSError *error)
     {
         NSError *fileError = nil;
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSURL * url = [NSURL fileURLWithPath:self.path];
-                             
-        [fileManager copyItemAtURL:location toURL:url error:&fileError];
-        self.image = [UIImage imageWithContentsOfFile:self.path];
-        NSLog(@"");
-            KSWeakifySelf;
-            KSDispatchAsyncOnMainThread(^{
-                KSStrongifySelfWithClass(KSImageModel);
-                [strongSelf setState:kKSModelStateLoaded withObject:self.image];
-            });
+        [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:self.path] error:&fileError];
+        [self loadFromFileSystem];
      }];
+    }
 }
 
-- (void)performSetImage {
+- (void)loadFromFileSystem {
     if (self.isCached) {
         UIImage *image = [UIImage imageWithContentsOfFile:self.path];
         
@@ -111,18 +109,16 @@
             [self removeIfNeeded];
         } else {
             self.image = image;
+            [self finishLoading];
         }
     }
 }
 
-#pragma mark -
-#pragma mark Public Methods
-
 - (void)prepareToLoad {
-    if ([self.URL.scheme isEqualToString:@"http"]) {
-        [self performDownload];
+    if (self.URL.isFileURL) {
+        [self loadFromFileSystem];
     } else {
-        [self performSetImage];
+        [self performDownload];
     }
 }
 
@@ -131,8 +127,12 @@
 }
 
 - (void)finishLoading {
-    NSUInteger state = self.image ? kKSModelStateLoaded : kKSModelStateFailed;
-    [self setState:state withObject:self.image];
+    KSWeakifySelf;
+    KSDispatchAsyncOnMainThread(^{
+        KSStrongifySelfWithClass(KSImageModel);
+        NSUInteger state = self.image ? kKSModelStateLoaded : kKSModelStateFailed;
+        [self setState:state withObject:self.image];
+    });
 }
 
 @end

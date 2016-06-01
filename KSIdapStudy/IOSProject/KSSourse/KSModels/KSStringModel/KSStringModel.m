@@ -68,7 +68,6 @@ static NSString   *     const  kKSImageForCellFromInternet = @"http://art-assort
 #pragma mark Accessors
 
 - (NSString *)URLString {
-//    return [NSBundle pathToFileWithName:kKSImageForCellFromInternet];
     return kKSImageForCellFromInternet;
 }
 

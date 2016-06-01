@@ -10,30 +10,14 @@
 #import "KSStringModel.h"
 #import "KSImageView.h"
 
-@interface KSUserViewCell ()
-@property (nonatomic, strong) KSStringModel *stringModel;
-
-@end
-
 @implementation KSUserViewCell
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setStringModel:(KSStringModel *)stringModel {
-    if (_stringModel != stringModel) {
-        _stringModel = stringModel;
-
-        self.customImageView.URLString = stringModel.URLString;
-        self.stringsLabel.text = stringModel.string;
-    }
-}
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillWithModel:(KSStringModel *)model {
-    self.stringModel = model;
+    self.customImageView.URL = [NSURL URLWithString:model.URLString];
+    self.stringsLabel.text = model.string;
 }
 
 @end

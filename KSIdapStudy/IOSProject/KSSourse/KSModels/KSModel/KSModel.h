@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, kKSArrayModelState) {
 
 - (void)setUpLoading;
 - (void)prepareToLoad;
+- (void)completeLoading;
 - (void)finishLoading;
 - (void)load;
 
