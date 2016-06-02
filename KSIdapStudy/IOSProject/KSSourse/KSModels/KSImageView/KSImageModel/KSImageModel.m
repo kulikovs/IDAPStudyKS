@@ -109,7 +109,7 @@
             
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:path] error:&fileError];
-            if (self.isCached && ![fileManager fileExistsAtPath:path]) {
+            if (self.isCached && [fileManager fileExistsAtPath:path]) {
                 [fileManager removeItemAtPath:path error:nil];
             }
             
