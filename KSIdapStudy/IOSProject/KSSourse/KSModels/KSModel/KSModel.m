@@ -44,7 +44,6 @@
     KSWeakifySelf;
     KSDispatchAsyncInBackground(^ {
         KSStrongifySelfWithClass(KSModel)
-        sleep(3);
         
         [self prepareToLoad];
         

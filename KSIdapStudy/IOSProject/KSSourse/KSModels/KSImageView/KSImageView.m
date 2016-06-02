@@ -75,6 +75,11 @@
             strongSelf.customImageView.image = image;
             [strongSelf.spinner stopAnimating];
         } state:kKSModelStateLoaded object:self];
+        
+        [_imageModel addHandler:^(UIImage *image) {
+            KSStrongifySelfWithClass(KSImageView);
+            strongSelf.imageModel.URL = strongSelf.URL;
+        } state:kKSModelStateFailed object:self];
     }
 }
 

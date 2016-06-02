@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C910E7BA1D00BF3F00DB5F87 /* KSSharedCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */; };
 		C91943061CDF98B60060100A /* KSStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C91943051CDF98B60060100A /* KSStringModel.m */; };
 		C92539791CD095DA0060760E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C925396E1CD095DA0060760E /* Assets.xcassets */; };
 		C925397A1CD095DA0060760E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C925396F1CD095DA0060760E /* LaunchScreen.storyboard */; };
@@ -86,7 +87,6 @@
 		C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB981A1CE0CF1100779D36 /* KSAlphabetRange.m */; };
 		C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB981C1CE0CF1100779D36 /* KSAlphabetString.m */; };
 		C9DB98281CE0FE6400779D36 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */; };
-		C9F911491CFEFB1500F3B4A2 /* KSCachedFilesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */; };
 		C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F9979E1CF4D663009CEF80 /* KSModel.m */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +112,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C910E7B81D00BF3F00DB5F87 /* KSSharedCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSharedCacheModel.h; sourceTree = "<group>"; };
+		C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSharedCacheModel.m; sourceTree = "<group>"; };
 		C91943041CDF98B60060100A /* KSStringModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringModel.h; sourceTree = "<group>"; };
 		C91943051CDF98B60060100A /* KSStringModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStringModel.m; sourceTree = "<group>"; };
 		C925396E1CD095DA0060760E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,8 +227,6 @@
 		C9DB981C1CE0CF1100779D36 /* KSAlphabetString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetString.m; sourceTree = "<group>"; };
 		C9DB98261CE0FE6400779D36 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
 		C9DB98271CE0FE6400779D36 /* UINib+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+KSExtensions.m"; sourceTree = "<group>"; };
-		C9F911471CFEFB1500F3B4A2 /* KSCachedFilesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCachedFilesModel.h; sourceTree = "<group>"; };
-		C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCachedFilesModel.m; sourceTree = "<group>"; };
 		C9F9979D1CF4D663009CEF80 /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		C9F9979E1CF4D663009CEF80 /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,6 +277,15 @@
 				C98DAB761CEA677100B5F911 /* gremlin.jpg */,
 			);
 			path = KSPictures;
+			sourceTree = "<group>";
+		};
+		C910E7B71D00BF3F00DB5F87 /* KSSharedCacheModel */ = {
+			isa = PBXGroup;
+			children = (
+				C910E7B81D00BF3F00DB5F87 /* KSSharedCacheModel.h */,
+				C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */,
+			);
+			path = KSSharedCacheModel;
 			sourceTree = "<group>";
 		};
 		C91943031CDF98B60060100A /* KSStringModel */ = {
@@ -376,7 +385,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
-				C9F911461CFEFB1500F3B4A2 /* KSCachedFilesModel */,
+				C910E7B71D00BF3F00DB5F87 /* KSSharedCacheModel */,
 				C9C06E131CFA3C5900870A65 /* KSImageView */,
 				C9F9979C1CF4CDA4009CEF80 /* KSModel */,
 				C94A6D811CE50C5900367D5A /* KSStateModel */,
@@ -876,15 +885,6 @@
 			path = "UINib+KSExtensions";
 			sourceTree = "<group>";
 		};
-		C9F911461CFEFB1500F3B4A2 /* KSCachedFilesModel */ = {
-			isa = PBXGroup;
-			children = (
-				C9F911471CFEFB1500F3B4A2 /* KSCachedFilesModel.h */,
-				C9F911481CFEFB1500F3B4A2 /* KSCachedFilesModel.m */,
-			);
-			path = KSCachedFilesModel;
-			sourceTree = "<group>";
-		};
 		C9F9979C1CF4CDA4009CEF80 /* KSModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,7 +1072,6 @@
 				C94F7EA41CE32CF80085E97B /* KSObserverObject.m in Sources */,
 				C94768B11CDB7DE400EA36EC /* NSObject+KSExtension.m in Sources */,
 				C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */,
-				C9F911491CFEFB1500F3B4A2 /* KSCachedFilesModel.m in Sources */,
 				C94768C61CDBDC7500EA36EC /* UITableView+KSExtensions.m in Sources */,
 				C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */,
 				C94768B21CDB7DE400EA36EC /* NSString+KSExtension.m in Sources */,
@@ -1088,6 +1087,7 @@
 				C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */,
 				C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */,
 				C94768BE1CDB978C00EA36EC /* KSUserViewCell.m in Sources */,
+				C910E7BA1D00BF3F00DB5F87 /* KSSharedCacheModel.m in Sources */,
 				C947689B1CDB7D4A00EA36EC /* KSLabelViewController.m in Sources */,
 				C94F7EA21CE32CF00085E97B /* KSObserverDictionary.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,
