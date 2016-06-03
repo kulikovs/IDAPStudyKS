@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C910E7BA1D00BF3F00DB5F87 /* KSSharedCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */; };
 		C91943061CDF98B60060100A /* KSStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C91943051CDF98B60060100A /* KSStringModel.m */; };
 		C92539791CD095DA0060760E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C925396E1CD095DA0060760E /* Assets.xcassets */; };
 		C925397A1CD095DA0060760E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C925396F1CD095DA0060760E /* LaunchScreen.storyboard */; };
@@ -59,6 +58,7 @@
 		C978A07A1C905EBA0066530A /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A0781C905EBA0066530A /* KSCar.m */; };
 		C978A07E1C906E590066530A /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A07D1C906E590066530A /* KSEmployee.m */; };
 		C978A07F1C906E590066530A /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C978A07D1C906E590066530A /* KSEmployee.m */; };
+		C97AB9741D01D6E100965680 /* KSCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C97AB9731D01D6E100965680 /* KSCache.m */; };
 		C97ABD571C831385003A4E3C /* TestObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = C97ABD561C831385003A4E3C /* TestObjC.m */; };
 		C97ABD5C1C8313CF003A4E3C /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C97ABD5E1C8313D5003A4E3C /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
@@ -112,8 +112,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C910E7B81D00BF3F00DB5F87 /* KSSharedCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSharedCacheModel.h; sourceTree = "<group>"; };
-		C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSharedCacheModel.m; sourceTree = "<group>"; };
 		C91943041CDF98B60060100A /* KSStringModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringModel.h; sourceTree = "<group>"; };
 		C91943051CDF98B60060100A /* KSStringModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStringModel.m; sourceTree = "<group>"; };
 		C925396E1CD095DA0060760E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +186,8 @@
 		C978A0781C905EBA0066530A /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
 		C978A07C1C906E590066530A /* KSEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEmployee.h; sourceTree = "<group>"; };
 		C978A07D1C906E590066530A /* KSEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEmployee.m; sourceTree = "<group>"; };
+		C97AB9721D01D6E100965680 /* KSCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCache.h; sourceTree = "<group>"; };
+		C97AB9731D01D6E100965680 /* KSCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCache.m; sourceTree = "<group>"; };
 		C97ABD541C831385003A4E3C /* TestObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestObjC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97ABD561C831385003A4E3C /* TestObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjC.m; sourceTree = "<group>"; };
 		C97ABD581C831385003A4E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -277,15 +277,6 @@
 				C98DAB761CEA677100B5F911 /* gremlin.jpg */,
 			);
 			path = KSPictures;
-			sourceTree = "<group>";
-		};
-		C910E7B71D00BF3F00DB5F87 /* KSSharedCacheModel */ = {
-			isa = PBXGroup;
-			children = (
-				C910E7B81D00BF3F00DB5F87 /* KSSharedCacheModel.h */,
-				C910E7B91D00BF3F00DB5F87 /* KSSharedCacheModel.m */,
-			);
-			path = KSSharedCacheModel;
 			sourceTree = "<group>";
 		};
 		C91943031CDF98B60060100A /* KSStringModel */ = {
@@ -385,7 +376,7 @@
 		C94768861CDB7D4A00EA36EC /* KSModels */ = {
 			isa = PBXGroup;
 			children = (
-				C910E7B71D00BF3F00DB5F87 /* KSSharedCacheModel */,
+				C97AB9711D01D6E100965680 /* KSCache */,
 				C9C06E131CFA3C5900870A65 /* KSImageView */,
 				C9F9979C1CF4CDA4009CEF80 /* KSModel */,
 				C94A6D811CE50C5900367D5A /* KSStateModel */,
@@ -688,6 +679,15 @@
 				C93F0E5F1C95A51500DB3FEC /* KSCarsWasher */,
 			);
 			path = KSEmployee;
+			sourceTree = "<group>";
+		};
+		C97AB9711D01D6E100965680 /* KSCache */ = {
+			isa = PBXGroup;
+			children = (
+				C97AB9721D01D6E100965680 /* KSCache.h */,
+				C97AB9731D01D6E100965680 /* KSCache.m */,
+			);
+			path = KSCache;
 			sourceTree = "<group>";
 		};
 		C97ABD551C831385003A4E3C /* TestObjC */ = {
@@ -1073,6 +1073,7 @@
 				C94768B11CDB7DE400EA36EC /* NSObject+KSExtension.m in Sources */,
 				C98165511CEC8E4F0092EF27 /* NSFileManager+KSExtensions.m in Sources */,
 				C94768C61CDBDC7500EA36EC /* UITableView+KSExtensions.m in Sources */,
+				C97AB9741D01D6E100965680 /* KSCache.m in Sources */,
 				C9DB98201CE0CF1100779D36 /* KSAlphabetString.m in Sources */,
 				C94768B21CDB7DE400EA36EC /* NSString+KSExtension.m in Sources */,
 				C947689A1CDB7D4A00EA36EC /* KSLabelView.m in Sources */,
@@ -1087,7 +1088,6 @@
 				C9F9979F1CF4D663009CEF80 /* KSModel.m in Sources */,
 				C9DB981F1CE0CF1100779D36 /* KSAlphabetRange.m in Sources */,
 				C94768BE1CDB978C00EA36EC /* KSUserViewCell.m in Sources */,
-				C910E7BA1D00BF3F00DB5F87 /* KSSharedCacheModel.m in Sources */,
 				C947689B1CDB7D4A00EA36EC /* KSLabelViewController.m in Sources */,
 				C94F7EA21CE32CF00085E97B /* KSObserverDictionary.m in Sources */,
 				C925397D1CD095DA0060760E /* main.m in Sources */,

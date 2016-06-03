@@ -7,13 +7,13 @@
 //
 
 #import "KSImageModel.h"
-#import "KSSharedCacheModel.h"
+#import "KSCache.h"
 
 @interface KSImageModel ()
 @property (nonatomic, readonly, getter=isCached) BOOL                       cached;
 @property (nonatomic, readonly)                  NSString                   *path;
 @property (nonatomic, readonly)                  NSString                   *fileName;
-@property (nonatomic, readonly)                  KSSharedCacheModel         *sharedCacheModel;
+@property (nonatomic, readonly)                  KSCache                    *cacheModel;
 @property (nonatomic, strong)                    NSURLSession               *URLSession;
 @property (nonatomic, strong)                    NSURLSessionDownloadTask   *downloadTask;
 
@@ -29,7 +29,7 @@
 @dynamic cached;
 @dynamic path;
 @dynamic fileName;
-@dynamic sharedCacheModel;
+@dynamic cacheModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -48,7 +48,7 @@
 #pragma mark Accessors
 
 - (BOOL)isCached {
-   return [self.sharedCacheModel isCashedForURLString:self.URL.absoluteString];
+   return [self.cacheModel isCashedForURLString:self.URL.absoluteString];
 }
 
 - (void)setURL:(NSURL *)URL {
@@ -61,8 +61,8 @@
     [self load];
 }
 
-- (KSSharedCacheModel *)sharedCacheModel {
-    return [KSSharedCacheModel sharedCacheModel];;
+- (KSCache *)cacheModel {
+    return [KSCache sharedCache];;
 }
 
 - (NSString *)path {
@@ -89,40 +89,42 @@
     if (self.isCached) {
         NSError *error = nil;
         if ([[NSFileManager defaultManager] removeItemAtPath:self.path error:&error]) {
-            [self.sharedCacheModel removeURLString:self.URL.absoluteString];
+            [self.cacheModel removeURLString:self.URL.absoluteString];
         }
     }
 }
 
 - (void)performDownload {
-    if (self.isCached) {
-        [self loadFromFileSystem];
-    } else {
-        self.downloadTask = [self.URLSession downloadTaskWithURL:self.URL
+        NSURL *URL = self.URL;
+        self.downloadTask = [self.URLSession downloadTaskWithURL:URL
                                                completionHandler:^(NSURL *location,
                                                                    NSURLResponse *response,
                                                                    NSError *error)
-    {
-        if (!error) {
-        NSError *fileError = nil;
-        NSString *path = self.path;
-            
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:path] error:&fileError];
-            if (self.isCached && [fileManager fileExistsAtPath:path]) {
-                [fileManager removeItemAtPath:path error:nil];
-            }
-            
-            if (!fileError) {
-                [self.sharedCacheModel addURLString:self.URL.absoluteString fileName:self.fileName];
-            }
-            
-            [self loadFromFileSystem];
-        }
-     }];
-    
+                             {
+                                 if (!error) {
+                                     NSError *fileError = nil;
+                                     NSString *path = self.path;
+                                     
+                                     NSFileManager *fileManager = [NSFileManager defaultManager];
+                                     
+                                     if (!self.isCached && [fileManager fileExistsAtPath:path]) {
+                                         [fileManager removeItemAtPath:path error:nil];
+                                     }
+                                     
+                                     [fileManager copyItemAtURL:location
+                                                          toURL:[NSURL fileURLWithPath:path]
+                                                          error:&fileError];
+                                     
+                                     if (!fileError) {
+                                         [self.cacheModel addURLString:URL.absoluteString
+                                                            fileName:self.fileName];
+                                     }
+                                     
+                                     [self loadFromFileSystem];
+                                 }
+                             }];
     }
-}
+
 
 - (void)loadFromFileSystem {
     if (self.isCached) {
@@ -139,7 +141,7 @@
 }
 
 - (void)prepareToLoad {
-    if (self.URL.isFileURL) {
+    if (self.URL.isFileURL || self.isCached) {
         [self loadFromFileSystem];
     } else {
         [self performDownload];
@@ -154,7 +156,7 @@
     KSWeakifySelf;
     KSDispatchAsyncOnMainThread(^{
         KSStrongifySelfWithClass(KSImageModel);
-        NSUInteger state = self.image ? kKSModelStateLoaded : kKSModelStateFailed;
+        kKSArrayModelState state = self.image ? kKSModelStateLoaded : kKSModelStateFailed;
         [self setState:state withObject:self.image];
     });
 }

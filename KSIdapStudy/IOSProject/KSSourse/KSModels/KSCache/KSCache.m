@@ -6,14 +6,14 @@
 //  Copyright © 2016 KulikovS. All rights reserved.
 //
 
-#import "KSSharedCacheModel.h"
+#import "KSCache.h"
 
 static NSString   *  const  kKSStringCachedFilesSave   =   @"cachedFilesSave.plist";
 static NSString   *  const  kKSStringCachedFiles       =   @"cachedFiles";
 
-static KSSharedCacheModel * model = nil;
+static KSCache * model = nil;
 
-@interface KSSharedCacheModel ()
+@interface KSCache ()
 @property (nonatomic, strong)   NSMutableDictionary *cachedFiles;
 @property (nonatomic, readonly) NSString            *path;
 @property (nonatomic, readonly) NSArray             *notificationKey;
@@ -24,15 +24,15 @@ static KSSharedCacheModel * model = nil;
 
 @end
 
-@implementation KSSharedCacheModel
+@implementation KSCache
 
 #pragma mark - 
 #pragma mark Class Methods
 
-+ (instancetype)sharedCacheModel {
++ (instancetype)sharedCache {
     static dispatch_once_t once_token = 0;
     dispatch_once(&once_token, ^{
-        KSSharedCacheModel *newModel =  [self new];
+        KSCache *newModel =  [self new];
         model = [NSKeyedUnarchiver unarchiveObjectWithFile:newModel.path];
         
         if (!model) {
@@ -94,11 +94,13 @@ static KSSharedCacheModel * model = nil;
 #pragma mark Public Methods
 
 - (NSString *)URLStringForFileName:(NSString *)fileName {
-    NSArray *keys = self.cachedFiles.allKeys;
-    NSDictionary *dictionary = [self.cachedFiles copy];
-    for (NSString *key in keys) {
-        if ([[dictionary objectForKey:key] isEqualToString:fileName]) {
-            return key;
+    @synchronized (self) {
+        NSArray *keys = self.cachedFiles.allKeys;
+        NSDictionary *dictionary = [self.cachedFiles copy];
+        for (NSString *key in keys) {
+            if ([[dictionary objectForKey:key] isEqualToString:fileName]) {
+                return key;
+            }
         }
     }
     

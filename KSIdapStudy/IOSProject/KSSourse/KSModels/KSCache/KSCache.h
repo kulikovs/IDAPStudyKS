@@ -8,9 +8,9 @@
 
 #import "KSModel.h"
 
-@interface KSSharedCacheModel : NSObject <NSCoding>;
+@interface KSCache : NSObject <NSCoding>;
 
-+ (instancetype)sharedCacheModel;
++ (instancetype)sharedCache;
 
 - (NSString *)URLStringForFileName:(NSString *)fileName;
 - (BOOL)isCashedForURLString:(NSString *)URLString;

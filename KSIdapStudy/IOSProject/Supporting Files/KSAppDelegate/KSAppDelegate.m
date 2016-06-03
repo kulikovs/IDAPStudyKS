@@ -12,7 +12,7 @@
 #import "KSArrayModel.h"
 #import "KSStringModel.h"
 #import "KSArrayModelManager.h"
-#import "KSSharedCacheModel.h"
+#import "KSCache.h"
 
 @implementation KSAppDelegate
 
@@ -23,7 +23,7 @@
     KSUserViewController *viewController = [KSUserViewController controllerFromNib];
     viewController.arrayModel = [KSArrayModelManager new];
     
-   [KSSharedCacheModel sharedCacheModel];
+    [KSCache sharedCache];
 
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
