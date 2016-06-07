@@ -15,13 +15,3 @@ target 'TestObjC' do
 
 end
 
-target 'IOSProject' do
-
-end
-
-target 'FBProject' do
-pod "FBSDKCoreKit";
-pod "FBSDKLoginKit";
-pod "FBSDKShareKit";
-end
-
