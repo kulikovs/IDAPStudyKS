@@ -42,7 +42,7 @@
 - (instancetype)initWithState:(NSUInteger)state {
     self = [super init];
     if (self) {
-        self.observerArray = [KSObserverArray object];
+        self.observerArray = [[[KSObserverArray alloc] init] autorelease];
         self.state = state;
     }
     

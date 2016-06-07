@@ -11,7 +11,7 @@
 
 @class KSObserverArray;
 
-typedef void(^KSHandlerObject)(void);
+typedef void(^KSHandlerObject)(id object);
 
 @interface KSObserverDictionary : NSObject
 @property (nonatomic, readonly) NSUInteger        state;

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^KSHandlerObject)(void);
+typedef void(^KSHandlerObject)(id object);
 
 @interface KSObserver : NSObject
 @property (nonatomic, assign)     NSUInteger    state;
+
+- (void)setState:(NSUInteger)state withObject:(id)object;
 
 - (void)addHandler:(KSHandlerObject)handler state:(NSUInteger)state object:(id)object;
 - (void)removeHandlersForState:(NSUInteger)state;

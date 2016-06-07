@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^KSHandlerObject)(void);
+typedef void(^KSDispatchHandler)(void);
 
 typedef enum {
     kKSPriorityBackground,
@@ -18,10 +18,10 @@ typedef enum {
     kKSPriorityDefault,
 } KSDispatchPriority;
 
-void KSDispatchAsyncWithPriority(KSDispatchPriority priority, KSHandlerObject handler);
-void KSDispatchAsyncInBackground(KSHandlerObject handler);
-void KSDispatchAsyncOnMainThred(KSHandlerObject handler);
+void KSDispatchAsyncWithPriority(KSDispatchPriority priority, KSDispatchHandler handler);
+void KSDispatchAsyncInBackground(KSDispatchHandler handler);
+void KSDispatchAsyncOnMainThread(KSDispatchHandler handler);
 
-void KSDispatchSyncWithPriority(KSDispatchPriority priority, KSHandlerObject handler);
-void KSDispatchSyncInBackground(KSHandlerObject handler);
-void KSDispatchSyncOnMainThred(KSHandlerObject handler);
+void KSDispatchSyncWithPriority(KSDispatchPriority priority, KSDispatchHandler handler);
+void KSDispatchSyncInBackground(KSDispatchHandler handler);
+void KSDispatchSyncOnMainThread(KSDispatchHandler handler);

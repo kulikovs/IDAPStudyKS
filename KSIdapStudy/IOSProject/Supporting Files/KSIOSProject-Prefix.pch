@@ -10,7 +10,14 @@
 #define KSIOSProject_Prefix_pch
 
 #import "UIViewController+KSExtensions.h"
-#import "KSMacroForIOSProject.h"
 #import "CGGeometry+KSExtensions.h"
+#import "NSString+KSExtension.h"
+#import "KSMacro.h"
+#import "UIWindow+KSExtension.h"
+#import "UITableView+KSExtensions.h"
+#import "UINib+KSExtensions.h"
+#import "NSFileManager+KSExtensions.h"
+#import "NSBundle+KSExtensions.h"
+#import "KSDispatch.h"
 
 #endif /* KSIOSProject_Prefix_pch */
