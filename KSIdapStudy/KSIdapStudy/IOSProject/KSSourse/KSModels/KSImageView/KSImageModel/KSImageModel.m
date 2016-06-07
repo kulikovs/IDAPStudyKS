@@ -95,36 +95,37 @@
 }
 
 - (void)performDownload {
-        NSURL *URL = self.URL;
-        self.downloadTask = [self.URLSession downloadTaskWithURL:URL
-                                               completionHandler:^(NSURL *location,
-                                                                   NSURLResponse *response,
-                                                                   NSError *error)
-                             {
-                                 if (!error) {
-                                     NSError *fileError = nil;
-                                     NSString *path = self.path;
-                                     
-                                     NSFileManager *fileManager = [NSFileManager defaultManager];
-                                     
-                                     if (!self.isCached && [fileManager fileExistsAtPath:path]) {
-                                         [fileManager removeItemAtPath:path error:nil];
-                                     }
-                                     
-                                     [fileManager copyItemAtURL:location
-                                                          toURL:[NSURL fileURLWithPath:path]
-                                                          error:&fileError];
-                                     
-                                     if (!fileError) {
-                                         [self.cacheModel addURLString:URL.absoluteString
-                                                            fileName:self.fileName];
-                                     }
-                                     
-                                     [self loadFromFileSystem];
-                                 }
-                             }];
+    @synchronized (self) {
+        id block = ^(NSURL *location, NSURLResponse *response, NSError *error) {
+            NSURL *URL = self.URL;
+            
+            if (!error) {
+                NSError *fileError = nil;
+                NSString *path = self.path;
+                
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                
+                if (!self.isCached && [fileManager fileExistsAtPath:path]) {
+                    [fileManager removeItemAtPath:path error:nil];
+                }
+                
+                [fileManager copyItemAtURL:location
+                                     toURL:[NSURL fileURLWithPath:path]
+                                     error:&fileError];
+                
+                if (!fileError) {
+                    [self.cacheModel addURLString:URL.absoluteString
+                                         fileName:self.fileName];
+                }
+                
+                [self loadFromFileSystem];
+            }
+        };
+        
+        
+        self.downloadTask = [self.URLSession downloadTaskWithURL:self.URL completionHandler:block];
     }
-
+}
 
 - (void)loadFromFileSystem {
     if (self.isCached) {
