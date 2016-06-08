@@ -10,7 +10,6 @@
 		3A5B82C9E0A6B62FB69C12AD /* libPods-IOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2E5A14531D51641B7BA952 /* libPods-IOSProject.a */; };
 		68F6EA6B8C6A5AB15A7C03DE /* libPods-FBProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7427784F6790AC194E71636 /* libPods-FBProject.a */; };
 		86E0FEDE763E0D13334E9DE1 /* libPods-ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2039CE85DFC85B029CBFAE /* libPods-ObjC.a */; };
-		91F077583B31E4377624189B /* libPods-TestObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A1A9218E65C8A98A25A22D /* libPods-TestObjC.a */; };
 		C93D4C931CB0557A00E832A7 /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D4C921CB0557A00E832A7 /* KSQueue.m */; };
 		C93D4C941CB0557A00E832A7 /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D4C921CB0557A00E832A7 /* KSQueue.m */; };
 		C93F0E621C95A53400DB3FEC /* KSCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C93F0E611C95A53400DB3FEC /* KSCarsWasher.m */; };
@@ -79,15 +78,10 @@
 		C96380F11D07185400C8781D /* KSView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380A31D07185400C8781D /* KSView.m */; };
 		C96380F21D07185400C8781D /* KSView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380A31D07185400C8781D /* KSView.m */; };
 		C96380F31D07185400C8781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96380A51D07185400C8781D /* Assets.xcassets */; };
-		C96380F41D07185400C8781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96380A51D07185400C8781D /* Assets.xcassets */; };
 		C96380F51D07185400C8781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96380A61D07185400C8781D /* LaunchScreen.storyboard */; };
-		C96380F61D07185400C8781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96380A61D07185400C8781D /* LaunchScreen.storyboard */; };
 		C96380F71D07185400C8781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96380A81D07185400C8781D /* Main.storyboard */; };
-		C96380F81D07185400C8781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96380A81D07185400C8781D /* Main.storyboard */; };
 		C96380F91D07185400C8781D /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380AC1D07185400C8781D /* KSAppDelegate.m */; };
-		C96380FA1D07185400C8781D /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380AC1D07185400C8781D /* KSAppDelegate.m */; };
 		C96380FB1D07185400C8781D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380AE1D07185400C8781D /* main.m */; };
-		C96380FC1D07185400C8781D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C96380AE1D07185400C8781D /* main.m */; };
 		C96381311D07261100C8781D /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C96381171D07261100C8781D /* CGGeometry+KSExtensions.m */; };
 		C96381321D07261100C8781D /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C96381171D07261100C8781D /* CGGeometry+KSExtensions.m */; };
 		C96381331D07261100C8781D /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C96381171D07261100C8781D /* CGGeometry+KSExtensions.m */; };
@@ -115,14 +109,6 @@
 		C96381491D07261100C8781D /* UIWindow+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C963812F1D07261100C8781D /* UIWindow+KSExtension.m */; };
 		C963814A1D07261100C8781D /* UIWindow+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C963812F1D07261100C8781D /* UIWindow+KSExtension.m */; };
 		C963814B1D07261100C8781D /* UIWindow+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C963812F1D07261100C8781D /* UIWindow+KSExtension.m */; };
-		C963815D1D07427D00C8781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96381511D07427D00C8781D /* Assets.xcassets */; };
-		C963815F1D07427D00C8781D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96381511D07427D00C8781D /* Assets.xcassets */; };
-		C96381621D07427D00C8781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96381521D07427D00C8781D /* LaunchScreen.storyboard */; };
-		C96381651D07427D00C8781D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96381541D07427D00C8781D /* Main.storyboard */; };
-		C96381681D07427D00C8781D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96381561D07427D00C8781D /* Info.plist */; };
-		C963816B1D07427D00C8781D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C96381571D07427D00C8781D /* main.m */; };
-		C96381721D0742B200C8781D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96381711D0742B200C8781D /* AppDelegate.m */; };
-		C96381731D0742C100C8781D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96381521D07427D00C8781D /* LaunchScreen.storyboard */; };
 		C96AF3C41CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C96AF3C51CB5A1490019C743 /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AF3C31CB5A1490019C743 /* KSDispatcher.m */; };
 		C97088E91C98476F003B6E6D /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -141,6 +127,15 @@
 		C97ABD611C8313DF003A4E3C /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C67051C775F0A00B59836 /* KSCreature.m */; };
 		C97ABD621C8313E3003A4E3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C670B1C775F0A00B59836 /* main.m */; };
 		C992544C1C7E38E20067DABA /* KSCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C992544B1C7E38E20067DABA /* KSCreatureTest.m */; };
+		C99FE4411D0804A200DF26BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4371D0804A200DF26BF /* Assets.xcassets */; };
+		C99FE4421D0804A200DF26BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4381D0804A200DF26BF /* LaunchScreen.storyboard */; };
+		C99FE4431D0804A200DF26BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99FE43A1D0804A200DF26BF /* Main.storyboard */; };
+		C99FE4451D0804A200DF26BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE43F1D0804A200DF26BF /* AppDelegate.m */; };
+		C99FE4461D0804A200DF26BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE4401D0804A200DF26BF /* main.m */; };
+		C99FE4521D080C0F00DF26BF /* KSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE4501D080C0F00DF26BF /* KSLoginViewController.m */; };
+		C99FE4531D080C0F00DF26BF /* KSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4511D080C0F00DF26BF /* KSLoginViewController.xib */; };
+		C99FE4571D080C9200DF26BF /* KSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE4561D080C9200DF26BF /* KSLoginView.m */; };
+		C99FE4591D0817FC00DF26BF /* fblogin1.png in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4581D0817FC00DF26BF /* fblogin1.png */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
@@ -148,6 +143,11 @@
 		C9D7BCDA1CBE784000F5DE57 /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; };
 		C9D7BCDE1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		C9D7BCDF1CBE786800F5DE57 /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
+		C9FC43A91D07F90C00B3C70A /* KSObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C97088E81C98476F003B6E6D /* KSObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C9FC43AA1D07F9E200B3C70A /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C9FC43AB1D07F9E700B3C70A /* KSObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD81CBE784000F5DE57 /* KSObserverArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C9FC43AC1D07F9EB00B3C70A /* KSObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCDD1CBE786800F5DE57 /* KSObserverObject.m */; };
+		C9FC43AD1D07F9F600B3C70A /* KSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C94F38DF1CC51E30006229E1 /* KSDispatch.m */; };
 		E3329BE687886B61C770DE3B /* libPods-С.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74BDE547F19FD14D375FE66 /* libPods-С.a */; };
 /* End PBXBuildFile section */
 
@@ -176,8 +176,6 @@
 		54578C7CC9A32DFDAD3C037D /* Pods-С.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-С.debug.xcconfig"; path = "Pods/Target Support Files/Pods-С/Pods-С.debug.xcconfig"; sourceTree = "<group>"; };
 		578037499EF98B1B1A62794D /* Pods-ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjC/Pods-ObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		5BE50DBF76CBF63B56A2466E /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
-		6B0DD2A97F62DE57D598A404 /* Pods-TestObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestObjC.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestObjC/Pods-TestObjC.release.xcconfig"; sourceTree = "<group>"; };
-		6C80D276A2CD48C182BB3A59 /* Pods-TestObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestObjC/Pods-TestObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		9E2E5A14531D51641B7BA952 /* libPods-IOSProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7427784F6790AC194E71636 /* libPods-FBProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FBProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2039CE85DFC85B029CBFAE /* libPods-ObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,18 +271,14 @@
 		C963812F1D07261100C8781D /* UIWindow+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtension.m"; sourceTree = "<group>"; };
 		C96381301D07261100C8781D /* KSIOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		C963814D1D07415000C8781D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
-		C96381511D07427D00C8781D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C96381531D07427D00C8781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C96381551D07427D00C8781D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C96381561D07427D00C8781D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C96381571D07427D00C8781D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C96381701D0742B200C8781D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C96381711D0742B200C8781D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C96381741D0743AE00C8781D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96381781D0766D700C8781D /* libBolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBolts.a; path = "../../../../Library/Developer/Xcode/DerivedData/KSIdapStudy-gywutbgcmmrrmpacdmdggecmafnt/Build/Products/Debug-iphonesimulator/Bolts/libBolts.a"; sourceTree = "<group>"; };
+		C963817A1D0766DD00C8781D /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/KSIdapStudy-gywutbgcmmrrmpacdmdggecmafnt/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
+		C963817C1D0766E300C8781D /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKLoginKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/KSIdapStudy-gywutbgcmmrrmpacdmdggecmafnt/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/libFBSDKLoginKit.a"; sourceTree = "<group>"; };
+		C963817E1D0766E700C8781D /* libFBSDKShareKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKShareKit.a; path = "../../../../Library/Developer/Xcode/DerivedData/KSIdapStudy-gywutbgcmmrrmpacdmdggecmafnt/Build/Products/Debug-iphonesimulator/FBSDKShareKit/libFBSDKShareKit.a"; sourceTree = "<group>"; };
 		C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "iOS Study Plan.txt"; sourceTree = "<group>"; };
 		C96AF3C21CB5A1490019C743 /* KSDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatcher.h; sourceTree = "<group>"; };
 		C96AF3C31CB5A1490019C743 /* KSDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatcher.m; sourceTree = "<group>"; };
-		C96EF6491CC22E560008FB8D /* KSMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 		C97088E71C98476F003B6E6D /* KSObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserver.h; sourceTree = "<group>"; };
 		C97088E81C98476F003B6E6D /* KSObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObserver.m; sourceTree = "<group>"; };
 		C9789FD31C904CD20066530A /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
@@ -299,6 +293,19 @@
 		C992544A1C7E38E20067DABA /* KSCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTest.h; sourceTree = "<group>"; };
 		C992544B1C7E38E20067DABA /* KSCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTest.m; sourceTree = "<group>"; };
 		C993CAD51C32D2C600593631 /* С */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "С"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99FE4371D0804A200DF26BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C99FE4391D0804A200DF26BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C99FE43B1D0804A200DF26BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C99FE43C1D0804A200DF26BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C99FE43E1D0804A200DF26BF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C99FE43F1D0804A200DF26BF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C99FE4401D0804A200DF26BF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C99FE44F1D080C0F00DF26BF /* KSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLoginViewController.h; sourceTree = "<group>"; };
+		C99FE4501D080C0F00DF26BF /* KSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLoginViewController.m; sourceTree = "<group>"; };
+		C99FE4511D080C0F00DF26BF /* KSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSLoginViewController.xib; sourceTree = "<group>"; };
+		C99FE4551D080C9200DF26BF /* KSLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLoginView.h; sourceTree = "<group>"; };
+		C99FE4561D080C9200DF26BF /* KSLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLoginView.m; sourceTree = "<group>"; };
+		C99FE4581D0817FC00DF26BF /* fblogin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fblogin1.png; sourceTree = "<group>"; };
 		C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
 		C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
 		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
@@ -346,7 +353,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91F077583B31E4377624189B /* libPods-TestObjC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +370,10 @@
 		4CFE112454BC2A014C668C34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C963817E1D0766E700C8781D /* libFBSDKShareKit.a */,
+				C963817C1D0766E300C8781D /* libFBSDKLoginKit.a */,
+				C963817A1D0766DD00C8781D /* libFBSDKCoreKit.a */,
+				C96381781D0766D700C8781D /* libBolts.a */,
 				A7427784F6790AC194E71636 /* libPods-FBProject.a */,
 				9E2E5A14531D51641B7BA952 /* libPods-IOSProject.a */,
 				BA2039CE85DFC85B029CBFAE /* libPods-ObjC.a */,
@@ -382,8 +392,6 @@
 				5BE50DBF76CBF63B56A2466E /* Pods-IOSProject.release.xcconfig */,
 				578037499EF98B1B1A62794D /* Pods-ObjC.debug.xcconfig */,
 				CF965F69C55E2A05C099ECD9 /* Pods-ObjC.release.xcconfig */,
-				6C80D276A2CD48C182BB3A59 /* Pods-TestObjC.debug.xcconfig */,
-				6B0DD2A97F62DE57D598A404 /* Pods-TestObjC.release.xcconfig */,
 				54578C7CC9A32DFDAD3C037D /* Pods-С.debug.xcconfig */,
 				EEAAF7BC640776B1759B809D /* Pods-С.release.xcconfig */,
 			);
@@ -460,7 +468,6 @@
 			children = (
 				C97088E61C984752003B6E6D /* KSObserver */,
 				C94F38D81CC51D97006229E1 /* KSDispatch */,
-				C96EF6481CC22E560008FB8D /* KSMacro */,
 				C9789FD21C904CD20066530A /* KSEnterprise */,
 				C94C67041C775F0A00B59836 /* KSCreature */,
 			);
@@ -763,15 +770,6 @@
 			path = KSAppDelegate;
 			sourceTree = "<group>";
 		};
-		C96380FD1D07187700C8781D /* FBProject */ = {
-			isa = PBXGroup;
-			children = (
-				C963814E1D07427D00C8781D /* Supporting Files */,
-			);
-			name = FBProject;
-			path = KSIdapStudy/FBProject;
-			sourceTree = "<group>";
-		};
 		C96381131D07261100C8781D /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,28 +886,6 @@
 			path = KSMacro;
 			sourceTree = "<group>";
 		};
-		C963814E1D07427D00C8781D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C963816F1D0742B200C8781D /* KSAppDelegate */,
-				C96381511D07427D00C8781D /* Assets.xcassets */,
-				C96381521D07427D00C8781D /* LaunchScreen.storyboard */,
-				C96381541D07427D00C8781D /* Main.storyboard */,
-				C96381561D07427D00C8781D /* Info.plist */,
-				C96381571D07427D00C8781D /* main.m */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C963816F1D0742B200C8781D /* KSAppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				C96381701D0742B200C8781D /* AppDelegate.h */,
-				C96381711D0742B200C8781D /* AppDelegate.m */,
-			);
-			path = KSAppDelegate;
-			sourceTree = "<group>";
-		};
 		C96AF3BD1CB596700019C743 /* KSDispatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,14 +893,6 @@
 				C96AF3C31CB5A1490019C743 /* KSDispatcher.m */,
 			);
 			path = KSDispatcher;
-			sourceTree = "<group>";
-		};
-		C96EF6481CC22E560008FB8D /* KSMacro */ = {
-			isa = PBXGroup;
-			children = (
-				C96EF6491CC22E560008FB8D /* KSMacro.h */,
-			);
-			path = KSMacro;
 			sourceTree = "<group>";
 		};
 		C97088E61C984752003B6E6D /* KSObserver */ = {
@@ -996,8 +964,8 @@
 			isa = PBXGroup;
 			children = (
 				C96905DE1C89CEBE00C3441C /* iOS Study Plan.txt */,
+				C99FE4351D0804A200DF26BF /* FBProject */,
 				C96381131D07261100C8781D /* Library */,
-				C96380FD1D07187700C8781D /* FBProject */,
 				C96380441D07185400C8781D /* IOSProject */,
 				C94C67021C775F0A00B59836 /* ObjC */,
 				C97ABD551C831385003A4E3C /* TestObjC */,
@@ -1017,6 +985,99 @@
 				C963802D1D0711C800C8781D /* FBProject.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C99FE4351D0804A200DF26BF /* FBProject */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE4491D080A4300DF26BF /* Resourses */,
+				C99FE44B1D080A4300DF26BF /* Sourse */,
+				C99FE4361D0804A200DF26BF /* Supporting Files */,
+			);
+			name = FBProject;
+			path = KSIdapStudy/FBProject;
+			sourceTree = "<group>";
+		};
+		C99FE4361D0804A200DF26BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE43D1D0804A200DF26BF /* KSAppDelegate */,
+				C99FE4371D0804A200DF26BF /* Assets.xcassets */,
+				C99FE4381D0804A200DF26BF /* LaunchScreen.storyboard */,
+				C99FE43A1D0804A200DF26BF /* Main.storyboard */,
+				C99FE43C1D0804A200DF26BF /* Info.plist */,
+				C99FE4401D0804A200DF26BF /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C99FE43D1D0804A200DF26BF /* KSAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE43E1D0804A200DF26BF /* AppDelegate.h */,
+				C99FE43F1D0804A200DF26BF /* AppDelegate.m */,
+			);
+			path = KSAppDelegate;
+			sourceTree = "<group>";
+		};
+		C99FE4491D080A4300DF26BF /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE44A1D080A4300DF26BF /* Pictures */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		C99FE44A1D080A4300DF26BF /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE4581D0817FC00DF26BF /* fblogin1.png */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
+		C99FE44B1D080A4300DF26BF /* Sourse */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE44C1D080A4300DF26BF /* Models */,
+				C99FE44D1D080A4300DF26BF /* UI */,
+			);
+			path = Sourse;
+			sourceTree = "<group>";
+		};
+		C99FE44C1D080A4300DF26BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C99FE44D1D080A4300DF26BF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE44E1D080BDB00DF26BF /* KSLoginViewController */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C99FE44E1D080BDB00DF26BF /* KSLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE4541D080C3400DF26BF /* KSLoginView */,
+				C99FE44F1D080C0F00DF26BF /* KSLoginViewController.h */,
+				C99FE4501D080C0F00DF26BF /* KSLoginViewController.m */,
+				C99FE4511D080C0F00DF26BF /* KSLoginViewController.xib */,
+			);
+			path = KSLoginViewController;
+			sourceTree = "<group>";
+		};
+		C99FE4541D080C3400DF26BF /* KSLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE4551D080C9200DF26BF /* KSLoginView.h */,
+				C99FE4561D080C9200DF26BF /* KSLoginView.m */,
+			);
+			path = KSLoginView;
 			sourceTree = "<group>";
 		};
 		C9CC74CB1C7F578400E2F161 /* KSExtentions */ = {
@@ -1243,16 +1304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96380EC1D07185400C8781D /* KSUserViewController.xib in Resources */,
-				C96380F61D07185400C8781D /* LaunchScreen.storyboard in Resources */,
-				C963815F1D07427D00C8781D /* Assets.xcassets in Resources */,
+				C99FE4591D0817FC00DF26BF /* fblogin1.png in Resources */,
 				C96380C41D07185400C8781D /* gremlin.jpg in Resources */,
+				C99FE4531D080C0F00DF26BF /* KSLoginViewController.xib in Resources */,
+				C99FE4421D0804A200DF26BF /* LaunchScreen.storyboard in Resources */,
 				C96380F01D07185400C8781D /* KSLoadingView.xib in Resources */,
-				C96381681D07427D00C8781D /* Info.plist in Resources */,
-				C96380F41D07185400C8781D /* Assets.xcassets in Resources */,
-				C96381651D07427D00C8781D /* Main.storyboard in Resources */,
-				C96380F81D07185400C8781D /* Main.storyboard in Resources */,
+				C99FE4431D0804A200DF26BF /* Main.storyboard in Resources */,
 				C96380E21D07185400C8781D /* KSLabelViewController.xib in Resources */,
-				C96381621D07427D00C8781D /* LaunchScreen.storyboard in Resources */,
+				C99FE4411D0804A200DF26BF /* Assets.xcassets in Resources */,
 				C96380E61D07185400C8781D /* KSUserViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1261,8 +1320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96381731D0742C100C8781D /* LaunchScreen.storyboard in Resources */,
-				C963815D1D07427D00C8781D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1539,31 +1596,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99FE4521D080C0F00DF26BF /* KSLoginViewController.m in Sources */,
 				C96381361D07261100C8781D /* NSBundle+KSExtensions.m in Sources */,
+				C9FC43AA1D07F9E200B3C70A /* KSObserverDictionary.m in Sources */,
 				C96380C81D07185400C8781D /* KSAlphabetCluster.m in Sources */,
 				C96381331D07261100C8781D /* CGGeometry+KSExtensions.m in Sources */,
 				C96380CE1D07185400C8781D /* KSArrayModel.m in Sources */,
 				C96380D61D07185400C8781D /* KSImageView.m in Sources */,
+				C9FC43A91D07F90C00B3C70A /* KSObserver.m in Sources */,
 				C96380EE1D07185400C8781D /* KSLoadingView.m in Sources */,
-				C963816B1D07427D00C8781D /* main.m in Sources */,
 				C96381421D07261100C8781D /* UINib+KSExtensions.m in Sources */,
 				C963813C1D07261100C8781D /* NSObject+KSExtension.m in Sources */,
 				C96380CC1D07185400C8781D /* KSAlphabetString.m in Sources */,
+				C99FE4571D080C9200DF26BF /* KSLoginView.m in Sources */,
 				C96380F21D07185400C8781D /* KSView.m in Sources */,
-				C96381721D0742B200C8781D /* AppDelegate.m in Sources */,
 				C96380D21D07185400C8781D /* KSCache.m in Sources */,
-				C96380FC1D07185400C8781D /* main.m in Sources */,
 				C96380CA1D07185400C8781D /* KSAlphabetRange.m in Sources */,
+				C9FC43AB1D07F9E700B3C70A /* KSObserverArray.m in Sources */,
 				C96381391D07261100C8781D /* NSFileManager+KSExtensions.m in Sources */,
 				C96380D01D07185400C8781D /* KSArrayModelManager.m in Sources */,
 				C96381481D07261100C8781D /* UIViewController+KSExtensions.m in Sources */,
 				C963814B1D07261100C8781D /* UIWindow+KSExtension.m in Sources */,
+				C99FE4461D0804A200DF26BF /* main.m in Sources */,
+				C99FE4451D0804A200DF26BF /* AppDelegate.m in Sources */,
 				C96380D41D07185400C8781D /* KSImageModel.m in Sources */,
 				C96380E81D07185400C8781D /* KSUserView.m in Sources */,
 				C96380D81D07185400C8781D /* KSModel.m in Sources */,
 				C96380DE1D07185400C8781D /* KSLabelView.m in Sources */,
+				C9FC43AC1D07F9EB00B3C70A /* KSObserverObject.m in Sources */,
 				C96380C61D07185400C8781D /* KSAlphabet.m in Sources */,
-				C96380FA1D07185400C8781D /* KSAppDelegate.m in Sources */,
+				C9FC43AD1D07F9F600B3C70A /* KSDispatch.m in Sources */,
 				C96380DC1D07185400C8781D /* KSStringModel.m in Sources */,
 				C96380E01D07185400C8781D /* KSLabelViewController.m in Sources */,
 				C963813F1D07261100C8781D /* NSString+KSExtension.m in Sources */,
@@ -1636,18 +1698,18 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C96381521D07427D00C8781D /* LaunchScreen.storyboard */ = {
+		C99FE4381D0804A200DF26BF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C96381531D07427D00C8781D /* Base */,
+				C99FE4391D0804A200DF26BF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		C96381541D07427D00C8781D /* Main.storyboard */ = {
+		C99FE43A1D0804A200DF26BF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C96381551D07427D00C8781D /* Base */,
+				C99FE43B1D0804A200DF26BF /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1728,10 +1790,36 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/KSIdapStudy/Library/KSIOSProject-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/KSIdapStudy/FBProject/Info.plist";
+				GCC_PREFIX_HEADER = "/Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/KSIdapStudy/Library/KSIOSProject-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KSIdapStudy/FBProject/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KS.FBProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1747,10 +1835,36 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/KSIdapStudy/Library/KSIOSProject-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/KSIdapStudy/FBProject/Info.plist";
+				GCC_PREFIX_HEADER = "/Users/kulikovs/Documents/Lessons/IdapStudy/KSIdapStudy/KSIdapStudy/Library/KSIOSProject-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/KSIdapStudy/FBProject/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.KS.FBProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1761,7 +1875,6 @@
 		};
 		C97ABD5A1C831385003A4E3C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C80D276A2CD48C182BB3A59 /* Pods-TestObjC.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1776,7 +1889,6 @@
 		};
 		C97ABD5B1C831385003A4E3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B0DD2A97F62DE57D598A404 /* Pods-TestObjC.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;

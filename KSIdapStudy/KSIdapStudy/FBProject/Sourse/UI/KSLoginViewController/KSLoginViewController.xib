@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KSLoginViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="9GI-de-v36"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="KSLoginView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROr-1O-WLw" customClass="FBSDKLoginButton">
+                    <rect key="frame" x="60" y="545" width="255" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ROr-1O-WLw" secondAttribute="height" multiplier="255:59" id="RSN-Wm-NsS"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="fblogin1.png"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="1bu-oZ-t73"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ROr-1O-WLw" secondAttribute="bottom" constant="63" id="7Ai-NY-LJu"/>
+                <constraint firstItem="ROr-1O-WLw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="cIW-qJ-bnQ"/>
+                <constraint firstAttribute="trailing" secondItem="ROr-1O-WLw" secondAttribute="trailing" constant="60" id="hFQ-6y-vvR"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="loginButton" destination="ROr-1O-WLw" id="vUS-5N-krs"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="fblogin1.png" width="261" height="58"/>
+    </resources>
+</document>
