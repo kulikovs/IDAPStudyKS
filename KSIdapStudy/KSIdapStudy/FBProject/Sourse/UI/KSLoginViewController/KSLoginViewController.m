@@ -28,8 +28,28 @@ KSRootViewAndReturnNilMacro(KSLoginView);
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-
+//    sleep(2);
      self.rootView.loginButton = [[FBSDKLoginButton alloc] init];
+}
+
+
+- (IBAction)onClickLoginButton:(id)sender {
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+         }
+     }];
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    
 }
 
 @end

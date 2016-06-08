@@ -136,6 +136,10 @@
 		C99FE4531D080C0F00DF26BF /* KSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4511D080C0F00DF26BF /* KSLoginViewController.xib */; };
 		C99FE4571D080C9200DF26BF /* KSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE4561D080C9200DF26BF /* KSLoginView.m */; };
 		C99FE4591D0817FC00DF26BF /* fblogin1.png in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4581D0817FC00DF26BF /* fblogin1.png */; };
+		C99FE45E1D0887FB00DF26BF /* KSFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE45C1D0887FB00DF26BF /* KSFriendsViewController.m */; };
+		C99FE45F1D0887FB00DF26BF /* KSFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99FE45D1D0887FB00DF26BF /* KSFriendsViewController.xib */; };
+		C99FE4671D08883D00DF26BF /* KSFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99FE4651D08883D00DF26BF /* KSFriendDetailViewController.m */; };
+		C99FE4681D08883D00DF26BF /* KSFriendDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99FE4661D08883D00DF26BF /* KSFriendDetailViewController.xib */; };
 		C9CC74CE1C7F578400E2F161 /* NSObject+KSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */; };
 		C9D7BCD41CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C9D7BCD51CBE781000F5DE57 /* KSObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D7BCD31CBE781000F5DE57 /* KSObserverDictionary.m */; };
@@ -306,6 +310,12 @@
 		C99FE4551D080C9200DF26BF /* KSLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLoginView.h; sourceTree = "<group>"; };
 		C99FE4561D080C9200DF26BF /* KSLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLoginView.m; sourceTree = "<group>"; };
 		C99FE4581D0817FC00DF26BF /* fblogin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fblogin1.png; sourceTree = "<group>"; };
+		C99FE45B1D0887FB00DF26BF /* KSFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFriendsViewController.h; sourceTree = "<group>"; };
+		C99FE45C1D0887FB00DF26BF /* KSFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFriendsViewController.m; sourceTree = "<group>"; };
+		C99FE45D1D0887FB00DF26BF /* KSFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSFriendsViewController.xib; sourceTree = "<group>"; };
+		C99FE4641D08883D00DF26BF /* KSFriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFriendDetailViewController.h; sourceTree = "<group>"; };
+		C99FE4651D08883D00DF26BF /* KSFriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFriendDetailViewController.m; sourceTree = "<group>"; };
+		C99FE4661D08883D00DF26BF /* KSFriendDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSFriendDetailViewController.xib; sourceTree = "<group>"; };
 		C9CC74CC1C7F578400E2F161 /* NSObject+KSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtension.h"; sourceTree = "<group>"; };
 		C9CC74CD1C7F578400E2F161 /* NSObject+KSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtension.m"; sourceTree = "<group>"; };
 		C9CC74D01C7F58E000E2F161 /* KSIdapStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSIdapStudy-Prefix.pch"; sourceTree = "<group>"; };
@@ -1039,6 +1049,7 @@
 		C99FE44B1D080A4300DF26BF /* Sourse */ = {
 			isa = PBXGroup;
 			children = (
+				C99FE4691D08887D00DF26BF /* Contexts */,
 				C99FE44C1D080A4300DF26BF /* Models */,
 				C99FE44D1D080A4300DF26BF /* UI */,
 			);
@@ -1055,6 +1066,8 @@
 		C99FE44D1D080A4300DF26BF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C99FE4601D08881B00DF26BF /* KSFriendDetailViewController */,
+				C99FE45A1D0887E100DF26BF /* KSFriendsViewController */,
 				C99FE44E1D080BDB00DF26BF /* KSLoginViewController */,
 			);
 			path = UI;
@@ -1078,6 +1091,33 @@
 				C99FE4561D080C9200DF26BF /* KSLoginView.m */,
 			);
 			path = KSLoginView;
+			sourceTree = "<group>";
+		};
+		C99FE45A1D0887E100DF26BF /* KSFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE45B1D0887FB00DF26BF /* KSFriendsViewController.h */,
+				C99FE45C1D0887FB00DF26BF /* KSFriendsViewController.m */,
+				C99FE45D1D0887FB00DF26BF /* KSFriendsViewController.xib */,
+			);
+			path = KSFriendsViewController;
+			sourceTree = "<group>";
+		};
+		C99FE4601D08881B00DF26BF /* KSFriendDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C99FE4641D08883D00DF26BF /* KSFriendDetailViewController.h */,
+				C99FE4651D08883D00DF26BF /* KSFriendDetailViewController.m */,
+				C99FE4661D08883D00DF26BF /* KSFriendDetailViewController.xib */,
+			);
+			path = KSFriendDetailViewController;
+			sourceTree = "<group>";
+		};
+		C99FE4691D08887D00DF26BF /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contexts;
 			sourceTree = "<group>";
 		};
 		C9CC74CB1C7F578400E2F161 /* KSExtentions */ = {
@@ -1305,11 +1345,13 @@
 			files = (
 				C96380EC1D07185400C8781D /* KSUserViewController.xib in Resources */,
 				C99FE4591D0817FC00DF26BF /* fblogin1.png in Resources */,
+				C99FE4681D08883D00DF26BF /* KSFriendDetailViewController.xib in Resources */,
 				C96380C41D07185400C8781D /* gremlin.jpg in Resources */,
 				C99FE4531D080C0F00DF26BF /* KSLoginViewController.xib in Resources */,
 				C99FE4421D0804A200DF26BF /* LaunchScreen.storyboard in Resources */,
 				C96380F01D07185400C8781D /* KSLoadingView.xib in Resources */,
 				C99FE4431D0804A200DF26BF /* Main.storyboard in Resources */,
+				C99FE45F1D0887FB00DF26BF /* KSFriendsViewController.xib in Resources */,
 				C96380E21D07185400C8781D /* KSLabelViewController.xib in Resources */,
 				C99FE4411D0804A200DF26BF /* Assets.xcassets in Resources */,
 				C96380E61D07185400C8781D /* KSUserViewCell.xib in Resources */,
@@ -1614,6 +1656,7 @@
 				C96380CA1D07185400C8781D /* KSAlphabetRange.m in Sources */,
 				C9FC43AB1D07F9E700B3C70A /* KSObserverArray.m in Sources */,
 				C96381391D07261100C8781D /* NSFileManager+KSExtensions.m in Sources */,
+				C99FE45E1D0887FB00DF26BF /* KSFriendsViewController.m in Sources */,
 				C96380D01D07185400C8781D /* KSArrayModelManager.m in Sources */,
 				C96381481D07261100C8781D /* UIViewController+KSExtensions.m in Sources */,
 				C963814B1D07261100C8781D /* UIWindow+KSExtension.m in Sources */,
@@ -1623,6 +1666,7 @@
 				C96380E81D07185400C8781D /* KSUserView.m in Sources */,
 				C96380D81D07185400C8781D /* KSModel.m in Sources */,
 				C96380DE1D07185400C8781D /* KSLabelView.m in Sources */,
+				C99FE4671D08883D00DF26BF /* KSFriendDetailViewController.m in Sources */,
 				C9FC43AC1D07F9EB00B3C70A /* KSObserverObject.m in Sources */,
 				C96380C61D07185400C8781D /* KSAlphabet.m in Sources */,
 				C9FC43AD1D07F9F600B3C70A /* KSDispatch.m in Sources */,

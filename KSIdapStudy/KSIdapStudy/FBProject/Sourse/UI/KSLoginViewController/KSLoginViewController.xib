@@ -15,22 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROr-1O-WLw" customClass="FBSDKLoginButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROr-1O-WLw">
                     <rect key="frame" x="60" y="545" width="255" height="59"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="ROr-1O-WLw" secondAttribute="height" multiplier="255:59" id="RSN-Wm-NsS"/>
+                        <constraint firstAttribute="width" secondItem="ROr-1O-WLw" secondAttribute="height" multiplier="255:59" id="CJj-HB-JyJ"/>
                     </constraints>
                     <state key="normal" title="Button" image="fblogin1.png"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="1bu-oZ-t73"/>
+                        <action selector="onClickLoginButton:" destination="-1" eventType="touchUpInside" id="MpM-tG-Pih"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ROr-1O-WLw" secondAttribute="bottom" constant="63" id="7Ai-NY-LJu"/>
-                <constraint firstItem="ROr-1O-WLw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="cIW-qJ-bnQ"/>
-                <constraint firstAttribute="trailing" secondItem="ROr-1O-WLw" secondAttribute="trailing" constant="60" id="hFQ-6y-vvR"/>
+                <constraint firstItem="ROr-1O-WLw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EVM-gH-vby"/>
+                <constraint firstAttribute="bottom" secondItem="ROr-1O-WLw" secondAttribute="bottom" constant="63" id="MBv-UZ-ULa"/>
+                <constraint firstItem="ROr-1O-WLw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="Qji-V5-si5"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>

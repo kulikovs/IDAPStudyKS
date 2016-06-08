@@ -10,6 +10,6 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface KSLoginView : KSView
-@property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
+@property (nonatomic, strong) IBOutlet UIButton *loginButton;
 
 @end

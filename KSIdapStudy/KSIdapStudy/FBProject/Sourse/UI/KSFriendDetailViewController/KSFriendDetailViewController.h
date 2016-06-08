@@ -1,5 +1,5 @@
 //
-//  KSLoginViewController.h
+//  KSFriendDetailViewController.h
 //  KSIdapStudy
 //
 //  Created by KulikovS on 08.06.16.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSLoginViewController : UIViewController
-- (IBAction)onClickLoginButton:(id)sender;
+@interface KSFriendDetailViewController : UIViewController
 
 @end
